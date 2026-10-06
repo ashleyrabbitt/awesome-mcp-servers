@@ -1,6 +1,6 @@
 # Superpowers by Waymaker
 
-A first edition of the AI discovery and learning site: editorial shopping-style browsing, 100 source-attributed tool listings, 12 original workflows, 6 lessons, four training paths, workshop inquiries, coaching, comparisons, saved stacks and a simulated inspector.
+A first edition of the AI discovery and learning site: editorial shopping-style browsing, 500 source-attributed tool listings, 12 original workflows, 6 lessons, four training paths, workshop inquiries, coaching, comparisons, saved stacks and a simulated inspector.
 
 ## Run
 
@@ -48,3 +48,5 @@ Add a database-backed editorial queue and authenticated administration; provenan
 ## Artwork brief
 
 Built-in image generation: premium beauty-campaign-style still life with a burgundy glass arch, lilac cube, silver sphere, cream pedestal and laptop on a sunlit peach backdrop. No text, logos or people. Asset stored at `web/public/assets/hero.webp`.
+
+Expansion: 30 mission collections and 20 guided power stacks at /missions and /stacks. Community entries are source-reported, not independently verified. Run `python3 scripts/expand_catalog.py PATH TOTAL` against a supplied MIT catalog snapshot to add entries with stable IDs and duplicate URL checks. The offline review queue is scripts/catalog-review-queue.json; it is not exposed by the web server. No listed server code is run by imports. Category filters cover all imported categories. Sitemap covers rendered public pages; update its origin before changing domains.

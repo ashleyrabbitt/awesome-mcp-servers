@@ -14,9 +14,9 @@ make('gitleaks','Gitleaks','Gitleaks contributors','Security tools','Secret scan
 make('notion-clipper','Notion Web Clipper','Notion','Plugins','Browser extensions',['Designers','Marketers','Product managers'],'Save reference pages to Notion while you browse. A simple companion for a more intentional research routine.','https://www.notion.com/help/web-clipper','Browser extension','Guided setup','The extension accesses pages you clip and writes to the Notion destination you choose.','Keep the good finds','N↗','butter'),
 make('skills','Agent Skills collection','Anthropic','Skills','Reusable instructions',['Developers','Designers','Marketers','Product managers'],'Explore examples of reusable agent instructions. Read the skill and any scripts before adding it to your own workflow.','https://github.com/anthropics/skills','Compatible agent required','Guided setup','Skills may include executable scripts. Review each skill’s license, instructions and requested access.','Make good work repeatable','✳','peach')
 ];
-export function searchTools(items,{query='',type='All',role='All',level='All',reviewed=false,savedOnly=false,saved=[],sort='editorial'}={}){
+export function searchTools(items,{category='All',query='',type='All',role='All',level='All',reviewed=false,savedOnly=false,saved=[],sort='editorial'}={}){
  const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
- const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));
+ const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(category==='All'||t.category===category)&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));
  return sort==='az'?rows.sort((a,b)=>a.name.localeCompare(b.name)):rows;
 }
 export const roles=['Designers','Marketers','Product managers','Developers'];
