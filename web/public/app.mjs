@@ -1,6 +1,7 @@
 import {curated,escapeHTML as e} from './catalog.mjs';
 import {renderRoute,quickView,demoPanel} from './views.mjs';
 import {missions} from './discovery.mjs';
+import {captureInputs,restoreInputs} from './input-state.mjs';
 import {cleanProgress} from './power-state.mjs';
 import {workflows} from './content.mjs';
 const main=document.querySelector('#main');
@@ -45,8 +46,10 @@ document.addEventListener('submit',event=>{const form=event.target;if(form.id===
 window.addEventListener('popstate',()=>{state.limit=12;render({focus:true})});
 window.addEventListener('storage',event=>{if(event.key===storageKey){readState();render()}});
 document.querySelector('#quick-view').addEventListener('click',event=>{if(event.target===event.currentTarget){const r=event.currentTarget.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)event.currentTarget.close()}});
-try{const response=await fetch('/imported.json');if(!response.ok)throw new Error('Catalog unavailable');const imported=await response.json();items=[...curated,...imported];items.forEach(t=>known.add(t.id));readState();render()}catch(error){readState();render();toast('The full catalog could not load. Featured tools are still available. Please refresh to retry.')}
+
 
 document.addEventListener('change',event=>{const el=event.target;if(!el.matches('[data-progress]'))return;const [id,index]=el.dataset.progress.split(':');const m=missions.find(x=>x.id===id&&x.steps);const n=Number(index);if(!m||!Number.isInteger(n)||n<0||n>3)return;const values=new Set(state.progress[id]||[]);if(el.checked)values.add(n);else values.delete(n);state.progress[id]=[...values];persist();const status=document.querySelector('#mission-progress');if(status)status.textContent=values.size+' of 4 checkpoints complete';});
 
 document.addEventListener('submit',event=>{const form=event.target;if(!['power-planner','prompt-search'].includes(form.id))return;event.preventDefault();const fd=new FormData(form),params=new URLSearchParams();for(const [key,value]of fd){const v=String(value).trim();if(v&&v!=='All')params.set(key,v)}navigate((form.id==='power-planner'?'/planner':'/prompts')+(params.size?'?'+params.toString():''));});
+
+try{const response=await fetch('/imported.json');if(!response.ok)throw new Error('Catalog unavailable');const imported=await response.json();items=[...curated,...imported];items.forEach(t=>known.add(t.id));readState();const draft=captureInputs(main);render();restoreInputs(main,draft)}catch(error){readState();const draft=captureInputs(main);render();restoreInputs(main,draft);toast('The full catalog could not load. Featured tools are still available. Please refresh to retry.')}
