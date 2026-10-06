@@ -1,3 +1,4 @@
+import {extraPrompts} from './spotlight.mjs';
 import {curated,escapeHTML as e} from './catalog.mjs';
 import {renderRoute,quickView,demoPanel} from './views.mjs';
 import {missions} from './discovery.mjs';
@@ -24,7 +25,7 @@ document.addEventListener('click',async event=>{
  if(target.matches('a[href]')){const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();navigate(url.pathname+url.search)}return}
  if(target.matches('.close-dialog'))document.querySelector('#quick-view').close();
  if('shareStack' in target.dataset){const ids=(target.dataset.shareStack||state.saved.join(',')).split(',').filter(id=>known.has(id)).slice(0,50);if(!ids.length){toast('Save a tool first to create a share link.');return}const url=new URL('/shared',location.origin);url.searchParams.set('tools',ids.join(','));try{await navigator.clipboard.writeText(url.href);toast('Stack link copied. It shares tool choices only.')}catch{const field=document.querySelector('#share-link');if(field){field.hidden=false;field.value=url.href;field.focus();field.select()}else toast('Copy is unavailable in this browser.')}}
- if(target.dataset.copyMission){const m=missions.find(x=>x.id===target.dataset.copyMission);try{await navigator.clipboard.writeText(m.prompt);toast('Prompt copied.')}catch{toast('Select the prompt text to copy it.')}}
+ if(target.dataset.copyMission){const m=[...missions,...extraPrompts].find(x=>x.id===target.dataset.copyMission);try{await navigator.clipboard.writeText(m.prompt);toast('Prompt copied.')}catch{toast('Select the prompt text to copy it.')}}
  if(target.dataset.save)save(target.dataset.save);
  if(target.dataset.quick){const t=items.find(t=>t.id===target.dataset.quick);if(t){document.querySelector('#quick-content').innerHTML=quickView(t,state);document.querySelector('#quick-view').showModal();sync()}}
  if('type' in target.dataset)setFilter('type',target.dataset.type);
