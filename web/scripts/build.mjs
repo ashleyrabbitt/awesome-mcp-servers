@@ -1,0 +1,16 @@
+import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {curated,escapeHTML as e} from '../public/catalog.mjs';
+import {workflows,guides} from '../public/content.mjs';
+import {renderRoute} from '../public/views.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const items=[...curated,...JSON.parse(await readFile(path.join(root,'public/imported.json'),'utf8'))];
+const template=await readFile(path.join(root,'public/index.html'),'utf8');
+const routes=['/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
+await rm(path.join(root,'dist'),{recursive:true,force:true});await cp(path.join(root,'public'),path.join(root,'dist'),{recursive:true});
+const clean=s=>s.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+for(const route of [...routes,'/404']){const content=renderRoute(route,items,{saved:[],compare:[]});const title=clean(content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'Discover your next superpower');const tool=items.find(x=>route==='/tools/'+x.id);const description=tool?.description||'Discover useful AI tools and build your superpowers through practical training, workshops and coaching from Waymaker.';let html=template.replace('<!--APP-->',content).replace(/<title>.*?<\/title>/,`<title>${e(title)} — Superpowers by Waymaker</title>`).replace(/<meta name="description"[^>]+>/,`<meta name="description" content="${e(description)}"><meta property="og:title" content="${e(title)} — Superpowers"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website">`);const folder=path.join(root,'dist',route);await mkdir(folder,{recursive:true});await writeFile(path.join(folder,'index.html'),html)}
+await writeFile(path.join(root,'dist/routes.json'),JSON.stringify(routes));
+await writeFile(path.join(root,'dist/robots.txt'),'User-agent: *\nAllow: /\nDisallow: /saved\nDisallow: /compare\n');
+console.log(`Built ${routes.length} rendered pages with ${items.length} tools, ${workflows.length} routines and ${guides.length} lessons.`);
