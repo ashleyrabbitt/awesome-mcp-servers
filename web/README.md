@@ -59,7 +59,7 @@ Expansion: 30 mission collections and 20 guided power stacks at /missions and /s
 
 Build output includes canonical URLs, individual descriptions, social preview metadata and JSON-LD describing real visible entities. Public pages are pre-rendered. Personal pages, query results and unreviewed tool pages are noindex; noindex pages remain crawlable so the directive can be read. Sitemaps include editorial pages and reviewed tools. Duplicate index.html and trailing slash URLs redirect. `/support` canonicals to `/coaching`.
 
-Missions, guided stacks and prompts have distinct titles and descriptions. A build test checks uniqueness across all 249 sitemap URLs. Collections and the Power Map have distinct content; answer articles use the article social type. The build renders 741 routes.
+Missions, guided stacks and prompts have distinct titles and descriptions. A build test checks uniqueness across all 250 sitemap URLs. Collections and the Power Map have distinct content; answer articles use the article social type. The build renders 742 routes.
 
 The canonical origin defaults to the current Railway domain. When the custom domain is attached and verified, set `SITE_URL` at build time (Docker build argument), rebuild, check canonical/sitemap URLs and configure redirects from the old hostname. Search Console ownership, sitemap submission, actual index coverage and real-user Core Web Vitals have not been verified. These foundations cannot guarantee rankings or citations by AI systems.
 
@@ -72,3 +72,12 @@ Provider share URL: https://preview.mailerlite.io/forms/2626017/2006366350569650
 Double opt-in is enabled in the returned form settings. No campaigns or welcome automations were created or sent. The connector can create forms but cannot design or publish their content, and the returned form has `has_content: false`. Consequently `public/newsletter.mjs` keeps signup disabled and the public page collects no email addresses.
 
 Finish the form in MailerLite with title “A little inspiration for your inbox”, description “New tools to explore, practical workflows to try, and news about Superpowers training and workshops”, an email field and a “Send me Power Notes” button. Include a privacy link and clear subscription consent. Keep double opt-in enabled. Verify the public form and its correct group, then set `newsletter.enabled` to true, update newsletter metadata/privacy copy and remove `/newsletter` from the noindex set in `public/seo.mjs`. All site signup CTAs go through `/newsletter`; no private API key is exposed. A genuine consented subscription test remains required to verify email delivery end to end.
+
+
+## Tool Trial Lab
+
+`/tool-trial` provides a same-task comparison for up to three catalog tools. Visitors define the task, acceptance criteria, sample case and optional baseline, then record their own verdict, work time, review/rework time and evidence. Blank times stay unknown; zero is valid; extra effort is reported as more time. There is no automatic winner or third-party benchmark score.
+
+The comparison page can start a fresh trial from its shortlist. Changing a candidate clears that candidate’s prior observations from the draft. Inputs remain in memory until explicitly saved to `waymaker-tool-trial-v1` in this browser. Saving replaces the single saved trial; a blank draft does not remove it. Downloads and clipboard copies include user-entered notes. No trial data is sent to an AI service or stored in Supabase. Storage failures are reported, and a blank Markdown worksheet is linked for visitors without JavaScript.
+
+Checks cover missing versus zero values, negative time savings, bounded stored values, unknown or duplicate candidates, honest exports and escaped form content. MailerLite publication remains pending; the Trial Lab does not collect email.
