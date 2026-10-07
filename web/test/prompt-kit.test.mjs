@@ -19,7 +19,7 @@ test('favorites retain known template IDs only and every template has a builder'
  const id=promptTemplates[0].id;
  assert.deepEqual(cleanPromptFavorites([id,id,'missing',null,{}]),[id]);
  assert.deepEqual(cleanPromptFavorites({}),[]);
- assert.ok(renderRoute('/prompts?saved=true',curated,{promptSaved:[id]}).includes('1 prompts for you'));
+ assert.ok(renderRoute('/prompts?saved=true',curated,{promptSaved:[id]}).includes('1 prompt for you'));
  assert.ok(renderRoute('/prompts?saved=true&query=zzzz',curated,{promptSaved:[id]}).includes('0 prompts for you'));
  for(const m of promptTemplates){const html=renderRoute('/prompts/'+m.id,curated);assert.ok(html.includes('id="prompt-workshop"'));assert.ok(html.includes('data-copy-custom="'+m.id+'"'));}
  assert.ok(!renderRoute('/prompts/unknown',curated).includes('id="prompt-workshop"'));
