@@ -13,7 +13,7 @@ import {cleanProgress} from './power-state.mjs';
 import {workflows} from './content.mjs';
 const main=document.querySelector('#main');
 const known=new Set(curated.map(t=>t.id));
-let searchRequest=0;
+let searchRequest=0,servicesRequest=0;
 let items=[...curated],state={saved:[],compare:[],progress:{},promptSaved:[],promptDrafts:{},labPlans:{},labDrafts:{},labCalculator:{},limit:12,quizStep:1,answers:{}},toastTimer;
 const storageKey='waymaker-superpowers-v1';
 function toast(message){const el=document.querySelector('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}
@@ -27,7 +27,7 @@ function save(id){if(!known.has(id))return;const exists=state.saved.includes(id)
 function saveMany(ids){state.saved=[...new Set([...state.saved,...ids.filter(x=>known.has(x))])];persist();sync();toast('Your tools are saved. Find them in My stack.')}
 function downloadStack(){const tools=items.filter(t=>state.saved.includes(t.id)).map(({id,name,url,type,description,permissions,status,date})=>({id,name,url,type,description,permissions,reviewStatus:status,reviewDate:date}));if(!tools.length){toast('Save a tool first, then export your stack.');return}const blob=new Blob([JSON.stringify({title:'My Superpowers stack',exportedAt:new Date().toISOString(),note:'Suggested tools; review publisher documentation and permissions before connecting.',tools},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='my-superpowers-stack.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 readState();try{state.trial=cleanTrial(JSON.parse(localStorage.getItem(trialStorageKey)||'{}'))}catch{state.trial=cleanTrial()}sync();
-if(/^\/(prompts|workflow-lab|time-savings|tool-trial)(\/|$)/.test(location.pathname))render();
+if(/^\/(prompts|workflow-lab|time-savings|tool-trial|submit|services)(\/|$)/.test(location.pathname))render();
 document.addEventListener('click',async event=>{
  const target=event.target.closest('button,a');if(!target)return;
  if(target.matches('a[href]')){const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();navigate(url.pathname+url.search)}return}
@@ -108,7 +108,6 @@ window.addEventListener('storage',event=>{if(event.key===trialStorageKey){toast(
 
 
 
-let servicesRequest=0;
 async function refreshServices(){const target=document.querySelector('#service-results');if(!target)return;const request=++servicesRequest;try{const response=await fetch('/api/services');if(!response.ok)throw new Error();const rows=await response.json();if(request!==servicesRequest||!target.isConnected)return;const params=new URL(location.href).searchParams;target.innerHTML=serviceResults(rows,params.get('category')||'All',params.get('query')||'');}catch{if(target.isConnected)target.innerHTML='<p class="notice">Service listings could not load. Please refresh to retry. You can still submit a listing for review.</p>';}}
 document.addEventListener('submit',async event=>{
  const form=event.target;
@@ -120,7 +119,6 @@ document.addEventListener('submit',async event=>{
  try{const response=await fetch('/api/submissions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:AbortSignal.timeout(12000)});const result=await response.json();if(!response.ok)throw new Error(result.error||'Submission could not be confirmed. Please retry.');status.innerHTML='<h2>Received. Your superpower is in the review queue.</h2><p>This is not a published listing yet. Your contact email stays private, and you have not been subscribed to marketing emails.</p><p>Keep this reference: <strong>'+e(result.reference)+'</strong></p><p><a href="/submit">Submit another tool</a> · <a href="/services">Explore services</a></p>';form.querySelectorAll('input,select,textarea').forEach(x=>x.disabled=true);button.textContent='Submitted for review ✓';status.focus();}
  catch(error){status.textContent=error.name==='TimeoutError'?'Receipt could not be confirmed. Your entries are still here; retrying will use the same reference.':error.message;button.disabled=false;form.dataset.sending='false';status.focus();}
 });
-refreshServices();
 
 function refreshCatalogView(){if(/^\/(prompts|workflow-lab|time-savings|resources|how-to|submit|services)(\/|$)/.test(location.pathname)){sync();return}const draft=captureInputs(main);render();restoreInputs(main,draft);}
 try{let response=await fetch('/api/catalog');let databaseCatalog=response.ok;if(!databaseCatalog)response=await fetch('/imported.json');if(!response.ok)throw new Error('Catalog unavailable');const imported=await response.json();items=databaseCatalog?imported:[...curated,...imported];items.forEach(t=>known.add(t.id));readState(true);refreshCatalogView()}catch(error){readState();refreshCatalogView();toast('The full catalog could not load. Featured tools are still available. Please refresh to retry.')}
