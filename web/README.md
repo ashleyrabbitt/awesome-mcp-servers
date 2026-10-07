@@ -63,16 +63,16 @@ Missions, guided stacks and prompts have distinct titles and descriptions. A bui
 
 The canonical origin defaults to the current Railway domain. When the custom domain is attached and verified, set `SITE_URL` at build time (Docker build argument), rebuild, check canonical/sitemap URLs and configure redirects from the old hostname. Search Console ownership, sitemap submission, actual index coverage and real-user Core Web Vitals have not been verified. These foundations cannot guarantee rankings or citations by AI systems.
 
-## MailerLite signup setup (pending form publication)
+## MailerLite signup
 
-Dedicated group: `200636581595318233` (Superpowers by Waymaker).
-Draft embedded form: `200636635056965053` (Superpowers — Power Notes).
+Group: `200636581595318233` (Superpowers by Waymaker).
+Embedded form: `200636635056965053` (Superpowers — Power Notes).
 Dashboard: https://dashboard.mailerlite.com/forms/200636635056965053/overview
-Provider share URL: https://preview.mailerlite.io/forms/2626017/200636635056965053/share
-Double opt-in is enabled in the returned form settings. No campaigns or welcome automations were created or sent. The connector can create forms but cannot design or publish their content, and the returned form has `has_content: false`. Consequently `public/newsletter.mjs` keeps signup disabled and the public page collects no email addresses.
+Public form: https://preview.mailerlite.io/forms/2626017/200636635056965053/share
 
-Finish the form in MailerLite with title “A little inspiration for your inbox”, description “New tools to explore, practical workflows to try, and news about Superpowers training and workshops”, an email field and a “Send me Power Notes” button. Include a privacy link and clear subscription consent. Keep double opt-in enabled. Verify the public form and its correct group, then set `newsletter.enabled` to true, update newsletter metadata/privacy copy and remove `/newsletter` from the noindex set in `public/seo.mjs`. All site signup CTAs go through `/newsletter`; no private API key is exposed. A genuine consented subscription test remains required to verify email delivery end to end.
+The form was designed and saved in the MailerLite dashboard on October 7, 2026. Its public share page renders the email field, “Send me Power Notes” button, subscription consent and privacy link. The API confirms `has_content: true`, the correct group and double opt-in enabled. Its `active` field remains false; this embedded form's dashboard offers no activation toggle, and the shared form is publicly available. No real subscription or email-delivery test has been performed.
 
+`public/newsletter.mjs` enables the hosted signup link. All signup CTAs go through `/newsletter`; there is no MailerLite API key or tracking script on the website. No campaigns or welcome automations were created or sent. An actual consented subscription test is still needed to verify confirmation-email delivery end to end.
 
 ## Tool Trial Lab
 
@@ -80,4 +80,25 @@ Finish the form in MailerLite with title “A little inspiration for your inbox�
 
 The comparison page can start a fresh trial from its shortlist. Changing a candidate clears that candidate’s prior observations from the draft. Inputs remain in memory until explicitly saved to `waymaker-tool-trial-v1` in this browser. Saving replaces the single saved trial; a blank draft does not remove it. Downloads and clipboard copies include user-entered notes. No trial data is sent to an AI service or stored in Supabase. Storage failures are reported, and a blank Markdown worksheet is linked for visitors without JavaScript.
 
-Checks cover missing versus zero values, negative time savings, bounded stored values, unknown or duplicate candidates, honest exports and escaped form content. MailerLite publication remains pending; the Trial Lab does not collect email.
+Checks cover missing versus zero values, negative time savings, bounded stored values, unknown or duplicate candidates, honest exports and escaped form content. The Trial Lab does not collect email.
+
+
+## Directory submissions and service listings
+
+- `/submit`: tool, MCP, agent, plugin, connector, security, repository and resource suggestions.
+- `/submit?kind=service`: professional services across nine specialties.
+- `/services`: category cards, keyword/category filtering and accepted public service records.
+- `POST /api/submissions`: validated JSON intake, 16 KB body cap, honeypot, same-site browser check, 5 submissions per contact email/hour and 100/hour per server process. Rate counters reset on deployment and are not distributed; add edge-level rate limiting/CAPTCHA before a large promotional launch. Direct database insertion is also possible with the publishable key, subject to database constraints and insert-only RLS. The key is not delivered by this website to the client.
+- `GET /api/services`: only published public fields. Private contact data is held in a separate submissions table.
+
+Database schema is recorded in `db/submissions-schema.sql` and applied via remote migration `superpowers_directory_submissions`. Clients can only insert pending records, cannot set editorial status or review notes, and cannot select submissions or publish services. Retry IDs use UUID v4; repeated inserts return the same receipt without changing the stored entry. A successful browser receipt follows confirmed database insertion. No submission data goes to MailerLite. No automated review emails are sent.
+
+### Review a submission
+
+Use the authenticated Supabase Table Editor for project `ihojffjglwrughdsskfz`, table `superpowers_submissions`, filtered to `status = pending` and ordered by `created_at`. Check the official link, duplicate listings, relevance, description and claimed expertise; record findings in `review_notes`. Set `needs_info` or `declined` when appropriate. This version intentionally uses Supabase's protected editor as the review queue; there is no public admin route or automatic approval.
+
+For an accepted service, review/edit the public fields and copy only name, website, description, category, audience, location and pricing into `superpowers_services`, with `submission_id` pointing to the reviewed entry. Set `published = true` when ready. Then mark the submission `accepted`. The services directory shows the new record on its next load. Never copy contact_name, contact_email or review_notes into a public description. Set `published = false` to unlist. Readers cannot access unpublished rows or the submission reference.
+
+For an accepted tool, normalize it to the existing `superpowers_tools.data` schema and add it to both the database catalog and the tracked catalog source so the detail page is generated on the next deploy. Use `Community listing`, `tested: false` unless an actual documented review justifies another label. Mark the intake accepted only after the detail page is live. Submission alone never updates tool review status.
+
+Requests for corrections/removal go to info@waymaker.cx with the receipt reference. Public users cannot edit listings in this release. Do not promise a response time or automatic publication. Review pending entries regularly through Supabase.

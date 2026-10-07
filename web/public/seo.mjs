@@ -4,8 +4,10 @@ import {answers} from './answers.mjs';
 import {missions} from './discovery.mjs';
 import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
-const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404','/newsletter']);
+const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/submit':'Submit an AI tool, MCP server, agent or service provider to Superpowers. Share a useful description and official link for editorial review.',
+'/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
 '/':'Discover AI tools, MCP servers and agents for real work. Build your superpowers with practical prompts, workflow plans, training, workshops and coaching.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
@@ -20,7 +22,7 @@ const summaries={
 '/training':'Explore role-based AI learning paths for designers, marketers, product managers and developers, with practical missions and review checkpoints.',
 '/workshops':'Explore Superpowers workshop topics for practical AI workflows, team learning and responsible tool adoption. Ask about a workshop for your team.',
 '/coaching':'Get human guidance from Waymaker for choosing AI tools, building a useful workflow and developing practical skills. Start a coaching conversation.',
-'/newsletter':'Power Notes from Superpowers by Waymaker: new tools, practical workflows and news about training and workshops. Newsletter signup is being prepared.'
+'/newsletter':'Power Notes from Superpowers by Waymaker: new tools, practical workflows and news about training and workshops. Subscribe through MailerLite and confirm your email to join.'
 };
 export const plain=s=>String(s||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim();
 export function pageSEO(url,items,content,origin=siteOrigin){
