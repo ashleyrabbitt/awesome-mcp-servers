@@ -16,12 +16,12 @@ tool('copilot-studio','Microsoft Copilot Studio','Microsoft','Agents','Automatio
 tool('notion-ai','Notion AI','Notion','Agents','Knowledge',['Product managers','Marketers','Designers'],'Use AI assistance and agents with the context of your Notion workspace.','https://www.notion.com/product/ai','Summarize a sample project page into next steps.','Verify source pages and any proposed workspace changes.')
 ];
 export const powerCollections=[
-{id:'agents',title:'Meet your agent squad.',intro:'Editorial picks for delegating real work. Choose by task and review requirements; these are not benchmark rankings.',ids:['claude-code','cursor','replit-agent','jasper','copilot-studio','notion-ai'],mission:'agent'},
-{id:'design',title:'Make your ideas visible.',intro:'Design, imagery and website starting points for creative work.',ids:['adobe-firefly','canva-ai','framer-ai','figma'],mission:'prototype'},
+{id:'agents',title:'Meet your agent squad.',intro:'Editorial picks for delegating real work. Choose by task and review requirements; these are not benchmark rankings.',ids:['claude-code','cursor','replit-agent','jasper','copilot-studio','notion-ai','lindy','relevance-ai','v0'],mission:'agent'},
+{id:'design',title:'Make your ideas visible.',intro:'Design, imagery and website starting points for creative work.',ids:['adobe-firefly','canva-ai','framer-ai','figma','recraft','napkin'],mission:'prototype'},
 {id:'marketing',title:'Give your message more power.',intro:'Tools for campaign drafts, clearer writing and reusable marketing workflows.',ids:['jasper','copy-ai','grammarly','canva-ai'],mission:'campaign'},
-{id:'video',title:'Bring your story to life.',intro:'Explore generated scenes and transcript-based editing.',ids:['runway','descript','adobe-firefly'],mission:'video'},
-{id:'product',title:'Turn context into clarity.',intro:'Keep project knowledge useful and communicate decisions.',ids:['notion-ai','gamma','notion','grammarly'],mission:'brief'},
-{id:'automation',title:'Make repeatable work flow.',intro:'Start with one bounded process and a human approval point.',ids:['n8n','zapier','copilot-studio'],mission:'automation'}
+{id:'video',title:'Bring your story to life.',intro:'Explore generated scenes and transcript-based editing.',ids:['runway','descript','adobe-firefly','opusclip','heygen','elevenlabs'],mission:'video'},
+{id:'product',title:'Turn context into clarity.',intro:'Keep project knowledge useful and communicate decisions.',ids:['notion-ai','gamma','notion','grammarly','granola','dovetail','linear-mcp'],mission:'brief'},
+{id:'automation',title:'Make repeatable work flow.',intro:'Start with one bounded process and a human approval point.',ids:['n8n','zapier','copilot-studio','make','activepieces','composio'],mission:'automation'}
 ];
 export const extraPrompts=[
 ['agent-brief','Brief an agent before it acts','Developers','Help me complete [task]. Outcome: [deliverable]. Approved scope: [files/data/tools]. First summarize your plan and missing context. Do not publish, send, spend, delete or change access without my explicit approval. Keep a record of changes and stop if scope is unclear.'],
@@ -35,3 +35,4 @@ export const extraPrompts=[
 ['workflow-gates','Add human review to a workflow','Developers','Map [workflow] into input, transformation, output and external actions. Identify permissions and failure cases. Add approval gates before sending, publishing, deleting, spending or changing access. Propose a safe test with sample data.'],
 ['knowledge-check','Audit an AI-generated summary','Product managers','Compare [summary] with [source material]. For each important claim cite its supporting passage or mark it unsupported. List omissions, contradictions and uncertainty. Do not fill gaps with invented details.']
 ].map(([id,title,role,prompt])=>({id,title,role,prompt}));
+

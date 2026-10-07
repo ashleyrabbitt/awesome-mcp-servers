@@ -50,3 +50,23 @@ Add a database-backed editorial queue and authenticated administration; provenan
 Built-in image generation: premium beauty-campaign-style still life with a burgundy glass arch, lilac cube, silver sphere, cream pedestal and laptop on a sunlit peach backdrop. No text, logos or people. Asset stored at `web/public/assets/hero.webp`.
 
 Expansion: 30 mission collections and 20 guided power stacks at /missions and /stacks. Community entries are source-reported, not independently verified. Run `python3 scripts/expand_catalog.py PATH TOTAL` against a supplied MIT catalog snapshot to add entries with stable IDs and duplicate URL checks. The offline review queue is scripts/catalog-review-queue.json; it is not exposed by the web server. No listed server code is run by imports. Category filters cover all imported categories. Sitemap covers rendered public pages; update its origin before changing domains.
+
+
+
+## October 7 catalog and search visibility update
+
+544 listings: 57 documentation-reviewed picks and 487 unverified community entries. `/discoveries` introduces 24 picks; `/reviewed` links every reviewed listing in static HTML; `/answers` contains six original answer-led guides. Publisher URLs, review dates, first tasks and permissions are recorded with each new listing. Discovery directories are linked as independent references, without copied reviews or endorsement claims.
+
+Build output includes canonical URLs, individual descriptions, social preview metadata and JSON-LD describing real visible entities. Public pages are pre-rendered. Personal pages, query results and unreviewed tool pages are noindex; noindex pages remain crawlable so the directive can be read. Sitemaps include editorial pages and reviewed tools. Duplicate index.html and trailing slash URLs redirect. `/support` canonicals to `/coaching`.
+
+The canonical origin defaults to the current Railway domain. When the custom domain is attached and verified, set `SITE_URL` at build time (Docker build argument), rebuild, check canonical/sitemap URLs and configure redirects from the old hostname. Search Console ownership, sitemap submission, actual index coverage and real-user Core Web Vitals have not been verified. These foundations cannot guarantee rankings or citations by AI systems.
+
+## MailerLite signup setup (pending form publication)
+
+Dedicated group: `200636581595318233` (Superpowers by Waymaker).
+Draft embedded form: `200636635056965053` (Superpowers — Power Notes).
+Dashboard: https://dashboard.mailerlite.com/forms/200636635056965053/overview
+Provider share URL: https://preview.mailerlite.io/forms/2626017/200636635056965053/share
+Double opt-in is enabled in the returned form settings. No campaigns or welcome automations were created or sent. The connector can create forms but cannot design or publish their content, and the returned form has `has_content: false`. Consequently `public/newsletter.mjs` keeps signup disabled and the public page collects no email addresses.
+
+Finish the form in MailerLite with title “A little inspiration for your inbox”, description “New tools to explore, practical workflows to try, and news about Superpowers training and workshops”, an email field and a “Send me Power Notes” button. Include a privacy link and clear subscription consent. Keep double opt-in enabled. Verify the public form and its correct group, then set `newsletter.enabled` to true, update newsletter metadata/privacy copy and remove `/newsletter` from the noindex set in `public/seo.mjs`. All site signup CTAs go through `/newsletter`; no private API key is exposed. A genuine consented subscription test remains required to verify email delivery end to end.
