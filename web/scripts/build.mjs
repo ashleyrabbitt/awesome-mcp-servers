@@ -1,3 +1,4 @@
+import {powerCollections} from '../public/spotlight.mjs';
 import {answers} from '../public/answers.mjs';
 import {pageSEO,seoMarkup} from '../public/seo.mjs';
 import {siteOrigin} from '../public/site-config.mjs';
@@ -13,7 +14,7 @@ import {renderRoute} from '../public/views.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const items=[...curated,...JSON.parse(await readFile(path.join(root,'public/imported.json'),'utf8'))];
 const template=await readFile(path.join(root,'public/index.html'),'utf8');
-const routes=['/discoveries','/reviewed','/answers','/newsletter',...answers.map(a=>'/answers/'+a.id),'/workflow-lab','/time-savings','/resources',...howTos.map(h=>'/how-to/'+h.id),...resourceKits.map(r=>'/resources/'+r.id),...promptTemplates.map(p=>'/prompts/'+p.id),'/repositories','/power-map','/collections',...['agents','design','marketing','video','product','automation'].map(id=>'/collections/'+id),'/planner','/prompts','/hq','/shared','/missions','/stacks',...missions.map(m=>'/missions/'+m.id),...missions.filter(m=>m.steps).map(m=>'/stacks/'+m.id),'/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
+const routes=['/discoveries','/reviewed','/answers','/newsletter',...answers.map(a=>'/answers/'+a.id),'/workflow-lab','/time-savings','/resources',...howTos.map(h=>'/how-to/'+h.id),...resourceKits.map(r=>'/resources/'+r.id),...promptTemplates.map(p=>'/prompts/'+p.id),'/repositories','/power-map','/collections',...powerCollections.map(c=>'/collections/'+c.id),'/planner','/prompts','/hq','/shared','/missions','/stacks',...missions.map(m=>'/missions/'+m.id),...missions.filter(m=>m.steps).map(m=>'/stacks/'+m.id),'/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
 await rm(path.join(root,'dist'),{recursive:true,force:true});await cp(path.join(root,'public'),path.join(root,'dist'),{recursive:true});
 const origin=process.env.SITE_URL?new URL(process.env.SITE_URL).origin:siteOrigin;
 if(!origin.startsWith('https://'))throw new Error('SITE_URL must use HTTPS');

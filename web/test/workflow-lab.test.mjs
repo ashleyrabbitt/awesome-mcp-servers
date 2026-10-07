@@ -50,7 +50,7 @@ test('workflow notes cannot inject HTML and unknown page IDs fail cleanly',()=>{
 });
 
 test('all worksheet downloads serve the actual generated content',async()=>{
- assert.equal(resourceKits.length,6);
+ assert.equal(resourceKits.length,10);
  const server=createServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base='http://127.0.0.1:'+server.address().port;
  try{for(const r of resourceKits){
@@ -59,3 +59,4 @@ test('all worksheet downloads serve the actual generated content',async()=>{
   const html=await readFile(new URL('../dist/resources/'+r.id+'/index.html',import.meta.url),'utf8');assert.ok(html.includes('/downloads/'+r.id+'.md'));
  }}finally{await new Promise(resolve=>server.close(resolve));}
 });
+

@@ -2795,27 +2795,6 @@
     "tested": false
   },
   {
-    "id": "catalog-browserbase-mcp-server-browserbase",
-    "name": "mcp-server-browserbase",
-    "publisher": "browserbase",
-    "type": "MCP servers",
-    "category": "Browser Automation",
-    "roles": [
-      "Developers",
-      "Designers"
-    ],
-    "description": "Automate browser interactions in the cloud (e.g. web navigation, data extraction, form filling, and more)",
-    "url": "https://github.com/browserbase/mcp-server-browserbase",
-    "sourceUrl": "https://github.com/ashleyrabbitt/awesome-mcp-servers/blob/main/README.md",
-    "status": "Community listing",
-    "date": "2026-10-06",
-    "hosting": "Check documentation",
-    "level": "Check documentation",
-    "pricing": "Check provider",
-    "permissions": "Not assessed. Review current publisher permissions and scope before connecting.",
-    "tested": false
-  },
-  {
     "id": "catalog-aashari-mcp-server-aws-sso",
     "name": "mcp-server-aws-sso",
     "publisher": "aashari",
