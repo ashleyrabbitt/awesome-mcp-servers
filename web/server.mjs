@@ -1,3 +1,4 @@
+import {submissionRequest,createLimiter} from './submission-api.mjs';
 import {catalogRequest,searchParameters} from './catalog-api.mjs';
 import http from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
@@ -6,10 +7,12 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
 const mime={'.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
-export function createServer(){return http.createServer(async(req,res)=>{
+export function createServer({saveSubmission}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
  const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' mailto:"};
+ if(req.method==='POST'&&req.url==='/api/submissions'){try{const result=await submissionRequest(req,{save:saveSubmission,allow:allowSubmission});res.writeHead(result.status,{...security,'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex'});res.end(JSON.stringify(result.body));}catch{res.writeHead(400,{...security,'Content-Type':'application/json'});res.end(JSON.stringify({error:'Unable to read the form. Please retry.'}));}return}
  if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405,{...security,Allow:'GET, HEAD'});res.end('Method not allowed');return}
  try{const url=new URL(req.url,'http://localhost');if(url.search||url.pathname.startsWith('/api/'))security['X-Robots-Tag']='noindex, follow';if(url.pathname==='/health'){res.writeHead(200,{...security,'Content-Type':'application/json'});res.end(req.method==='HEAD'?'':JSON.stringify({status:'ok',service:'superpowers'}));return}
+ if(url.pathname==='/api/services'){try{const rows=await catalogRequest('superpowers_services?select=id,name,website,description,category,audience,location,pricing,reviewed_at&order=name.asc&limit=500');res.writeHead(200,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':JSON.stringify(rows));}catch{res.writeHead(503,{...security,'Content-Type':'application/json'});res.end(JSON.stringify({error:'Service listings are temporarily unavailable'}));}return}
  if(url.pathname==='/api/catalog'||url.pathname==='/api/search'){try{const data=url.pathname==='/api/search'?await catalogRequest('rpc/superpowers_search',searchParameters(url.searchParams)):await catalogRequest('superpowers_tools?select=data&order=editorial_order.asc&limit=1000');const result=url.pathname==='/api/catalog'?data.map(x=>x.data):data;res.writeHead(200,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':JSON.stringify(result));}catch{res.writeHead(503,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({error:'Catalog search temporarily unavailable'}));}return}
  let decoded;try{decoded=decodeURIComponent(url.pathname)}catch{res.writeHead(400,security);res.end('Bad request');return}
  if(decoded.includes('\0')||decoded.includes('\\')||decoded.split('/').some(s=>s==='..'||s.startsWith('.'))){res.writeHead(400,security);res.end('Bad request');return}
@@ -20,4 +23,5 @@ export function createServer(){return http.createServer(async(req,res)=>{
  }catch{res.writeHead(500,{...security,'Content-Type':'text/plain'});res.end('Something went wrong. Please try again.')}
 })}
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){const port=Number(process.env.PORT)||8080;const server=createServer();server.listen(port,'0.0.0.0',()=>console.log(`Superpowers listening on port ${port}`));process.on('SIGTERM',()=>server.close(()=>process.exit(0)))}
+
 
