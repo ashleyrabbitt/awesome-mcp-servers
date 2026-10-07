@@ -55,9 +55,11 @@ Expansion: 30 mission collections and 20 guided power stacks at /missions and /s
 
 ## October 7 catalog and search visibility update
 
-544 listings: 57 documentation-reviewed picks and 487 unverified community entries. `/discoveries` introduces 24 picks; `/reviewed` links every reviewed listing in static HTML; `/answers` contains six original answer-led guides. Publisher URLs, review dates, first tasks and permissions are recorded with each new listing. Discovery directories are linked as independent references, without copied reviews or endorsement claims.
+567 listings: 81 documentation-reviewed picks and 486 unverified community entries. The latest expansion adds 23 new tools and upgrades the existing Browserbase MCP entry without changing its URL. `/discoveries` introduces 48 recent picks; `/reviewed` links every reviewed listing in static HTML; `/answers` contains nine original answer-led guides. There are 10 themed collections, 34 customizable prompts, six workflow how-tos and 10 downloadable worksheets. Publisher URLs, review dates, first tasks and permissions are recorded with each new listing. Discovery directories are linked as independent references, without copied reviews or endorsement claims.
 
 Build output includes canonical URLs, individual descriptions, social preview metadata and JSON-LD describing real visible entities. Public pages are pre-rendered. Personal pages, query results and unreviewed tool pages are noindex; noindex pages remain crawlable so the directive can be read. Sitemaps include editorial pages and reviewed tools. Duplicate index.html and trailing slash URLs redirect. `/support` canonicals to `/coaching`.
+
+Missions, guided stacks and prompts have distinct titles and descriptions. A build test checks uniqueness across all 249 sitemap URLs. Collections and the Power Map have distinct content; answer articles use the article social type. The build renders 741 routes.
 
 The canonical origin defaults to the current Railway domain. When the custom domain is attached and verified, set `SITE_URL` at build time (Docker build argument), rebuild, check canonical/sitemap URLs and configure redirects from the old hostname. Search Console ownership, sitemap submission, actual index coverage and real-user Core Web Vitals have not been verified. These foundations cannot guarantee rankings or citations by AI systems.
 

@@ -1,6 +1,7 @@
+import {morePicks} from './more-picks.mjs';
 const pick=(id,name,publisher,type,category,roles,description,url,firstTry,checkpoint,permissions,hosting='Hosted app',level='Guided setup')=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,firstTry,checkpoint,permissions,hosting,level,tag:'New to the power shelf',status:'Documentation reviewed',date:'2026-10-07',pricing:'Check provider',tested:false});
 const creative=['Designers','Marketers'], product=['Product managers','Designers'], business=['Marketers','Product managers'], dev=['Developers'];
-export const newPicks=[
+const firstPicks=[
 pick('recraft','Recraft','Recraft','AI apps','Design',creative,'Explore AI-generated images, vectors and editing for visual concepts and brand assets.','https://www.recraft.ai/','Make three original visual directions for a fictional campaign.','Check vector paths, text, rights and brand consistency.','Uploaded references and prompts are processed by the service. Check output visibility and usage terms.'),
 pick('napkin','Napkin AI','Napkin AI','AI apps','Presentations',[...creative,'Product managers'],'Turn written ideas into editable diagrams and visual explanations.','https://www.napkin.ai/','Convert a short process explanation into a visual for a team presentation.','Verify every relationship, label and number against the source.','Text and generated visuals are processed by the service. Use approved material.'),
 pick('lindy','Lindy','Lindy','Agents','Automation',business,'Delegate work across connected apps through an AI assistant, including research and recurring tasks.','https://www.lindy.ai/','Ask for a draft weekly summary from a test workspace.','Approve recipients and external changes; inspect scheduled actions.','Connected app permissions can allow reading, sending and modifying information.'),
@@ -26,6 +27,7 @@ pick('promptfoo','Promptfoo','Promptfoo','Security tools','AI evaluation',dev,'E
 pick('semgrep','Semgrep','Semgrep','Security tools','Code analysis',dev,'Run pattern-based static analysis to identify possible code issues.','https://github.com/semgrep/semgrep','Scan a sample repository and investigate one finding in context.','Review false positives, rule coverage and the proposed fix.','Scans read source code. Check the selected local or hosted workflow and telemetry settings.','Local / CI','Technical setup'),
 pick('trivy','Trivy','Aqua Security','Security tools','Vulnerability scanning',dev,'Scan supported artifacts for vulnerabilities, misconfigurations and exposed secrets.','https://github.com/aquasecurity/trivy','Scan a test container image and inspect one actionable finding.','Check database freshness, severity context and whether a fix is available.','The scanner reads the specified artifacts and may download vulnerability data. A scan cannot prove security.','Local / CI','Technical setup')
 ];
+export const newPicks=[...firstPicks,...morePicks];
 export const discoverySources=[
 {name:'Product Hunt',url:'https://www.producthunt.com/',use:'Explore launches, maker explanations and product categories.'},
 {name:'There’s an AI for That',url:'https://theresanaiforthat.com/',use:'Discover possible tools by the task you want to complete.'},

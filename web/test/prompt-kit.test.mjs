@@ -15,7 +15,7 @@ test('prompt fields are unique, replace literally, preserve gaps and append cont
 });
 
 test('favorites retain known template IDs only and every template has a builder',()=>{
- assert.equal(new Set(promptTemplates.map(x=>x.id)).size,30);
+ assert.equal(new Set(promptTemplates.map(x=>x.id)).size,34);
  const id=promptTemplates[0].id;
  assert.deepEqual(cleanPromptFavorites([id,id,'missing',null,{}]),[id]);
  assert.deepEqual(cleanPromptFavorites({}),[]);
@@ -48,3 +48,4 @@ test('repository discovery filters actual GitHub project URLs and explains evalu
  assert.ok(renderRoute('/guides/github-repo-checklist',curated).includes('Read the license'));
  assert.ok(renderRoute('/guides/better-prompts',curated).includes('Define success'));
 });
+
