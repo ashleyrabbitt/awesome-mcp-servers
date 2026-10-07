@@ -6,6 +6,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404','/newsletter']);
 const summaries={
+'/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
 '/':'Discover AI tools, MCP servers and agents for real work. Build your superpowers with practical prompts, workflow plans, training, workshops and coaching.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',
@@ -54,3 +55,4 @@ export function updateSEO(doc,s){
  for(const [property,value]of Object.entries({'og:title':s.title,'og:description':s.description,'og:url':s.canonical,'og:image':s.image,'og:type':s.ogType}))tag(`meta[property="${property}"]`,{property,content:value});
  let ld=doc.querySelector('#structured-data');if(!ld){ld=doc.createElement('script');ld.id='structured-data';ld.type='application/ld+json';doc.head.append(ld)}ld.textContent=JSON.stringify(s.structured);
 }
+

@@ -1,3 +1,4 @@
+import {trialStorageKey,cleanTrial,trialFromTools,trialIssues,trialSummary,trialMarkdown,trialToolContext} from './tool-trial.mjs';
 import {pageSEO,updateSEO} from './seo.mjs';
 import {labWorkflows,workModes,cleanLabPlans,workflowMarkdown} from './workflow-lab.mjs';
 import {timeResult} from './lab-views.mjs';
@@ -24,8 +25,8 @@ function setFilter(key,value){const u=new URL(location.href);if(value===''||valu
 function save(id){if(!known.has(id))return;const exists=state.saved.includes(id);state.saved=exists?state.saved.filter(x=>x!==id):[...state.saved,id];persist();sync();if(['/saved','/hq'].includes(location.pathname))render();toast(exists?'Removed from your stack.':'A new superpower, saved to your stack.')}
 function saveMany(ids){state.saved=[...new Set([...state.saved,...ids.filter(x=>known.has(x))])];persist();sync();toast('Your tools are saved. Find them in My stack.')}
 function downloadStack(){const tools=items.filter(t=>state.saved.includes(t.id)).map(({id,name,url,type,description,permissions,status,date})=>({id,name,url,type,description,permissions,reviewStatus:status,reviewDate:date}));if(!tools.length){toast('Save a tool first, then export your stack.');return}const blob=new Blob([JSON.stringify({title:'My Superpowers stack',exportedAt:new Date().toISOString(),note:'Suggested tools; review publisher documentation and permissions before connecting.',tools},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='my-superpowers-stack.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-readState();sync();
-if(/^\/(prompts|workflow-lab|time-savings)(\/|$)/.test(location.pathname))render();
+readState();try{state.trial=cleanTrial(JSON.parse(localStorage.getItem(trialStorageKey)||'{}'))}catch{state.trial=cleanTrial()}sync();
+if(/^\/(prompts|workflow-lab|time-savings|tool-trial)(\/|$)/.test(location.pathname))render();
 document.addEventListener('click',async event=>{
  const target=event.target.closest('button,a');if(!target)return;
  if(target.matches('a[href]')){const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();navigate(url.pathname+url.search)}return}
@@ -85,8 +86,28 @@ document.addEventListener('click',async event=>{const t=event.target.closest('bu
  if('timeClear' in t.dataset){state.labCalculator={};render();}
 });
 
+function collectTrial(form){const fd=new FormData(form);return cleanTrial({task:fd.get('task'),criteria:fd.get('criteria'),sample:fd.get('sample'),baseline:fd.get('baseline'),decision:fd.get('decision'),candidates:Array.from({length:3},(_,i)=>({toolId:fd.get('tool-'+i),verdict:fd.get('verdict-'+i),work:fd.get('work-'+i),review:fd.get('review-'+i),evidence:fd.get('evidence-'+i)}))});}
+function updateTrialResults(){document.querySelector('#trial-results').innerHTML=trialSummary(state.trial,items);const disabled=trialIssues(state.trial,items).length>0;for(const b of document.querySelectorAll('[data-trial-download],[data-trial-copy]'))b.disabled=disabled;for(let i=0;i<3;i++)document.querySelector('#trial-tool-context-'+i).innerHTML=trialToolContext(state.trial.candidates[i],items);document.querySelector('#trial-save-status').textContent='Unsaved changes. Save this trial to keep it after reloading.';}
+document.addEventListener('input',event=>{const form=event.target.closest('#tool-trial');if(!form||event.target.tagName==='SELECT')return;state.trial=collectTrial(form);updateTrialResults();});
+document.addEventListener('change',event=>{const form=event.target.closest('#tool-trial');if(!form)return;const next=collectTrial(form),name=event.target.name;
+ if(/^tool-[0-2]$/.test(name)){const i=Number(name.slice(-1));if(state.trial.candidates[i].toolId!==next.candidates[i].toolId){next.candidates[i]=cleanTrial({candidates:[{toolId:next.candidates[i].toolId}]}).candidates[0];state.trial=next;render();document.getElementById('trial-'+name)?.focus();updateTrialResults();toast('Tool changed. Its previous observations were cleared from this draft.');return;}}
+ state.trial=next;updateTrialResults();
+});
+document.addEventListener('submit',event=>{if(event.target.id==='tool-trial')event.preventDefault();});
+document.addEventListener('click',async event=>{const t=event.target.closest('button');if(!t)return;
+ if('trialCompare' in t.dataset){state.trial=trialFromTools(state.compare,items);navigate('/tool-trial');toast('A new trial draft is ready. Any previously saved trial stays unchanged until you save.');return;}
+ if(!Object.keys(t.dataset).some(k=>k.startsWith('trial')))return;
+ const form=document.querySelector('#tool-trial');if(!form)return;state.trial=collectTrial(form);
+ if('trialSave' in t.dataset){try{localStorage.setItem(trialStorageKey,JSON.stringify(state.trial));document.querySelector('#trial-save-status').textContent='Saved in this browser. Download your report to keep or share a copy.';toast('Your trial is saved in this browser.');}catch{document.querySelector('#trial-save-status').textContent='Browser storage is unavailable. Download your report to keep a copy.';}return;}
+ if('trialBlank' in t.dataset){state.trial=cleanTrial();render();document.querySelector('#trial-save-status').textContent='Blank draft. The previously saved trial has not been changed.';return;}
+ if('trialClear' in t.dataset){if(!window.confirm('Remove the saved trial and this draft from this browser? Download a copy first if you need it.'))return;try{localStorage.removeItem(trialStorageKey);state.trial=cleanTrial();render();document.querySelector('#trial-save-status').textContent='The saved trial and draft were removed from this browser.';}catch{toast('Browser storage could not be changed.');}return;}
+ if('trialDownload' in t.dataset||'trialCopy' in t.dataset){const issues=trialIssues(state.trial,items);if(issues.length){toast(issues.join(' '));return;}const report=trialMarkdown(state.trial,items);if('trialDownload' in t.dataset)downloadText(report,'my-superpowers-tool-trial.md');else try{await navigator.clipboard.writeText(report);toast('Report copied, including your notes.');}catch{toast('Copy is unavailable. Download your report instead.');}}
+});
+window.addEventListener('storage',event=>{if(event.key===trialStorageKey){toast('The saved trial changed in another tab. Reload to load it; this draft has been kept.');}});
+
+
+
 function refreshCatalogView(){if(/^\/(prompts|workflow-lab|time-savings|resources|how-to)(\/|$)/.test(location.pathname)){sync();return}const draft=captureInputs(main);render();restoreInputs(main,draft);}
 try{let response=await fetch('/api/catalog');let databaseCatalog=response.ok;if(!databaseCatalog)response=await fetch('/imported.json');if(!response.ok)throw new Error('Catalog unavailable');const imported=await response.json();items=databaseCatalog?imported:[...curated,...imported];items.forEach(t=>known.add(t.id));readState(true);refreshCatalogView()}catch(error){readState();refreshCatalogView();toast('The full catalog could not load. Featured tools are still available. Please refresh to retry.')}
 
 async function refreshSearch(){const request=++searchRequest;if(location.pathname!=='/directory')return;const locationKey=location.href;const params=new URLSearchParams(location.search);params.set('limit',state.limit);try{const response=await fetch('/api/search?'+params);if(!response.ok)throw new Error('Search unavailable');const result=await response.json();if(request!==searchRequest||location.href!==locationKey)return;const draft=captureInputs(main);state.searchRows=result.items;state.searchTotal=result.total;main.innerHTML=renderRoute(location.href,items,state);sync();restoreInputs(main,draft)}catch{if(request===searchRequest&&location.href===locationKey){const count=document.querySelector('#result-count');if(count)count.textContent+=' · Offline catalog search'}}}
-
