@@ -1,0 +1,2 @@
+export function parseSharedTools(value,items){const known=new Set(items.map(t=>t.id));return [...new Set(String(value||'').slice(0,6000).split(',').filter(id=>known.has(id)))].slice(0,50)}
+export function cleanProgress(value,missions){const result={};if(!value||typeof value!=='object')return result;for(const m of missions.filter(x=>x.steps)){const steps=value[m.id];if(Array.isArray(steps))result[m.id]=[...new Set(steps.filter(n=>Number.isInteger(n)&&n>=0&&n<4))]}return result}

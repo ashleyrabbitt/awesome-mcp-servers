@@ -1,0 +1,4 @@
+node_modules/
+dist/
+scripts/source-readme.md
+*.log
