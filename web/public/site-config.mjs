@@ -1,1 +1,1 @@
-export const siteOrigin='https://superpowers-complete-production.up.railway.app';
+export const siteOrigin='https://aisuperpower.cc';
