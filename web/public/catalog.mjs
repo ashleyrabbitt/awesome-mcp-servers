@@ -1,3 +1,4 @@
+import {huntPicks} from './hunt-picks.mjs';
 import {practicalPicks} from './practical-picks.mjs';
 import {newPicks} from './expansion.mjs';
 import {workflowTools} from './workflow-tools.mjs';
@@ -17,7 +18,7 @@ make('langgraph','LangGraph','LangChain','Agents','Agent frameworks',['Developer
 make('gitleaks','Gitleaks','Gitleaks contributors','Security tools','Secret scanning',['Developers'],'Scan for potential secrets in code and repositories. Treat findings as a starting point for investigation and credential rotation.','https://github.com/gitleaks/gitleaks','Local / CI','Technical setup','Reads files and git history in the scope you provide. A scan does not certify that a repository is secure.','A useful safety step','Gl','lavender'),
 make('notion-clipper','Notion Web Clipper','Notion','Plugins','Browser extensions',['Designers','Marketers','Product managers'],'Save reference pages to Notion while you browse. A simple companion for a more intentional research routine.','https://www.notion.com/help/web-clipper','Browser extension','Guided setup','The extension accesses pages you clip and writes to the Notion destination you choose.','Keep the good finds','N↗','butter'),
 make('skills','Agent Skills collection','Anthropic','Skills','Reusable instructions',['Developers','Designers','Marketers','Product managers'],'Explore examples of reusable agent instructions. Read the skill and any scripts before adding it to your own workflow.','https://github.com/anthropics/skills','Compatible agent required','Guided setup','Skills may include executable scripts. Review each skill’s license, instructions and requested access.','Make good work repeatable','✳','peach')
-,...spotlight,...workflowTools,...newPicks,...practicalPicks];
+,...spotlight,...workflowTools,...newPicks,...practicalPicks,...huntPicks];
 export function searchTools(items,{category='All',query='',type='All',role='All',level='All',reviewed=false,savedOnly=false,saved=[],sort='editorial'}={}){
  const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
  const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(category==='All'||t.category===category)&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));
