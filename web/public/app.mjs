@@ -1,3 +1,5 @@
+import {installJourneyEvents,reportingTrial} from './mission-journeys.mjs';
+installJourneyEvents();
 import {installKitEvents} from './superpower-kits.mjs';
 installKitEvents();
 import {validateSubmission,serviceResults} from './submissions.mjs';
@@ -98,6 +100,7 @@ document.addEventListener('change',event=>{const form=event.target.closest('#too
 });
 document.addEventListener('submit',event=>{if(event.target.id==='tool-trial')event.preventDefault();});
 document.addEventListener('click',async event=>{const t=event.target.closest('button');if(!t)return;
+ if('reportingChallenge' in t.dataset){state.trial=reportingTrial();navigate('/tool-trial');toast('Reporting challenge loaded. Choose your tools; saved trials are unchanged.');return;}
  if('trialCompare' in t.dataset){state.trial=trialFromTools(state.compare,items);navigate('/tool-trial');toast('A new trial draft is ready. Any previously saved trial stays unchanged until you save.');return;}
  if(!Object.keys(t.dataset).some(k=>k.startsWith('trial')))return;
  const form=document.querySelector('#tool-trial');if(!form)return;state.trial=collectTrial(form);
