@@ -6,7 +6,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404']);
 const summaries={
-'/journeys':'Complete guided AI journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
+'/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
 '/product-hunt-picks':'Eight practical AI tools discovered on Product Hunt, with publisher sources, use cases, limitations and first exercises for marketers, designers, product managers and developers.',
 '/working-session':'A $350 AI Working Session with Ashley Kays. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
@@ -27,8 +27,8 @@ const summaries={
 '/time-savings':'Estimate AI workflow time savings including drafting, review, rework and setup. Compare a weekly baseline and see when setup time could pay back.',
 '/resources':'Use free workflow planning tools, step-by-step how-tos and downloadable worksheets to turn an AI idea into a practical pilot.',
 '/prompts':`Customize ${promptTemplates.length} prompts for design, marketing, product and development. Add context and constraints, then copy or download a prompt to use in your AI tool.`,
-'/training':'Explore role-based AI learning paths for designers, marketers, product managers and developers, with practical missions and review checkpoints.',
-'/workshops':'Explore Superpowers workshop topics for practical AI workflows, team learning and responsible tool adoption. Ask about a workshop for your team.',
+'/training':'All Superpowers courses are free. Explore self-paced AI learning paths for designers, marketers, product managers and developers. Special live workshops are priced separately.',
+'/workshops':'Explore special paid Superpowers live workshop topics for practical AI workflows, team learning and responsible tool adoption. Ask about a workshop for your team.',
 '/coaching':'Get human guidance from Waymaker for choosing AI tools, building a useful workflow and developing practical skills. Start a coaching conversation.',
 '/newsletter':'Power Notes from Superpowers by Waymaker: new tools, practical workflows and news about training and workshops. Subscribe through MailerLite and confirm your email to join.'
 };
