@@ -6,6 +6,9 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
+'/opportunity-finder':'Assess recurring tasks for AI assistance with transparent rules for judgment, data sensitivity, consequences and output checks.',
+'/field-guide':'Download an eight-page printable AI Field Guide or complete editable worksheets for briefs, permissions, agent missions and tool evaluation.',
 '/submit':'Submit an AI tool, MCP server, agent or service provider to Superpowers. Share a useful description and official link for editorial review.',
 '/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
