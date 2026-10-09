@@ -6,6 +6,8 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/working-session':'A $350 AI Working Session with Ashley Kays. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
+'/workshops/campaign':'Practice AI-assisted campaign creation in a guided workshop. Build a brief, explore message directions and review a draft. Dates and pricing confirmed by inquiry.',
 '/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
 '/opportunity-finder':'Assess recurring tasks for AI assistance with transparent rules for judgment, data sensitivity, consequences and output checks.',
 '/field-guide':'Download an eight-page printable AI Field Guide or complete editable worksheets for briefs, permissions, agent missions and tool evaluation.',
