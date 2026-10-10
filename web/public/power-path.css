@@ -9,3 +9,29 @@ body{font-size:16px;line-height:1.7}h1,h2,h3{letter-spacing:-.035em}.hero{backgr
 @media(max-width:760px){.header-inner{height:auto;min-height:76px;display:grid;grid-template-columns:1fr auto;gap:18px 12px;padding-top:20px;padding-bottom:12px}.header-inner .wordmark{font-size:30px}.saved-link{margin:0;font-size:13px}#search-form{position:static;grid-column:1/-1;order:3;width:100%;height:44px;margin:0}.main-nav{height:auto;padding-top:0;padding-bottom:14px;gap:4px 18px;font-size:14px;line-height:1.5;flex-wrap:wrap}.main-nav a{padding:7px 0}.announcement{font-size:12px;line-height:1.6;padding:10px 16px}.hero h1{font-size:clamp(43px,11vw,67px);line-height:1.05}.hero p{font-size:16px}.hero-copy>.eyebrow{font-size:11px}.benefits{font-size:12px;flex-wrap:wrap;gap:8px 18px}.tool-card h3{font-size:20px;line-height:1.3}.tool-card p{font-size:14px}.card-meta,.card-bottom{font-size:12px}.card-bottom>span{max-width:none}.product-mark,.tag{font-size:10px}.quick{font-size:12px;padding:6px}.page-head h1{font-size:clamp(36px,9vw,49px);line-height:1.1}.page-head p{font-size:16px}.section-heading p,.section-heading>.text-link{font-size:14px}.section-heading{flex-wrap:wrap}.role-card strong{font-size:14px}.role-card small{font-size:12px}.footer-bottom{font-size:12px}.power-subnav{font-size:14px}.power-savebar .button{font-size:14px}.workflow-rail strong{font-size:16px}.workflow-rail .mode-badge{font-size:12px;max-width:none}.workflow-rail>a{grid-template-columns:32px 1fr}.workflow-rail .mode-badge{grid-column:2;justify-self:start}.lab-selector select,.lab-step-heading label,.lab-step-heading select{font-size:15px}.hq-stats>div{font-size:13px}.coaching-note p{font-size:16px}.button{font-size:14px}}
 @media(max-width:420px){.directory-grid,.tool-grid{grid-template-columns:1fr}.product-art{aspect-ratio:1.5}.tool-card p{-webkit-line-clamp:unset;display:block;min-height:0}.tag{font-size:12px;max-width:calc(100% - 60px)}.favorite{width:36px;height:36px}.product-mark{font-size:12px}.quick{left:16px;right:16px;bottom:35px}.roles{grid-template-columns:1fr}.role-card{padding:18px}.role-card small{font-size:14px}.power-options label{min-height:54px}}
 @media print{body{font-size:11pt}.power-panel p{color:black}.power-worksheet .page-head p{font-size:11pt}.power-worksheet .power-panel{background:white}}
+
+/* Readability follow-through for discovery, lessons and working forms. */
+.breadcrumb,.hero-caption span,.count-tag{font-size:13px;line-height:1.6}
+.tag,.product-mark{font-size:12px;line-height:1.5}
+.tag{max-width:calc(100% - 74px);white-space:normal}
+.results-top{flex-wrap:wrap;align-items:center}
+.results-top select{max-width:100%;width:auto;min-height:44px;padding:8px 24px 8px 8px;font-size:14px;color:var(--ink)}
+.quick{min-height:40px;background:#fcfaf6;color:var(--ink);border-color:var(--ink)}
+.tool-card:focus-within .quick{opacity:1;transform:none}
+.compare-tray{font-size:14px;line-height:1.6;flex-wrap:wrap}
+.compare-tray button{font-size:14px;min-height:44px;color:#fff}
+.prompt button,.workflow-tools a{font-size:14px;line-height:1.6}
+.prompt button{min-height:44px}
+.quiz-option small{font-size:14px;line-height:1.6;opacity:1}
+.newsletter-panel{background:var(--sage)}
+.discovery-ribbon{background:var(--lavender)}
+.power-sticker{background:#efd6e0}
+.lab-legend p,.lab-save-note,.time-stats span,.hq-stats>div{font-size:14px;line-height:1.65}
+.mode-badge,.workflow-rail .mode-badge{font-size:12px;line-height:1.5}
+.lab-step-heading label,.lab-step>label{font-size:14px;line-height:1.6}
+.lab-selector select,.lab-step-heading select,.planner-form select,.planner-form input,.prompt-inputs textarea,.lab-goal textarea,.lab-step>textarea{font-size:16px;line-height:1.6}
+.lab-step>.chips .chip{font-size:14px}
+.prompt-output pre,.mission-prompt{font-size:15px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.article-layout p,.article-layout li,.legal p,.legal li{max-width:72ch}
+@media(hover:none){.quick{opacity:1;transform:none}}
+@media(max-width:760px){.results-top select{width:100%;max-width:100%}.compare-tray{max-width:calc(100vw - 28px)}.lab-actions .button,.section-heading>.text-link{font-size:14px;white-space:normal}.workflow-rail .mode-badge{max-width:none}.lab-step-heading select{width:100%}.newsletter-panel{padding:24px}.hero-caption span{font-size:12px}}
