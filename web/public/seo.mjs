@@ -4,8 +4,14 @@ import {answers} from './answers.mjs';
 import {missions} from './discovery.mjs';
 import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
-const privatePaths=new Set(['/saved','/compare','/hq','/shared','/404']);
+const privatePaths=new Set(['/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/finder':'Find a practical AI task match based on your work, goal, budget approach and setup experience. Save tool starting points and follow a free learning path.',
+'/first-win':'A free seven-day AI challenge: choose a task, map the work, test a tool, create a draft, review it and save a reusable kit. Track your progress in your browser.',
+'/comparisons':'Compare AI tools for campaign visuals, research and automation with publisher sources, setup tradeoffs and criteria for your own same-task trial.',
+'/worksheets':'Free AI workflow mapping, output review, tool trial and team adoption worksheets. Print, complete and download practical templates.',
+'/community':'Submit a practical AI workflow, evidence and lessons for editorial review. Share a public example with attribution and learn from community field notes.',
+
 '/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
 '/product-hunt-picks':'Eight practical AI tools discovered on Product Hunt, with publisher sources, use cases, limitations and first exercises for marketers, designers, product managers and developers.',
