@@ -6,13 +6,14 @@ create table public.superpowers_sessions(token_hash text primary key,email text 
 create table public.superpowers_limits(key text primary key,hits integer not null,expires_at timestamptz not null);
 create table public.superpowers_owners(tool_id text primary key references public.superpowers_tools(id),email text not null,verified_by text not null,verified_at timestamptz not null default now());
 create table public.superpowers_changes(id uuid primary key default gen_random_uuid(),email text not null,tool_id text not null references public.superpowers_tools(id),kind text not null check(kind in ('claim','update')),details jsonb not null,status text not null default 'pending' check(status in ('pending','accepted','declined')),note text not null default '',created_at timestamptz not null default now());
-create table public.superpowers_orders(id uuid primary key,email text not null,name text not null,offer text not null check(offer in ('working-session','launch-kit','featured','workflow','training','newsletter')),details text not null,preferred_time text not null default '',tool_id text references public.superpowers_tools(id),amount integer not null check(amount>=0),status text not null default 'requested' check(status in ('requested','approved','paid','fulfilled','cancelled','refunded','disputed')),scope text not null default '',scheduled_at timestamptz,slot integer check(slot in (1,2)),payment_link text,checkout_session text unique,created_at timestamptz not null default now());
+create table public.superpowers_orders(id uuid primary key,email text not null,name text not null,offer text not null check(offer in ('working-session','launch-kit','featured','workflow','training','newsletter')),details text not null,preferred_time text not null default '',tool_id text references public.superpowers_tools(id),amount integer not null check(amount>=0),status text not null default 'requested' check(status in ('requested','approved','paid','fulfilled','cancelled','refunded','disputed','payment_review')),scope text not null default '',scheduled_at timestamptz,slot integer check(slot in (1,2)),payment_link text,checkout_session text unique,created_at timestamptz not null default now());
 create table public.superpowers_payments(event_id text primary key,session_id text not null,payment_intent text,order_id uuid references public.superpowers_orders(id),amount integer not null,email text not null,outcome text not null,created_at timestamptz not null default now());
+create table public.superpowers_reversals(payment_intent text primary key,disputed boolean not null,created_at timestamptz not null default now());
 create table public.superpowers_placements(id uuid primary key default gen_random_uuid(),order_id uuid unique not null references public.superpowers_orders(id),tool_id text not null references public.superpowers_tools(id),slot integer not null check(slot in (1,2)),starts_at timestamptz not null,ends_at timestamptz not null,check(ends_at=starts_at+interval '7 days'));
 create table public.superpowers_metrics(day date not null default current_date,tool_id text not null,kind text not null check(kind in ('tool_click','featured_impression','featured_click','service_inquiry','submission_received')),count bigint not null default 1,primary key(day,tool_id,kind));
 create table public.superpowers_mail(id text primary key,email text not null,subject text not null,body text not null,sent_at timestamptz,created_at timestamptz not null default now());
 alter table public.superpowers_submissions add column public_data jsonb not null default '{}',add column public_note text not null default '',add column published_tool_id text references public.superpowers_tools(id);
-do $$ declare t text; begin foreach t in array array['config','admins','codes','sessions','limits','owners','changes','orders','payments','placements','metrics','mail'] loop execute format('alter table public.superpowers_%I enable row level security',t);execute format('revoke all on public.superpowers_%I from public,anon,authenticated',t);execute format('grant all on public.superpowers_%I to service_role',t);end loop;end $$;
+do $$ declare t text; begin foreach t in array array['config','admins','codes','sessions','limits','owners','changes','orders','payments','reversals','placements','metrics','mail'] loop execute format('alter table public.superpowers_%I enable row level security',t);execute format('revoke all on public.superpowers_%I from public,anon,authenticated',t);execute format('grant all on public.superpowers_%I to service_role',t);end loop;end $$;
 grant all on public.superpowers_submissions,public.superpowers_tools,public.superpowers_services to service_role;
 create index superpowers_sessions_expiry on public.superpowers_sessions(expires_at);
 create index superpowers_limits_expiry on public.superpowers_limits(expires_at);
@@ -44,11 +45,13 @@ create function public.superpowers_approve(p_id uuid,p_scope text,p_start timest
  update public.superpowers_orders set status='approved',scope=p_scope,scheduled_at=p_start,slot=case when offer='featured' then p_slot else null end,payment_link=p_link where id=p_id;end $$;
 -- Event and session replay-safe. Only exact approved orders can be fulfilled.
 create function public.superpowers_payment(p_event text,p_session text,p_order uuid,p_intent text,p_amount integer,p_email text,p_link text) returns text language plpgsql security invoker set search_path='' as $$ declare o public.superpowers_orders;r text;begin
+ perform pg_advisory_xact_lock(hashtext('superpowers-intent-'||p_intent));
  perform pg_advisory_xact_lock(hashtext('superpowers-payment-'||p_session));
  if exists(select 1 from public.superpowers_payments where event_id=p_event or session_id=p_session) then return 'duplicate';end if;
  select * into o from public.superpowers_orders where id=p_order for update;
- r=case when not found then 'unmatched' when o.status<>'approved' then 'refund needed' when o.amount<>p_amount or lower(o.email)<>lower(p_email) or o.payment_link<>p_link then 'refund needed' when o.offer='featured' and o.scheduled_at<=now() then 'refund needed' else 'paid' end;
+ r=case when exists(select 1 from public.superpowers_reversals where payment_intent=p_intent) then 'reversed before payment' when o.id is null then 'unmatched' when o.status<>'approved' then 'refund needed' when o.amount<>p_amount or lower(o.email)<>lower(p_email) or o.payment_link<>p_link then 'refund needed' when o.offer='featured' and o.scheduled_at<=now() then 'refund needed' else 'paid' end;
  insert into public.superpowers_payments(event_id,session_id,order_id,payment_intent,amount,email,outcome) values(p_event,p_session,o.id,p_intent,p_amount,p_email,r);
+ if r='refund needed' and o.status='approved' and lower(o.email)=lower(p_email) then update public.superpowers_orders set status='payment_review' where id=o.id;end if;
  if r='paid' then update public.superpowers_orders set status='paid',checkout_session=p_session where id=o.id;
  if o.offer='featured' then insert into public.superpowers_placements(order_id,tool_id,slot,starts_at,ends_at) values(o.id,o.tool_id,o.slot,o.scheduled_at,o.scheduled_at+interval '7 days');update public.superpowers_orders set status='fulfilled' where id=o.id;end if;end if;return r;end $$;
 revoke all on function public.superpowers_rate(text,integer,integer),public.superpowers_count(text,text),public.superpowers_publish(uuid,jsonb),public.superpowers_approve(uuid,text,timestamptz,integer,text),public.superpowers_payment(text,text,uuid,text,integer,text,text) from public,anon,authenticated;
@@ -77,3 +80,13 @@ returns jsonb language sql stable security invoker set search_path='' as $$
 $$;
 revoke all on function public.superpowers_search_v2(text,text,text,text,text,boolean,text,integer,integer,text) from public;
 grant execute on function public.superpowers_search_v2(text,text,text,text,text,boolean,text,integer,integer,text) to anon,authenticated;
+
+-- Record reversals even when they arrive before Checkout completion.
+create function public.superpowers_reverse(p_intent text,p_dispute boolean) returns void language plpgsql security invoker set search_path='' as $$ begin
+ perform pg_advisory_xact_lock(hashtext('superpowers-intent-'||p_intent));
+ insert into public.superpowers_reversals(payment_intent,disputed) values(p_intent,p_dispute) on conflict(payment_intent) do update set disputed=superpowers_reversals.disputed or excluded.disputed;
+ update public.superpowers_orders set status=case when p_dispute then 'disputed' else 'refunded' end where checkout_session in(select session_id from public.superpowers_payments where payment_intent=p_intent);
+ delete from public.superpowers_placements where order_id in(select id from public.superpowers_orders where checkout_session in(select session_id from public.superpowers_payments where payment_intent=p_intent));
+end $$;
+revoke all on function public.superpowers_reverse(text,boolean) from public,anon,authenticated;
+grant execute on function public.superpowers_reverse(text,boolean) to service_role;
