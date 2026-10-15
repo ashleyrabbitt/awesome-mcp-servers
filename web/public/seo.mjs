@@ -4,8 +4,10 @@ import {answers} from './answers.mjs';
 import {missions} from './discovery.mjs';
 import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
-const privatePaths=new Set(['/my-kit','/saved','/compare','/hq','/shared','/404']);
+const privatePaths=new Set(['/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/advertise':'Promote your AI tool with a labeled directory placement, a founder launch kit or a Power Notes sponsorship. Free listings remain available.',
+'/work-with-us':'Get practical AI help with a working session, founder launch kit, workflow setup or team training. Confirm scope and availability before payment.',
 '/finder':'Find a practical AI task match based on your work, goal, budget approach and setup experience. Save tool starting points and follow a free learning path.',
 '/first-win':'A free seven-day AI challenge: choose a task, map the work, test a tool, create a draft, review it and save a reusable kit. Track your progress in your browser.',
 '/comparisons':'Compare AI tools for campaign visuals, research and automation with publisher sources, setup tradeoffs and criteria for your own same-task trial.',
