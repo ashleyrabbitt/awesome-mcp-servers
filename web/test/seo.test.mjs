@@ -19,7 +19,7 @@ test('indexing rules exclude personal states, query variants and unreviewed tool
  const community={...curated[0],id:'community-example',status:'Community listing'};
  for(const url of ['/saved','/hq','/shared?tools=figma','/directory?query=test','/tools/community-example','/404'])assert.equal(pageSEO(url,[...curated,community],'<h1>Example</h1>').noindex,true);
  assert.equal(pageSEO('/tools/figma',curated,renderRoute('/tools/figma',curated)).noindex,false);
- const sitemap=await read('sitemap.xml');assert.ok(sitemap.includes('/tools/recraft'));assert.ok(sitemap.includes('/tools/catalog-browserbase-mcp-server-browserbase')); const communityRows=JSON.parse(await read('imported.json')); for(const t of communityRows)assert.ok(!sitemap.includes('<loc>'+pageSEO('/tools/'+t.id,communityRows,'<h1>Community</h1>').canonical+'</loc>'));assert.ok(!sitemap.includes('/saved'));assert.ok(!/<loc>[^<]*\?/.test(sitemap));
+ const sitemap=await read('sitemap.xml');assert.ok(sitemap.includes('/tools/recraft'));assert.ok((await readFile(new URL('../dist/robots.txt',import.meta.url),'utf8')).includes('/sitemap-tools.xml')); assert.ok(sitemap.includes('/tools/catalog-browserbase-mcp-server-browserbase')); const communityRows=JSON.parse(await read('imported.json')); for(const t of communityRows)assert.ok(!sitemap.includes('<loc>'+pageSEO('/tools/'+t.id,communityRows,'<h1>Community</h1>').canonical+'</loc>'));assert.ok(!sitemap.includes('/saved'));assert.ok(!/<loc>[^<]*\?/.test(sitemap));
  const robots=await read('robots.txt');assert.ok(!robots.includes('Disallow: /saved'));assert.ok(robots.includes('Allow: /'));
 });
 test('structured metadata escapes script delimiters and never invents prices or ratings',()=>{
