@@ -1,14 +1,15 @@
 # Maker Desk and directory business
 
-## Release state — 2026-10-15
+## Release state — 2026-10-16
 
-Prepared in PR #19. This release is not deployed yet. The previous production release still serves free submission intake.
+Configured for PR #19. Production deployment and final browser checks are the remaining release gate.
 
-- Local build and 62 Node tests passed. An isolated PGlite/PostgreSQL integration run also passed migration execution, publishing, pricing search, reservation conflicts, payment matching/replays, reversed-before-paid events, rate limits and private-table permissions. Live integration validation is still required.
-- Supabase migration attempts did not apply. The connector returned `Invalid or expired requestState`; a read-back showed only the original tools, submissions and services tables.
-- Stripe created the featured price: `price_1UQsH9HwH8GUQ8qav8lk1uhs`, lookup key `aisuperpower_featured_7d_v1`, product `aisuperpower_featured_7d_v1`, $49 USD. Reuse it; do not recreate it.
-- No AISuperpower payment links, webhook, Edge Function or Railway secrets have been configured by this release.
-- Browser visual validation remains pending: the local Chromium download failed.
+- All 63 Node tests pass, including the empty PostgREST insert response regression caught during live validation. The existing isolated PGlite/PostgreSQL integration suite passed migration execution, publishing, pricing search, reservation conflicts, payment matching/replays, reversed-before-paid events, rate limits and private-table permissions.
+- Applied the prepared schema through the Supabase SQL Editor after the migration connector approval expired. All operational tables have RLS enabled; anonymous and ordinary authenticated roles cannot read private requests or publish listings.
+- Deployed `superpowers-business` version 2 with its own bridge-key authentication. Stored the key digest and operator allowlist in private database tables; raw bridge key is in Railway only. Email capability is configured through the existing Resend service. Actual inbox delivery has not been tested.
+- Live synthetic integration passed code verification, session logout, founder isolation, administrator authorization, submission publishing, ownership claims, moderated updates, approved checkout links, payment fulfillment/replay and refunds. All synthetic operational records were removed. No real charge or customer email was sent.
+- Stripe one-time prices: featured `price_1UQsH9HwH8GUQ8qav8lk1uhs` ($49), working session `price_1UR8NZHwH8GUQ8qaQUXYiNo5` ($350), launch kit `price_1UR8NgHwH8GUQ8qae4auX4Qv` ($497). Payment Links are stored privately in `checkout_links`.
+- Stripe webhook `we_1UR8O7HwH8GUQ8qaCHtyZqNr` is enabled for the four specified events. Its signing secret is configured in Railway. Do not create duplicate prices, links or endpoints.
 
 ## Runtime and deployment order
 

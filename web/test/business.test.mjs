@@ -11,4 +11,16 @@ test('public routes cannot forge sessions, arbitrary actions or cross-site write
 test('sign-in token is delivered only in a secure httpOnly cookie',async()=>{const result=await businessRequest(req('/api/maker/verify'),{call:async()=>({session:'b'.repeat(64)})});assert.deepEqual(result.body,{ok:true});assert.match(result.headers['Set-Cookie'],/HttpOnly; Secure; SameSite=Strict/);});
 test('edge rejects missing bridge credentials before reading private data',async()=>{let calls=0;const r=await handleBusiness(new Request('https://example.invalid',{method:'POST',body:'{}'}),{env:()=>'',fetcher:async()=>{calls++;throw Error()}});assert.equal(r.status,401);assert.equal(calls,0);});
 test('edge requires a verified session and separate administrator authorization',async()=>{const key='a'.repeat(64),keyHash=await hash(key);const fetcher=async url=>{let value=[];if(url.includes('superpowers_config'))value=[{value:keyHash}];if(url.includes('superpowers_sessions'))value=[{email:'founder@example.invalid'}];return new Response(JSON.stringify(value),{status:200});};const env=k=>k==='SUPABASE_URL'?'https://db.invalid':'secret';for(const [session,expected]of [['',401],['b'.repeat(64),403]]){const r=await handleBusiness(new Request('https://example.invalid',{method:'POST',headers:{'x-superpowers-key':key},body:JSON.stringify({action:'admin',session,data:{admin:true}})}),{env,fetcher});assert.equal(r.status,expected);}});
+test('login accepts a successful empty PostgREST insert response before sending its code',async()=>{
+ const key='a'.repeat(64),keyHash=await hash(key);let delivered=false;
+ const fetcher=async(url,options)=>{
+  if(url.includes('superpowers_config'))return Response.json([{value:keyHash}]);
+  if(url.includes('rpc/superpowers_rate'))return Response.json(true);
+  if(url.includes('superpowers_codes'))return new Response(null,{status:201});
+  if(url==='https://api.resend.com/emails'){delivered=true;assert.match(JSON.parse(options.body).html,/\d{8}/);return Response.json({id:'mock-email'});}
+  throw Error('Unexpected request');
+ };
+ const r=await handleBusiness(new Request('https://example.invalid',{method:'POST',headers:{'x-superpowers-key':key},body:JSON.stringify({action:'login',data:{email:'founder@example.com'}})}),{env:k=>k==='SUPABASE_URL'?'https://db.invalid':'secret',fetcher});
+ assert.equal(r.status,200);assert.equal(delivered,true);
+});
 test('listing resources reject active URLs and paid pages do not expose immediate checkout',()=>{assert.throws(()=>extras({demo_url:'javascript:alert(1)'}));assert.throws(()=>extras({screenshot_url:'https://a:password@example.com'}));assert.equal(extras({pricing_model:'invented'}).pricing_model,'Unknown');assert.throws(()=>makeTool({},{slug:'../../admin'}));const html=businessPage('/advertise');assert.match(html,/confirm scope/);assert.ok(!html.includes('buy.stripe.com'));const account=accountView({email:'<img src=x>',submissions:[],owners:[],changes:[],orders:[],metrics:[]},[]);assert.ok(!account.includes('<img src=x>'));});
