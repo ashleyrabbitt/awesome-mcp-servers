@@ -13,6 +13,16 @@ PR #19 is merged and live on aisuperpower.cc. Railway deployment `3428de37-b40e-
 
 - Pricing models for Cursor, Perplexity, ElevenLabs, Gamma and Make were checked against official publisher pricing pages and saved with sources and dates in `public/pricing-reviews.mjs` and the live catalog. The other 574 listings remain explicitly unverified. Existing newsletter acquisition uses the separate hosted MailerLite form; completed subscriptions are measured there. No affiliate partnerships or commission links have been activated by this release. Scheduling is agreed by an operator before payment, not a self-service calendar.
 
+## Operations and pricing update — 2026-10-16
+
+The review desk now includes queue totals, aging requests, paid services awaiting delivery, payment exceptions, and pending email acceptance. Queue totals are operational status counts, not revenue. The provider being configured or accepting a message does not establish inbox delivery. There were no transactional outbox messages or orders at this check; real inbox delivery remains untested.
+
+- Pricing maintenance is available in `/admin`. Search by name or slug; filter unverified, due, current or all listings. The queue prioritizes unverified listings and recent outbound activity. Reviews become due after 90 days. Each save requires a publisher pricing/license source, a 10–160 character summary, explicit review confirmation and the current listing version. Sources and review dates publish immediately. A stale edit is rejected instead of overwriting another change. Approved founder pricing changes clear the prior editorial verification source/date.
+- Activity reports cover the last 30 UTC calendar dates including the current partial day. They separate directory clicks, sponsored impressions/clicks, inquiries and submissions; offer and tool breakdowns use actual aggregate events. Founders can export their authorized activity; operators can also export pricing maintenance data. CSV exports omit contact data and protect against spreadsheet formulas.
+- Report queries page through database response limits. Any application cap is explicitly marked as partial. Review queues include all pending items within the stated cap rather than only the latest 200 records. The payment audit and completed request history cover 30 days; unresolved requests remain visible.
+- Added official pricing models for Runway, Descript, Tally, HeyGen, Granola, Napkin AI and Jasper. The catalog now has 12 sourced pricing checks and 567 unverified listings. Jasper is classified Paid because a short free trial does not establish a continuing free plan.
+- Node validation: 71 tests pass, covering authorization, stale write rejection, pagination, UTC report windows, scoped exports, formula escaping, and verification invalidation. Build: 786 pages and 579 catalog tools. No new database schema, payment products, charges or customer emails are required for this release.
+
 ## Runtime and deployment order
 
 1. Apply `web/db/business-schema.sql` to the existing Supabase project. This adds isolated operational tables, RLS, service-role-only functions and a pricing-aware public search RPC. It does not alter shared Supabase Auth settings.
