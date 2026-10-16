@@ -36,16 +36,17 @@ test('every article has a complete crawlable body, correct canonical, image and 
  }
 });
 
-test('HTTP preserves native content and headers while exposing only released articles',async()=>{
+for(const implicit of [false,true])test('HTTP preserves native content with '+(implicit?'implicit':'explicit')+' headers while exposing only released articles',async()=>{
  if(config.launchFlag)process.env[config.launchFlag.name]=config.launchFlag.value;
  const server=createServer(async(req,res)=>{
   if(await serveEditorial(req,res))return;
   attachEditorialDiscovery(req,res);
   res.setHeader('X-Test-Native','preserved');
-  if(req.url==='/sitemap.xml'){res.writeHead(200,{'Content-Type':'application/xml'});res.end('<urlset><url><loc>'+config.origin+'/existing/</loc></url></urlset>');return;}
+  if(req.url==='/sitemap.xml'){if(implicit)res.setHeader('Content-Type','application/xml');else res.writeHead(200,{'Content-Type':'application/xml'});res.end('<urlset><url><loc>'+config.origin+'/existing/</loc></url></urlset>');return;}
   if(req.url==='/native-missing'){res.writeHead(404);res.end('native not found');return;}
   const body='<!doctype html><html><head><title>Existing home</title></head><body><main><h1>Existing home</h1><p>Keep this content.</p></main><footer>Existing footer</footer></body></html>';
-  res.writeHead(200,{'Content-Type':'text/html','Content-Length':Buffer.byteLength(body),'ETag':'old'});
+  const headers={'Content-Type':'text/html','Content-Length':Buffer.byteLength(body),'ETag':'old'};
+  if(implicit){for(const [key,value] of Object.entries(headers))res.setHeader(key,value);}else res.writeHead(200,headers);
   if(req.method==='HEAD'){res.end();return;}
   res.write(body.slice(0,90));res.end(body.slice(90));
  });

@@ -43,7 +43,7 @@ export function attachEditorialDiscovery(req,res){
  const writeHead=res.writeHead.bind(res),write=res.write.bind(res),end=res.end.bind(res);
  const chunks=[];let pendingHead=null,bytes=0,passthrough=false;
  res.writeHead=function(status,...args){pendingHead=[status,...args];return this;};
- const flush=()=>{if(pendingHead){writeHead(...pendingHead);pendingHead=null;}for(const chunk of chunks)write(chunk);chunks.length=0;};
+ const flush=()=>{res.writeHead=writeHead;if(pendingHead){writeHead(...pendingHead);pendingHead=null;}for(const chunk of chunks)write(chunk);chunks.length=0;};
  res.write=function(chunk,encoding,callback){
   if(passthrough)return write(chunk,encoding,callback);
   if(typeof encoding==='function'){callback=encoding;encoding=undefined;}
@@ -76,6 +76,8 @@ export function attachEditorialDiscovery(req,res){
    if(last&&typeof last==='object'&&!Array.isArray(last)){for(const key of Object.keys(last))if(/^(content-length|etag)$/i.test(key))delete last[key];last['Content-Length']=body.length;}
    writeHead(...pendingHead);
   }else res.setHeader('Content-Length',body.length);
+  // Native end() may implicitly call writeHead when the caller only used setHeader.
+  res.writeHead=writeHead;
   return end(body,callback);
  };
 }
