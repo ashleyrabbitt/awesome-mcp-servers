@@ -1,0 +1,23 @@
+{
+  "repo": "awesome-mcp-servers/web",
+  "name": "AI Superpower",
+  "origin": "https://aisuperpower.cc",
+  "articleBase": "/guides/",
+  "blogPath": "/learn",
+  "blogLabel": "Learn",
+  "nextHref": "/tool-trial",
+  "nextLabel": "Plan a useful tool trial",
+  "nextDescription": "Compare a tool on work you understand, measure review effort, and keep the result only when it improves the task.",
+  "seriesTitle": "Find the tools that earn a place in your day.",
+  "seriesDescription": "Understand data connectors, test new AI tools on real tasks, and make sense of RAG, MCP, and agents without the jargon.",
+  "ink": "#192d27",
+  "accent": "#246344",
+  "paper": "#eaf0d9",
+  "background": "#f8f8f2",
+  "trailingSlash": false,
+  "discoveryPaths": [
+    "/",
+    "/learn"
+  ],
+  "seriesLabel": "AI in practice / October\u2013November 2026"
+}
