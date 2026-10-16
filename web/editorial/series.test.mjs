@@ -10,7 +10,7 @@ test('release dates govern article links, related links, feeds and sitemaps',()=
  assert.ok(posts.length>=3);
  for(let i=0;i<posts.length;i++){
   const now=Date.parse(posts[i].publishedAt),live=publishedPosts(posts,now);
-  assert.equal(live.length,i+1);
+  assert.equal(live.length,posts.filter(p=>Date.parse(p.publishedAt)<=now).length);
   const index=renderIndex(config,posts,now),feed=renderFeed(config,posts,now),map=sitemapEntries(config,posts,now);
   for(const post of posts){
    const url=articlePath(config,post);
@@ -52,7 +52,7 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
  });
  server.listen(0,'127.0.0.1');await once(server,'listening');const base='http://127.0.0.1:'+server.address().port;
  try{
-  const home=await fetch(base+'/'),body=await home.text();assert.equal(home.status,200);assert.ok(body.includes('Keep this content.'));assert.ok(body.includes('AI in practice'));assert.ok(body.includes(posts[0].title.replace(/&/g,'&amp;')));assert.equal(home.headers.get('x-test-native'),'preserved');assert.equal(Number(home.headers.get('content-length')),Buffer.byteLength(body));assert.equal(home.headers.get('etag'),null);
+  const home=await fetch(base+'/'),body=await home.text();assert.equal(home.status,200);assert.ok(body.includes('Keep this content.'));assert.ok(body.includes('AI in practice'));assert.ok(body.includes(publishedPosts(posts)[0].title.replace(/&/g,'&amp;')));assert.equal(home.headers.get('x-test-native'),'preserved');assert.equal(Number(home.headers.get('content-length')),Buffer.byteLength(body));assert.equal(home.headers.get('etag'),null);
   const current=await fetch(base+articlePath(config,posts[0]));assert.equal(current.status,200);assert.ok((await current.text()).includes(posts[0].quickAnswer.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')));
   const future=await fetch(base+articlePath(config,posts[1]));assert.equal(future.status,404);assert.ok(future.headers.get('x-robots-tag').includes('noindex'));
   const head=await fetch(base+articlePath(config,posts[0]),{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');

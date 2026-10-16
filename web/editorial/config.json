@@ -8,8 +8,8 @@
   "nextHref": "/tool-trial",
   "nextLabel": "Plan a useful tool trial",
   "nextDescription": "Compare a tool on work you understand, measure review effort, and keep the result only when it improves the task.",
-  "seriesTitle": "Find the tools that earn a place in your day.",
-  "seriesDescription": "Understand data connectors, test new AI tools on real tasks, and make sense of RAG, MCP, and agents without the jargon.",
+  "seriesTitle": "Build useful AI workflows and teams.",
+  "seriesDescription": "Choose the right level of automation, create an AI team, and bring source-grounded assistance into product management.",
   "ink": "#192d27",
   "accent": "#246344",
   "paper": "#eaf0d9",
@@ -19,5 +19,5 @@
     "/",
     "/learn"
   ],
-  "seriesLabel": "AI in practice / October\u2013November 2026"
+  "seriesLabel": "AI in practice / October–November 2026"
 }
