@@ -1,10 +1,11 @@
 // Preserve browser edits across the one-time catalog refresh.
 export function captureInputs(root){
-  return [...root.querySelectorAll('input,textarea,select')].map((el,index)=>({
+  // URL-backed filters are rendered from the current URL, not stale static HTML.
+  return [...root.querySelectorAll('input,textarea,select')].map((el,index)=>el.hasAttribute?.('data-filter')?null:({
     index,id:el.id,name:el.name,type:el.type,value:el.value,
     checked:el.checked,focused:el===el.ownerDocument.activeElement,
     start:el.selectionStart,end:el.selectionEnd
-  }));
+  })).filter(Boolean);
 }
 export function restoreInputs(root,draft){
   const controls=[...root.querySelectorAll('input,textarea,select')];
