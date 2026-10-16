@@ -11,6 +11,32 @@ export function safeURL(s){if(!s)return '';const u=new URL(s);if(u.protocol!=='h
 export function extras(d={}){return {pricing_model:['Free','Freemium','Paid','Open source','Unknown'].includes(d.pricing_model)?d.pricing_model:'Unknown',pricing:text(d.pricing||'',0,160),demo_url:safeURL(d.demo_url||''),screenshot_url:safeURL(d.screenshot_url||'')};}
 export const offers={'working-session':{name:'AI Working Session',amount:35000},'launch-kit':{name:'Founder Launch Kit',amount:49700},featured:{name:'7-day Featured Tool',amount:4900},workflow:{name:'Workflow Setup',amount:0},training:{name:'Team Training',amount:0},newsletter:{name:'Newsletter Sponsorship',amount:0}};
 export function makeTool(s,d){return {id:slug(d.slug),name:s.name,publisher:text(d.publisher||s.name,2,120),description:s.description,url:safeURL(s.website),sourceUrl:safeURL(s.website),category:text(d.category||'Productivity',2,80),type:['AI apps','MCP servers','Agents','Plugins','Connectors','Security tools'].includes(s.category)?s.category:'Workflow tools',roles:[],hosting:s.location||'Check publisher',level:'Check documentation',permissions:'Check publisher permissions, privacy and setup requirements before connecting.',tag:'New discovery',mark:s.name.slice(0,2),color:'sage',status:'Documentation reviewed',tested:false,date:new Date().toISOString().slice(0,10),...extras({...s.public_data,pricing:s.pricing})};}
+const sender='AI Superpower <noreply@waymaker.cx>',senderDomain='waymaker.cx';
+export async function emailReadiness(env,fetcher=fetch){
+ const api=env('RESEND_API_KEY'),base={configured:!!api,sender,domain:senderDomain,checked_at:new Date().toISOString()};
+ const result=(status,message,extra={})=>({...base,status,message,...extra});
+ if(!api)return result('not_configured','Email provider is not configured.');
+ const signal=AbortSignal.timeout(12000);let after='';
+ try{
+  for(let page=0;page<5;page++){
+   const r=await fetcher('https://api.resend.com/domains?limit=100'+(after?'&after='+encodeURIComponent(after):''),{headers:{Authorization:'Bearer '+api},signal});
+   if(r.status===403)return result('restricted','The key cannot read domain status. Check waymaker.cx in Resend; a sending-only key may still send mail.');
+   if(r.status===401)return result('unauthorized','Resend rejected the configured credential. Check the provider configuration.');
+   if(!r.ok)return result('unavailable','Domain status is unavailable. Retry or check Resend directly.');
+   const body=await r.json();if(!Array.isArray(body.data))throw Error('Invalid provider response');
+   const domain=body.data.find(d=>d.name===senderDomain);
+   if(domain){
+    const domain_status=['not_started','pending','verified','failed','temporary_failure'].includes(domain.status)?domain.status:'unknown';
+    const sending=['enabled','disabled'].includes(domain.capabilities?.sending)?domain.capabilities.sending:'unknown';
+    const ready=domain_status==='verified'&&sending==='enabled';
+    return result(ready?'ready':'needs_review',ready?'Sender domain verified and sending enabled. This does not prove inbox delivery.':'Check the sender domain in Resend: verification or sending readiness is not confirmed.',{domain_status,sending});
+   }
+   if(body.has_more===false)return result('not_found','The configured account has no waymaker.cx sender domain. Check the provider configuration.');
+   const next=body.data.at(-1)?.id;if(!body.has_more||!next||next===after)break;after=next;
+  }
+  return result('incomplete','The domain check was incomplete. Check waymaker.cx in Resend directly.');
+ }catch{return result('unavailable','Could not check the email provider. Retry or check Resend directly.');}
+}
 export async function handleBusiness(request,{env,fetcher=fetch}={}){
  const reply=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
  const eq=encodeURIComponent,base=env('SUPABASE_URL'),key=env('SUPABASE_SERVICE_ROLE_KEY');
@@ -19,7 +45,7 @@ export async function handleBusiness(request,{env,fetcher=fetch}={}){
  const rpc=(name,data)=>db('rpc/superpowers_'+name,'POST',data);
  const config=async name=>(await db('superpowers_config?key=eq.'+eq(name)+'&select=value'))[0]?.value;
  async function rate(k,limit=5,seconds=3600){if(!await rpc('rate',{p_key:await hash(k),p_limit:limit,p_seconds:seconds}))throw Object.assign(Error('Too many attempts. Try again later.'),{status:429});}
- async function deliver(id,to,subject,body){if(to.endsWith('.invalid'))return false;const api=env('RESEND_API_KEY');if(!api)return false;try{const r=await fetcher('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+api,'Content-Type':'application/json','Idempotency-Key':id},body:JSON.stringify({from:'AI Superpower <noreply@waymaker.cx>',to:[to],reply_to:'info@waymaker.cx',subject,html:'<div style="font-family:Arial;line-height:1.7"><h2>AI Superpower</h2>'+body+'<p><a href="https://aisuperpower.cc/maker">Open your Maker Desk</a></p><p>This is a service message, not a newsletter signup.</p></div>'}),signal:AbortSignal.timeout(8000)});return r.ok;}catch{return false;}}
+ async function deliver(id,to,subject,body){if(to.endsWith('.invalid'))return false;const api=env('RESEND_API_KEY');if(!api)return false;try{const r=await fetcher('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+api,'Content-Type':'application/json','Idempotency-Key':id},body:JSON.stringify({from:sender,to:[to],reply_to:'info@waymaker.cx',subject,html:'<div style="font-family:Arial;line-height:1.7"><h2>AI Superpower</h2>'+body+'<p><a href="https://aisuperpower.cc/maker">Open your Maker Desk</a></p><p>This is a service message, not a newsletter signup.</p></div>'}),signal:AbortSignal.timeout(8000)});return r.ok;}catch{return false;}}
  async function mail(id,to,subject,body){if(to.endsWith('.invalid'))return false;await db('superpowers_mail?on_conflict=id','POST',{id,email:to,subject,body},'resolution=ignore-duplicates,return=minimal');const row=(await db('superpowers_mail?id=eq.'+eq(id)))[0];if(row.sent_at)return true;const ok=await deliver(id,to,subject,body);if(ok)await db('superpowers_mail?id=eq.'+eq(id),'PATCH',{sent_at:new Date().toISOString()});return ok;}
  try{
   if(request.method!=='POST')return reply({error:'Method not allowed'},405);
@@ -39,6 +65,13 @@ export async function handleBusiness(request,{env,fetcher=fetch}={}){
   if(action==='me'){const [submissions,owners,changes,orders]=await Promise.all([db('superpowers_submissions?contact_email=eq.'+eq(who.email)+'&select=id,name,status,public_note,published_tool_id&order=created_at.desc&limit=100'),db('superpowers_owners?email=eq.'+eq(who.email)+'&select=tool_id'),db('superpowers_changes?email=eq.'+eq(who.email)+'&select=id,tool_id,kind,status,note&order=created_at.desc&limit=100'),db('superpowers_orders?email=eq.'+eq(who.email)+'&select=id,offer,status,amount,scope,scheduled_at,payment_link,tool_id&order=created_at.desc&limit=100')]);const links=await config('checkout_links')||{};for(const o of orders){const l=links[o.offer];o.checkout_url=o.status==='approved'&&l?.id===o.payment_link?l.url+'?client_reference_id='+o.id+'&prefilled_email='+eq(who.email):null;delete o.payment_link;}const ids=[...new Set([...owners.map(o=>o.tool_id),...orders.filter(o=>o.tool_id&&['paid','fulfilled'].includes(o.status)).map(o=>o.tool_id)])];const window=reportWindow(),report=ids.length?await all('superpowers_metrics?tool_id=in.('+ids.map(eq).join(',')+')&day=gte.'+window.since+'&day=lte.'+window.until+'&order=day.desc,tool_id,kind'):{rows:[],truncated:false};return reply({email:who.email,admin,submissions,owners,changes,orders,metrics:report.rows,report_window:window,metrics_truncated:report.truncated});}
   if(action==='change'){await rate('change:'+who.email,10);const tid=slug(data.tool_id);if(!(await db('superpowers_tools?id=eq.'+tid+'&published=eq.true&select=id')).length)throw Error('Tool not found.');if(!['claim','update'].includes(data.kind))throw Error('Choose a claim or update.');if(data.kind==='update'&&!(await db('superpowers_owners?tool_id=eq.'+tid+'&email=eq.'+eq(who.email))).length)throw Error('Claim and verify ownership before editing.');const details=data.kind==='claim'?{evidence:text(data.evidence,30)}:{description:text(data.description,30),...extras(data)};const row=(await db('superpowers_changes','POST',{email:who.email,tool_id:tid,kind:data.kind,details}))[0];return reply({reference:row.id});}
   if(!admin)return reply({error:'Administrator access required.'},403);
+  if(action==='emailHealth'){await rate('email-health:'+who.email,12);return reply(await emailReadiness(env,fetcher));}
+  if(action==='testEmail'){
+   const id='email-test-'+(await hash(who.email)).slice(0,16)+'-'+uuid(data.request_id);
+   await rate('email-test:'+who.email,2);
+   const accepted=await mail(id,who.email,'AI Superpower email delivery check','<p>You requested this test from the Review Desk.</p><p>If this arrived in your inbox, receipt is confirmed for this address at this time. Check spam placement and the sender details too.</p><p>Reference: '+e(id)+'</p>');
+   return reply({email_sent:accepted,recipient:who.email,reference:id});
+  }
   if(action==='admin'){
    const window=reportWindow(),since=window.since+'T00:00:00Z';
    const paths={
