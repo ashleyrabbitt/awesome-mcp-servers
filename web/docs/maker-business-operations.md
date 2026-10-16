@@ -23,6 +23,14 @@ The review desk now includes queue totals, aging requests, paid services awaitin
 - Added official pricing models for Runway, Descript, Tally, HeyGen, Granola, Napkin AI and Jasper. The catalog now has 12 sourced pricing checks and 567 unverified listings. Jasper is classified Paid because a short free trial does not establish a continuing free plan.
 - Node validation: 71 tests pass, covering authorization, stale write rejection, pagination, UTC report windows, scoped exports, formula escaping, and verification invalidation. Build: 786 pages and 579 catalog tools. No new database schema, payment products, charges or customer emails are required for this release.
 
+## Scheduling and email readiness — 2026-10-16
+
+- The existing Waymaker calendar at `https://cal.com/waymakeragency/15min` is linked from Working Session and Work With Us. It offers a 15-minute scoping call; it does not book or charge for the $350 working session. The calendar showed future availability during review. No appointment was created.
+- The Review Desk includes an admin-only sender readiness check and an explicit self-test button. Readiness checks only report the `waymaker.cx` sender domain; restricted API permissions, missing configuration, unavailable responses and incomplete pagination stay distinct from readiness. No domain settings or credentials are changed.
+- The self-test sends only to the authenticated administrator address, ignores supplied recipient fields, uses an idempotent outbox reference and limits attempts to two per hour. An accepted test is not proof of inbox delivery. Check inbox/spam and sender details; use the existing email retry queue when acceptance fails. Automated tests mock the mail provider and send no customer emails.
+- An old synthetic submission was closed as declined, leaving one genuine submission. AirCube's official website, documentation and pricing were reviewed. Omit conflicting model-count claims; describe generation and API access factually, mark it documentation reviewed and untested, and classify usage-based pricing with starter credits as Paid.
+- Approved affiliate destinations still need actual partner approval and account-specific links. Do not invent commission URLs or describe calendar clicks as completed bookings.
+
 ## Runtime and deployment order
 
 1. Apply `web/db/business-schema.sql` to the existing Supabase project. This adds isolated operational tables, RLS, service-role-only functions and a pricing-aware public search RPC. It does not alter shared Supabase Auth settings.
