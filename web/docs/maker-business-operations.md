@@ -2,14 +2,16 @@
 
 ## Release state — 2026-10-16
 
-Configured for PR #19. Production deployment and final browser checks are the remaining release gate.
+PR #19 is merged and live on aisuperpower.cc. Railway deployment `3428de37-b40e-41fc-8fc1-3a48f0b5ddfd` reached SUCCESS for commit `9d9473be13ff4057bd7756c53e85a2dd605b02ed`.
 
 - All 63 Node tests pass, including the empty PostgREST insert response regression caught during live validation. The existing isolated PGlite/PostgreSQL integration suite passed migration execution, publishing, pricing search, reservation conflicts, payment matching/replays, reversed-before-paid events, rate limits and private-table permissions.
 - Applied the prepared schema through the Supabase SQL Editor after the migration connector approval expired. All operational tables have RLS enabled; anonymous and ordinary authenticated roles cannot read private requests or publish listings.
 - Deployed `superpowers-business` version 2 with its own bridge-key authentication. Stored the key digest and operator allowlist in private database tables; raw bridge key is in Railway only. Email capability is configured through the existing Resend service. Actual inbox delivery has not been tested.
-- Live synthetic integration passed code verification, session logout, founder isolation, administrator authorization, submission publishing, ownership claims, moderated updates, approved checkout links, payment fulfillment/replay and refunds. All synthetic operational records were removed. No real charge or customer email was sent.
+- Live synthetic integration passed code verification, session logout, founder isolation, administrator authorization, submission publishing, ownership claims, moderated updates, approved checkout links, payment fulfillment/replay and refunds. All synthetic operational records were removed. No real charge or customer email was sent. Public browser submission produced a receipt and a private pending record, then the record was removed. Production HTTP checks passed public pages, protected account/admin APIs, cross-site write rejection, secure session cookies/logout, and signed/invalid webhook handling.
 - Stripe one-time prices: featured `price_1UQsH9HwH8GUQ8qav8lk1uhs` ($49), working session `price_1UR8NZHwH8GUQ8qaQUXYiNo5` ($350), launch kit `price_1UR8NgHwH8GUQ8qae4auX4Qv` ($497). Payment Links are stored privately in `checkout_links`.
 - Stripe webhook `we_1UR8O7HwH8GUQ8qaCHtyZqNr` is enabled for the four specified events. Its signing secret is configured in Railway. Do not create duplicate prices, links or endpoints.
+
+- Pricing models for Cursor, Perplexity, ElevenLabs, Gamma and Make were checked against official publisher pricing pages and saved with sources and dates in `public/pricing-reviews.mjs` and the live catalog. The other 574 listings remain explicitly unverified. Existing newsletter acquisition uses the separate hosted MailerLite form; completed subscriptions are measured there. No affiliate partnerships or commission links have been activated by this release. Scheduling is agreed by an operator before payment, not a self-service calendar.
 
 ## Runtime and deployment order
 
