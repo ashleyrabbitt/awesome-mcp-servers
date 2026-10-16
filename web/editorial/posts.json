@@ -1,0 +1,144 @@
+[
+  {
+    "site": "aisuperpower",
+    "slug": "windsor-ai-and-data-connectors",
+    "title": "Windsor.ai and other connectors: give AI the context it needs",
+    "description": "Choose between marketing-data connectors, analytics tools, search-data tools, and workflow platforms using the job you need done.",
+    "quickAnswer": "A connector lets an assistant use authorized information or actions from another system. Choose by the task: Windsor.ai for supported cross-source business data, Analytics MCP for focused analytics reads, search-data tools for external search research, and workflow platforms for repeatable app actions.",
+    "category": "Connected AI",
+    "bodyHtml": "<p>An AI assistant can write a convincing explanation of why a campaign changed without ever seeing the campaign. That is where context becomes important. A useful connector gives the assistant a way to retrieve information from a system you authorize.</p>\n<p>The opportunity is practical: fewer manual exports, less repeated context, and a shorter path from a question to supporting records. The boundary is equally practical: connected information still needs interpretation, and some connections can take actions as well as read.</p>\n<h2>Think in jobs rather than app collections</h2>\n<p>Before adding another tool, finish this sentence: “I want help with this decision or task, using this information.” It might be explaining a website traffic change, comparing customer questions, preparing a campaign review, or creating a draft task from a meeting.</p>\n<p>Then ask which information is missing. If the answer is already in an approved document, a file upload may be enough. If the answer changes every day across several systems, a connector may be worth learning.</p>\n<p>Do not connect everything simply because the option exists. A small, understandable setup is easier to check and easier to maintain.</p>\n<h2>Compare the layers</h2>\n<table><thead><tr><th>Need</th><th>Useful category</th><th>Example to investigate</th></tr></thead><tbody><tr><td>Questions across marketing and business sources</td><td>Multi-source data connection</td><td>Windsor.ai</td></tr><tr><td>Questions about your Analytics property</td><td>Focused first-party analytics connection</td><td>Google Analytics MCP</td></tr><tr><td>External keyword and competitor research</td><td>Search-data connection</td><td>Semrush or Ahrefs MCP</td></tr><tr><td>Repeatable steps across apps</td><td>Workflow platform</td><td>n8n, Make, or Zapier</td></tr><tr><td>Learning from selected documents</td><td>Source-grounded research workspace</td><td>Gemini Notebook, formerly NotebookLM</td></tr></tbody></table>\n<p>These are categories, not a ranked list. Several can work together, but each solves a different part of the problem. Check current access requirements and the specific tools exposed by the connection.</p>\n<h2>Where Windsor.ai fits</h2>\n<p>Windsor's official documentation describes querying supported marketing, analytics, CRM, commerce, and warehouse sources through MCP. It also describes selected write actions on supported platforms. That makes permission review part of choosing the connection, not an optional detail after setup.</p>\n<p>Google's Analytics MCP is a narrower example focused on reading Analytics data. Semrush's MCP documentation describes read-only access to its search and competitive datasets. These distinctions help you choose the smallest capability that matches the task.</p>\n<p>A connector's availability does not mean your account has the required subscription, permission, or source connection. Verify those conditions in the official setup flow before planning a workflow around them.</p>\n<h2>A fictional first experiment</h2>\n<p>Imagine a small online workshop business asking, “Which page should we improve next?” The owner could begin with a recent Analytics export and known inquiry records. If the process becomes repetitive, she might investigate a connector.</p>\n<p>Her first connected question stays narrow: show the relevant landing pages for a complete period, their measured visits, and the defined inquiry action. She asks the assistant to show sources and counts, then checks one row against the original dashboard.</p>\n<p>If the assistant recommends a page because it has many visits and few inquiries, she reviews whether the page is intended to generate inquiries at all. A glossary page and a booking page have different jobs. Connected data improves the conversation; the owner still supplies the business context.</p>\n<p>She saves the prompt, source definitions, and result. Only after the report is useful does she consider a recurring workflow or additional accounts.</p>\n<h2>Try this connector-discovery prompt</h2>\n<blockquote><p>I want to accomplish [specific task]. The relevant information lives in [systems]. Explain which information you can access in this session, which access is missing, and whether available tools can read or change anything. Propose the smallest first test. For the result, show source, account, period, and missing information. Do not connect new accounts or make changes without the required authorization.</p></blockquote>\n<p>This prompt asks the assistant to describe its real capabilities rather than speaking as though every product mentioned in the conversation is already connected.</p>\n<h2>Check five things before relying on the answer</h2>\n<ol><li><strong>Identity.</strong> Is it using the right business, client, property, or account?</li><li><strong>Scope.</strong> Does it have only the information and actions needed for the task?</li><li><strong>Freshness.</strong> When was the data retrieved, and is the reporting period complete?</li><li><strong>Meaning.</strong> Are fields, estimates, and definitions explained correctly?</li><li><strong>Verification.</strong> Can you reproduce an important number or inspect the supporting record?</li></ol>\n<p>For tools that can write, review the actual proposed target and change. A general intention to improve marketing is not the same as approving a particular budget adjustment or customer message.</p>\n<h2>What to do when it disappoints</h2>\n<p>If the assistant cannot access a source, use an approved export or complete the official connection process. If the answer is generic, provide a clearer decision and narrower scope. If the data is wrong, inspect account selection, filters, and definitions before blaming the model.</p>\n<p>If a tool's setup is too complex for an occasional task, keep the manual method. The best tool is the one that makes a useful job easier to complete and check. Learning to choose that fit is a more durable advantage than collecting every new integration.</p>\n<p><em>This comparison reflects the linked official documentation. Features, account access, and permissions change; verify your current setup. The examples describe proposed uses, not connected-account tests.</em></p>",
+    "faq": [
+      {
+        "question": "What is the difference between a connector and an AI model?",
+        "answer": "A model generates or interprets content. A connector provides authorized access to information or actions in another system. The surrounding assistant coordinates their use."
+      },
+      {
+        "question": "Do connectors make answers automatically accurate?",
+        "answer": "No. They can provide relevant data, but the assistant can still select the wrong account, misread a metric, or draw an unsupported conclusion. Check important evidence."
+      },
+      {
+        "question": "Which connector should I learn first?",
+        "answer": "Choose the one that serves a recurring task with information you already understand. Reproduce a known result before expanding to unfamiliar sources or actions."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Windsor.ai MCP documentation",
+        "url": "https://mcp.windsor.ai/"
+      },
+      {
+        "label": "Google Analytics MCP",
+        "url": "https://developers.google.com/analytics/devguides/MCP"
+      },
+      {
+        "label": "Semrush MCP documentation",
+        "url": "https://www.semrush.com/kb/1618-mcp"
+      },
+      {
+        "label": "Zapier MCP documentation",
+        "url": "https://help.zapier.com/hc/en-us/articles/48308034391821-What-is-Zapier-MCP"
+      },
+      {
+        "label": "Ahrefs MCP documentation",
+        "url": "https://docs.ahrefs.com/en/mcp/docs/introduction"
+      },
+      {
+        "label": "Google: NotebookLM is now Gemini Notebook",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/"
+      }
+    ],
+    "publishedAt": "2026-10-16",
+    "imageAlt": "Colored data cables converge beside an open laptop on a vivid blue studio work surface.",
+    "imageWidth": 1536,
+    "imageHeight": 1024,
+    "minutes": 5
+  },
+  {
+    "site": "aisuperpower",
+    "slug": "ai-tool-test-bench",
+    "title": "Build a small test bench for every new AI tool you try",
+    "description": "Compare AI tools on your own tasks with a reusable brief, quality checks, difficult cases, and an honest record of effort.",
+    "quickAnswer": "Test a new AI tool on a small set of representative tasks with explicit acceptance criteria. Compare output quality, review effort, failures, access requirements, and total cost of use before making it part of your routine.",
+    "category": "AI practice",
+    "bodyHtml": "<p>A new AI tool can look extraordinary in someone else's demonstration. Your task may involve messier information, stricter requirements, or a less forgiving deadline. A small test bench helps you find out whether the tool is useful for your actual work.</p>\n<p>You do not need a research lab. You need a few representative tasks, a clear definition of good work, and a habit of recording what happened. That makes trying new tools a learning practice instead of a subscription collection.</p>\n<h2>Choose the task before the tool</h2>\n<p>Pick something you already understand well enough to evaluate. You might prepare a meeting brief, turn approved notes into a checklist, explain a technical concept, or compare a small set of data rows.</p>\n<p>Write down the audience, desired output, source material, constraints, and things the tool must not assume. The more clearly you define the task, the easier it becomes to compare tools fairly.</p>\n<p>If you cannot tell whether the result is good, choose a different first task or bring in someone who can. An impressive answer in an unfamiliar field can be difficult to judge.</p>\n<h2>Create three reusable cases</h2>\n<table><thead><tr><th>Case</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td>Ordinary</td><td>Check the basic job</td><td>Clear notes with all required facts</td></tr><tr><td>Incomplete</td><td>Check uncertainty handling</td><td>A missing owner or unanswered question</td></tr><tr><td>Conflicting</td><td>Check judgment and recovery</td><td>Two sources disagree about a deadline</td></tr></tbody></table>\n<p>Use synthetic or properly approved material when sensitive information is unnecessary. Label fictional examples clearly. Keep the original cases unchanged so you can repeat the test when a tool or your instructions change.</p>\n<h2>Define the quality checks first</h2>\n<p>For a meeting brief, you might require accurate decisions, correctly assigned actions, visible unknowns, and a short readable format. For a learning task, you might require a correct explanation, a source, an example, and a question that checks understanding.</p>\n<p>Separate critical failures from preferences. Inventing a commitment is a serious error. Using a slightly different heading may be easy to fix. A tool that writes beautifully but fails a critical check should not win because its style feels impressive.</p>\n<p>Include the review burden. If you must inspect every sentence against the source, that effort belongs in the comparison.</p>\n<h2>A fictional comparison</h2>\n<p>Imagine a consultant testing two assistants on the same approved project notes. Tool A produces a polished summary in one minute but invents a deadline in the incomplete case. Tool B takes two minutes and marks the deadline unknown.</p>\n<p>The consultant spends 12 minutes correcting and checking A's output and five minutes reviewing B's. For these illustrative cases, B's total effort is lower and its handling of uncertainty is more useful.</p>\n<p>That does not establish that B is universally better. It suggests that B fits this task under these conditions. The consultant repeats the comparison with another representative case before changing her routine.</p>\n<p>She also records whether the tools can use the required file type, whether the account permits the work, and whether the result can be exported. A good answer trapped in an awkward process may not be the best practical choice.</p>\n<h2>Use this evaluation prompt</h2>\n<blockquote><p>Complete this task using only the supplied material. Follow the acceptance checklist below. Mark missing information unknown and identify conflicting facts instead of choosing silently. After producing the result, list any assumptions and the checks a human should perform. Do not grade yourself as successful merely because the output sounds complete.</p></blockquote>\n<p>Then use a separate review pass: “Check the output against the original material and acceptance criteria. Identify specific unsupported statements and omissions.” A second AI pass can help, but keep human inspection for the important checks.</p>\n<h2>Run the comparison fairly</h2>\n<ol><li><strong>Use the same task and sources.</strong> Avoid giving one tool more context than another without recording the difference.</li><li><strong>Record the configuration.</strong> Note the product, available model or mode, connected tools, and relevant settings.</li><li><strong>Time the full process.</strong> Include preparation, waiting, review, correction, and export.</li><li><strong>Inspect the difficult cases.</strong> Watch whether the tool admits missing information or improvises.</li><li><strong>Record the decision.</strong> Keep, reject, or investigate further for this particular task.</li></ol>\n<p>A small test is not a statistically comprehensive benchmark. Treat it as practical evidence for your own workflow and remain willing to change your conclusion.</p>\n<h2>Build a learning routine around the results</h2>\n<p>Spend a short, bounded period exploring a new capability, then apply it to one existing test. Write what improved, what failed, and what you learned about the task itself. You can try something new without switching your whole working system.</p>\n<p>At the end of the week, keep one useful instruction or method. Remove tools that add complexity without a clear benefit. A daily learning habit can include reading documentation, practicing a prompt, or checking a source; it does not require a new account every day.</p>\n<h2>Recover from misleading results</h2>\n<p>If a tool performs well only after extensive coaching, record that coaching as part of the setup. If results vary, repeat the important cases and inspect the pattern. If an update changes behavior, rerun your saved tests before trusting the workflow again.</p>\n<p>If the tool gives you a confident answer without evidence, ask for the source or a clear statement of uncertainty. If it cannot meet a critical requirement, narrow its role to drafting or preparation.</p>\n<p>Your aim is to become a better judge of AI assistance. That skill travels across products, model changes, and new interfaces. It lets you explore opportunities with curiosity while keeping the work grounded in what actually helps.</p>",
+    "faq": [
+      {
+        "question": "How many test cases do I need?",
+        "answer": "Start with a few representative cases, including incomplete and conflicting inputs. Add cases when a real failure reveals an important gap; a tiny test is useful but not a universal benchmark."
+      },
+      {
+        "question": "Can AI evaluate another AI tool?",
+        "answer": "It can help identify issues, especially against explicit criteria, but it can also miss or introduce errors. Keep human judgment for important facts and consequences."
+      },
+      {
+        "question": "Should I try a new tool every day?",
+        "answer": "You can learn daily without changing tools daily. Repeating a useful exercise, checking documentation, or improving one workflow may create more value than constant switching."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Anthropic evaluation guidance",
+        "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+      },
+      {
+        "label": "Microsoft appropriate reliance research",
+        "url": "https://www.microsoft.com/en-us/research/articles/appropriate-reliance-research-initiative"
+      },
+      {
+        "label": "Microsoft human-AI interaction guidelines",
+        "url": "https://www.microsoft.com/en-us/research/articles/guidelines-for-human-ai-interaction-eighteen-best-practices-for-human-centered-ai-design/"
+      }
+    ],
+    "publishedAt": "2026-10-19T09:00:00Z",
+    "imageAlt": "A magnifying glass and three test notebooks beside an unbranded laptop on a bold editorial desk.",
+    "imageWidth": 1536,
+    "imageHeight": 1024,
+    "minutes": 6
+  },
+  {
+    "site": "aisuperpower",
+    "slug": "rag-mcp-agents-explained",
+    "title": "RAG, MCP, and agents explained through one everyday task",
+    "description": "Understand three common AI terms by following a practical example, with clear differences between finding information, using tools, and choosing actions.",
+    "quickAnswer": "RAG retrieves relevant information to support an answer. MCP provides a standard way for an assistant to access external tools and data. An agent can choose steps and tools while pursuing a task. They can work together, but each solves a different problem.",
+    "category": "AI explained",
+    "bodyHtml": "<p>AI conversations can become an alphabet soup quickly. Someone mentions RAG, someone else recommends an MCP server, and another person says you need an agent. It is easier to understand these ideas by following one ordinary task.</p>\n<p>Imagine a small company wants help answering, “What should we prepare before a customer workshop?” The answer may depend on a current service guide, customer notes, a calendar, and a project checklist. Each concept helps with a different part of that work.</p>\n<h2>RAG: bring relevant information into the answer</h2>\n<p>Retrieval-augmented generation, usually shortened to RAG, combines finding relevant information with generating a response. A system retrieves useful passages or records and supplies them as context for the model's answer.</p>\n<p>In the workshop example, it might retrieve the approved preparation checklist and the relevant service policy. The assistant can then explain what applies to this workshop instead of relying only on general knowledge.</p>\n<p>The quality of the answer still depends on the sources, retrieval, and interpretation. If an old policy is retrieved, the answer may be outdated. If the relevant exception is missing, the answer may sound complete while overlooking something important.</p>\n<p>A useful question is, “Which source supports this requirement, and is it the current version?” Grounding an answer in documents makes verification possible; it does not remove the need to verify.</p>\n<h2>MCP: a common interface to tools and data</h2>\n<p>Model Context Protocol, or MCP, is an open standard for connecting assistants with external tools and data sources. Think of it as a shared way to describe what tools are available and how the assistant can call them.</p>\n<p>In the example, an authorized connection might let the assistant read a calendar or retrieve project records. The connection could expose only reads, or it might include actions that change information. The exact capabilities depend on the server and permissions.</p>\n<p>MCP is not itself the model, the source of truth, or a promise of safe behavior. It is the interface. You still need to understand which account is connected, what data is available, and which actions require review.</p>\n<h2>Agents: choose steps toward a goal</h2>\n<p>An agent can decide which steps and tools to use while working toward a task. It may inspect a result, identify missing information, and choose another step. A fixed workflow follows a more predetermined sequence.</p>\n<p>For workshop preparation, a fixed workflow might always retrieve the checklist and create a draft. An agent might first inspect the workshop type, decide which guide applies, identify missing customer information, and prepare a question for a reviewer.</p>\n<p>More flexibility introduces more possible paths. That is useful for some tasks, but it also increases the importance of clear limits, observable results, and recovery when the agent takes an unhelpful route.</p>\n<h2>See the differences together</h2>\n<table><thead><tr><th>Concept</th><th>Main job</th><th>Workshop example</th></tr></thead><tbody><tr><td>RAG</td><td>Retrieve context for an answer</td><td>Find the approved preparation guidance</td></tr><tr><td>MCP</td><td>Connect tools and data through a standard interface</td><td>Access authorized project records</td></tr><tr><td>Agent</td><td>Choose steps while pursuing a task</td><td>Identify missing details and prepare the next action</td></tr><tr><td>Workflow</td><td>Coordinate defined process steps</td><td>Draft, review, approve, and record the checklist</td></tr></tbody></table>\n<p>You can use one without all the others. A simple document question may need only relevant source material. A predictable reminder may need an ordinary workflow. Avoid adding an agent when a clear rule solves the problem well.</p>\n<h2>A worked example with a useful stopping point</h2>\n<p>Suppose the fictional company has an approved guide requiring a participant list and a sample task. The project record includes the list but no sample. The assistant retrieves the guide, checks the record, and prepares a draft request for the missing sample.</p>\n<p>The correct stopping point is a reviewable draft. The system should not claim that the customer has supplied the sample, invent its contents, or send a message unless that action is appropriately authorized.</p>\n<p>If the guide and project record disagree about the workshop duration, the assistant should flag the conflict. A helpful result can be “We need a person to resolve this,” rather than an apparently complete plan based on a silent guess.</p>\n<h2>Use this plain-language setup prompt</h2>\n<blockquote><p>Help me design assistance for [task]. Explain which information must be retrieved, which tools are needed, and whether the steps can be a fixed workflow. Identify where an agent would add useful flexibility. List what the system may read, what it may change, what needs approval, and what should happen when sources disagree. Use a small example and avoid unnecessary technical complexity.</p></blockquote>\n<h2>Check the system with practical questions</h2>\n<ol><li><strong>Can I inspect the evidence?</strong> Important answers should point to the relevant source or record.</li><li><strong>Can I see the scope?</strong> Know which accounts, files, and actions are available.</li><li><strong>Can I correct a mistake?</strong> Provide a clear way to edit, reject, or stop.</li><li><strong>Can it recognize missing information?</strong> Test a case where the right answer is uncertainty.</li><li><strong>Can someone recover a failed run?</strong> Keep enough state and context to avoid repeating consequential actions.</li></ol>\n<p>Test these questions with ordinary, incomplete, and conflicting examples. A demonstration that succeeds once on perfect input does not establish reliability.</p>\n<h2>Use the terms to make better choices</h2>\n<p>If answers are generic, you may need better context. If information lives in another app, you may need a connection. If the process is repetitive, you may need a workflow. If the next step genuinely depends on what the system discovers, an agent may be useful.</p>\n<p>Understanding that distinction helps you ask better questions when evaluating a product or planning your own. You can start small, learn the parts, and add complexity only when it solves a problem you can describe and check.</p>",
+    "faq": [
+      {
+        "question": "Does RAG eliminate hallucinations?",
+        "answer": "No. It can provide relevant context, but retrieval may miss information and the model may misinterpret it. Check sources, freshness, and unsupported statements."
+      },
+      {
+        "question": "Does MCP let an assistant access everything?",
+        "answer": "No. Access depends on the connected server, account authorization, and available tools. Review the actual scope and read/write capabilities."
+      },
+      {
+        "question": "When do I need an agent instead of a workflow?",
+        "answer": "Consider an agent when the next useful step depends on interpreting changing information. Use a simpler fixed workflow when the process can be specified reliably in advance."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Google Cloud retrieval-augmented generation",
+        "url": "https://cloud.google.com/use-cases/retrieval-augmented-generation"
+      },
+      {
+        "label": "Model Context Protocol introduction",
+        "url": "https://blog.modelcontextprotocol.io/posts/welcome-to-mcp-blog/"
+      },
+      {
+        "label": "Anthropic effective-agent guidance",
+        "url": "https://resources.anthropic.com/building-effective-ai-agents"
+      },
+      {
+        "label": "MCP authorization guidance",
+        "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/docs/docs/2026-07-28/tutorials/security/authorization.mdx"
+      }
+    ],
+    "publishedAt": "2026-10-22T09:00:00Z",
+    "imageAlt": "Three connected physical stations suggest reference knowledge, tool connections and a reviewed action.",
+    "imageWidth": 1536,
+    "imageHeight": 1024,
+    "minutes": 6
+  }
+]

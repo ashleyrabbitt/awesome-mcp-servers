@@ -1,3 +1,4 @@
+import {serveEditorial,attachEditorialDiscovery} from './editorial/server.mjs';
 import {businessRequest} from './business-api.mjs';
 import {dynamicTool,dynamicSitemap,toolRedirect} from './dynamic-catalog.mjs';
 import {submissionRequest,createLimiter} from './submission-api.mjs';
@@ -10,6 +11,8 @@ import {fileURLToPath} from 'node:url';
 const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
 const mime={'.csv':'text/csv; charset=utf-8','.pdf':'application/pdf','.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
 export function createServer({saveSubmission}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
+  if(await serveEditorial(req,res))return;
+  attachEditorialDiscovery(req,res);
  const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' mailto:"};
  if(/^\/api\/(maker\/|stripe\/webhook|promotions)/.test(req.url)){const r=await businessRequest(req);res.writeHead(r.status,{...security,'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex',...r.headers});res.end(req.method==='HEAD'?'':JSON.stringify(r.body));return}
  if(req.method==='POST'&&req.url==='/api/submissions'){try{const result=await submissionRequest(req,{save:saveSubmission,allow:allowSubmission});res.writeHead(result.status,{...security,'Content-Type':'application/json','Cache-Control':'no-store','X-Robots-Tag':'noindex'});res.end(JSON.stringify(result.body));}catch{res.writeHead(400,{...security,'Content-Type':'application/json'});res.end(JSON.stringify({error:'Unable to read the form. Please retry.'}));}return}
