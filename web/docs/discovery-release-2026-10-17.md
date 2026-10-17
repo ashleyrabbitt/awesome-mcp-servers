@@ -24,11 +24,12 @@ No additional secrets or paid providers are required. Existing sign-in mail uses
 ## Validation
 
 - App build: 817 routes, 321 indexable static URLs (dynamic editorial routes remain separate).
-- 94 application tests, including 15 new discovery/access-control tests.
+- 95 application tests, including 15 new discovery/access-control tests and a runtime check that copies the exact Docker artifact, builds it and starts its HTTP server.
 - Four editorial tests; fixed a pre-existing calendar-sensitive test that assumed the second scheduled article was always unpublished.
 - Isolated PostgreSQL verification: RLS/grants, public field projection, pending content, unique votes, active/expired/future offer windows, popularity thresholds, trial filters and account conflict handling.
 - Production read-back confirms the five new tables deny direct anonymous/authenticated reads. Security advisor notices for these private tables are informational “RLS enabled, no policy”; deny-by-default is intentional because all access uses the authenticated bridge.
 - Visual preview exercised natural-language search and corrected generic-name matching. Production health and public routes must be checked after Railway reaches SUCCESS.
+- The first deployment omitted `dynamic-discovery.mjs` from the explicit Docker copy list. Railway's health check kept the previous release serving. The copy list and the deployment-artifact startup regression check were corrected before retrying.
 
 ## Commercial dependencies
 
