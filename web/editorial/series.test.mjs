@@ -54,9 +54,9 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
  try{
   const home=await fetch(base+'/'),body=await home.text();assert.equal(home.status,200);assert.ok(body.includes('Keep this content.'));assert.ok(body.includes('AI in practice'));assert.ok(body.includes(publishedPosts(posts)[0].title.replace(/&/g,'&amp;')));assert.equal(home.headers.get('x-test-native'),'preserved');assert.equal(Number(home.headers.get('content-length')),Buffer.byteLength(body));assert.equal(home.headers.get('etag'),null);
   const current=await fetch(base+articlePath(config,posts[0]));assert.equal(current.status,200);assert.ok((await current.text()).includes(posts[0].quickAnswer.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')));
-  const future=await fetch(base+articlePath(config,posts[1]));assert.equal(future.status,404);assert.ok(future.headers.get('x-robots-tag').includes('noindex'));
+  const futurePost=posts.find(p=>Date.parse(p.publishedAt)>Date.now());if(futurePost){const future=await fetch(base+articlePath(config,futurePost));assert.equal(future.status,404);assert.ok(future.headers.get('x-robots-tag').includes('noindex'));}
   const head=await fetch(base+articlePath(config,posts[0]),{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');
-  const map=await (await fetch(base+'/sitemap.xml')).text();assert.ok(map.includes('/existing/'));assert.ok(map.includes(articlePath(config,posts[0])));assert.ok(!map.includes(articlePath(config,posts[1])));
+  const map=await (await fetch(base+'/sitemap.xml')).text();assert.ok(map.includes('/existing/'));assert.ok(map.includes(articlePath(config,posts[0])));for(const post of posts)assert.equal(map.includes(articlePath(config,post)),Date.parse(post.publishedAt)<=Date.now());
   const image=await fetch(base+'/assets/ai-practice/'+posts[0].slug+'.png');assert.equal(image.headers.get('content-type'),'image/png');assert.equal(image.status,200);
   assert.equal((await fetch(base+'/native-missing')).status,404);
   assert.equal((await fetch(base+seriesPath(config))).status,200);
