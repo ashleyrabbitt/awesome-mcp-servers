@@ -5,8 +5,15 @@ import {answers} from './answers.mjs';
 import {missions} from './discovery.mjs';
 import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
-const privatePaths=new Set(['/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
+const privatePaths=new Set(['/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/search':'Describe your task and find a shortlist of AI tools with fit explanations, limitations to check and practical next steps.',
+'/alternatives':'Compare AI tool alternatives by real task, pricing verification, limitations and publisher evidence.',
+'/updates':'Recent AI Superpower directory reviews and listing updates, plus popularity based on qualifying outbound clicks.',
+'/requests':'Ask for an AI tool or workflow for a specific task and learn from moderated public answers.',
+'/free-tools':'Free AI prompt builders, workflow planners, tool comparison worksheets and time-savings calculators.',
+'/deals':'Verified AI tool offers with eligibility, expiration dates and clear affiliate or sponsor disclosures.',
+'/media-kit':'AI Superpower sponsorship options, founder launch services and transparent reporting expectations.',
 '/advertise':'Promote your AI tool with a labeled directory placement, a founder launch kit or a Power Notes sponsorship. Free listings remain available.',
 '/work-with-us':'Get practical AI help with a working session, founder launch kit, workflow setup or team training. Confirm scope and availability before payment.',
 '/finder':'Find a practical AI task match based on your work, goal, budget approach and setup experience. Save tool starting points and follow a free learning path.',

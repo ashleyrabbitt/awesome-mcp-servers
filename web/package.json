@@ -1,6 +1,16 @@
 {
-  "name": "superpowers-by-waymaker", "version": "0.1.0", "private": true, "type": "module",
+  "name": "superpowers-by-waymaker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
   "description": "A curated, editorial discovery experience for AI tools and workflows.",
-  "scripts": {"start":"node server.mjs","build":"node scripts/build.mjs && node scripts/build-llms.mjs dist https://aisuperpower.cc","test":"node --test test/*.test.mjs"},
-  "engines": {"node": ">=22"}
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs && node scripts/build-llms.mjs dist https://aisuperpower.cc",
+    "test": "node --test test/*.test.mjs",
+    "dev": "PORT=4173 node server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
