@@ -1,0 +1,3 @@
+import {businessCall} from './business-api.mjs';
+// The database owns due dates and leases; multiple/restarted web instances cannot claim the same delivery.
+export function startDigestWorker({call=businessCall,interval=900000}={}){let busy=false,stopped=false;const tick=async()=>{if(busy||stopped)return;busy=true;try{await call('digestTick');}catch{console.error('Tool digest dispatcher unavailable; will retry.');}finally{busy=false;}};const timer=setInterval(tick,interval);timer.unref?.();const initial=setTimeout(tick,30000);initial.unref?.();return ()=>{stopped=true;clearInterval(timer);clearTimeout(initial);};}

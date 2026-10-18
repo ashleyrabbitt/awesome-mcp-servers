@@ -1,3 +1,4 @@
+import {usefulRoutes,playbooks,playbookMarkdown} from '../public/useful-work.mjs';
 import {growthRoutes} from '../public/discovery-plus.mjs';
 import {comparisons,worksheets,worksheetMarkdown} from '../public/power-path.mjs';
 import {journeys,reportingSample} from '../public/mission-journeys.mjs';
@@ -17,7 +18,7 @@ import {renderRoute} from '../public/views.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const items=[...curated,...JSON.parse(await readFile(path.join(root,'public/imported.json'),'utf8'))];
 const template=await readFile(path.join(root,'public/index.html'),'utf8');
-const routes=[...growthRoutes,'/maker','/admin','/work-with-us','/advertise','/listing-policy','/my-kit','/first-win','/comparisons','/worksheets','/community',...comparisons.map(c=>'/comparisons/'+c.id),...worksheets.map(w=>'/worksheets/'+w.id),'/journeys','/comparison-challenge',...journeys.map(j=>'/journeys/'+j.id),'/product-hunt-picks','/working-session','/workshops/campaign','/kits','/kits/campaign','/kits/customer-research','/kits/automation','/opportunity-finder','/field-guide','/services','/tool-trial','/discoveries','/reviewed','/answers','/newsletter',...answers.map(a=>'/answers/'+a.id),'/workflow-lab','/time-savings','/resources',...howTos.map(h=>'/how-to/'+h.id),...resourceKits.map(r=>'/resources/'+r.id),...promptTemplates.map(p=>'/prompts/'+p.id),'/repositories','/power-map','/collections',...powerCollections.map(c=>'/collections/'+c.id),'/planner','/prompts','/hq','/shared','/missions','/stacks',...missions.map(m=>'/missions/'+m.id),...missions.filter(m=>m.steps).map(m=>'/stacks/'+m.id),'/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
+const routes=[...usefulRoutes,...growthRoutes,'/maker','/admin','/work-with-us','/advertise','/listing-policy','/my-kit','/first-win','/comparisons','/worksheets','/community',...comparisons.map(c=>'/comparisons/'+c.id),...worksheets.map(w=>'/worksheets/'+w.id),'/journeys','/comparison-challenge',...journeys.map(j=>'/journeys/'+j.id),'/product-hunt-picks','/working-session','/workshops/campaign','/kits','/kits/campaign','/kits/customer-research','/kits/automation','/opportunity-finder','/field-guide','/services','/tool-trial','/discoveries','/reviewed','/answers','/newsletter',...answers.map(a=>'/answers/'+a.id),'/workflow-lab','/time-savings','/resources',...howTos.map(h=>'/how-to/'+h.id),...resourceKits.map(r=>'/resources/'+r.id),...promptTemplates.map(p=>'/prompts/'+p.id),'/repositories','/power-map','/collections',...powerCollections.map(c=>'/collections/'+c.id),'/planner','/prompts','/hq','/shared','/missions','/stacks',...missions.map(m=>'/missions/'+m.id),...missions.filter(m=>m.steps).map(m=>'/stacks/'+m.id),'/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
 await rm(path.join(root,'dist'),{recursive:true,force:true});await cp(path.join(root,'public'),path.join(root,'dist'),{recursive:true});
 const origin=process.env.SITE_URL?new URL(process.env.SITE_URL).origin:siteOrigin;
 if(!origin.startsWith('https://'))throw new Error('SITE_URL must use HTTPS');
@@ -32,6 +33,7 @@ for(const route of [...routes,'/404']){
 }
 await mkdir(path.join(root,'dist/downloads'),{recursive:true});
 await writeFile(path.join(root,'dist/downloads/reporting-challenge.csv'),reportingSample+'\n');
+for(const p of playbooks)await writeFile(path.join(root,'dist/downloads',p.id+'.md'),playbookMarkdown(p));
 for(const w of worksheets)await writeFile(path.join(root,'dist/downloads',w.id+'.md'),worksheetMarkdown(w));
 for(const r of resourceKits)await writeFile(path.join(root,'dist/downloads',r.id+'.md'),resourceMarkdown(r));
 await writeFile(path.join(root,'dist/routes.json'),JSON.stringify(routes));

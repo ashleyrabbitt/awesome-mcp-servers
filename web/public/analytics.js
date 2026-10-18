@@ -1,5 +1,6 @@
 // Production Google Analytics tag. History-based page views use GA4 Enhanced Measurement.
 (() => {
+  if (location.pathname === '/digest/unsubscribe') return;
   if (!['aisuperpower.cc', 'www.aisuperpower.cc'].includes(location.hostname)) return;
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { window.dataLayer.push(arguments); };
