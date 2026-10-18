@@ -26,3 +26,10 @@ Live Chrome checks confirmed guided selections, checklist persistence after relo
 The admin discovery dashboard now previews actual published listing changes and can send the weekly digest layout as an explicitly labeled one-time test to the signed-in administrator only. It does not change subscription preferences or contact customers. Retries reuse the original stored message to preserve provider idempotency even if the public change feed changes. The normal digest retains its unsubscribe links.
 
 The browser is currently signed out. Completing sign-in is required for the remaining authenticated browser walkthrough and inbox check of the new digest test. No merchant-specific approval or referral link was found in the focused connected-mail search. The existing application drafts remain drafts. No vendor benchmark runs have been represented as completed.
+
+
+## Conversion follow-through — October 18, America/New_York
+
+A live browser check found that workflow help links reached a static service page before query values were applied. The later catalog refresh preserved that blank form, so the workflow brief was lost; offer selections could also revert to their defaults. Service and advertising pages now render their URL context on initial load, and offer-card links retain recognized workflow and tool context. The existing catalog refresh still preserves entered form values.
+
+The October 18 read-only operations check found one pending submission, no service orders, no digest subscriptions or queued digests, and no pending transactional mail. Private sharing and the digest self-test still require owner sign-in. No customer inquiry, subscription, email campaign, or payment was created during this check.
