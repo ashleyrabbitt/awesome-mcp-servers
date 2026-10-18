@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {Readable} from 'node:stream';
 import {readFile} from 'node:fs/promises';
 import {playbooks,roleKits,usefulRoutes,stackCost,chooseStarter,playbookMarkdown} from '../public/useful-work.mjs';
-import {communityAction,digestItems,digestContent,notificationTopics} from '../functions/superpowers-business/community.mjs';
+import {communityAction,digestItems,digestContent,digestPreview,notificationTopics} from '../functions/superpowers-business/community.mjs';
 import {safeURL,handleBusiness,hash} from '../functions/superpowers-business/business.mjs';
 import {curated} from '../public/catalog.mjs';
 import {topics} from '../public/discovery-plus.mjs';
@@ -87,4 +87,11 @@ test('edge bridge still authenticates public kit and notification requests',asyn
  const bridge='a'.repeat(64),digest=await hash(bridge);const fetcher=async url=>{if(url.includes('superpowers_config'))return Response.json([{value:digest}]);throw Error('Must not access data');};
  const req=new Request('https://test.invalid',{method:'POST',headers:{'x-superpowers-key':'b'.repeat(64)},body:JSON.stringify({action:'digestTick'})});
  assert.equal((await handleBusiness(req,{env:()=> 'secret',fetcher})).status,401);
+});
+
+test('admin digest preview includes only real public changes and escapes their content',async()=>{
+ const preview=await digestPreview(async path=>path.startsWith('superpowers_tool_events')?[{tool_id:'make',summary:'<img src=x>',created_at:'2026-10-18'},{tool_id:'private',summary:'PRIVATE_CONTENT',created_at:'2026-10-18'}]:[{id:'make',data:{name:'<script>Make</script>'}}]);
+ assert.equal(preview.items.length,1);const rendered=digestContent(preview);
+ assert.match(rendered.html,/&lt;script/);assert.ok(!rendered.html.includes('<img')&&!rendered.html.includes('PRIVATE_CONTENT'));
+ assert.equal(rendered.subject,'AI Superpower digest delivery test');assert.ok(!rendered.text.includes('Unsubscribe:'));
 });

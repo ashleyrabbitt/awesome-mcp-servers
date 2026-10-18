@@ -23,13 +23,15 @@ test('readiness distinguishes missing config, restricted access, failure and dis
  assert.equal((await emailReadiness(env,async()=>Response.json({has_more:false,data:[{name:'waymaker.cx',status:'verified'}]}))).status,'needs_review');
  let pages=0;assert.equal((await emailReadiness(env,async()=>Response.json({has_more:true,data:[{id:'page-'+(++pages),name:'other.example'}]}))).status,'incomplete');assert.equal(pages,5);
 });
-async function fixture({admin=true,authenticated=true,rateAllowed=true,accepted=true}={}){
+async function fixture({admin=true,authenticated=true,rateAllowed=true,accepted=true,events=[],liveTools=[]}={}){
  const keyHash=await hash(key),outbox=new Map(),sent=[],rates=[];
  const fetcher=async(url,options={})=>{
   if(url.includes('superpowers_config'))return Response.json([{value:keyHash}]);
   if(url.includes('superpowers_sessions'))return Response.json(authenticated?[{email:'operator@example.com'}]:[]);
   if(url.includes('superpowers_admins'))return Response.json(admin?[{email:'operator@example.com'}]:[]);
   if(url.includes('rpc/superpowers_rate')){rates.push(JSON.parse(options.body));return Response.json(rateAllowed);}
+  if(url.includes('superpowers_tool_events'))return Response.json(events);
+  if(url.includes('superpowers_tools'))return Response.json(liveTools);
   if(url.includes('superpowers_mail')){
    const body=options.body?JSON.parse(options.body):null;
    if(options.method==='POST'){if(!outbox.has(body.id))outbox.set(body.id,body);return new Response(null,{status:201});}
@@ -44,7 +46,7 @@ async function fixture({admin=true,authenticated=true,rateAllowed=true,accepted=
  return {sent,outbox,rates,call:(action,data={})=>handleBusiness(new Request('https://example.invalid',{method:'POST',headers:{'x-superpowers-key':key},body:JSON.stringify({action,data,session})}),{env,fetcher})};
 }
 test('both email operations require a real session and separate admin authorization',async()=>{
- for(const action of ['emailHealth','testEmail'])for(const [settings,status]of [[{authenticated:false},401],[{admin:false},403]]){
+ for(const action of ['emailHealth','testEmail','testDigest'])for(const [settings,status]of [[{authenticated:false},401],[{admin:false},403]]){
   const f=await fixture(settings);assert.equal((await f.call(action,{request_id,admin:true,email:'victim@example.com'})).status,status);assert.equal(f.sent.length,0);assert.equal(f.outbox.size,0);assert.equal(f.rates.length,0);
  }
 });
@@ -60,10 +62,27 @@ test('a failed test remains retryable and does not claim delivery',async()=>{
 });
 test('public email routes preserve cookie authentication and reject cross-site requests',async()=>{
  const req=(path,headers={})=>Object.assign(Readable.from([JSON.stringify({session,action:'admin',request_id})]),{url:path,method:'POST',headers:{'content-type':'application/json',...headers}});
- for(const [route,action]of [['email-health','emailHealth'],['test-email','testEmail']]){
+ for(const [route,action]of [['email-health','emailHealth'],['test-email','testEmail'],['test-digest','testDigest']]){
   let seen;const call=async(...args)=>{seen=args;return {ok:true}};
   assert.equal((await businessRequest(req('/api/maker/'+route,{origin:'https://evil.invalid'}),{call})).status,403);assert.equal(seen,undefined);
   await businessRequest(req('/api/maker/'+route),{call});assert.equal(seen[0],action);assert.equal(seen[2],'');
   await businessRequest(req('/api/maker/'+route,{cookie:'sp_session='+session}),{call});assert.equal(seen[2],session);
  }
+});
+
+test('digest test sends only to the authenticated admin and does not create a subscription',async()=>{
+ const f=await fixture();
+ const d=await (await f.call('testDigest',{request_id,email:'victim@example.com',recipient:'victim@example.com',preview:false})).json();
+ assert.equal(d.email_sent,true);assert.equal(d.recipient,'operator@example.com');
+ assert.deepEqual(f.sent[0].body.to,['operator@example.com']);assert.equal(f.sent[0].body.subject,'AI Superpower digest delivery test');
+ assert.match(f.sent[0].body.html,/does not subscribe you or change email preferences/);
+ assert.match(f.sent[0].body.html,/No reviewed changes/);assert.ok(!f.sent[0].body.html.includes('/digest/unsubscribe#'));
+ await f.call('testDigest',{request_id});assert.equal(f.sent.length,1);
+});
+test('digest test retries preserve the original content for provider idempotency',async()=>{
+ const events=[];const f=await fixture({accepted:false,events,liveTools:[{id:'make',data:{name:'Make'}}]});
+ await f.call('testDigest',{request_id});
+ events.push({tool_id:'make',summary:'A newly reviewed change',created_at:'2026-10-18'});
+ await f.call('testDigest',{request_id});
+ assert.equal(f.sent.length,2);assert.equal(f.sent[0].id,f.sent[1].id);assert.deepEqual(f.sent[0].body,f.sent[1].body);
 });
