@@ -24,3 +24,22 @@ test('login accepts a successful empty PostgREST insert response before sending 
  assert.equal(r.status,200);assert.equal(delivered,true);
 });
 test('listing resources reject active URLs and paid pages do not expose immediate checkout',()=>{assert.throws(()=>extras({demo_url:'javascript:alert(1)'}));assert.throws(()=>extras({screenshot_url:'https://a:password@example.com'}));assert.equal(extras({pricing_model:'invented'}).pricing_model,'Unknown');assert.throws(()=>makeTool({},{slug:'../../admin'}));const html=businessPage('/advertise');assert.match(html,/confirm scope/);assert.ok(!html.includes('buy.stripe.com'));const account=accountView({email:'<img src=x>',submissions:[],owners:[],changes:[],orders:[],metrics:[]},[]);assert.ok(!account.includes('<img src=x>'));});
+
+test('service offer links retain a known workflow and tool when switching offers',()=>{
+ const html=businessPage('/work-with-us',{offer:'workflow',workflow:'meeting-to-actions',tool:'chatgpt'});
+ assert.match(html,/<option value="workflow" selected>/);
+ assert.match(html,/I would like help implementing: Turn a meeting into a clear action plan/);
+ const links=[...html.matchAll(/href="([^"]+)"[^>]*>Request details/g)].map(m=>m[1].replaceAll('&amp;','&'));
+ assert.equal(links.length,4);
+ for(const href of links){const u=new URL(href,'https://aisuperpower.cc');assert.equal(u.searchParams.get('workflow'),'meeting-to-actions');assert.equal(u.searchParams.get('tool'),'chatgpt');const next=businessPage(u.pathname,Object.fromEntries(u.searchParams));assert.match(next,/I would like help implementing: Turn a meeting into a clear action plan/);}
+ const ad=businessPage('/advertise',{offer:'newsletter',tool:'chatgpt'});
+ assert.match(ad,/<option value="newsletter" selected>/);
+ assert.match(ad,/offer=featured&amp;tool=chatgpt#request/);
+});
+test('unrecognized workflow context does not become inquiry text or propagate into offer links',()=>{
+ const html=businessPage('/work-with-us',{workflow:'</textarea><script>alert(1)</script>',tool:'../../admin'});
+ assert.ok(!html.includes('<script>'));
+ assert.ok(!html.includes('workflow='));
+ assert.ok(!html.includes('tool='));
+ assert.ok(!html.includes('I would like help implementing:'));
+});
