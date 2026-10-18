@@ -1,5 +1,101 @@
 [
   {
+    "site": "aisuperpower",
+    "publishedAt": "2026-10-18",
+    "coverFormat": "svg",
+    "imageWidth": 1600,
+    "imageHeight": 900,
+    "slug": "ten-ai-tools-comparison-field-guide",
+    "title": "10 AI Tools Compared by the Jobs They Actually Help You Finish",
+    "description": "A practical comparison of ten AI products for note-taking, data, research and automation, with trial ideas and permissions to review.",
+    "quickAnswer": "Pick tools by their inputs, outputs, permissions, verification and total cost. Try a focused job with sample data before buying. Popularity and promised time savings are not evidence of fit for your workflow.",
+    "category": "Tool comparisons",
+    "bodyHtml": "<p>AI tool directories are most useful when they help you say no to a poor fit. A familiar marketing roundup may promise that ten products are about to become ubiquitous, but adoption forecasts are not a selection method. Here we look at ten concrete products through the lens of input, output, connections and trust.</p>\n<h2>Start with the input and the result, not the hype</h2>\n<h3><a href=\"https://www.napkin.ai\">Napkin AI</a>: text-to-diagram</h3>\n<p><strong>Trial:</strong> Try a three-stage process written in plain text. Judge diagram accuracy and how much editing it needs. <strong>Watch:</strong> Visual structure is not factual verification.</p>\n<h3><a href=\"https://wisprflow.ai\">Wispr Flow</a>: voice input</h3>\n<p><strong>Trial:</strong> Dictate a short test brief and correct names, dates and technical vocabulary. <strong>Watch:</strong> Microphone access and audio privacy deserve review.</p>\n<h3><a href=\"https://www.granola.ai\">Granola</a>: meeting notes</h3>\n<p><strong>Trial:</strong> With participants' consent, compare a practice transcript summary with an independently written action list. <strong>Watch:</strong> Not joining as a bot does not remove notice or consent obligations.</p>\n<h3><a href=\"https://mem.ai\">Mem</a>: linked notes</h3>\n<p><strong>Trial:</strong> Load a handful of mock project notes and check whether an earlier decision can be recovered with source context. <strong>Watch:</strong> A summary may omit why a decision was made.</p>\n<h3><a href=\"https://www.fyxer.com\">Fyxer</a>: email assistance</h3>\n<p><strong>Trial:</strong> Draft one routine reply in a test inbox and flag any invented commitments. <strong>Watch:</strong> Mailbox integrations can expose sensitive information.</p>\n<h3><a href=\"https://julius.ai\">Julius AI</a>: spreadsheet analysis</h3>\n<p><strong>Trial:</strong> Ask for a chart from a tiny synthetic dataset, then recompute the totals. <strong>Watch:</strong> Charts can obscure wrong calculations or definitions.</p>\n<h2>Then decide whether you need a connection or an automation</h2>\n<h3><a href=\"https://www.clay.com\">Clay</a>: research and enrichment</h3>\n<p><strong>Trial:</strong> Test a sample of known public company records and verify claimed attributes. <strong>Watch:</strong> Do not confuse automated enrichment with verified contact permission.</p>\n<h3><a href=\"https://www.firecrawl.dev\">Firecrawl</a>: structured web extraction</h3>\n<p><strong>Trial:</strong> Extract one accessible public page, compare its text against the original and note missing sections. <strong>Watch:</strong> Check crawl permissions, access limits and downstream data use.</p>\n<h3><a href=\"https://www.gumloop.com\">Gumloop</a>: visual AI workflows</h3>\n<p><strong>Trial:</strong> Route one fake support form into a test queue and require human review. <strong>Watch:</strong> Verify failures, quotas and what can be written to connected apps.</p>\n<h3><a href=\"https://n8n.io\">n8n</a>: flexible workflow orchestration</h3>\n<p><strong>Trial:</strong> Run a manually triggered workflow on fake data, inspect execution history and stop conditions. <strong>Watch:</strong> Self-hosting changes security, uptime and administration requirements.</p>\n<h2>The five-question comparison every tool deserves</h2>\n<ol><li><strong>Task:</strong> What repeatable job is it improving, and how will you know it is complete?</li><li><strong>Access:</strong> Does it read only, write drafts, send messages or change records?</li><li><strong>Evidence:</strong> Can you inspect original files, source links and execution logs?</li><li><strong>Portability:</strong> Can you export useful work and leave without losing your process?</li><li><strong>Total cost:</strong> What do usage, setup, review, failure recovery and hosting add up to?</li></ol>\n<h2>A practical stack without redundant subscriptions</h2>\n<p>For a small team, a voice input tool and a visual tool may be enough for idea capture. A meeting notetaker and a notes app address different parts of recall, and you may not need both. A data-enrichment product and a website scraper solve different research problems. Gumloop and n8n both handle workflow building, but their capabilities, commercial terms and operating responsibilities should be compared in the actual plan under evaluation.</p>\n<p>Begin without connecting accounts. Use mock data to test a single outcome. If the tool passes, enable only the minimum necessary integration. Keep consequential actions under a human approval step until failure behavior has been proven.</p>\n<blockquote><p>Help me compare [tool A] and [tool B] for [specific job]. List required inputs, allowed permissions, expected deliverables, operational costs, known uncertainties and a controlled test. Do not assume current plan limits, integrations or benchmark results. Give me a scorecard I can fill in with my own observed evidence.</p></blockquote>\n<h2>Explore the tools by what you need to do</h2>\n<p>Use our <a href=\"/tool-trial\">AI tool trial planner</a> to compare finished work, or <a href=\"/directory\">browse the directory</a> for other candidates. If you build a relevant tool, <a href=\"/submit\">submit it for editorial review</a>; submission is not guaranteed coverage.</p>\n<p><small>Editorial inspiration: <a href=\"https://ai.plainenglish.io/10-ai-tools-everyone-will-be-using-in-six-months-but-almost-nobodys-found-yet-735a5471ea22\">Vruddhi Shah's September 2026 roundup</a>. This guide uses a different selection framework and does not claim these services are newly launched, independently benchmarked or certain to become mainstream.</small></p>",
+    "minutes": 7,
+    "faq": [
+      {
+        "question": "How should I compare AI tools?",
+        "answer": "Use the same concrete task, approved inputs, acceptance criteria and full cost estimate. Record actual quality, corrections, permissions and completed work."
+      },
+      {
+        "question": "Are these tools guaranteed to become popular?",
+        "answer": "No. This is an editorial shortlist for experiments, not a prediction of adoption."
+      },
+      {
+        "question": "Which is better, Gumloop or n8n?",
+        "answer": "Neither is universally better. Test the integration, deployment, pricing and operating responsibilities needed for your job."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Vruddhi Shah, 10 AI tools (2026)",
+        "url": "https://ai.plainenglish.io/10-ai-tools-everyone-will-be-using-in-six-months-but-almost-nobodys-found-yet-735a5471ea22"
+      },
+      {
+        "label": "n8n official docs",
+        "url": "https://docs.n8n.io/"
+      },
+      {
+        "label": "Granola official site",
+        "url": "https://www.granola.ai/"
+      },
+      {
+        "label": "Napkin official site",
+        "url": "https://www.napkin.ai/"
+      }
+    ],
+    "imageAlt": "An original comparison illustration: ten AI products grouped by capture, data, research and automation.",
+    "imageCaption": "Original tool-comparison diagram. Editorial, not an independent benchmark."
+  },
+  {
+    "site": "aisuperpower",
+    "publishedAt": "2026-10-18",
+    "coverFormat": "svg",
+    "imageWidth": 1600,
+    "imageHeight": 900,
+    "slug": "eight-ai-terms-for-tool-buyers",
+    "title": "8 AI Terms That Reveal What an AI Product Can Really Do",
+    "description": "A buyer's glossary for MCP, skills, agents, harnesses, computer use, feedback loops, GEO/AEO and AGI, with evaluation questions.",
+    "quickAnswer": "MCP describes compatible tool connections; skills are reusable task procedures; agents may make and execute multi-step decisions; harnesses provide tools, controls and feedback. Judge a product by testable permissions and outcomes, not labels.",
+    "category": "Connected AI",
+    "bodyHtml": "<p>Many AI product pages now say they have 'agents,' 'skills' and 'connections.' Those labels may describe different layers of one system. For evaluating an app, the most useful question is not whether it uses fashionable terminology but what capability the term signifies.</p>\n<h2>The eight terms that matter when choosing tools</h2>\n<h3>Skills</h3>\n<p>Reusable instructions and supporting resources for a specific job.</p>\n<p><strong>Buyer question:</strong> Ask whether the procedure requires connections or can operate on documents you provide.</p>\n<h3>MCP</h3>\n<p>A protocol for compatible AI applications to find and use approved tools or data resources.</p>\n<p><strong>Buyer question:</strong> Ask which tools are exposed, whether they can write and how access is revoked.</p>\n<h3>Agent</h3>\n<p>Software that may select steps and invoke tools toward a goal, rather than simply returning one response.</p>\n<p><strong>Buyer question:</strong> Ask for a trace of real actions and how a person can stop it.</p>\n<h3>Harness</h3>\n<p>The code and controls around a model that manage context, tools, policies and feedback.</p>\n<p><strong>Buyer question:</strong> Ask what is tested, logged, constrained and retried.</p>\n<h3>Computer use</h3>\n<p>AI operating graphical interfaces via clicks, typing and screen inspection.</p>\n<p><strong>Buyer question:</strong> Ask whether a direct supported integration would be safer and more reliable.</p>\n<h3>Loop engineering</h3>\n<p>Designing repeated action-feedback cycles, including limits, error recovery and completion criteria.</p>\n<p><strong>Buyer question:</strong> Ask what prevents duplicate work or an endless retry.</p>\n<h3>GEO / AEO</h3>\n<p>Related efforts to make authoritative pages useful in AI-generated answers and direct-response interfaces.</p>\n<p><strong>Buyer question:</strong> Ask how claims, citations and visibility are measured; never promise placement.</p>\n<h3>AGI / superintelligence</h3>\n<p>Debated terms for general-purpose and beyond-human intellectual capabilities.</p>\n<p><strong>Buyer question:</strong> Ask what specific demonstrated ability is actually relevant to your task.</p>\n<h2>Why the distinctions matter: an imaginary support workflow</h2>\n<p>Picture a team that wants to categorize incoming demo questions. A skill supplies the categorization instructions. A connected tool might retrieve permitted messages through MCP. An agent may decide which information to look up next. The harness controls which tools it can use and when it must stop. A loop can retry a failed retrieval, but a well-designed loop exits after a defined limit. Human reviewers approve any outgoing answer.</p>\n<p>Computer use could navigate the help-desk interface if no suitable API exists, although interface automation is more prone to layout changes and ambiguous clicks. GEO and AEO concern whether the support content itself can be discovered and quoted in answer interfaces, not the routing of tickets.</p>\n<h2>Three common mistakes in AI tool comparisons</h2>\n<ul><li><strong>Confusing connection with consent:</strong> An integration exists, but the tool still needs appropriate authorization and a bounded purpose.</li><li><strong>Confusing a saved procedure with an agent:</strong> Reusing instructions does not mean software is independently taking steps.</li><li><strong>Confusing an ambitious label with demonstrated results:</strong> Neither AGI claims nor impressive demos establish reliability for your specific workflow.</li></ul>\n<h2>A simple evaluation card for any 'agent' product</h2>\n<table><thead><tr><th>Evidence to request</th><th>What it tells you</th></tr></thead><tbody><tr><td>Allowed tools and scopes</td><td>What it can read or change</td></tr><tr><td>Trace of a completed test</td><td>What actually happened</td></tr><tr><td>Retry and spending limits</td><td>How failures are contained</td></tr><tr><td>Human approval steps</td><td>Who owns consequential actions</td></tr><tr><td>Export and removal options</td><td>How to exit safely</td></tr></tbody></table>\n<blockquote><p>Evaluate this AI application for [team task]. Identify which features are models, skills, MCP connections, agent behaviors or computer-use actions. Separate documented functionality from marketing language. Specify one safe test, evidence to collect, permissions and stop conditions.</p></blockquote>\n<p>For a deeper start, read <a href=\"/guides/rag-mcp-agents-explained\">our earlier RAG/MCP/agents explainer</a>, then compare candidates with <a href=\"/tool-trial\">the tool trial planner</a>. The useful superpower is knowing exactly what a product can and cannot do.</p>\n<p><small>Based on independent synthesis of <a href=\"https://generativeai.pub/8-new-ai-terms-you-should-know-to-be-ahead-of-90-of-people-b898cc0ebd1a\">Jim Clyde Monge's October 2026 terminology roundup</a>, <a href=\"https://modelcontextprotocol.io\">official MCP documentation</a>, <a href=\"https://openai.com/index/harness-engineering/\">OpenAI harness engineering</a> and <a href=\"https://www.anthropic.com/engineering/building-effective-agents\">Anthropic agent design guidance</a>.</small></p>",
+    "minutes": 7,
+    "faq": [
+      {
+        "question": "Are MCP and AI skills the same?",
+        "answer": "No. MCP is about exposing compatible tools or data; skills capture procedures for working with information and tools."
+      },
+      {
+        "question": "What is an AI harness?",
+        "answer": "The surrounding software that provides a model with tool use, context, constraints and checks, which influences how it completes tasks."
+      },
+      {
+        "question": "Is computer use safer than an API?",
+        "answer": "Not necessarily. UI actions can be brittle or ambiguous. Evaluate each route's permissions, reviewability and error handling."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Jim Clyde Monge, 8 AI terms (2026)",
+        "url": "https://generativeai.pub/8-new-ai-terms-you-should-know-to-be-ahead-of-90-of-people-b898cc0ebd1a"
+      },
+      {
+        "label": "Official MCP documentation",
+        "url": "https://modelcontextprotocol.io"
+      },
+      {
+        "label": "OpenAI on harness engineering",
+        "url": "https://openai.com/index/harness-engineering/"
+      },
+      {
+        "label": "Anthropic on effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents"
+      }
+    ],
+    "imageAlt": "Original AI tool-buyer diagram highlighting access, workflow and approval gates.",
+    "imageCaption": "Original conceptual diagram about AI tooling; not a technical system architecture."
+  },
+  {
     "site": "awesome-mcp-servers",
     "slug": "ai-team-role-charter-template",
     "title": "Build your AI team with role charters, clear handoffs, and review",

@@ -21,7 +21,7 @@ export async function serveEditorial(req,res){
   res.writeHead(status,headers);res.end(req.method==='HEAD'?undefined:body);
  };
  if((post&&!isPublished(post))||(cover&&!isPublished(cover))){send(404,'This guide is not published yet.','text/plain; charset=utf-8');return true;}
- if(cover){try{const bytes=await readFile(new URL('./images/'+cover.slug+'.png',import.meta.url));send(200,bytes,'image/png',{'Cache-Control':'public, max-age=3600','Content-Length':bytes.length});}catch{send(404,'Image not found.','text/plain; charset=utf-8');}return true;}
+ if(cover){try{const bytes=await readFile(new URL('./images/'+cover.slug+(cover.coverFormat === 'svg' ? '.svg' : '.png'),import.meta.url));send(200,bytes,cover.coverFormat === 'svg' ? 'image/svg+xml' : 'image/png',{'Cache-Control':'public, max-age=3600','Content-Length':bytes.length});}catch{send(404,'Image not found.','text/plain; charset=utf-8');}return true;}
  const canonical=post?articlePath(config,post):isIndex?seriesPath(config):path;
  if(path!==canonical){const url=new URL(req.url,'http://localhost');res.writeHead(308,{Location:canonical+url.search});res.end();return true;}
  if(post)send(200,renderArticle(config,post,posts));
