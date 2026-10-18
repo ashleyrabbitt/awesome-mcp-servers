@@ -5,7 +5,7 @@ import {answers} from './answers.mjs';
 import {missions} from './discovery.mjs';
 import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
-const privatePaths=new Set(['/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
+const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
 '/search':'Describe your task and find a shortlist of AI tools with fit explanations, limitations to check and practical next steps.',
 '/alternatives':'Compare AI tool alternatives by real task, pricing verification, limitations and publisher evidence.',
@@ -62,7 +62,7 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const intro=plain(content.match(/<div class="page-head"[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/)?.[1]||content.match(/<p class="(?:description|lead|intro)"[^>]*>([\s\S]*?)<\/p>/)?.[1]);
  const specific=prompt?`Customize a ${prompt.role.toLowerCase()} prompt to ${prompt.title.toLowerCase()}. Add source material and constraints, then copy or download your draft for review.`:mission?kind==='stacks'?`Follow a guided stack to ${mission.title.toLowerCase()}. Use suggested tools, practical steps and a reusable prompt to produce ${mission.output.toLowerCase()}.`:`Explore tool starting points to ${mission.title.toLowerCase()}. ${mission.output||mission.intro} Review sources and choose a small first task.`:howto?.intro||resource?.description;
  const description=(tool?.description||article?.description||answer?.answer||specific||summaries[route]||intro||`${heading}. Explore practical guidance, related tools and next steps with Superpowers by Waymaker.`).slice(0,300);
- const noindex=privatePaths.has(route)||tool?.status==='Community listing'||u.search.length>0||/Page not found|lost your way/i.test(heading);
+ const noindex=route.startsWith('/community-kits/')||privatePaths.has(route)||tool?.status==='Community listing'||u.search.length>0||/Page not found|lost your way/i.test(heading);
  const canonical=origin+(route==='/support'?'/coaching':route),image=origin+'/assets/hero-everyday.webp';
  const website={'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'Superpowers by Waymaker',publisher:{'@id':origin+'/#organization'}};
  const organization={'@type':'Organization','@id':origin+'/#organization',name:'Waymaker AI INC',url:'https://waymaker.cx',brand:{'@type':'Brand',name:'Superpowers'}};
