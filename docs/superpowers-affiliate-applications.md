@@ -6,7 +6,7 @@ Prepared October 9, 2026. These are drafts, not submitted applications or approv
 
 Superpowers by Waymaker helps marketers, designers, product managers and developers discover AI tools and apply them to practical work. Our free directory is supported by workflow kits, editable prompts, worksheets, training and coaching. We plan to recommend relevant tools through original tutorials, comparison pages and educational content, with clear affiliate disclosures and independent editorial selection. We do not promise ratings, rankings, traffic or sales in exchange for commission.
 
-Website: https://superpowers-complete-production.up.railway.app/
+Website: https://aisuperpower.cc/
 Business: Waymaker AI INC
 Contact: info@waymaker.cx
 Portfolio: https://waymaker.cx/portfolio

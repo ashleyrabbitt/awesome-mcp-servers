@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {once} from 'node:events';
 import {readFileSync} from 'node:fs';
-import {publishedPosts,renderArticle,renderIndex,renderFeed,sitemapEntries,articlePath,seriesPath} from './core.mjs';
+import {publishedPosts,renderArticle,renderIndex,renderFeed,sitemapEntries,articlePath,seriesPath,imagePath} from './core.mjs';
 import {serveEditorial,attachEditorialDiscovery,config,posts} from './server.mjs';
 
 test('release dates govern article links, related links, feeds and sitemaps',()=>{
@@ -31,7 +31,9 @@ test('every article has a complete crawlable body, correct canonical, image and 
   const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
   assert.equal(schema['@graph'][0].datePublished,post.publishedAt);
   assert.equal(schema['@graph'][0].headline,post.title);
-  assert.ok(readFileSync(new URL('./images/'+post.slug+'.png',import.meta.url)).subarray(1,4).equals(Buffer.from('PNG')));
+  const bytes=readFileSync(new URL('./images/'+post.slug+(post.coverFormat==='svg'?'.svg':'.png'),import.meta.url));
+  if(post.coverFormat==='svg'){assert.match(bytes.toString(),/<svg\b/);assert.match(bytes.toString(),/<\/svg>/);}else assert.ok(bytes.subarray(1,4).equals(Buffer.from('PNG')));
+  assert.equal(schema['@graph'][0].image.url,config.origin+imagePath(post));
   assert.ok(!html.includes('/ai-practice//'));
  }
 });
@@ -57,7 +59,7 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
   const futurePost=posts.find(p=>Date.parse(p.publishedAt)>Date.now());if(futurePost){const future=await fetch(base+articlePath(config,futurePost));assert.equal(future.status,404);assert.ok(future.headers.get('x-robots-tag').includes('noindex'));}
   const head=await fetch(base+articlePath(config,posts[0]),{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');
   const map=await (await fetch(base+'/sitemap.xml')).text();assert.ok(map.includes('/existing/'));assert.ok(map.includes(articlePath(config,posts[0])));for(const post of posts)assert.equal(map.includes(articlePath(config,post)),Date.parse(post.publishedAt)<=Date.now());
-  const image=await fetch(base+'/assets/ai-practice/'+posts[0].slug+'.png');assert.equal(image.headers.get('content-type'),'image/png');assert.equal(image.status,200);
+  for(const post of new Map(publishedPosts(posts).map(p=>[p.coverFormat||'png',p])).values()){const image=await fetch(base+imagePath(post));assert.equal(image.status,200);assert.equal(image.headers.get('content-type'),post.coverFormat==='svg'?'image/svg+xml':'image/png');}
   assert.equal((await fetch(base+'/native-missing')).status,404);
   assert.equal((await fetch(base+seriesPath(config))).status,200);
  }finally{server.close();await once(server,'close');}

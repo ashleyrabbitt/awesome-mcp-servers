@@ -18,3 +18,11 @@ All five new tables deny direct anonymous/authenticated client access. Server ac
 The local build, 110 application tests, four editorial tests, and isolated PostgreSQL checks pass. The PostgreSQL checks exercise grants/RLS, source-backed event creation, atomic queueing, leases, retries, opt-out cancellation, and expired delivery holds. An owner-requested sign-in email reached the owner's inbox; no customer campaign was sent. Browser automation is unavailable in this environment, so visual and signed-in browser walkthroughs remain unverified.
 
 Affiliate application drafts are not merchant approval. Keep normal publisher URLs until approved merchant referral links are provided. Real hands-on comparison results require actual product runs and saved evidence. The existing payment and free scoping-call links are reused; these flows do not imply a paid appointment is already booked.
+
+## Follow-through — October 17 evening, America/New_York
+
+Live Chrome checks confirmed guided selections, checklist persistence after reload, cost calculation (annual commitments, seats and usage), and a correctly prefilled Trial Lab with untested verdicts preserved. A 390px viewport check confirmed a single-column starter with no document overflow. The mobile account entry is now exposed in the main navigation.
+
+The admin discovery dashboard now previews actual published listing changes and can send the weekly digest layout as an explicitly labeled one-time test to the signed-in administrator only. It does not change subscription preferences or contact customers. Retries reuse the original stored message to preserve provider idempotency even if the public change feed changes. The normal digest retains its unsubscribe links.
+
+The browser is currently signed out. Completing sign-in is required for the remaining authenticated browser walkthrough and inbox check of the new digest test. No merchant-specific approval or referral link was found in the focused connected-mail search. The existing application drafts remain drafts. No vendor benchmark runs have been represented as completed.

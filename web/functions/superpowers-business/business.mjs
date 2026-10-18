@@ -1,4 +1,4 @@
-import {communityAction} from './community.mjs';
+import {communityAction,digestContent,digestPreview} from './community.mjs';
 import {discoveryAction} from './discovery.mjs';
 const enc=new TextEncoder();
 const reportWindow=()=>{const until=new Date().toISOString().slice(0,10);return {since:new Date(Date.parse(until)-29*86400000).toISOString().slice(0,10),until};};
@@ -48,7 +48,7 @@ export async function handleBusiness(request,{env,fetcher=fetch}={}){
  const config=async name=>(await db('superpowers_config?key=eq.'+eq(name)+'&select=value'))[0]?.value;
  async function rate(k,limit=5,seconds=3600){if(!await rpc('rate',{p_key:await hash(k),p_limit:limit,p_seconds:seconds}))throw Object.assign(Error('Too many attempts. Try again later.'),{status:429});}
  async function deliver(id,to,subject,body){if(to.endsWith('.invalid'))return false;const api=env('RESEND_API_KEY');if(!api)return false;try{const r=await fetcher('https://api.resend.com/emails',{method:'POST',headers:{Authorization:'Bearer '+api,'Content-Type':'application/json','Idempotency-Key':id},body:JSON.stringify({from:sender,to:[to],reply_to:'info@waymaker.cx',subject,html:'<div style="font-family:Arial;line-height:1.7"><h2>AI Superpower</h2>'+body+'<p><a href="https://aisuperpower.cc/maker">Open your Maker Desk</a></p><p>This is a service message, not a newsletter signup.</p></div>'}),signal:AbortSignal.timeout(8000)});return r.ok;}catch{return false;}}
- async function mail(id,to,subject,body){if(to.endsWith('.invalid'))return false;await db('superpowers_mail?on_conflict=id','POST',{id,email:to,subject,body},'resolution=ignore-duplicates,return=minimal');const row=(await db('superpowers_mail?id=eq.'+eq(id)))[0];if(row.sent_at)return true;const ok=await deliver(id,to,subject,body);if(ok)await db('superpowers_mail?id=eq.'+eq(id),'PATCH',{sent_at:new Date().toISOString()});return ok;}
+ async function mail(id,to,subject,body){if(to.endsWith('.invalid'))return false;await db('superpowers_mail?on_conflict=id','POST',{id,email:to,subject,body},'resolution=ignore-duplicates,return=minimal');const row=(await db('superpowers_mail?id=eq.'+eq(id)))[0];if(row.sent_at)return true;const ok=await deliver(row.id,row.email,row.subject,row.body);if(ok)await db('superpowers_mail?id=eq.'+eq(id),'PATCH',{sent_at:new Date().toISOString()});return ok;}
  try{
   if(request.method!=='POST')return reply({error:'Method not allowed'},405);
   const apiKey=request.headers.get('x-superpowers-key')||'';if(apiKey.length<32||await hash(apiKey)!==await config('site_key_hash'))return reply({error:'Unauthorized'},401);
@@ -72,10 +72,11 @@ export async function handleBusiness(request,{env,fetcher=fetch}={}){
   if(action==='change'){await rate('change:'+who.email,10);const tid=slug(data.tool_id);if(!(await db('superpowers_tools?id=eq.'+tid+'&published=eq.true&select=id')).length)throw Error('Tool not found.');if(!['claim','update'].includes(data.kind))throw Error('Choose a claim or update.');if(data.kind==='update'&&!(await db('superpowers_owners?tool_id=eq.'+tid+'&email=eq.'+eq(who.email))).length)throw Error('Claim and verify ownership before editing.');const details=data.kind==='claim'?{evidence:text(data.evidence,30)}:{description:text(data.description,30),...extras(data)};const row=(await db('superpowers_changes','POST',{email:who.email,tool_id:tid,kind:data.kind,details}))[0];return reply({reference:row.id});}
   if(!admin)return reply({error:'Administrator access required.'},403);
   if(action==='emailHealth'){await rate('email-health:'+who.email,12);return reply(await emailReadiness(env,fetcher));}
-  if(action==='testEmail'){
-   const id='email-test-'+(await hash(who.email)).slice(0,16)+'-'+uuid(data.request_id);
+  if(action==='testEmail'||action==='testDigest'){
+   const isDigest=action==='testDigest',id=(isDigest?'digest-test-':'email-test-')+(await hash(who.email)).slice(0,16)+'-'+uuid(data.request_id);
    await rate('email-test:'+who.email,2);
-   const accepted=await mail(id,who.email,'AI Superpower email delivery check','<p>You requested this test from the Review Desk.</p><p>If this arrived in your inbox, receipt is confirmed for this address at this time. Check spam placement and the sender details too.</p><p>Reference: '+e(id)+'</p>');
+   const preview=isDigest?digestContent(await digestPreview(db)):null;
+   const accepted=await mail(id,who.email,preview?.subject||'AI Superpower email delivery check',preview?.html||'<p>You requested this test from the Review Desk.</p><p>If this arrived in your inbox, receipt is confirmed for this address at this time. Check spam placement and the sender details too.</p><p>Reference: '+e(id)+'</p>');
    return reply({email_sent:accepted,recipient:who.email,reference:id});
   }
   if(action==='admin'){
