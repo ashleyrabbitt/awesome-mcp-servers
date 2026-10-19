@@ -1,5 +1,55 @@
 [
   {
+    "publishedAt": "2026-10-19",
+    "sourcesCheckedAt": "2026-10-19",
+    "minutes": 6,
+    "coverFormat": "svg",
+    "imageWidth": 1440,
+    "imageHeight": 960,
+    "imageCaption": "Original workflow diagram. Illustrative teaching example; not a product screenshot or measured result.",
+    "site": "aisuperpower",
+    "slug": "claude-code-sessions-subagents-managed-agents",
+    "title": "Claude Code sessions, subagents, and Managed Agents: what to use when",
+    "description": "Understand the October Claude Code updates and choose between a local session, parallel review, cloud task, and recurring Managed Agent.",
+    "category": "AI tool guides",
+    "answerQuestion": "Which Claude feature fits a one-off task or recurring workflow?",
+    "quickAnswer": "Use a session for a bounded project, delegate an independent part to a subagent, choose a cloud session when the task must continue away from your laptop, and evaluate a scheduled agent when work genuinely needs to repeat. Define the output and review method before connecting more tools.",
+    "imageAlt": "A choice between a one-off project, delegated independent work, a cloud task, and a recurring agent. Each has a different trigger and review requirement.",
+    "sources": [
+      {
+        "label": "Anthropic: Claude Code Desktop reference",
+        "url": "https://code.claude.com/docs/en/desktop"
+      },
+      {
+        "label": "Anthropic: Create custom subagents",
+        "url": "https://code.claude.com/docs/en/sub-agents"
+      },
+      {
+        "label": "Anthropic: Claude Code in the cloud",
+        "url": "https://code.claude.com/docs/en/claude-code-on-the-web"
+      },
+      {
+        "label": "Anthropic: Building effective agent automations",
+        "url": "https://claude.dev/blog/building-effective-agent-automations/"
+      },
+      {
+        "label": "Anthropic: Manage Claude Code costs",
+        "url": "https://code.claude.com/docs/en/costs"
+      }
+    ],
+    "bodyHtml": "<p>“Agent” is becoming a catch-all word for very different products. A helper that checks one file, a coding session that runs while you are away, and an automation that posts every morning have different setup and operating requirements.</p>\n<p>Anthropic’s October 17, 2026 newsletter brings these ideas together. It announces desktop session improvements and cloud handoff changes, then points to Claude Managed Agents, currently beta. Here is how to evaluate the capabilities without treating every feature as a reason to add another tool.</p>\n<h2>What changed in the desktop experience?</h2>\n<p>Anthropic describes saved environments for returning to a setup, nested sessions for delegated parallel tasks, clearer session status, and a separate desktop tab for <code>/btw</code>. Think of these as ways to organize work and its context. They do not decide which tasks are independent or whether the result is correct.</p>\n<h2>Choose by the job and its trigger</h2>\n<div class=\"ai-table-scroll\"><table><thead><tr><th>Need</th><th>Starting point</th><th>Question to settle</th></tr></thead><tbody>\n<tr><td>Review or change a project while you guide it</td><td>A local Code session</td><td>Which folder and permissions does it need?</td></tr>\n<tr><td>Delegate an independent part of the project</td><td>A subagent or separate session</td><td>What specific evidence should return?</td></tr>\n<tr><td>Continue a bounded task while you are away</td><td>A cloud session</td><td>Can that environment run the required checks?</td></tr>\n<tr><td>Produce a useful result repeatedly</td><td>A scheduled workflow or Managed Agent</td><td>What happens on missing inputs, retries, and failure?</td></tr>\n</tbody></table></div>\n<p>These are selection recommendations. A feature name alone does not establish that your accounts are connected, your inputs are available, or a schedule is active.</p>\n<h2>Subagents: assign a responsibility and a review standard</h2>\n<p>Current Claude Code documentation supports setting a subagent’s model and effort. Requesting effort for an individual non-fork subagent requires version 2.1.292 or later; environment configuration can take precedence. Check the resulting task settings rather than assuming every request was applied.</p>\n<p>For example, one helper can find references to an old product name while a reviewer considers which references should change. Searching and deciding have different requirements. More effort everywhere is not a substitute for a correct brief, and parallel work can increase usage.</p>\n<blockquote><p>Audit this sample repository for an outdated product name. Use a low-effort subagent to list matching files and their surrounding text. Have a high-effort reviewer classify matches as current UI, historical documentation, or third-party references. Return proposed changes with reasons. Do not edit files yet. Identify any requested model or effort setting you could not apply.</p></blockquote>\n<h2>Cloud handoff: verify the destination state</h2>\n<p>The newsletter says Desktop’s local-to-cloud continuation can now include uncommitted changes and unpushed commits. Treat this as a specific handoff feature, not a promise that every cloud launch method copies all local state. Check the handoff summary and confirm the expected changes exist in the destination before assigning follow-up work.</p>\n<p>Anthropic-hosted cloud environments also support network secrets: matching requests receive credentials outside the sandbox. Limit them to the necessary hosts and operations. A hidden key still authorizes actions, so review the access the integration enables.</p>\n<h2>Managed Agents: prove one run before adding a schedule</h2>\n<p>Anthropic’s reference implementation gathers changes from sources such as Slack and GitHub and produces a scheduled brief. Its useful lesson is operational: unavailable sources must be reported, and successful delivery must be confirmed before progress is recorded.</p>\n<p>Our suggested first trial is a private draft from one non-sensitive source. Define three fixtures: a real change, no change, and an unavailable source. The agent should produce three different outcomes. A source failure must not become “nothing happened.”</p>\n<p>Then repeat the same input. Does the output identify already-reported items? Does it preserve the last known successful checkpoint when a run fails? A recurring workflow needs these answers before it earns a place in someone’s morning routine.</p>\n<h2>A compact tool evaluation scorecard</h2>\n<ul><li><strong>Accuracy:</strong> can you trace each finding to the input?</li><li><strong>Review time:</strong> how much checking and correction remain?</li><li><strong>Access:</strong> which accounts, folders, and actions are available?</li><li><strong>Failure visibility:</strong> can you tell incomplete work from a quiet result?</li><li><strong>Repeatability:</strong> does the same input produce a useful, non-duplicated outcome?</li><li><strong>Cost:</strong> what usage does the complete reviewed task consume?</li></ul>\n<p>Use a representative task before purchasing a higher plan or connecting more systems. This article does not assume eligibility for promotional API credits or a particular price; confirm those terms in your own account.</p>\n<h2>Your next useful trial</h2>\n<p>Pick one workflow and write a pass/fail example before enabling it. If your goal is tool selection, use the <a href=\"/tool-trial\">AI Superpower tool trial planner</a>. If you are still deciding how much autonomy you need, read <a href=\"/guides/automation-workflow-or-ai-agent\">automation, AI workflow, or agent</a>.</p>",
+    "faq": [
+      {
+        "question": "Does a cloud session automatically become a recurring agent?",
+        "answer": "No. A recurring workflow needs an explicit trigger or schedule, reliable inputs, a destination, and handling for failures and repeated runs."
+      },
+      {
+        "question": "Do more subagents guarantee a faster or better result?",
+        "answer": "No. Setup, duplicated context, and review can outweigh parallelism. Compare the complete reviewed outcome on a representative task."
+      }
+    ]
+  },
+  {
     "site": "aisuperpower",
     "publishedAt": "2026-10-18",
     "coverFormat": "svg",
