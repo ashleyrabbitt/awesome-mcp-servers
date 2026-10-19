@@ -6,6 +6,22 @@ import {readFileSync} from 'node:fs';
 import {publishedPosts,renderArticle,renderIndex,renderFeed,sitemapEntries,articlePath,seriesPath,imagePath} from './core.mjs';
 import {serveEditorial,attachEditorialDiscovery,config,posts} from './server.mjs';
 
+test('substantive refresh changes modification metadata but preserves first publication and RSS',()=>{
+ const original=posts.find(p=>p.slug==='ten-ai-tools-comparison-field-guide');
+ const refreshed={...original,modifiedAt:'2026-10-19',author:'Ashley Kays'};
+ const html=renderArticle(config,refreshed,[refreshed]);
+ const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])['@graph'][0];
+ assert.equal(schema.datePublished,'2026-10-18');
+ assert.equal(schema.dateModified,'2026-10-19');
+ assert.equal(schema.author.name,'Ashley Kays');
+ assert.match(html,/Updated <time datetime="2026-10-19">October 19, 2026<\/time>/);
+ assert.match(html,/<meta property="article:modified_time" content="2026-10-19">/);
+ assert.match(sitemapEntries(config,[refreshed]),/<lastmod>2026-10-19<\/lastmod>/);
+ assert.ok(renderFeed(config,[refreshed]).includes(new Date('2026-10-18').toUTCString()));
+ const unmodified={...refreshed};delete unmodified.modifiedAt;
+ assert.ok(!renderArticle(config,unmodified,[unmodified]).includes(' · Updated'));
+});
+
 test('release dates govern article links, related links, feeds and sitemaps',()=>{
  assert.ok(posts.length>=3);
  for(let i=0;i<posts.length;i++){
@@ -64,3 +80,4 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
   assert.equal((await fetch(base+seriesPath(config))).status,200);
  }finally{server.close();await once(server,'close');}
 });
+
