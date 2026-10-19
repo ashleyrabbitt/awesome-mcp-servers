@@ -1,6 +1,6 @@
 # Evaluation checklist
 
-This is a manual Bot acceptance suite. The local checks validate fixtures and arithmetic; they do not prove a language model follows these instructions.
+This is a reusable manual acceptance checklist. The corrected native Bot met the expected behavior for these ten scenarios in the October 19, 2026 creator-session checks. The eight edge cases were batched with separate complete datasets and explicit resets; they were not separate fresh conversations. Rerun the checks after changing the instructions or model. See VALIDATION-NOTES.md for methods and limits.
 
 | Case | Input change | Required behavior |
 |---|---|---|
