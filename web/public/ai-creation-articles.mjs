@@ -5,9 +5,9 @@ export const aiCreationArticles = [
     "title": "What is Grok Bot? Practical workflows for marketing, product, and everyday operations",
     "intro": "Understand Grok Bot’s connected workflows, routines, and templates, with practical examples and a method for testing whether a bot is useful.",
     "description": "Understand Grok Bot’s connected workflows, routines, and templates, with practical examples and a method for testing whether a bot is useful.",
-    "answer": "Grok Bot is a connected environment for recurring work. Start with a defined input, one useful deliverable, clear review boundaries, and a test using fictional or permitted data.",
+    "answer": "Try a weekly decision brief from approved campaign exports. Define the inputs, metric meanings, output, and review owner. Ask for observations, missing-data flags, and next checks; keep publishing, messaging, and spending outside the initial scope.",
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-19",
+    "dateModified": "2026-10-19T17:45:07Z",
     "readingTime": "4 minute read",
     "tools": [],
     "sections": [
@@ -69,7 +69,7 @@ export const aiCreationArticles = [
       {
         "id": "try-the-growth-brief-template",
         "title": "Try the Weekly Growth Decision Brief kit",
-        "body": "<p>We created a complete <a href=\"/downloads/weekly-growth-decision-brief\">Weekly Growth Decision Brief template kit</a> with Bot instructions, onboarding, fictional CSV data, an example brief and evaluation checks. The sample arithmetic has been checked locally. The kit has not yet been installed or behavior-tested in Grok Bot and is not a native x.ai template link.</p>"
+        "body": "<p>We created a complete <a href=\"/downloads/weekly-growth-decision-brief\">Weekly Growth Decision Brief template kit</a> with Bot instructions, onboarding, fictional CSV data, an example brief and evaluation checks. The sample arithmetic has been checked locally. The kit has not yet been installed or behavior-tested in Grok Bot and is not a native x.ai template link.</p><p data-related-guide=\"5\">Continue with <a href=\"/guides/connect-ai-builder-github-railway-supabase\">Connect your AI builder to GitHub, Railway, and Supabase—with a clear job for each</a>.</p>"
       }
     ],
     "faq": [
@@ -80,6 +80,10 @@ export const aiCreationArticles = [
       [
         "Should different bots be treated as separate client security boundaries?",
         "No. Grok Bot's documentation says a user's bots share a persistent cloud computer. Review access and data handling before using client information."
+      ],
+      [
+        "How can I tell whether a bot routine is useful?",
+        "Test normal, incomplete, and ambiguous inputs. Compare the output with a reviewed human example, record important omissions and correction time, and check whether someone can use the result to make a decision. Expand the routine only when that evidence supports it."
       ]
     ],
     "sources": [
@@ -108,9 +112,9 @@ export const aiCreationArticles = [
     "title": "Connect your AI builder to GitHub, Railway, and Supabase—with a clear job for each",
     "intro": "Understand the connections behind an AI-assisted app and use a small saved-resource tool to test repository, deployment, and database access.",
     "description": "Understand the connections behind an AI-assisted app and use a small saved-resource tool to test repository, deployment, and database access.",
-    "answer": "Give each connected service a clear job: the AI coordinates the task, GitHub holds the code, Railway runs the app, and Supabase stores records under the intended access rules. Verify each step with a small complete workflow.",
+    "answer": "The AI builder helps plan and implement the work. GitHub holds the versioned source. Railway runs the application. Supabase can provide the database and authentication. Each connection needs the access appropriate to its role; selecting a model does not create those connections.",
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-19",
+    "dateModified": "2026-10-19T17:45:07Z",
     "readingTime": "2 minute read",
     "tools": [
       [
@@ -147,7 +151,7 @@ export const aiCreationArticles = [
       {
         "id": "expand-access-only-for-a-reason",
         "title": "Expand access only for a reason",
-        "body": "\n<p>If the next feature is a weekly digest, specify whether the agent should prepare a draft or actually send it. If you add automatic metadata fetching, define allowed URLs, request limits, and failure behavior. Each new connection should support a particular user benefit.</p>\n<p><a href=\"https://railway.com?referralCode=6Tw5PI\" rel=\"sponsored nofollow noopener\">Explore Railway through our referral link</a>. The value of a connected AI workflow comes from a reliable chain of actions you can inspect, not from the number of integrations you have installed.</p>"
+        "body": "\n<p>If the next feature is a weekly digest, specify whether the agent should prepare a draft or actually send it. If you add automatic metadata fetching, define allowed URLs, request limits, and failure behavior. Each new connection should support a particular user benefit.</p>\n<p><a href=\"https://railway.com?referralCode=6Tw5PI\" rel=\"sponsored nofollow noopener\">Explore Railway through our referral link</a>. The value of a connected AI workflow comes from a reliable chain of actions you can inspect, not from the number of integrations you have installed.</p><p data-related-guide=\"15\">Continue with <a href=\"/guides/grok-bot-practical-workflows\">What is Grok Bot? Practical workflows for marketing, product, and everyday operations</a>.</p>"
       }
     ],
     "faq": [
@@ -158,6 +162,10 @@ export const aiCreationArticles = [
       [
         "How do I know the app is actually connected?",
         "Test a complete save-and-return workflow, verify the deployed source revision, and confirm that one account cannot read another account’s private records."
+      ],
+      [
+        "How do I verify the connections before building more features?",
+        "Use a small saved-resource workflow. Confirm the source commit, deployed branch, required environment variables, and database access. Save a record through the deployed app and return to it; then check a second account and a failure case."
       ]
     ],
     "sources": [
@@ -189,3 +197,4 @@ export const aiCreationArticles = [
     "next": "Choose one small workflow, prepare permitted inputs, and decide what evidence will show that it works."
   }
 ];
+
