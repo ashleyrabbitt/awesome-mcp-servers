@@ -1,0 +1,7 @@
+period_start,period_end,channel,sessions,qualified_leads,ad_spend,currency,definition_id,source_id,exported_at
+2026-10-05,2026-10-11,paid_search,1000,40,1000,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z
+2026-10-05,2026-10-11,organic_search,800,32,0,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z
+2026-10-05,2026-10-11,email,200,8,0,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z
+2026-10-12,2026-10-18,paid_search,1200,36,1250,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z
+2026-10-12,2026-10-18,organic_search,800,32,0,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z
+2026-10-12,2026-10-18,email,200,12,0,USD,qualified_v1,fictional_weekly_rollup,2026-10-19T09:00:00Z

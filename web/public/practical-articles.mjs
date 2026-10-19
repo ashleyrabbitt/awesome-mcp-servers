@@ -1,10 +1,11 @@
+import {aiCreationArticles} from './ai-creation-articles.mjs';
 import {usefulArticles} from './useful-articles.mjs';
 // Original editorial workflows. Product capabilities checked against the linked publisher sources.
 // These are suggested trials, not hands-on product reviews or measured performance claims.
 const table=(caption,headers,rows)=>`<div class="article-table" role="region" aria-label="${caption}" tabindex="0"><table><caption>${caption}</caption><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const prompt=text=>`<pre class="article-prompt"><code>${text}</code></pre>`;
 const dates={datePublished:'2026-10-16',dateModified:'2026-10-16'};
-export const practicalArticles=[...usefulArticles,
+export const practicalArticles=[...aiCreationArticles,...usefulArticles,
  {
   ...dates,id:'chatgpt-vs-claude-vs-gemini',category:'CHOOSING YOUR TOOLS',title:'ChatGPT vs Claude vs Gemini: how to choose for real work',
   intro:'Compare three AI assistants with the same task, a simple scorecard and a clear spending decision.',
@@ -114,3 +115,4 @@ SCOPE AND SOURCES: [insert]`)}`},
   next:'Need help scoping the pilot? Explore workflow setup and agree the requirements before implementation.'
  }
 ];
+
