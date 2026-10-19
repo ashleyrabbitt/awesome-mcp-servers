@@ -6,7 +6,7 @@ Bring two comparable weeks of aggregate results. Leave with up to three evidence
 
 ## Status
 
-The template package is complete. The sample arithmetic and input fixtures have been checked locally. It has **not** been installed or behavior-tested in Grok Bot, published as a native Grok Bot template, or accepted into the Creator Rewards Pilot. The signed-in account currently reports that its plan does not include Bots. This package does not enable a schedule or connect an account.
+The template package is complete. The sample arithmetic and input fixtures have been checked locally. It has **not** been installed or behavior-tested in Grok Bot, published as a native Grok Bot template, or accepted into the Creator Rewards Pilot. Installation requires a Grok account with Bot access. This package does not enable a schedule or connect an account.
 
 ## Install in Grok Bot
 
