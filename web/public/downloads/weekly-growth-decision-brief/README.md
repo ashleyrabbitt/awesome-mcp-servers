@@ -1,12 +1,14 @@
 # Weekly Growth Decision Brief
 
-**A reusable Grok Bot setup for a founder’s weekly growth review.** Version 1.0 · October 19, 2026 · Created for Ashley Kays / Waymaker.
+**A reusable Grok Bot setup for a founder’s weekly growth review.** Version 1.1 · October 19, 2026 · Created for Ashley Kays / Waymaker.
 
 Bring two comparable weeks of aggregate results. Leave with up to three evidence-backed observations and three useful next checks. This kit contains the complete Bot instructions, onboarding, a sample CSV, an example brief, and a practical evaluation checklist.
 
-## Status
+## Start with the template
 
-The template package is complete. The sample arithmetic and input fixtures have been checked locally. It has **not** been installed or behavior-tested in Grok Bot, published as a native Grok Bot template, or accepted into the Creator Rewards Pilot. Installation requires a Grok account with Bot access. This package does not enable a schedule or connect an account.
+[Use the Weekly Growth Decision Brief in Grok](https://x.ai/bot/sOWsswuxc4Dl-MpQwHD4R). Open the preview, review its contents, and create your own Bot. A Grok account with Bot access is required. Start by asking it to run the included fictional example.
+
+The native template includes the corrected growth-analysis workflow, fictional sample resources, and first-run onboarding. It passed ten manual scenario checks on October 19, 2026 after an interpretation correction. These were checks in one creator conversation, not independent usability validation or a guarantee of future accuracy. See `VALIDATION-NOTES.md` in the download package. No schedule or external account connection is required. Creator Rewards admission and earnings are not established.
 
 ## Install in Grok Bot
 
