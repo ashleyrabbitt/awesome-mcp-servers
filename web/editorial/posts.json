@@ -1,6 +1,60 @@
 [
   {
     "site": "aisuperpower",
+    "slug": "agent-to-outcome-choose-your-agent",
+    "title": "Dots, Muse, Duet, Grok Bot: choose an agent by the work you need done",
+    "description": "A dated guide to current agent categories, persistent coworkers, Work and Cowork, coding tools, and explicit workflow builders.",
+    "quickAnswer": "Choose the job and review standard before the product. Compare where the agent runs, what context persists, which tools it can use, what you can inspect, and the controls and cost of completing the work. This is a current-options guide, not a popularity ranking.",
+    "bodyHtml": "<p>The agent landscape is easier to understand when you begin with the work. Do you need a finished document, an ongoing responsibility, a repository change, or a repeatable process across business tools? Several products can span those jobs, but the environment, permissions, persistence, and review experience still differ. This guide is a snapshot checked October 22, 2026, not a ranking by adoption or a hands-on performance benchmark.</p>\n<h2>Persistent agents for ongoing responsibilities</h2>\n<p><a href=\"https://chatgpt.com/features/dots/\">OpenAI dots</a> works across connected tools with its own cloud computer, relevant memory, and ongoing project context. A useful candidate task is keeping a project brief current and bringing decisions back to its owner. Check account availability and the separate requirements for optional access to your own computer.</p>\n<p><a href=\"https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse\">Meta Muse</a> combines a personal cloud environment, connectors, browser and code tools, background work, and subagents. Meta describes permission services outside the main agent runtime. That architecture is useful to understand, while still checking the actual actions and results. This is Meta’s agent, not an unrelated product that also uses the name Muse.</p>\n<p><a href=\"https://claude.com/resources/articles/claude-duet\">Claude Duet</a> was announced on October 21, 2026 as a proactive work agent with its own cloud VM. The launch begins with a research-preview waitlist for US Pro and Max users. Background checks share usage limits with other Claude work. Access and the ability to inspect its browser are material differences to verify before choosing it for a class.</p>\n<p><a href=\"https://docs.x.ai/grok-bot/faq\">Grok Bot</a> supports persistent named Bots, roles, context, handoffs, skills, and routines. An account’s Bots share a cloud computer and its files and logins. Treat them as distinct workers with shared access, rather than separate security compartments. Use bounded roles and one owner for the final result.</p>\n<h2>Work, Cowork, and coding environments</h2>\n<p><a href=\"https://learn.chatgpt.com/docs/use-chatgpt\">ChatGPT Work and Codex</a> provide different working views for substantial tasks, with Codex suited to inspecting technical work. Choose the surface that helps you review the deliverable and manage the tools involved. A model name alone does not tell you which files, connections, or execution capabilities a task has.</p>\n<p>Anthropic is <a href=\"https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude\">bringing Chat and Cowork into a unified experience in stages</a>. Some accounts still show separate modes. Claude Code remains a relevant coding environment, while design capabilities are evolving within Claude. Keep the course focused on task selection, source context, and verification rather than a screenshot that assumes every account has the same interface.</p>\n<h2>Explicit workflows for repeatable operations</h2>\n<p>An automation platform is useful when you need a known trigger, deterministic checks, controlled branching, and a record of each run. <a href=\"https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent\">n8n’s agent node</a> adds a model that can choose among connected tools inside that broader workflow. The builder still owns validation, permissions, recovery, and approval points.</p>\n<p>For example, fixed rules can check an incoming enquiry and prevent duplicates. An agent can interpret the request and draft a response. A person can approve the actual send. You do not need an open-ended agent decision for every step, and a simple task does not automatically need several subagents.</p>\n<h2>Compare one task fairly</h2>\n<p>Give two available tools the same sanitized inputs and acceptance criteria. Ask for a short brief with sources, unresolved questions, and a proposed next action. Record whether the result is usable, how much review it needs, whether the tool completed the promised action, and the total time and usage cost.</p>\n<p>Then test a missing source or failed connection. Does the agent explain the problem, preserve completed work, and stop at the agreed boundary? A graceful failure can matter more than a polished ideal-case demo. Keep a record of the product, model where visible, date, and settings so the comparison has context.</p>\n<h2>Build skill before adding subscriptions</h2>\n<p>Start with one agent you can access and one real task you can judge. Improve the brief, context, checkpoints, and review standard over several runs. Add another tool only when you can name the capability your workflow lacks. The transferable skill is learning to direct, inspect, and improve the work across changing products.</p>\n<h2>Put this into practice</h2><p>Use the same small task to compare the tools available to you, then map the workflow you want to keep. Start with the <a href=\"https://aiteachers.cc/agent-to-outcome/tutorial/\">free Agent to Outcome tutorial</a>, then use the <a href=\"https://aiteachers.cc/agent-to-outcome/planner/\">workflow planner</a> to map your goal, context, tools, human checkpoints, and success criteria. Explore the <a href=\"https://aiteachers.cc/agent-to-outcome/\">Agent to Outcome workshop and kit</a> for a guided learning path. For implementation or team training, see <a href=\"https://agency.waymaker.cx/agent-workflows\">Waymaker Agency’s agent workflow service</a>.</p>",
+    "category": "Choosing AI agents",
+    "faq": [],
+    "sources": [
+      {
+        "label": "OpenAI: dots",
+        "url": "https://chatgpt.com/features/dots/"
+      },
+      {
+        "label": "Meta: Muse engineering and controls",
+        "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+      },
+      {
+        "label": "Anthropic: Claude Duet",
+        "url": "https://claude.com/resources/articles/claude-duet"
+      },
+      {
+        "label": "Grok Bot: FAQ",
+        "url": "https://docs.x.ai/grok-bot/faq"
+      },
+      {
+        "label": "OpenAI: using ChatGPT Work and Codex",
+        "url": "https://learn.chatgpt.com/docs/use-chatgpt"
+      },
+      {
+        "label": "Anthropic: unified Chat and Cowork rollout",
+        "url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
+      },
+      {
+        "label": "n8n: AI Agent node",
+        "url": "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent"
+      }
+    ],
+    "publishedAt": "2026-10-23",
+    "sourcesCheckedAt": "2026-10-22",
+    "minutes": 4,
+    "coverFormat": "svg",
+    "imageWidth": 1440,
+    "imageHeight": 960,
+    "imageAlt": "Choose the job; Match the environment; Set checkpoints; Compare accepted results",
+    "imageCaption": "Original workflow diagram. Choose by the work, available controls and observed results; this is not a popularity ranking.",
+    "diagramLabels": [
+      "Choose the job",
+      "Match the environment",
+      "Set checkpoints",
+      "Compare accepted results"
+    ]
+  },
+  {
+    "site": "aisuperpower",
     "slug": "shopify-ucp-mcp-migration",
     "title": "Migrate Shopify Storefront MCP to UCP without losing cart state",
     "description": "A developer checklist for endpoint discovery, catalog/cart tool mapping, agent profiles, full cart updates and checkout verification.",

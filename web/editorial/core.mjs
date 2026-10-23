@@ -19,7 +19,7 @@ export function discovery(config, posts, now=Date.now()){
 }
 export function completeBody(post){
  const faqs=post.faq?.length?`<section class="ai-faq"><h2>Questions you might be asking</h2>${post.faq.map(f=>`<h3>${e(f.question)}</h3><p>${e(f.answer)}</p>`).join('')}</section>`:'';
- const sources=post.sources?.length?`<section class="ai-sources"><h2>Sources and further reading</h2><ul>${post.sources.map(s=>`<li><a href="${e(s.url)}" rel="noopener noreferrer">${e(s.label)}</a></li>`).join('')}</ul><p class="ai-source-note">Sources checked October 16, 2026. Tool features and plan availability can change; review the linked publisher documentation before connecting an account.</p></section>`:'';
+ const sources=post.sources?.length?`<section class="ai-sources"><h2>Sources and further reading</h2><ul>${post.sources.map(s=>`<li><a href="${e(s.url)}" rel="noopener noreferrer">${e(s.label)}</a></li>`).join('')}</ul><p class="ai-source-note">Sources checked ${e(dateLabel(post.sourcesCheckedAt || '2026-10-16'))}. Tool features and plan availability can change; review the linked publisher documentation before connecting an account.</p></section>`:'';
  return `<section class="ai-answer" aria-label="Quick answer"><h2>The useful starting point</h2><p>${e(post.quickAnswer)}</p></section>${post.bodyHtml}${faqs}${sources}`;
 }
 function bodyWithContents(post){
@@ -47,4 +47,5 @@ export function renderIndex(config,posts,now=Date.now()){
 }
 export function sitemapEntries(config,posts,now=Date.now()) {return [{url:config.origin+seriesPath(config)},...publishedPosts(posts,now).map(p=>({url:config.origin+articlePath(config,p),date:p.modifiedAt || p.publishedAt}))].map(p=>`<url><loc>${e(p.url)}</loc>${p.date?`<lastmod>${e(p.date)}</lastmod>`:''}</url>`).join('');}
 export function renderFeed(config,posts,now=Date.now()){return `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${e(config.name)}: AI in practice</title><link>${e(config.origin+seriesPath(config))}</link><description>${e(config.seriesDescription)}</description>${publishedPosts(posts,now).map(p=>`<item><title>${e(p.title)}</title><link>${e(config.origin+articlePath(config,p))}</link><guid isPermaLink="true">${e(config.origin+articlePath(config,p))}</guid><pubDate>${new Date(p.publishedAt).toUTCString()}</pubDate><description>${e(p.description)}</description></item>`).join('')}</channel></rss>`;}
+
 
