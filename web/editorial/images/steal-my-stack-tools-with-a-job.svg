@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
+<title id="title">Give every tool a clear job.</title>
+<desc id="desc">Start with one goal. Map inputs, tool jobs, human review, and the useful result. Use evidence from the result to improve the next pass.</desc>
+<rect width="1440" height="960" fill="#f8f8f2"/>
+<text x="90" y="90" fill="#246344" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="2">AI SUPERPOWER / STEAL MY STACK</text>
+<text x="90" y="207" fill="#192d27" font-family="Georgia,serif" font-size="76">Give every tool</text>
+<text x="90" y="292" fill="#192d27" font-family="Georgia,serif" font-size="76">a clear job.</text>
+<g font-family="Arial,sans-serif">
+<rect x="90" y="346" width="1260" height="88" rx="16" fill="#192d27"/>
+<text x="126" y="402" fill="#f7f8ee" font-size="30">ONE GOAL: a useful result you can describe and check.</text>
+<path d="M375 592H415 M710 592H750 M1045 592H1085" fill="none" stroke="#246344" stroke-width="4"/>
+<rect x="90" y="482" width="285" height="220" rx="18" fill="#eaf0d9"/>
+<text x="116" y="530" fill="#246344" font-size="19" font-weight="700">01 / INPUTS</text>
+<text x="116" y="587" fill="#192d27" font-size="29">Approved facts,</text><text x="116" y="629" fill="#192d27" font-size="29">context, and</text><text x="116" y="671" fill="#192d27" font-size="29">materials</text>
+<rect x="415" y="482" width="295" height="220" rx="18" fill="#edf0e7"/>
+<text x="441" y="530" fill="#246344" font-size="19" font-weight="700">02 / TOOL JOBS</text>
+<text x="441" y="587" fill="#192d27" font-size="29">Organize, draft,</text><text x="441" y="629" fill="#192d27" font-size="29">build, and</text><text x="441" y="671" fill="#192d27" font-size="29">connect</text>
+<rect x="750" y="482" width="295" height="220" rx="18" fill="#eaf0d9"/>
+<text x="776" y="530" fill="#246344" font-size="19" font-weight="700">03 / HUMAN REVIEW</text>
+<text x="776" y="587" fill="#192d27" font-size="29">Check facts,</text><text x="776" y="629" fill="#192d27" font-size="29">fit, and</text><text x="776" y="671" fill="#192d27" font-size="29">commitments</text>
+<rect x="1085" y="482" width="265" height="220" rx="18" fill="#192d27"/>
+<text x="1111" y="530" fill="#ddec9e" font-size="19" font-weight="700">04 / RESULT</text>
+<text x="1111" y="587" fill="#f8f8f2" font-size="29">Use it.</text><text x="1111" y="629" fill="#f8f8f2" font-size="29">Observe.</text><text x="1111" y="671" fill="#f8f8f2" font-size="29">Improve.</text>
+<path d="M1217 722V775H232V722" fill="none" stroke="#72927c" stroke-width="3"/>
+<rect x="480" y="752" width="490" height="48" fill="#f8f8f2"/>
+<text x="725" y="785" text-anchor="middle" fill="#42634c" font-size="23">Bring what you learn into the next pass.</text>
+<text x="90" y="879" fill="#42634c" font-size="24">Seven online brands. Workflows you can adapt.</text>
+<text x="90" y="922" fill="#42634c" font-size="19">aisuperpower.cc</text>
+</g></svg>
