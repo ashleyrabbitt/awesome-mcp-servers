@@ -6,6 +6,18 @@ import {readFileSync} from 'node:fs';
 import {publishedPosts,renderArticle,renderIndex,renderFeed,sitemapEntries,articlePath,seriesPath,imagePath} from './core.mjs';
 import {serveEditorial,attachEditorialDiscovery,config,posts} from './server.mjs';
 
+test('source-check note uses the article date and preserves the legacy fallback',()=>{
+ const original=posts.find(p=>p.slug==='agent-to-outcome-choose-your-agent');
+ assert.ok(original);
+ const dated=renderArticle(config,original,posts);
+ assert.match(dated,/Sources checked October 22, 2026\./);
+ assert.doesNotMatch(dated,/Sources checked October 16, 2026\./);
+ const legacy={...original};delete legacy.sourcesCheckedAt;
+ assert.match(renderArticle(config,legacy,[legacy]),/Sources checked October 16, 2026\./);
+ const other={...original,sourcesCheckedAt:'2026-10-20'};
+ assert.match(renderArticle(config,other,[other]),/Sources checked October 20, 2026\./);
+});
+
 test('substantive refresh changes modification metadata but preserves first publication and RSS',()=>{
  const original=posts.find(p=>p.slug==='ten-ai-tools-comparison-field-guide');
  const refreshed={...original,modifiedAt:'2026-10-19',author:'Ashley Kays'};
@@ -80,4 +92,5 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
   assert.equal((await fetch(base+seriesPath(config))).status,200);
  }finally{server.close();await once(server,'close');}
 });
+
 
