@@ -34,6 +34,7 @@ const summaries={
 '/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
 '/':'Discover AI tools, MCP servers and agents for real work. Build your superpowers with practical prompts, workflow plans, training, workshops and coaching.',
+'/agents':'Put AI agents to work with practical guides to Grok Bot, Claude Desktop computer use and ChatGPT Work. Research, prepare forms, collect data and create checked deliverables.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',
 '/discoveries':'Explore recent Superpowers picks for creative work, research, agents, browser assistants, MCP integrations and security, with first tasks and human review checkpoints.',
