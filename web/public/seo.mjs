@@ -1,4 +1,4 @@
-import {newsStories,newsEdition} from './news-data.mjs';
+import {newsStories} from './news-data.mjs';
 import {practicalArticles} from './practical-articles.mjs';
 import {siteOrigin} from './site-config.mjs';
 import {escapeHTML as e} from './catalog.mjs';
@@ -73,7 +73,7 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const page={'@type':news?'NewsArticle':answer||article?'Article':route==='/news'?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
  if(answer)Object.assign(page,{headline:answer.title,author:{'@id':origin+'/#organization'},dateModified:'2026-10-07',image});
  if(article)Object.assign(page,{headline:article.title,author:{'@id':origin+'/#organization'},datePublished:article.datePublished,dateModified:article.dateModified,articleSection:article.category,mainEntityOfPage:canonical,citation:article.sources.map(([,url])=>url),image});
- if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:newsEdition,dateModified:newsEdition,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
+ if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
  const graph=[website,organization,page];
  if(route!=='/'&&!noindex)graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'AI Superpower',item:origin+'/'},{'@type':'ListItem',position:2,name:heading,item:canonical}]});
  if(tool&&!noindex)graph.push({'@type':'SoftwareApplication','@id':canonical+'#software',name:tool.name,description:tool.description,url:tool.url,applicationCategory:tool.category,publisher:{'@type':'Organization',name:tool.publisher},mainEntityOfPage:{'@id':canonical+'#page'}});
