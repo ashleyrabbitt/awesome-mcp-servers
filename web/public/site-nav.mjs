@@ -1,4 +1,7 @@
 const header=document.querySelector('.site-header');
+// Keep the saved-kit badge accurate on article pages, which do not load the app router.
+function savedCount(){try{const saved=JSON.parse(localStorage.getItem('waymaker-superpowers-v1')||'{}').saved;const count=document.querySelector('#saved-count');if(count)count.textContent=String(Array.isArray(saved)?new Set(saved.filter(id=>typeof id==='string')).size:0);}catch{}}
+savedCount();window.addEventListener('storage',savedCount);
 const mobile=matchMedia('(max-width: 940px)');
 const menu=header?.querySelector('.site-menu');
 const panels=()=>[...header.querySelectorAll('details[data-nav-panel]')].filter(p=>p!==menu||mobile.matches);
