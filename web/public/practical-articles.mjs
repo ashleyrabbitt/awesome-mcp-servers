@@ -1,3 +1,4 @@
+import {mercorArticles} from './mercor-article.mjs';
 import {agentWorkflowArticles} from './agent-workflow-articles.mjs';
 import {futureWorkKnowledgeArticles} from './future-work-knowledge-articles.mjs';
 import {aiCreationArticles} from './ai-creation-articles.mjs';
@@ -7,7 +8,7 @@ import {usefulArticles} from './useful-articles.mjs';
 const table=(caption,headers,rows)=>`<div class="article-table" role="region" aria-label="${caption}" tabindex="0"><table><caption>${caption}</caption><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const prompt=text=>`<pre class="article-prompt"><code>${text}</code></pre>`;
 const dates={datePublished:'2026-10-16',dateModified:'2026-10-16'};
-export const practicalArticles=[...agentWorkflowArticles,...futureWorkKnowledgeArticles,...aiCreationArticles,...usefulArticles,
+export const practicalArticles=[...mercorArticles,...agentWorkflowArticles,...futureWorkKnowledgeArticles,...aiCreationArticles,...usefulArticles,
  {
   ...dates,dateModified:'2026-10-29',id:'chatgpt-vs-claude-vs-gemini',category:'CHOOSING YOUR TOOLS',title:'ChatGPT vs Claude vs Gemini: how to choose for real work',
   intro:'Compare three AI assistants with the same task, a simple scorecard and a clear spending decision.',
