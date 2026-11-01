@@ -82,7 +82,7 @@ for(const implicit of [false,true])test('HTTP preserves native content with '+(i
  });
  server.listen(0,'127.0.0.1');await once(server,'listening');const base='http://127.0.0.1:'+server.address().port;
  try{
-  const home=await fetch(base+'/'),body=await home.text();assert.equal(home.status,200);assert.ok(body.includes('Keep this content.'));assert.ok(body.includes('AI in practice'));assert.ok(body.includes(publishedPosts(posts)[0].title.replace(/&/g,'&amp;')));assert.equal(home.headers.get('x-test-native'),'preserved');assert.equal(Number(home.headers.get('content-length')),Buffer.byteLength(body));assert.equal(home.headers.get('etag'),null);
+  const home=await fetch(base+config.discoveryPaths[0]),body=await home.text();assert.equal(home.status,200);assert.ok(body.includes('Keep this content.'));assert.ok(body.includes('AI in practice'));assert.ok(body.includes(publishedPosts(posts)[0].title.replace(/&/g,'&amp;')));assert.equal(home.headers.get('x-test-native'),'preserved');assert.equal(Number(home.headers.get('content-length')),Buffer.byteLength(body));assert.equal(home.headers.get('etag'),null);
   const current=await fetch(base+articlePath(config,posts[0]));assert.equal(current.status,200);assert.ok((await current.text()).includes(posts[0].quickAnswer.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')));
   const futurePost=posts.find(p=>Date.parse(p.publishedAt)>Date.now());if(futurePost){const future=await fetch(base+articlePath(config,futurePost));assert.equal(future.status,404);assert.ok(future.headers.get('x-robots-tag').includes('noindex'));}
   const head=await fetch(base+articlePath(config,posts[0]),{method:'HEAD'});assert.equal(head.status,200);assert.equal(await head.text(),'');

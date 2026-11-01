@@ -1,3 +1,4 @@
+import {applySiteShell} from '../public/site-shell.mjs';
 import {usefulRoutes,playbooks,playbookMarkdown} from '../public/useful-work.mjs';
 import {growthRoutes} from '../public/discovery-plus.mjs';
 import {comparisons,worksheets,worksheetMarkdown} from '../public/power-path.mjs';
@@ -17,7 +18,7 @@ import {missions} from '../public/discovery.mjs';
 import {renderRoute} from '../public/views.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const items=[...curated,...JSON.parse(await readFile(path.join(root,'public/imported.json'),'utf8'))];
-const template=await readFile(path.join(root,'public/index.html'),'utf8');
+const template=applySiteShell(await readFile(path.join(root,'public/index.html'),'utf8'));
 const routes=['/agents',...usefulRoutes,...growthRoutes,'/maker','/admin','/work-with-us','/advertise','/listing-policy','/my-kit','/first-win','/comparisons','/worksheets','/community',...comparisons.map(c=>'/comparisons/'+c.id),...worksheets.map(w=>'/worksheets/'+w.id),'/journeys','/comparison-challenge',...journeys.map(j=>'/journeys/'+j.id),'/product-hunt-picks','/working-session','/workshops/campaign','/kits','/kits/campaign','/kits/customer-research','/kits/automation','/opportunity-finder','/field-guide','/services','/tool-trial','/discoveries','/reviewed','/answers','/newsletter',...answers.map(a=>'/answers/'+a.id),'/workflow-lab','/time-savings','/resources',...howTos.map(h=>'/how-to/'+h.id),...resourceKits.map(r=>'/resources/'+r.id),...promptTemplates.map(p=>'/prompts/'+p.id),'/repositories','/power-map','/collections',...powerCollections.map(c=>'/collections/'+c.id),'/planner','/prompts','/hq','/shared','/missions','/stacks',...missions.map(m=>'/missions/'+m.id),...missions.filter(m=>m.steps).map(m=>'/stacks/'+m.id),'/','/directory','/saved','/finder','/compare','/workflows','/learn','/training','/workshops','/coaching','/security','/inspector','/contact','/submit','/support','/privacy','/terms','/disclosure','/credits',...items.map(x=>'/tools/'+x.id),...workflows.map(x=>'/workflows/'+x.id),...guides.map(x=>'/guides/'+x.id)];
 await rm(path.join(root,'dist'),{recursive:true,force:true});await cp(path.join(root,'public'),path.join(root,'dist'),{recursive:true});
 const origin=process.env.SITE_URL?new URL(process.env.SITE_URL).origin:siteOrigin;

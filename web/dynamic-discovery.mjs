@@ -1,10 +1,11 @@
+import {applySiteShell} from './public/site-shell.mjs';
 import {readFile} from 'node:fs/promises';
 import {businessCall} from './business-api.mjs';
 import {catalogRequest} from './catalog-api.mjs';
 import {renderRoute} from './public/views.mjs';
 import {pageSEO,seoMarkup} from './public/seo.mjs';
 import {escapeHTML as e} from './public/catalog.mjs';
-const template=readFile(new URL('./public/index.html',import.meta.url),'utf8');
+const template=readFile(new URL('./public/index.html',import.meta.url),'utf8').then(applySiteShell);
 export async function dynamicDiscovery(route,{call=businessCall,catalog=catalogRequest}={}){
  try{
   const stateKey=route.startsWith('/community-kits/')?'publicKit':route==='/tool-changes'?'changes':'explore';

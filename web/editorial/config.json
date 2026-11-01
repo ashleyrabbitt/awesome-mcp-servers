@@ -13,11 +13,11 @@
   "ink": "#192d27",
   "accent": "#246344",
   "paper": "#eaf0d9",
-  "background": "#f8f8f2",
+  "background": "#fcfaf6",
   "trailingSlash": false,
   "discoveryPaths": [
-    "/",
     "/learn"
   ],
-  "seriesLabel": "AI in practice / October–November 2026"
+  "seriesLabel": "AI in practice / October\u2013November 2026",
+  "heading": "'Bricolage Grotesque',Arial,sans-serif"
 }
