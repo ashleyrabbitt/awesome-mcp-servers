@@ -1,3 +1,4 @@
+import {newsStories,newsEdition} from './news-data.mjs';
 import {practicalArticles} from './practical-articles.mjs';
 import {siteOrigin} from './site-config.mjs';
 import {escapeHTML as e} from './catalog.mjs';
@@ -33,7 +34,8 @@ const summaries={
 '/submit':'Submit an AI tool, MCP server, agent or service provider to AI Superpower. Share a useful description and official link for editorial review.',
 '/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
-'/':'Discover AI tools, MCP servers and agents for real work. Build your superpowers with practical prompts, workflow plans, training, workshops and coaching.',
+'/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays.',
+'/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays for AI Superpower.',
 '/agents':'Put AI agents to work with practical guides to Grok Bot, Claude Desktop computer use and ChatGPT Work. Research, prepare forms, collect data and create checked deliverables.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',
@@ -54,26 +56,28 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const u=new URL(url,origin),route=u.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';
  const tool=items.find(t=>route==='/tools/'+t.id),answer=answers.find(a=>route==='/answers/'+a.id);
  const kind=route.split('/')[1],id=route.split('/')[2];
+ const news=kind==='news'&&newsStories.find(s=>s.id===id);
  const article=kind==='guides'&&practicalArticles.find(g=>g.id===id);
  const mission=['missions','stacks'].includes(kind)&&missions.find(m=>m.id===id);
  const prompt=kind==='prompts'&&promptTemplates.find(p=>p.id===id);
  const howto=kind==='how-to'&&howTos.find(h=>h.id===id),resource=kind==='resources'&&resourceKits.find(r=>r.id===id);
  const heading=plain(content.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1])||'Page not found';
- const title=route==='/'?'AI tools, MCP servers & practical workflows — AI Superpower':heading+(prompt?' · Prompt template':mission?kind==='stacks'?' · Guided stack':' · Tool mission':'')+' — AI Superpower by Waymaker';
+ const title=route==='/'?'AI news, tools & practical know-how — AI Superpower':heading+(prompt?' · Prompt template':mission?kind==='stacks'?' · Guided stack':' · Tool mission':'')+' — AI Superpower by Waymaker';
  const intro=plain(content.match(/<div class="page-head"[^>]*>[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/)?.[1]||content.match(/<p class="(?:description|lead|intro)"[^>]*>([\s\S]*?)<\/p>/)?.[1]);
  const specific=prompt?`Customize a ${prompt.role.toLowerCase()} prompt to ${prompt.title.toLowerCase()}. Add source material and constraints, then copy or download your draft for review.`:mission?kind==='stacks'?`Follow a guided stack to ${mission.title.toLowerCase()}. Use suggested tools, practical steps and a reusable prompt to produce ${mission.output.toLowerCase()}.`:`Explore tool starting points to ${mission.title.toLowerCase()}. ${mission.output||mission.intro} Review sources and choose a small first task.`:howto?.intro||resource?.description;
- const description=(tool?.description||article?.description||answer?.answer||specific||summaries[route]||intro||`${heading}. Explore practical guidance, related tools and next steps with AI Superpower by Waymaker.`).slice(0,300);
- const noindex=route.startsWith('/community-kits/')||privatePaths.has(route)||tool?.status==='Community listing'||u.search.length>0||/Page not found|lost your way/i.test(heading);
+ const description=(news?.description||tool?.description||article?.description||answer?.answer||specific||summaries[route]||intro||`${heading}. Explore practical guidance, related tools and next steps with AI Superpower by Waymaker.`).slice(0,300);
+ const noindex=(kind==='news'&&Boolean(id)&&!news)||route.startsWith('/community-kits/')||privatePaths.has(route)||tool?.status==='Community listing'||u.search.length>0||/Page not found|lost your way/i.test(heading);
  const canonical=origin+(route==='/support'?'/coaching':route),image=origin+'/assets/hero-everyday.webp';
  const website={'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'AI Superpower by Waymaker',publisher:{'@id':origin+'/#organization'}};
  const organization={'@type':'Organization','@id':origin+'/#organization',name:'Waymaker AI INC',url:'https://waymaker.cx',brand:{'@type':'Brand',name:'AI Superpower'}};
- const page={'@type':answer||article?'Article':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
+ const page={'@type':news?'NewsArticle':answer||article?'Article':route==='/news'?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
  if(answer)Object.assign(page,{headline:answer.title,author:{'@id':origin+'/#organization'},dateModified:'2026-10-07',image});
  if(article)Object.assign(page,{headline:article.title,author:{'@id':origin+'/#organization'},datePublished:article.datePublished,dateModified:article.dateModified,articleSection:article.category,mainEntityOfPage:canonical,citation:article.sources.map(([,url])=>url),image});
+ if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:newsEdition,dateModified:newsEdition,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
  const graph=[website,organization,page];
  if(route!=='/'&&!noindex)graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'AI Superpower',item:origin+'/'},{'@type':'ListItem',position:2,name:heading,item:canonical}]});
  if(tool&&!noindex)graph.push({'@type':'SoftwareApplication','@id':canonical+'#software',name:tool.name,description:tool.description,url:tool.url,applicationCategory:tool.category,publisher:{'@type':'Organization',name:tool.publisher},mainEntityOfPage:{'@id':canonical+'#page'}});
- return {title,description,canonical,image,noindex,ogType:answer||article?'article':'website',structured:{'@context':'https://schema.org','@graph':graph}};
+ return {title,description,canonical,image,noindex,ogType:answer||article||news?'article':'website',structured:{'@context':'https://schema.org','@graph':graph}};
 }
 export function seoMarkup(s){return `<link rel="canonical" href="${e(s.canonical)}"><meta name="robots" content="${s.noindex?'noindex, follow':'index, follow, max-image-preview:large'}"><meta property="og:title" content="${e(s.title)}"><meta property="og:description" content="${e(s.description)}"><meta property="og:url" content="${e(s.canonical)}"><meta property="og:type" content="${s.ogType}"><meta property="og:site_name" content="AI Superpower by Waymaker"><meta property="og:image" content="${e(s.image)}"><meta property="og:image:alt" content="Everyday creativity with illustrated superpowers"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(s.title)}"><meta name="twitter:description" content="${e(s.description)}"><meta name="twitter:image" content="${e(s.image)}"><script id="structured-data" type="application/ld+json">${JSON.stringify(s.structured).replace(/</g,'\\u003c')}</script>`;}
 export function updateSEO(doc,s){

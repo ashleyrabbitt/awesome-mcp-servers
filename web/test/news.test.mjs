@@ -1,0 +1,46 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {newsStories,newsEdition,newsTopics} from '../public/news-data.mjs';
+import {renderRoute} from '../public/views.mjs';
+import {pageSEO} from '../public/seo.mjs';
+
+test('news briefs retain original sources, chronological dates and distinct publication metadata',async()=>{
+  assert.equal(new Set(newsStories.map(s=>s.id)).size,newsStories.length);
+  for(const [i,s] of newsStories.entries()){
+    assert.ok(newsTopics.includes(s.topic));
+    assert.ok(s.date<=newsEdition);
+    if(i)assert.ok(newsStories[i-1].date>=s.date);
+    assert.equal(new URL(s.sourceUrl).protocol,'https:');
+    for(const key of ['summary','takeaway','action','caveat'])assert.ok(s[key].length>40);
+    const path='/news/'+s.id,html=renderRoute(path,[]),seo=pageSEO(path,[],html);
+    assert.ok(html.includes(s.title));
+    assert.ok(html.includes(s.sourceUrl));
+    assert.ok(!renderRoute(s.next[0],[]).includes('Page not found'));
+    const article=seo.structured['@graph'].find(n=>n['@type']==='NewsArticle');
+    assert.deepEqual(article.citation,[s.sourceUrl]);
+    assert.equal(article.datePublished,newsEdition);
+    assert.equal(seo.ogType,'article');
+    const built=await readFile(new URL('../dist'+path+'/index.html',import.meta.url),'utf8');
+    assert.ok(built.includes(s.title));
+    assert.ok(built.includes('news.css'));
+  }
+  const sitemap=await readFile(new URL('../dist/sitemap.xml',import.meta.url),'utf8');
+  // The sitemap may be an index; the build's route manifest must include every news page.
+  assert.ok(sitemap.includes('sitemap'));
+  const routes=JSON.parse(await readFile(new URL('../dist/routes.json',import.meta.url),'utf8'));
+  assert.ok(newsStories.every(s=>routes.includes('/news/'+s.id)));
+});
+
+test('news filters produce the selected topic and ignore unknown query input',()=>{
+  for(const topic of newsTopics.slice(1)){
+    const html=renderRoute('/news?topic='+encodeURIComponent(topic),[]);
+    for(const s of newsStories)assert.equal(html.includes('href="/news/'+s.id+'"'),s.topic===topic);
+  }
+  const attack='<img src=x onerror=alert(1)>';
+  const html=renderRoute('/news?topic='+encodeURIComponent(attack),[]);
+  assert.ok(!html.includes(attack));
+  assert.ok(newsStories.every(s=>html.includes('/news/'+s.id)));
+  const missing=renderRoute('/news/no-such-story',[]);
+  assert.ok(pageSEO('/news/no-such-story',[],missing).noindex);
+});
