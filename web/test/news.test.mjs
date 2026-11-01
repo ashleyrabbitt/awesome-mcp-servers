@@ -19,7 +19,12 @@ test('news briefs retain original sources, chronological dates and distinct publ
     assert.ok(!renderRoute(s.next[0],[]).includes('Page not found'));
     const article=seo.structured['@graph'].find(n=>n['@type']==='NewsArticle');
     assert.deepEqual(article.citation,[s.sourceUrl]);
-    assert.equal(article.datePublished,newsEdition);
+    assert.match(s.datePublished,/^\d{4}-\d{2}-\d{2}$/);
+    assert.match(s.dateModified,/^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(s.datePublished<=s.dateModified);
+    assert.equal(article.datePublished,s.datePublished);
+    assert.equal(article.dateModified,s.dateModified);
+    assert.ok(html.includes('Brief published <time datetime="'+s.datePublished+'"'));
     assert.equal(seo.ogType,'article');
     const built=await readFile(new URL('../dist'+path+'/index.html',import.meta.url),'utf8');
     assert.ok(built.includes(s.title));
@@ -43,4 +48,19 @@ test('news filters produce the selected topic and ignore unknown query input',()
   assert.ok(newsStories.every(s=>html.includes('/news/'+s.id)));
   const missing=renderRoute('/news/no-such-story',[]);
   assert.ok(pageSEO('/news/no-such-story',[],missing).noindex);
+});
+
+test('article dates come from each story, independently of the collection edition',()=>{
+  const story=newsStories[0];
+  const original={datePublished:story.datePublished,dateModified:story.dateModified};
+  try {
+    Object.assign(story,{datePublished:'2026-10-31',dateModified:'2026-11-01'});
+    const path='/news/'+story.id,html=renderRoute(path,[]),seo=pageSEO(path,[],html);
+    const article=seo.structured['@graph'].find(n=>n['@type']==='NewsArticle');
+    assert.equal(article.datePublished,'2026-10-31');
+    assert.equal(article.dateModified,'2026-11-01');
+    assert.ok(html.includes('Brief published <time datetime="2026-10-31"'));
+    assert.ok(html.includes('Updated <time datetime="2026-11-01"'));
+    assert.ok(renderRoute('/news',[]).includes('Edition:'));
+  } finally { Object.assign(story,original); }
 });
