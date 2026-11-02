@@ -1,7 +1,7 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-01';
+export const newsEdition = '2026-11-02';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
   {
@@ -101,3 +101,72 @@ export const newsStories = [
     next:['/guides/agents-get-real-work-done','Start with a repeatable agent workflow']
   }
 ];
+
+
+// Newly reviewed briefs. Source announcement dates remain distinct from publication.
+newsStories.push(...[
+  {
+    "id": "genie-4-interactive-worlds",
+    "date": "2026-10-27",
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "topic": "Industry",
+    "publisher": "Google DeepMind",
+    "art": "web",
+    "title": "Genie 4 brings sound and live direction to simulated worlds",
+    "description": "Google’s new world-model research combines interactive scenes with native audio, with access beginning through a limited tester rollout.",
+    "summary": "Google announced Genie 4, a world model for interactive simulation. People can steer a generated scene with natural-language directions, while the model produces audio alongside the visuals. Google says a limited group of trusted testers has begun receiving access; broader routes are planned through Project Genie and early-access developer partners.",
+    "takeaway": "Our take: this is a development to watch for creative prototyping and simulation. A convincing generated environment still needs a defined purpose and a way to evaluate whether its behavior is useful for that purpose.",
+    "action": "Write a short simulation brief: the situation, what a person should be able to change, and three behaviors you would need to verify. Use that brief to assess demos before planning a production dependency.",
+    "caveat": "The announcement describes a limited rollout. Planned availability is not the same as access in your account today, and a research demo is not evidence of reliability for a specific real-world task.",
+    "sourceTitle": "Google: introducing Genie 4",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+    "next": [
+      "/resources",
+      "Start with a clear project brief"
+    ]
+  },
+  {
+    "id": "gpt-61-terra-visual-work",
+    "date": "2026-10-26",
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "topic": "Agents",
+    "publisher": "OpenAI",
+    "art": "agents",
+    "title": "GPT-6.1 Terra connects visual reasoning with computer tasks",
+    "description": "OpenAI’s October 26 release adds a model aimed at visual understanding, computer use, and everyday professional writing.",
+    "summary": "OpenAI introduced GPT-6.1 Terra for visual reasoning, computer use, and writing. It is available through the API and in ChatGPT Work and Codex. OpenAI reports improvements over its earlier Terra model in its evaluations; those vendor results do not establish performance on your own workflow.",
+    "takeaway": "Our take: evaluate the complete task, including the time spent checking and correcting the result. A model that can interpret a screen is most useful when the desired action and the stopping condition are equally clear.",
+    "action": "Choose a reversible task with nonsensitive material, such as reviewing a sample presentation for cropped text. Define the checks first, inspect every proposed change, and compare the result with your current process.",
+    "caveat": "Work and Codex availability does not mean the model is available in Chat. Workspace controls and browser or computer access requirements still apply. Check the release notes and your account before designing a workflow around it.",
+    "sourceTitle": "OpenAI: GPT-6.1 Terra release notes, October 26, 2026",
+    "sourceUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+    "next": [
+      "/guides/agents-get-real-work-done",
+      "Give an agent a clear brief"
+    ]
+  },
+  {
+    "id": "claude-nonprofits-workflow-plugin",
+    "date": "2026-10-26",
+    "datePublished": "2026-11-02",
+    "dateModified": "2026-11-02",
+    "topic": "Productivity",
+    "publisher": "Anthropic",
+    "art": "skills",
+    "title": "Claude’s nonprofit plugin packages recurring operational work",
+    "description": "A new plugin brings reusable skills and connectors to verified nonprofits, with workflows spanning fundraising and small-team operations.",
+    "summary": "Anthropic released a Claude for Nonprofits plugin developed with nonprofit organizations. It packages skills and connectors for work such as fundraising, marketing, and hiring, alongside organization context and policy setup. Anthropic also describes a planned Taproot partnership to extend implementation support; that partnership is a separate initiative.",
+    "takeaway": "Our take: the useful shift is from repeating a long briefing to maintaining a reviewed workflow. Nonprofits can start with one recurring draft and keep mission, source requirements, and approval rules attached to the work.",
+    "action": "Choose a public, nonsensitive task such as drafting a volunteer-event brief from approved details. Define the required facts and reviewer, then compare the plugin’s output with your organization’s existing standard.",
+    "caveat": "Check nonprofit verification, plan eligibility, and connector permissions before use. A planned support partnership does not establish that a consulting placement is available to your organization today.",
+    "sourceTitle": "Anthropic: expanding Claude for Nonprofits",
+    "sourceUrl": "https://claude.com/fr/resources/articles/expanding-claude-for-nonprofits",
+    "next": [
+      "/resources",
+      "Find a starting template"
+    ]
+  }
+]);
+newsStories.sort((a,b)=>b.date.localeCompare(a.date));
