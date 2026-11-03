@@ -1,7 +1,7 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-02';
+export const newsEdition = '2026-11-03';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
   {
@@ -169,4 +169,44 @@ newsStories.push(...[
     ]
   }
 ]);
+// Daily news desk — November 3, 2026. Source dates remain separate from publication.
+newsStories.push(...[
+  {
+    id:'openai-physical-engineering-workflows', date:'2026-11-03', datePublished:'2026-11-03', dateModified:'2026-11-03', topic:'Industry', publisher:'OpenAI', art:'agents',
+    title:'OpenAI shows where AI-assisted hardware design still needs engineers',
+    description:'A new engineering update covers CAD, drawings, simulation and prototype work—and documents manufacturing constraints the models still missed.',
+    summary:'OpenAI described research and internal workflows using Codex, ChatGPT and Astra for mechanical and electrical design, manufacturing drawings, simulation setup and cross-discipline coordination. In one device project, two people produced a design in under a week and a manufacturer built prototypes, but OpenAI says several review rounds were still needed because Astra did not consistently account for production limits, tolerances or assembly details.',
+    takeaway:'Our take: the useful signal is not “AI designs hardware by itself.” It is that bounded drafting and analysis steps may move faster when qualified engineers keep requirements, manufacturability and safety decisions in the review loop.',
+    action:'Choose one reversible engineering artifact, such as a synthetic drawing-check checklist. Define the dimensions, constraints and reviewer before using an AI tool, then record every correction required before the artifact could inform real work.',
+    caveat:'This announcement reports OpenAI research, internal use and selected collaborations. It is not general evidence that an unreviewed model output is safe, manufacturable or suitable for a specific product, and the collaboration invitation is not access to a finished self-serve product.',
+    sourceTitle:'OpenAI: Accelerating engineering for the physical world',
+    sourceUrl:'https://openai.com/index/accelerating-engineering-for-the-physical-world/',
+    next:['/tool-trial','Plan a same-task tool trial']
+  },
+  {
+    id:'openai-lifeval-everyday-agent-evaluation', date:'2026-11-02', datePublished:'2026-11-03', dateModified:'2026-11-03', topic:'Agents', publisher:'OpenAI', art:'data',
+    title:'LifeVal tests whether AI can finish everyday tasks, not just answer questions',
+    description:'OpenAI’s new evaluation covers caregiving, education, household administration, shopping, finances and public services.',
+    summary:'OpenAI introduced LifeVal, an evaluation for practical, multi-step tasks people want help completing. The company says it began with time-use datasets and a demographically representative survey of 3,995 respondents, then built tasks across caregiving, health, education, household administration, personal finance, shopping and government services.',
+    takeaway:'Our take: this is a better evaluation direction than judging an assistant by a polished first answer alone. For a real workflow, success also depends on current sources, permissions, correct actions, the time spent reviewing and whether the person affected stays in control.',
+    action:'Pick one low-stakes household task and write a five-line evaluation: desired result, sources to check, actions allowed, decisions reserved for you and a stopping condition. Test the complete workflow rather than the opening response.',
+    caveat:'LifeVal is an OpenAI-created benchmark and the reported examples are company evaluation results, not guarantees for your account or situation. Do not delegate medical, financial, legal, childcare or government-service decisions without appropriate human review and current official information.',
+    sourceTitle:'OpenAI: LifeVal',
+    sourceUrl:'https://openai.com/index/lifeval/',
+    next:['/workflow-lab','Map the human decisions in a workflow']
+  },
+  {
+    id:'github-copilot-jetbrains-air', date:'2026-11-03', datePublished:'2026-11-03', dateModified:'2026-11-03', topic:'Agents', publisher:'GitHub', art:'skills',
+    title:'GitHub Copilot can now run coding tasks inside JetBrains Air',
+    description:'The integration supports parallel local sessions and isolated cloud tasks, with separate plan and administrator requirements.',
+    summary:'GitHub announced Copilot support in JetBrains Air through the Agent Client Protocol. Developers can select Copilot in Air, run parallel sessions, use project and IDE context, and review changes alongside code. Local tasks use the Air plugin; cloud tasks run in fresh virtual machines and require an Air Teams-enabled business organization, a Copilot subscription and administrator enablement.',
+    takeaway:'Our take: the benefit is a reviewable place for parallel agent work, not permission to merge more code without checking it. Teams should decide which repositories, commands, secrets and spending paths a cloud task may reach before delegating work.',
+    action:'Start locally on a test repository. Ask for one small change, inspect the diff, run the project’s own checks and note what context or permissions were actually required before considering a cloud task.',
+    caveat:'Availability differs for local and cloud work. GitHub says Air governance analytics do not include Copilot usage, Air administrators cannot set Copilot spending limits inside Air, and individual tasks cannot choose between a personal and organization plan.',
+    sourceTitle:'GitHub: Copilot is now available in JetBrains Air',
+    sourceUrl:'https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/',
+    next:['/guides/agents-get-real-work-done','Give an agent a bounded coding brief']
+  }
+]);
+
 newsStories.sort((a,b)=>b.date.localeCompare(a.date));
