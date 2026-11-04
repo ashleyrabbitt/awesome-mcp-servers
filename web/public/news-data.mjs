@@ -1,7 +1,7 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-03';
+export const newsEdition = '2026-11-04';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
   {
@@ -206,6 +206,34 @@ newsStories.push(...[
     sourceTitle:'GitHub: Copilot is now available in JetBrains Air',
     sourceUrl:'https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/',
     next:['/guides/agents-get-real-work-done','Give an agent a bounded coding brief']
+  }
+]);
+
+// Daily news desk — November 4, 2026. Source dates remain separate from publication.
+newsStories.push(...[
+  {
+    id:'openai-pierre-codex-source-control', date:'2026-11-04', datePublished:'2026-11-04', dateModified:'2026-11-04', topic:'Industry', publisher:'OpenAI', art:'skills',
+    title:'OpenAI’s Pierre deal points Codex toward source-control infrastructure',
+    description:'OpenAI plans to acquire the maker of Code Storage and the open-source Trees and Diffs libraries already used in Codex.',
+    summary:'OpenAI announced an agreement to acquire Pierre Computer Company, the company behind Code Storage and several open-source developer tools. OpenAI says Codex already uses Pierre’s Trees and Diffs libraries for file navigation and change review. After closing, OpenAI plans to bring Code Storage capabilities into Codex while keeping Pierre’s open-source projects open source.',
+    takeaway:'Our take: coding agents are pushing product competition beyond code generation and into the systems used to store, review and ship changes. Teams still need explicit branch, review, test and deployment rules; an acquisition announcement does not replace those controls.',
+    action:'Map one agent-assisted code change from branch creation through review and deployment. Write down who approves the diff, which checks must pass and where a person can stop the release.',
+    caveat:'The transaction has not closed and remains subject to customary conditions and regulatory approval. OpenAI describes an ambition for future Codex capabilities, not a complete product migration available today. Code Storage customers can continue using the service while the companies remain separate.',
+    sourceTitle:'OpenAI: OpenAI to acquire Pierre Computer Company, Inc.',
+    sourceUrl:'https://openai.com/index/openai-to-acquire-pierre/',
+    next:['/guides/agents-get-real-work-done','Give a coding agent a bounded brief']
+  },
+  {
+    id:'openai-daybreak-red-govcloud', date:'2026-11-04', datePublished:'2026-11-04', dateModified:'2026-11-04', topic:'Safety', publisher:'OpenAI', art:'review',
+    title:'Daybreak Red reaches approved AWS GovCloud customers',
+    description:'GPT-5.6 Cyber is now available through Amazon Bedrock in AWS GovCloud (US-East) for approved government security teams.',
+    summary:'OpenAI announced that approved Daybreak Red customers can access GPT-5.6 Cyber through Amazon Bedrock in AWS GovCloud (US-East). The service is intended for authorized vulnerability research, exploit validation and security testing. OpenAI says qualified practitioners should review findings and fixes before implementation, and that inference data is not used to train models.',
+    takeaway:'Our take: the important change is deployment inside a government cloud environment with identity, monitoring and access controls—not permission to automate consequential security decisions. Skilled defenders, authorization and controlled testing remain part of the workflow.',
+    action:'For an authorized security workflow, document the target scope, evidence required, human reviewer and rollback plan before testing any model-assisted finding. Keep the first exercise inside a controlled environment.',
+    caveat:'Access requires both OpenAI Daybreak Red approval and AWS provisioning; approval alone does not enable the model. This is for qualified, authorized security work, and the provider announcement is not evidence that a generated finding or mitigation is correct.',
+    sourceTitle:'OpenAI: Daybreak Red is now available in AWS GovCloud (US-East)',
+    sourceUrl:'https://openai.com/index/daybreak-red-aws-govcloud/',
+    next:['/security','Review practical AI security guidance']
   }
 ]);
 
