@@ -1570,3 +1570,7 @@ export const agentEraPicks = [
     "directory_updated_at": "2026-10-31"
   }
 ];
+
+
+const higgsfield = agentEraPicks.find(tool => tool.id === "higgsfield");
+if (higgsfield) Object.assign(higgsfield, {affiliateUrl: "https://higgsfield.ai?fpr=ashley-a1cd2d", affiliateDisclosure: "Affiliate disclosure: We may earn a commission if you sign up or purchase through this Higgsfield link."});
