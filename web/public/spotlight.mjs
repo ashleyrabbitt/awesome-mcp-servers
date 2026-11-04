@@ -45,3 +45,7 @@ export const extraPrompts=[
 ['knowledge-check','Audit an AI-generated summary','Product managers','Compare [summary] with [source material]. For each important claim cite its supporting passage or mark it unsupported. List omissions, contradictions and uncertainty. Do not fill gaps with invented details.']
 ].map(([id,title,role,prompt])=>({id,title,role,prompt}));
 
+
+
+const descript = spotlight.find(tool => tool.id === "descript");
+if (descript) Object.assign(descript, { affiliateUrl: "https://get.descript.com/o1zqq5l1l1m4", affiliateDisclosure: "Affiliate disclosure: We may earn a commission if you sign up or purchase through this Descript link.", date: "2026-11-04" });
