@@ -1,7 +1,7 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-04';
+export const newsEdition = '2026-11-05';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
   {
@@ -234,6 +234,34 @@ newsStories.push(...[
     sourceTitle:'OpenAI: Daybreak Red is now available in AWS GovCloud (US-East)',
     sourceUrl:'https://openai.com/index/daybreak-red-aws-govcloud/',
     next:['/security','Review practical AI security guidance']
+  }
+]);
+
+// Daily news desk — November 5, 2026. Source dates remain separate from publication.
+newsStories.push(...[
+  {
+    id:'openai-gpt-6-cyber', date:'2026-11-05', datePublished:'2026-11-05', dateModified:'2026-11-05', topic:'Safety', publisher:'OpenAI', art:'review',
+    title:'GPT-6 Cyber raises the stakes for authorized security testing',
+    description:'OpenAI’s new cyber model can find, validate and help patch vulnerabilities, with access limited to approved security workflows.',
+    summary:'OpenAI introduced GPT-6 Cyber for authorized vulnerability research and security testing. The company reports stronger benchmark results and better scope adherence than GPT-5.6 Cyber, and says the model contributed to work on Linux and Firefox vulnerabilities. Those figures are OpenAI evaluations and project results, not a guarantee for another codebase.',
+    takeaway:'Our take: stronger security agents make written scope, isolated environments and qualified review more important, not less. A convincing exploit or patch is evidence to inspect—not permission to touch an unapproved system or ship a fix without testing.',
+    action:'For an authorized test, write down the exact repository or environment, allowed techniques, stopping conditions, evidence required and the person who will review any finding or patch before work begins.',
+    caveat:'GPT-6 Cyber is classified Critical for cybersecurity under OpenAI’s Preparedness Framework. Access is controlled through Daybreak programs and is intended for verified, authorized defenders; availability and approval differ by workflow. OpenAI’s benchmark and customer claims have not been independently reproduced here.',
+    sourceTitle:'OpenAI: GPT-6 Cyber — advancing the frontier of aligned cybersecurity agents',
+    sourceUrl:'https://openai.com/index/introducing-gpt-6-cyber/',
+    next:['/security','Review practical AI security guidance']
+  },
+  {
+    id:'openai-images-2-6', date:'2026-11-04', datePublished:'2026-11-05', dateModified:'2026-11-05', topic:'Productivity', publisher:'OpenAI', art:'images',
+    title:'Images 2.6 adds GIFs, faster drafts and more precise edits',
+    description:'OpenAI’s new image release adds motion, SVG export and edit controls across ChatGPT, Codex and the API.',
+    summary:'OpenAI released Images 2.6 with faster generation, GIF creation and better consistency across editing rounds. ChatGPT and Codex users can access the model across subscription tiers, while developers can use GPT-Image-2.6 Flare and Sunburst in the API. API additions include image markup, SVG export and a complexity control.',
+    takeaway:'Our take: the practical gain is a shorter review loop for campaign graphics, product concepts and reusable characters. Faster generation does not remove the need to check text, brand details, product accuracy, disclosure requirements and usage rights.',
+    action:'Use a low-risk brand asset as a test. Create one still and one short loop, then compare subject consistency, readable details, file size and the time needed for human correction before choosing a production workflow.',
+    caveat:'OpenAI says Images 2.6 is available globally in ChatGPT and Codex and that Flare and Sunburst are available in the API. Speed and quality claims are provider-reported; API pricing and output controls should be checked in the current developer documentation.',
+    sourceTitle:'OpenAI: Introducing Images 2.6',
+    sourceUrl:'https://openai.com/index/introducing-images-2-6/',
+    next:['/resources','Find a useful creative starting point']
   }
 ]);
 
