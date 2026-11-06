@@ -1,9 +1,72 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-05';
+export const newsEdition = '2026-11-06';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  "id": "openai-hacktron-integration-security",
+  "date": "2026-11-06",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "topic": "Safety",
+  "publisher": "OpenAI",
+  "art": "review",
+  "title": "OpenAI and Hacktron put connected-service security under review",
+  "description": "A new security partnership focuses on the boundaries between OpenAI systems and third-party services.",
+  "summary": "OpenAI announced a partnership with Hacktron on November 6. Its engineers and Hacktron researchers will jointly choose priority tests, emphasizing interactions with outside services. OpenAI is also expanding the researchers’ frontier-model access through Daybreak Red.",
+  "takeaway": "For teams connecting AI to business tools, the important lesson is the boundary between systems: a safe-looking individual tool does not establish that a connected workflow is safe. This partnership is a testing commitment, not proof that every integration is secure.",
+  "action": "Choose one workflow you own. List its connected services, data passed between them, permissions and human approval points. Review that map with your security owner before expanding access.",
+  "caveat": "The announcement describes a specific partnership, not unrestricted public model access or permission to test other organizations’ systems. Security testing still requires explicit authorization and scope.",
+  "sourceTitle": "OpenAI announcement: partnering with Hacktron",
+  "sourceUrl": "https://openai.com/index/partnering-with-hacktron/",
+  "next": [
+    "/security",
+    "Review the AI safety field notes"
+  ]
+},
+{
+  "id": "chatgpt-dots-admin-preview-deadline",
+  "date": "2026-11-04",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "topic": "Agents",
+  "publisher": "OpenAI",
+  "art": "agents",
+  "title": "Dots rollout gives workspace admins a November 18 decision",
+  "description": "Eligible Enterprise, Edu and Healthcare workspaces have an admin preview before default availability.",
+  "summary": "OpenAI’s November 4 release notes say personal dots can continue tasks between conversations. Eligible Enterprise, Edu and Healthcare workspaces have an admin preview until November 18, 2026. Owners and admins can enable access or opt out before default availability that day, and control which members can use dots.",
+  "takeaway": "The useful first step is a rollout decision, not a company-wide experiment. A continuing task needs an owner, a clear stopping condition and a known set of connections.",
+  "action": "Before November 18, have the workspace administrator record the access decision. If a pilot is approved, use one low-risk task, define its allowed connections and test the pause-and-review procedure before expanding.",
+  "caveat": "Eligibility varies; UAE data or inference residency workspaces are excluded. Admins can inspect connections and pause or resume dots. Do not assume that workspace coverage extends to every connected third-party service.",
+  "sourceTitle": "OpenAI release notes: Dots for Enterprise, Edu and Healthcare",
+  "sourceUrl": "https://openai.com/products/release-notes/?category=chatgpt",
+  "next": [
+    "/guides/agents-get-real-work-done",
+    "Define a bounded agent task"
+  ]
+},
+{
+  "id": "classroom-guided-learning-assignments",
+  "date": "2026-11-04",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "topic": "Productivity",
+  "publisher": "Google",
+  "art": "review",
+  "title": "Classroom adds Guided Learning to individual assignments",
+  "description": "Teachers can attach source-informed AI support and review students’ conversations in Classroom.",
+  "summary": "Google’s November 4 announcement introduces Guided Learning activities attached to Classroom assignments. Teachers can choose course sources as context. The student experience stays in Guided Learning mode within the activity tab; teachers can view conversation transcripts and AI-generated summaries.",
+  "takeaway": "This creates a practical way to review how a learner approaches a question, rather than judging only the final answer. The summaries are AI output, not an independent assessment of understanding.",
+  "action": "If your school approves the feature, pilot one existing practice question with teacher-selected material. Review the resulting hints and transcript yourself, and ask students to explain the reasoning in their own words.",
+  "caveat": "Rollout started November 3 and may take longer than 15 days. Education Fundamentals, Standard and Plus are listed; Gemini must be enabled for the relevant users. Follow school privacy and student-use rules before assigning an activity.",
+  "sourceTitle": "Google Workspace announcement: Guided Learning in Classroom",
+  "sourceUrl": "https://workspaceupdates.googleblog.com/2026/11/educators-can-now-add-guided-learning-to-assignments-in-Google-Classroom-to-help-students-get-extra-support.html?m=1",
+  "next": [
+    "/training",
+    "Explore practical AI learning"
+  ]
+},
   {
     id:'gemini-slides-whole-deck-editing', date:'2026-10-30', datePublished:'2026-11-01', dateModified:'2026-11-01', topic:'Productivity', publisher:'Google', art:'slides',
     title:'One prompt, a whole presentation refresh',
