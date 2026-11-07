@@ -1,9 +1,30 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-06';
+export const newsEdition = '2026-11-07';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  "id": "biobasicsbench-wet-lab-agent-benchmark",
+  "date": "2026-11-06",
+  "datePublished": "2026-11-07",
+  "dateModified": "2026-11-07",
+  "topic": "Agents",
+  "publisher": "OpenAI",
+  "art": "review",
+  "title": "BioBasicsBench tests agents against messy wet-lab evidence",
+  "description": "A 100-task benchmark asks AI agents to interpret raw experimental data, catch errors and decline unsupported conclusions.",
+  "summary": "OpenAI and Ligo introduced BioBasicsBench on November 6. Its 100 routine wet-lab tasks use raw evidence such as gel images, colony plates, microscopy and instrument readouts. OpenAI reports stronger results from newer models, while the benchmark still shows substantial room for improvement.",
+  "takeaway": "The useful signal is not a model leaderboard alone. The benchmark makes ambiguity, control checks and unsupported conclusions part of the task—exactly the failure modes a scientific assistant must surface before its output can be trusted.",
+  "action": "If you evaluate an AI-assisted scientific workflow, add a small review set with failed experiments, ambiguous evidence and missing controls. Require the system to say when the evidence cannot support a conclusion, and keep a qualified human reviewer responsible for the decision.",
+  "caveat": "These are provider-run benchmark results, not evidence that a model can independently operate a laboratory or make treatment decisions. The tasks and aggregate results do not replace local validation, biosafety review or expert judgment.",
+  "sourceTitle": "OpenAI publication: Measuring how AI agents handle everyday wet-lab science",
+  "sourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+  "next": [
+    "/guides/agents-get-real-work-done",
+    "Define a bounded agent review"
+  ]
+},
 {
   "id": "openai-hacktron-integration-security",
   "date": "2026-11-06",
