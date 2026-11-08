@@ -1,3 +1,5 @@
+import {installTaskMetrics} from './task-metrics.mjs';
+installTaskMetrics();
 import {installLaunch} from './launch-client.mjs';
 installLaunch();
 import {installUsefulWork,refreshUsefulWork} from './useful-work-client.mjs';

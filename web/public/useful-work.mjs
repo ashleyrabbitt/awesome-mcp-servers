@@ -1,3 +1,4 @@
+import {additionalPlaybooks,additionalTestNotes} from './task-paths.mjs';
 // Original practice materials. Reference answers are editorial, never vendor test results.
 export const playbooks=[
  {id:'meeting-to-actions',title:'Turn a meeting into a clear action plan',task:'meetings',minutes:'25–40',outcome:'A checked decision log, action table and follow-up draft.',ids:['otter-ai','granola','fathom'],kit:['otter-ai','chatgpt'],role:'Consultants and small teams',
@@ -21,14 +22,14 @@ export const playbooks=[
  checks:['A creates exactly one draft handoff.','B creates no duplicate.','C and D go to the exception queue.','A failed destination creates a visible failure with an owner.','Retries preserve request_id and never contact customers.'],
  steps:[['Map the current process','Name the trigger, required fields, owner and destination. Start with the four synthetic cases below.'],['Design validation and routing','Write exact rules before connecting apps. Keep an exception queue for missing fields and unknown categories.'],['Build in a test destination','Use a test table or sandbox. Connect only the minimum permissions and keep external messages disabled.'],['Test the failure path','Replay duplicates, missing fields and an unavailable destination. Keep an evidence record for each outcome.'],['Approve and monitor','Only activate after the owner accepts the results, cost limits and recovery steps. Assign someone to the failure queue.']],
  sources:[['Make plans','https://www.make.com/en/pricing'],['n8n plans','https://n8n.io/pricing/'],['Activepieces plans','https://www.activepieces.com/pricing'],['Tally help','https://tally.so/help']]}
-];
+,...additionalPlaybooks];
 export const roleKits=[
  {id:'marketers',name:'Marketing starter kit',intro:'Move from an approved brief to a campaign you can review and measure.',ids:['chatgpt','canva-ai','make'],playbooks:['brief-to-campaign','intake-to-handoff'],avoid:'Start with one channel. Add scheduling automation only after the draft and destination are approved.'},
  {id:'designers',name:'Design starter kit',intro:'Develop visual directions, keep the brief visible and inspect the final export.',ids:['claude','canva-ai','adobe-firefly'],playbooks:['brief-to-campaign','meeting-to-actions'],avoid:'Keep editable source files and check usage rights. A generated concept is not a completed brand system.'},
  {id:'consultants',name:'Consulting starter kit',intro:'Capture decisions and make client intake easier to hand over.',ids:['granola','tally','make'],playbooks:['meeting-to-actions','intake-to-handoff'],avoid:'Use permitted sample material first. Confirm client access and retention settings before connecting accounts.'},
  {id:'small-business',name:'Small-business starter kit',intro:'Choose one repeatable task and use the tools you already have where possible.',ids:['chatgpt','canva-ai','tally'],playbooks:['intake-to-handoff','brief-to-campaign','meeting-to-actions'],avoid:'Avoid buying a complete stack upfront. Upgrade only when a tested requirement needs a paid plan.'}
 ];
-export const testNotes={
+export const testNotes={...additionalTestNotes,
  'otter-ai':{fit:'Transcript-centered meeting capture and review.',setup:'Meeting permissions and capture/import setup.',exports:'TXT is available on Basic; other export formats depend on plan.',integrations:'Verify your meeting platform and any downstream CRM connection.'},
  granola:{fit:'A personal note-taking workflow with AI-enhanced meeting notes.',setup:'Device audio permissions and note-sharing settings.',exports:'Test copying/exporting a complete note into your actual destination.',integrations:'Check the current tier for the integration your team needs.'},
  fathom:{fit:'Recording, meeting summaries and reviewable action items.',setup:'Meeting platform permissions and recording disclosure.',exports:'Verify transcript export and recording access before rollout.',integrations:'Confirm the exact meeting platform and CRM action on your plan.'},
