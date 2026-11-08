@@ -51,7 +51,7 @@ const summaries={
 '/prompts':`Customize ${promptTemplates.length} prompts for design, marketing, product and development. Add context and constraints, then copy or download a prompt to use in your AI tool.`,
 '/training':'All AI Superpower courses are free. Explore self-paced AI learning paths for designers, marketers, product managers and developers. Special live workshops are priced separately.',
 '/workshops':'Explore special paid AI Superpower live workshop topics for practical AI workflows, team learning and responsible tool adoption. Ask about a workshop for your team.',
-'/coaching':'Get human guidance from Waymaker for choosing AI tools, building a useful workflow and developing practical skills. Start a coaching conversation.',
+'/coaching':'Make AI useful for your work in a $350 private AI Working Session with Ashley Kays. Guided practice, a reusable prompt or workflow, and clear next steps.',
 '/newsletter':'Power Notes from AI Superpower by Waymaker: new tools, practical workflows and news about training and workshops. Subscribe through MailerLite and confirm your email to join.'
 };
 export const plain=s=>String(s||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim();

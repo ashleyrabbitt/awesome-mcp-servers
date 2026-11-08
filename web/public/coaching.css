@@ -1,0 +1,43 @@
+/* Coaching shares the homepage's editorial type, illustrated steps and calm palette. */
+.coaching-page h2{font:700 clamp(32px,3.5vw,46px)/1.1 var(--serif);margin:0 0 22px}
+.coaching-page .coaching-intro{gap:75px;align-items:center}
+.coaching-page .coaching-intro h1{font-size:clamp(48px,5.3vw,74px)}
+.coaching-session{background:#f5f4e9;border:1px solid #cbd7c5;border-radius:18px;box-shadow:9px 9px 0 #e6ebdf;overflow:hidden;transform:rotate(1deg)}
+.coaching-session-mast{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 25px;border-bottom:1px solid #d2dac8;font-size:10px;letter-spacing:.1em;font-weight:700}
+.coaching-session-mast>span:last-child{font-size:25px;color:#b26b45;line-height:1}
+.coaching-session-art{margin:22px 25px 0;background:#e9e3f4;border:1px solid #dedbe5;border-radius:10px;text-align:center;overflow:hidden}
+.coaching-session-art img{display:block;width:100%;height:175px;object-fit:contain}
+.coaching-session-art>span{display:block;font-size:9px;letter-spacing:.1em;font-weight:600;padding:0 12px 16px;color:#52674e}
+.coaching-session-copy{padding:25px}
+.coaching-session-copy>.eyebrow{font-size:9px;margin-bottom:9px;display:block}
+.coaching-session-copy h2{font-size:34px;margin:0 0 10px}
+.coaching-page .coaching-price{font:700 36px/1.2 var(--serif);color:var(--ink);margin:0 0 22px}
+.coaching-price span{font:400 12px/1.5 var(--sans);color:var(--muted);letter-spacing:0}
+.coaching-takeaways{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.coaching-takeaways li{position:relative;padding-left:25px;font-size:14px;line-height:1.5}
+.coaching-takeaways li::before{content:'✓';position:absolute;left:0;color:#39755a;font-weight:700}
+.coaching-page .coaching-scope{font-size:12px;line-height:1.6;margin:22px 0 0;padding-top:18px;border-top:1px solid #d2dac8}
+.coaching-examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.coaching-example{border:1px solid #d6dece;border-radius:15px;padding:28px;background:#fffdf8}
+.coaching-example>.eyebrow{display:inline-block;padding:6px 10px;border-radius:5px;font-size:9px;letter-spacing:.07em;margin-bottom:22px}
+.coaching-example.peach>.eyebrow{background:var(--peach)}.coaching-example.lavender>.eyebrow{background:var(--lavender)}.coaching-example.sage>.eyebrow{background:var(--sage)}
+.coaching-example h3{font:700 27px/1.15 var(--serif);margin:0 0 25px}
+.coaching-example p{font-size:14px;line-height:1.7;margin:0 0 14px}.coaching-example p:last-child{margin-bottom:0}.coaching-example p b{color:var(--ink)}
+.coaching-example-note{font-size:14px;margin:28px 0 0}.coaching-example-note a{margin-left:6px}
+.coaching-guide{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.coaching-guide-art{border:1px solid #d9e0d0;border-radius:18px;overflow:hidden;background:#f0eee2}
+.coaching-guide-art img{display:block;width:100%;height:auto;aspect-ratio:1.15;object-fit:cover}
+.coaching-guide-art>span{display:block;font-size:9px;letter-spacing:.08em;padding:18px 20px;text-align:center;color:#52674e;font-weight:600}
+.coaching-guide-copy>.eyebrow,.coaching-faq .eyebrow{display:block}.coaching-guide-copy>p{font-size:16px;line-height:1.8;margin:0 0 20px}
+.coaching-fit{border-top:1px solid var(--line);margin-top:28px;padding-top:24px;font-size:14px}.coaching-fit p{margin:7px 0 0;font-size:14px}
+.coaching-faq{border-top:1px solid var(--line);display:grid;grid-template-columns:.85fr 1.15fr;gap:70px}
+.coaching-questions details{margin:0;border-top:1px solid #d4ddce;font-size:15px}.coaching-questions details:last-child{border-bottom:1px solid #d4ddce}
+.coaching-questions summary{padding:20px 30px 20px 0;font-size:16px;line-height:1.45;font-weight:600;text-decoration:none;position:relative;list-style:none}.coaching-questions summary::-webkit-details-marker{display:none}
+.coaching-questions summary::after{content:'+';position:absolute;right:3px;top:17px;font-size:24px;font-weight:400;color:#537063}.coaching-questions details[open] summary::after{content:'−'}
+.coaching-questions details p{margin:0 0 22px!important;font-size:15px;line-height:1.75;max-width:590px}.coaching-questions a{text-decoration:underline;text-underline-offset:3px}
+.coaching-close{padding-top:0}.coaching-close .agent-help h2{color:#fffdf5}.coaching-close .help-note a{font-size:13px;color:#f0e4b4;text-decoration:underline;text-underline-offset:4px}.coaching-page .coaching-close-note{font-size:12px;margin:16px 0 0}
+.coaching-page a:focus-visible,.coaching-page summary:focus-visible{outline:3px solid #b36b43;outline-offset:5px;border-radius:4px}
+@media(max-width:1000px){.coaching-page .coaching-intro{gap:40px}.coaching-page .coaching-intro h1{font-size:56px}.coaching-session-mast{font-size:8px}.coaching-session-copy h2{font-size:29px}.coaching-examples{gap:16px}.coaching-example{padding:22px}.coaching-example h3{font-size:24px}.coaching-guide,.coaching-faq{gap:40px}.coaching-guide-copy>p{font-size:15px}}
+@media(max-width:760px){.coaching-page .coaching-intro{grid-template-columns:1fr;gap:35px}.coaching-page .coaching-intro h1{font-size:clamp(44px,9vw,64px)}.coaching-session{width:calc(100% - 14px);max-width:510px;justify-self:center}.coaching-session-art img{height:180px}.coaching-session-mast{font-size:9px}.coaching-examples{grid-template-columns:1fr;gap:20px}.coaching-example{padding:28px}.coaching-example h3{font-size:28px}.coaching-guide{grid-template-columns:1fr;gap:32px}.coaching-guide-art img{aspect-ratio:1.5}.coaching-faq{grid-template-columns:1fr;gap:14px}.coaching-page .coaching-close .agent-help{grid-template-columns:1fr}.coaching-close .help-note{border-left:0;border-top:1px solid #69816b;padding:25px 0 0}.coaching-example-note a{display:inline-block;margin:8px 0 0}}
+@media(max-width:400px){.coaching-page .illustrated-steps{grid-template-columns:1fr;gap:28px}.coaching-page .illustrated-steps p{max-width:none;font-size:14px}.coaching-page .step-art img{max-height:190px;object-fit:contain}.coaching-session-mast,.coaching-session-copy{padding:20px}.coaching-session-art{margin:16px 20px 0}.coaching-session-copy h2{font-size:28px}}
+@media(prefers-reduced-motion:reduce){.coaching-page .button{transition:none}.coaching-page .button:hover{transform:none}}
