@@ -8,6 +8,8 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/launch-lab':'Free Waymaker tools and public pilots for quote follow-up, lead-path monitoring and agent planning, with optional implementation help.',
+'/agent-launch-planner':'Create a private agent pilot brief with approval boundaries, budget limits and five acceptance tests. Download your plan for free.',
 '/search':'Describe your task and find a shortlist of AI tools with fit explanations, limitations to check and practical next steps.',
 '/alternatives':'Compare AI tool alternatives by real task, pricing verification, limitations and publisher evidence.',
 '/updates':'Recent AI Superpower directory reviews and listing updates, plus popularity based on qualifying outbound clicks.',

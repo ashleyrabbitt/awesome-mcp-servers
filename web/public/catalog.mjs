@@ -1,3 +1,4 @@
+import {novemberPicks} from './november-picks.mjs';
 import {agentEraPicks} from './agent-era-picks.mjs';
 import {publishedPicks} from './published-picks.mjs';
 import {everydayPicks} from './everyday-picks.mjs';
@@ -9,6 +10,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...novemberPicks,
 make('figma','Figma MCP','Figma','MCP servers','Design',['Designers','Developers'],'Bring design context into your AI-assisted development workflow. Start with one frame, then review the result against the original.','https://developers.figma.com/docs/figma-mcp-server/','Remote + desktop','Guided setup','Can expose design context and, with supported tools, change designs. Review the tools and file access you authorize.','The design essential','Fi','peach'),
 make('notion','Notion MCP','Notion','MCP servers','Knowledge',['Product managers','Marketers','Designers'],'Give your assistant access to the context in your workspace, from research notes to project documentation.','https://developers.notion.com/guides/mcp/overview','Remote','Guided setup','OAuth grants access to content you can access. Tools can read, create and update content.','A little more organized','N','lavender'),
 make('github','GitHub MCP','GitHub','MCP servers','Development',['Developers','Product managers'],'Connect repository context, issues and pull requests to your AI workflow. Keep changes behind your normal review process.','https://github.com/github/github-mcp-server','Remote + local','Guided setup','Available actions depend on token scopes and tool configuration. Repository writes require deliberate review.','For your next build','GH','sage'),

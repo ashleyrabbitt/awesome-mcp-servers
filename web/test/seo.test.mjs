@@ -25,9 +25,9 @@ test('indexing rules exclude personal states, query variants and unreviewed tool
 test('structured metadata escapes script delimiters and never invents prices or ratings',()=>{
  const t={...curated[0],name:'</script><script>alert(1)</script>'};const seo=pageSEO('/tools/'+t.id,[t],'<h1>Tool</h1>');const html=seoMarkup(seo);assert.ok(!html.includes(t.name));const app=seo.structured['@graph'].find(x=>x['@type']==='SoftwareApplication');assert.ok(!app.offers&&!app.aggregateRating);
 });
-test('all new picks and reviewed items have static links; newsletter links to the published MailerLite form',async()=>{
+test('all new picks and reviewed items have static links; newsletter uses the published form with explicit consent',async()=>{
  const html=await read('reviewed/index.html');for(const t of curated)assert.ok(html.includes('href="/tools/'+t.id+'"'));
- const page=renderRoute('/newsletter',curated);if(newsletter.enabled){assert.ok(page.includes('href="'+newsletter.shareUrl+'"'));assert.ok(page.includes('confirm your email'));assert.equal(pageSEO('/newsletter',curated,page).noindex,false);}else{assert.ok(page.includes('Signups are opening soon'));assert.ok(!page.includes('type="email"'));assert.ok(!page.includes('href="'+newsletter.shareUrl+'"'));}
+ const page=renderRoute('/newsletter',curated);if(newsletter.enabled){assert.ok(page.includes('forms/'+newsletter.formId+'/subscribe'));assert.match(page,/name="consent"[^>]*required/);assert.match(page,/Confirm your email/);assert.equal(pageSEO('/newsletter',curated,page).noindex,false);}else{assert.ok(page.includes('Signups are opening soon'));assert.ok(!page.includes('type="email"'));assert.ok(!page.includes('href="'+newsletter.shareUrl+'"'));}
 });
 test('HTTP normalizes duplicate paths and labels query responses for indexing',async()=>{
  const server=createServer();await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
