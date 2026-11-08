@@ -1,5 +1,8 @@
 // Production Google Analytics tag. History-based page views use GA4 Enhanced Measurement.
 (() => {
+  const nav = typeof navigator === 'object' ? navigator : (window.navigator || {});
+  if (nav.globalPrivacyControl === true || window['ga-disable-G-R9X4RKWE12'] === true ||
+      [nav.doNotTrack, nav.msDoNotTrack, window.doNotTrack].some(value => ['1', 'yes'].includes(String(value || '').toLowerCase()))) return;
   if (location.pathname === '/digest/unsubscribe') return;
   if (!['aisuperpower.cc', 'www.aisuperpower.cc'].includes(location.hostname)) return;
   window.dataLayer = window.dataLayer || [];
