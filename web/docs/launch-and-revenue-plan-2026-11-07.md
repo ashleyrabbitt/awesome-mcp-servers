@@ -77,3 +77,13 @@ Open Quote Follow-up Desk, load fictional sample records, select a quote, explai
 After the free demos establish repeated demand, test a separate $49–$99 workshop bundle with completed recordings, editable templates and clear support terms. Price is a proposal, not a live offer. Keep existing promised free courses free. A $350 guided session and team training from $1,500 are already clearer near-term offers than an unfinished course subscription.
 
 Record lesson completion and qualified inquiries, not just video views. Do not create another training brand: AI Superpower hosts discovery and free demos; AI Teachers hosts teaching services; Agency handles implementation; Wealth Experiment can show a documented business case when there is genuine evidence.
+
+## Second release — free training and tool repairs
+
+The new /watch-and-build lesson provides three exercises, a complete narration transcript and downloadable Markdown workbook. It is linked from the homepage, Training and Launch Lab. Its optional synthetic-narration video is hosted on Scrimba; signed-out viewing currently asks for a free Scrimba account. The on-site text and workbook have no account requirement. Video ownership links are not included in this public repository.
+
+Existing fixed-label launch_offer_click events now also distinguish lesson_video, lesson_agent, lesson_trial, lesson_quotes, lesson_session and lesson_setup. These are clicks, not proof of lesson completion or revenue. The paid links select the existing $350 working session and scoped workflow setup offers.
+
+Waymaker PR #1694 repairs two public tools: SEO audit requests incorrectly required a browser session; Social Manager had that same error and sent a payload without the API's required prompt. Signed-out live backend requests were checked separately; frontend CI and deployment are tracked on the PR. This does not validate the advertised paid upgrade tiers. Podcast usage accounting and advanced social/SEO features remain release blockers for subscription promotion.
+
+Domain check: waymaker.tools still has ns1.lander.d.parity.domains and ns2.lander.d.parity.domains nameservers, no CNAME answer and no Railway verification TXT answer. Keep the existing working pilot URLs until authorized DNS access is available; do not advertise the parked domain as a working product.

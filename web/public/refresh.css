@@ -20,3 +20,15 @@ html{scroll-padding-top:110px}body{font-size:16px;line-height:1.65}h1,h2,h3{lett
 
 /* Power Notes: inline, keyboard-accessible signup on home and newsletter pages. */
 .power-notes-section{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;border-bottom:1px solid #27332d25}.power-notes-section h2{font-size:clamp(30px,4vw,44px);line-height:1.1;margin:14px 0}.power-notes-section p{max-width:52ch}.power-notes-form{text-align:left;max-width:640px;margin:24px 0}.power-notes-form>label{display:block;font-weight:700;margin-bottom:8px}.power-notes-row{display:flex;gap:10px}.power-notes-row input{min-width:0;flex:1;background:#fff;color:#1f2925;border:1px solid #65756d;border-radius:8px;padding:14px;font:inherit;font-size:16px}.power-notes-form input:focus-visible,.power-notes-form button:focus-visible{outline:3px solid #257352;outline-offset:3px}.power-notes-form .power-notes-consent{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.6;font-weight:400;margin-top:18px}.power-notes-consent input{flex:0 0 18px;width:18px;height:18px;margin-top:3px;accent-color:#257352}.power-notes-form .small-note{font-size:13px;line-height:1.7;margin-top:12px}.newsletter-panel .power-notes-form{margin-left:auto;margin-right:auto}@media(max-width:760px){.power-notes-section{grid-template-columns:1fr;gap:8px}.power-notes-row{flex-direction:column}.power-notes-row .button{width:100%;justify-content:center}}
+
+/* Free starter lesson: keep section labels readable on dark panels. */
+.starter-lesson .help-banner .eyebrow{color:#fff;opacity:1}
+.starter-lesson .lesson-nav{display:flex;flex-wrap:wrap;gap:12px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.starter-lesson .lesson-nav a{text-decoration:underline;text-underline-offset:4px}
+.starter-lesson details{padding:14px 0;border-bottom:1px solid var(--line)}
+.starter-lesson summary{cursor:pointer;font-weight:700}
+.starter-lesson .kit-card ol{padding-left:22px}
+.starter-lesson .kit-card li{margin:10px 0}
+.starter-lesson .kit-card .button{margin-top:20px}
+.starter-lesson .help-banner .flex-actions{flex-shrink:0;flex-wrap:wrap}
+@media(max-width:760px){.starter-lesson .help-banner .flex-actions{flex-shrink:1}.starter-lesson .lesson-nav{gap:12px 18px}}

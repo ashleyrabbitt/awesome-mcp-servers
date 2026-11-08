@@ -8,6 +8,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/watch-and-build':'Free AI starter lesson with an agent brief exercise, a fair tool comparison and a quote follow-up review. Includes workbook, transcript and optional narrated video.',
 '/launch-lab':'Free Waymaker tools and public pilots for quote follow-up, lead-path monitoring and agent planning, with optional implementation help.',
 '/agent-launch-planner':'Create a private agent pilot brief with approval boundaries, budget limits and five acceptance tests. Download your plan for free.',
 '/search':'Describe your task and find a shortlist of AI tools with fit explanations, limitations to check and practical next steps.',
