@@ -1,9 +1,51 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-07';
+export const newsEdition = '2026-11-08';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  "id": "copilot-impact-dashboard-chat-agent-usage",
+  "date": "2026-11-06",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "topic": "Productivity",
+  "publisher": "GitHub",
+  "art": "data",
+  "title": "Copilot dashboard now counts chat and VS Code agent usage",
+  "description": "Enterprise and organization reports add two feature-engagement signals, with important counting and access limits.",
+  "summary": "GitHub announced on November 6 that its Copilot impact dashboard and 28-day usage reports now include Copilot Chat and the VS Code Agents window. The dashboard also renames the “Passive users” cohort to “Chat-first users.” GitHub says the underlying adoption-phase assignments and cohort sizes do not change.",
+  "takeaway": "This adds visibility, not proof of productivity or return on investment. A person is counted as engaged after using a feature on at least two days in a 28-day window, and the same person can appear under more than one feature.",
+  "action": "If your organization already uses Copilot usage metrics, record the current definitions before comparing periods. Pair the feature-engagement view with one local workflow measure—such as reviewed pull-request cycle time—and state that the two are not automatically causal.",
+  "caveat": "The data is limited to enterprise and organization 28-day reports, requires the Copilot usage-metrics policy and appropriate permissions, and does not retroactively add the new features to older reports. Chat activity includes agent-mode usage captured by the same metrics.",
+  "sourceTitle": "GitHub Changelog: Copilot impact dashboard adds chat and VS Code agent usage",
+  "sourceUrl": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/",
+  "next": [
+    "/guides/measure-ai-workflow",
+    "Define one local measure"
+  ]
+},
+{
+  "id": "copilot-code-review-api-settings-attribution",
+  "date": "2026-11-06",
+  "datePublished": "2026-11-08",
+  "dateModified": "2026-11-08",
+  "topic": "Agents",
+  "publisher": "GitHub",
+  "art": "review",
+  "title": "Copilot code review adds API settings and clearer attribution",
+  "description": "Administrators can manage review settings through APIs and inspect reported skills, MCP servers and instructions behind comments.",
+  "summary": "GitHub announced on November 6 that Copilot code review settings can now be read and managed through REST and GraphQL APIs from enterprise policy to repository configuration. New attribution fields can identify Copilot reviews, review effort and the skills, MCP servers or custom instructions Copilot reports as sources for a comment.",
+  "takeaway": "The useful change is auditable configuration and provenance. It can help a team distinguish which review policy and customization produced a comment, but it does not make the finding correct or replace a qualified human reviewer.",
+  "action": "Choose one non-critical repository and export its current review settings before changing anything. Run a small reviewed pull-request sample, retain human approval, and record false positives, missed issues and correction time by review configuration.",
+  "caveat": "Availability depends on an eligible Copilot plan, role and token permissions. Enterprise-managed settings cannot be overridden below that level. GitHub Apps and fine-grained personal access tokens do not support the enterprise and organization settings endpoints described in the announcement.",
+  "sourceTitle": "GitHub Changelog: Copilot code review API management and review overview updates",
+  "sourceUrl": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/",
+  "next": [
+    "/guides/agents-get-real-work-done",
+    "Plan a bounded review pilot"
+  ]
+},
 {
   "id": "biobasicsbench-wet-lab-agent-benchmark",
   "date": "2026-11-06",
