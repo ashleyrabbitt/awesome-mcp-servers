@@ -1,3 +1,5 @@
+import {installLaunch} from './launch-client.mjs';
+installLaunch();
 import {installUsefulWork,refreshUsefulWork} from './useful-work-client.mjs';
 import {installDiscovery,refreshDiscovery} from './discovery-plus-client.mjs';
 import {installBusiness,refreshBusiness,refreshPromotions} from './business.mjs';
