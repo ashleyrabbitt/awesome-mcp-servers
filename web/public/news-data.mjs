@@ -1,9 +1,37 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-08';
+export const newsEdition = '2026-11-09';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  id: 'google-maps-ai-studio-prototype-production-boundary',
+  date: '2026-11-09', datePublished: '2026-11-09', dateModified: '2026-11-09',
+  topic: 'Productivity', publisher: 'Google', art: 'skills',
+  title: 'Google Maps arrives in AI Studio, with a prototype-to-production boundary',
+  description: 'Map-based previews can start without a credit card; production still requires paid Cloud billing.',
+  summary: 'Google announced on November 9 that Maps Platform can be enabled inside AI Studio. Builders describe a location-based idea, connect Maps and inspect an interactive preview without leaving that workspace. Google says existing Cloud projects can also be linked.',
+  takeaway: 'Our take: this reduces setup friction for a location-based prototype, not the work of validating places, accessibility or opening hours. A convincing map is not a verified itinerary.',
+  action: 'Use one familiar public location as a small test. Compare the preview with the official venue page, note incorrect details and define who will maintain the information before sharing it with customers.',
+  caveat: 'The no-card trial has daily quotas that reset every 24 hours. Production requires a paid Cloud billing account. Check applicable quotas and costs before enabling billing; no production deployment or purchase is needed to review the announcement.',
+  sourceTitle: 'Google: Developers can now build with Google Maps Platform in AI Studio',
+  sourceUrl: 'https://blog.google/innovation-and-ai/technology/developers-tools/build-google-maps-platform-ai-studio/',
+  next: ['/guides/measure-ai-workflow', 'Define one useful test']
+},
+{
+  id: 'google-tpu-8tx-8i-max-agent-workloads',
+  date: '2026-11-09', datePublished: '2026-11-09', dateModified: '2026-11-09',
+  topic: 'Industry', publisher: 'Google', art: 'data',
+  title: 'Google expands TPU systems for confidential and long-context AI work',
+  description: 'TPU 8tx targets confidential inference; TPU 8i Max targets memory-heavy workloads.',
+  summary: 'Google announced TPU 8tx and TPU 8i Max on November 9. The company describes 8tx as a system for confidential inference and sensitive model work, and 8i Max as a higher-density configuration for large contexts. These are new system configurations within its eighth-generation TPU family.',
+  takeaway: 'Our take: agent infrastructure is becoming more specialized. Security boundaries and memory needs can matter as much as headline model speed, but this does not imply a small business needs new infrastructure.',
+  action: 'If you already operate a substantial AI workload, document its actual constraint: data handling, memory, latency or cost. Compare a representative workload and total operating effort before considering a migration.',
+  caveat: 'Performance and confidentiality statements here are Google claims, not independent tests by AI Superpower. The announcement is not evidence of universal account availability or a price quote; confirm regional access, commercial terms and security requirements with the provider.',
+  sourceTitle: 'Google: Our newest TPUs, 8tx and 8i Max',
+  sourceUrl: 'https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/',
+  next: ['/guides/measure-ai-workflow', 'Measure the workflow before changing tools']
+},
 {
   "id": "copilot-impact-dashboard-chat-agent-usage",
   "date": "2026-11-06",
