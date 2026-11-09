@@ -35,6 +35,13 @@ test('news briefs retain original sources, chronological dates and distinct publ
   assert.ok(sitemap.includes('sitemap'));
   const routes=JSON.parse(await readFile(new URL('../dist/routes.json',import.meta.url),'utf8'));
   assert.ok(newsStories.every(s=>routes.includes('/news/'+s.id)));
+  // These three briefs use the built Tool Trial route. Other older guides are
+  // served by the separate agent-guide renderer and are not all in this manifest.
+  for(const id of ['google-maps-ai-studio-prototype-production-boundary','google-tpu-8tx-8i-max-agent-workloads','copilot-impact-dashboard-chat-agent-usage']){
+    const story=newsStories.find(s=>s.id===id);
+    assert.equal(story.next[0],'/tool-trial');
+    assert.ok(routes.includes(story.next[0]),`Missing built next-step route: ${id}`);
+  }
 });
 
 test('news filters produce the selected topic and ignore unknown query input',()=>{

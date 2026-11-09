@@ -16,7 +16,7 @@ export const newsStories = [
   caveat: 'The no-card trial has daily quotas that reset every 24 hours. Production requires a paid Cloud billing account. Check applicable quotas and costs before enabling billing; no production deployment or purchase is needed to review the announcement.',
   sourceTitle: 'Google: Developers can now build with Google Maps Platform in AI Studio',
   sourceUrl: 'https://blog.google/innovation-and-ai/technology/developers-tools/build-google-maps-platform-ai-studio/',
-  next: ['/guides/measure-ai-workflow', 'Define one useful test']
+  next: ['/tool-trial', 'Define one useful test']
 },
 {
   id: 'google-tpu-8tx-8i-max-agent-workloads',
@@ -30,7 +30,7 @@ export const newsStories = [
   caveat: 'Performance and confidentiality statements here are Google claims, not independent tests by AI Superpower. The announcement is not evidence of universal account availability or a price quote; confirm regional access, commercial terms and security requirements with the provider.',
   sourceTitle: 'Google: Our newest TPUs, 8tx and 8i Max',
   sourceUrl: 'https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/',
-  next: ['/guides/measure-ai-workflow', 'Measure the workflow before changing tools']
+  next: ['/tool-trial', 'Measure the workflow before changing tools']
 },
 {
   "id": "copilot-impact-dashboard-chat-agent-usage",
@@ -49,7 +49,7 @@ export const newsStories = [
   "sourceTitle": "GitHub Changelog: Copilot impact dashboard adds chat and VS Code agent usage",
   "sourceUrl": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/",
   "next": [
-    "/guides/measure-ai-workflow",
+    "/tool-trial",
     "Define one local measure"
   ]
 },
