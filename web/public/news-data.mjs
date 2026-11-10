@@ -1,9 +1,51 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-09';
+export const newsEdition = '2026-11-10';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  id: 'gemini-carbon-wider-access-review-boundaries',
+  date: '2026-11-10', datePublished: '2026-11-10', dateModified: '2026-11-10',
+  topic: 'Agents', publisher: 'Google', art: 'agents',
+  title: 'Gemini 4 Carbon widens access beyond its initial security rollout',
+  description: 'Paid API access and an Ultra rollout bring Carbon to more users; deeper reasoning still needs a bounded test.',
+  summary: 'Google announced wider availability of Gemini 4 Carbon on November 10, following its earlier limited cybersecurity rollout. Paying developers and enterprises can access it through the API, while Google AI Ultra subscribers are receiving it in Antigravity, the Gemini app and AI Mode in Search. Google positions Carbon for demanding, extended tasks and says Argon remains suitable for most coding and knowledge work.',
+  takeaway: 'Our take: wider access is a reason to evaluate a difficult task, not replace a working setup. A model that spends longer checking an answer may also consume more tokens. Judge the reviewed result and total effort, not a launch leaderboard alone.',
+  action: 'Choose one non-sensitive task with a known answer or acceptance checklist. Record your current workflow, then compare correctness, corrections, elapsed time and usage. Stop if the extra effort does not solve the original problem; keep human approval for consequential actions.',
+  caveat: 'Access depends on the paid product and rollout. Google’s performance, safety and cost comparisons are provider claims, not independent AI Superpower tests. Research access has eligibility and capacity limits; expanded availability does not guarantee access for every account or make security review unnecessary.',
+  sourceTitle: 'Google: Gemini 4 Carbon is now available',
+  sourceUrl: 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/',
+  next: ['/tool-trial', 'Write a bounded tool trial']
+},
+{
+  id: 'claude-fable-copilot-retention-review',
+  date: '2026-11-09', datePublished: '2026-11-10', dateModified: '2026-11-10',
+  topic: 'Agents', publisher: 'GitHub', art: 'review',
+  title: 'Fable 5.2 reaches Copilot with a data-retention decision for teams',
+  description: 'The model’s rollout includes an off-by-default organizational policy and a limited enterprise exemption.',
+  summary: 'GitHub announced Claude Fable 5.2 in Copilot on November 9 for Pro+, Max, Business and Enterprise plans, with gradual rollout. Business and Enterprise administrators must enable its model policy, which is off by default. GitHub says prompts and outputs are retained by Anthropic for safety classifiers by default, but not used for model training.',
+  takeaway: 'Our take: model availability and permission to use client material are separate decisions. A coding capability claim does not settle a team’s confidentiality obligations. Review the data path before choosing the model for a real project.',
+  action: 'Before enabling it, ask the responsible administrator to document permitted data, the applicable retention terms and who can approve use. If evaluation is allowed, begin with a public or synthetic repository and an explicit review checklist—not confidential customer code.',
+  caveat: 'Usage-based billing applies. Certain approved enterprises can receive zero-data-retention access through year-end while Enterprise Frontier Safeguards rolls out; it is not automatic or universal. GitHub directs eligibility questions to the account team, not Support. Approval still requires an administrator to enable the model. Early performance comparisons are provider reporting, not our tests.',
+  sourceTitle: 'GitHub Changelog: Claude Fable 5.2 in GitHub Copilot',
+  sourceUrl: 'https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot/',
+  next: ['/tool-trial', 'Define the evaluation boundary']
+},
+{
+  id: 'github-actions-log-secret-scanning-preview',
+  date: '2026-11-09', datePublished: '2026-11-10', dateModified: '2026-11-10',
+  topic: 'Safety', publisher: 'GitHub', art: 'review',
+  title: 'GitHub adds workflow-log secret scanning—with no preview notifications',
+  description: 'An enterprise preview scans future completed Actions runs, but teams must inspect its alert list themselves.',
+  summary: 'GitHub’s November 9 public preview extends secret scanning to Actions workflow logs. After a run finishes, supported provider-pattern matches appear in the repository’s secret-scanning alerts with a log link. Alerts remain available after the logs are deleted. The feature is disabled by default.',
+  takeaway: 'Our take: AI-assisted development still needs ordinary credential hygiene. This adds a detection layer for build and automation output, but an alert nobody reviews cannot protect a workflow. It is not proof that a repository is free of exposed secrets.',
+  action: 'Ask the security owner to check eligibility and the current policy read-only. Before any approved enablement, assign an alert-review owner and response process. Never paste a real secret into a workflow to test detection; use only an organization-approved non-secret fixture.',
+  caveat: 'The preview requires GitHub Enterprise Cloud with Secret Protection or Advanced Security and applies to eligible repositories with secret scanning enabled. Only runs completed after enablement are scanned; old logs are not backfilled. Generic, custom, AI-detected and already-masked secrets are excluded. Preview alerts do not send notifications, so direct review of the alert list is essential.',
+  sourceTitle: 'GitHub Changelog: Secret scanning detects secrets in GitHub Actions workflow logs',
+  sourceUrl: 'https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs/',
+  next: ['/tool-trial', 'Record a safe evaluation plan']
+},
 {
   id: 'google-maps-ai-studio-prototype-production-boundary',
   date: '2026-11-09', datePublished: '2026-11-09', dateModified: '2026-11-09',
