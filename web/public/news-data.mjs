@@ -5,6 +5,69 @@ export const newsEdition = '2026-11-11';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
 {
+  "id": "google-a2ui-1-stable-agent-interfaces",
+  "date": "2026-11-11",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "topic": "Agents",
+  "publisher": "Google",
+  "art": "skills",
+  "title": "A2UI 1.0 gives agents an interface beyond the chat box",
+  "description": "Google’s stable interface protocol supports interactive views, but platform versions still differ.",
+  "summary": "Google released A2UI 1.0 on November 11. Agents describe an interface and the host app renders it with registered components. The release adds bidirectional function calls, accessibility support and metadata extensions. Web, Flutter and SwiftUI renderers are available; Jetpack Compose remains on 0.9.1, with 1.0 planned.",
+  "takeaway": "Our take: a review card can make an agent’s proposed action easier to inspect than a long reply. The useful test is whether people understand and correct the proposal before anything happens—not whether the screen looks impressive.",
+  "action": "Sketch one synthetic approval card with the proposed action, missing information and a cancel option. Check whether a colleague can explain the consequence and change a mistake. Keep real bookings, messages and payments disconnected during the trial.",
+  "caveat": "This is a developer framework, not a finished assistant. Google says Gemini’s current renderer supports 0.9.1, so check the actual host and renderer before adopting 1.0 features. Accessibility support is not proof that a particular interface passes an accessibility review.",
+  "sourceTitle": "Google Developers Blog: A2UI 1.0",
+  "sourceUrl": "https://developers.googleblog.com/en/a2ui-10-build-delightful-fast-reliable-agentic-experiences/",
+  "next": [
+    "/tool-trial",
+    "Define the interface test"
+  ]
+},
+{
+  "id": "gemini-decisions-api-bounded-choice-review",
+  "date": "2026-11-11",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "topic": "Productivity",
+  "publisher": "Google",
+  "art": "review",
+  "title": "Gemini’s Decisions API targets bounded choices, not open-ended answers",
+  "description": "A new endpoint scores predefined options and rubrics; teams still need to test the mistakes that matter.",
+  "summary": "Google introduced the Gemini Decisions API on November 11, powered by Gemini Decision 1. Through Google AI Studio, developers can submit multimodal input with yes/no questions, multiple-choice options or ordered rubrics. Google says one request can contain up to 1,000 independent questions and returns probabilities and confidence scores.",
+  "takeaway": "Our take: this could help route a request or flag an item for review when the options are already defined. A confidence score is a model output, not proof that a decision is correct or permission to take a consequential action.",
+  "action": "Write a small set of fictional requests, label the expected category and include ambiguous examples. Define an abstain-and-review path before testing. Count wrong confident answers separately from uncertain answers, and compare the complete review effort with your existing method.",
+  "caveat": "Google’s speed, cost and calibration comparisons are provider claims, not our test results. Integration availability varies, and Google Cloud support is described as forthcoming. Check current access and billing before running a test; do not use this brief as approval to upload sensitive data or automate decisions about people.",
+  "sourceTitle": "Google: Gemini Decisions API",
+  "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+  "next": [
+    "/tool-trial",
+    "Plan a bounded comparison"
+  ]
+},
+{
+  "id": "databricks-genie-grok-bot-governed-context",
+  "date": "2026-11-11",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "topic": "Agents",
+  "publisher": "Databricks",
+  "art": "data",
+  "title": "Databricks connects Genie context to Grok Bot and other assistants",
+  "description": "The new plugins bring governed business definitions and cited answers into existing agent workflows.",
+  "summary": "Databricks announced Genie plugins on November 11 for ChatGPT, Claude, Microsoft Copilot Cowork and Grok Bot. According to Databricks, Genie uses its ontology to interpret business terms, queries data the user is allowed to access and returns answers with citations. Other agents can connect through its MCP server; interactive visualizations depend on MCP Apps support.",
+  "takeaway": "Our take: agreed definitions matter more than a fluent campaign summary. A team should know what counts as a qualified opportunity before asking an agent to compare campaigns. Connecting data does not validate the metric or authorize spending.",
+  "action": "If your team already uses Databricks, ask the data owner to compare one approved, non-sensitive metric question with a known report. Record the definition, time window, filters, answer and citation. Keep the first evaluation read-only; route discrepancies to a person before any operational use.",
+  "caveat": "The announcement’s growth-campaign examples are vendor scenarios, not independently verified results or a promise about every Grok Bot account. Workspace configuration, permissions and client support still matter. A data connection is not authorization to launch campaigns, contact customers or change budgets.",
+  "sourceTitle": "Databricks: Bring your business context to ChatGPT, Claude, Microsoft Copilot Cowork and Grok Bot",
+  "sourceUrl": "https://www.databricks.com/blog/bring-your-business-context-chatgpt-claude-microsoft-copilot-cowork-and-grok-bot",
+  "next": [
+    "/tool-trial",
+    "Record a read-only evaluation"
+  ]
+},
+{
   "id": "openai-business-hub-and-business-agents",
   "date": "2026-11-10",
   "datePublished": "2026-11-11",
