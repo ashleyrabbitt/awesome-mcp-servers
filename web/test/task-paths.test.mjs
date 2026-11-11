@@ -38,7 +38,7 @@ test('five task paths reach practice, comparison and one contextual working-sess
     assert.match(playbookMarkdown(p),/not a running automation or a product benchmark/);
     const compare=renderRoute('/field-tests/'+id,curated);
     assert.match(compare,/data-cost-mode="alternatives"/);
-    assert.match(compare,/Hands-on vendor runs are not recorded/);
+    assert.match(compare,/Not tested in this guide/);
   }
 });
 
@@ -126,7 +126,7 @@ test('optional backend click measurement stops at the API boundary under DNT/GPC
 test('publisher redirects remain functional without tracking under privacy signals and for HEAD',async()=>{
   for(const [method,headers,expected]of [['GET',{},1],['GET',{dnt:'1'},0],['GET',{'sec-gpc':'1'},0],['HEAD',{},0]]){
     let tracked=0;const response=await toolRedirect('descript',{method,url:'/go/descript',headers},{lookup:async()=>({url:'https://www.descript.com/tools/video-editor'}),track:async()=>{tracked++;}});
-    assert.equal(response.status,302);assert.equal(response.headers.Location,'https://www.descript.com/tools/video-editor');assert.equal(tracked,expected);
+    assert.equal(response.status,302);assert.equal(response.headers.Location,'https://get.descript.com/o1zqq5l1l1m4');assert.equal(tracked,expected);
   }
 });
 

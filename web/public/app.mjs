@@ -1,3 +1,7 @@
+import {installWorkflowDemos} from './workflow-demo-client.mjs';
+import {demoForComparison} from './workflow-demos.mjs';
+import {playbooks} from './useful-work.mjs';
+installWorkflowDemos();
 import {installTaskMetrics} from './task-metrics.mjs';
 installTaskMetrics();
 import {installLaunch} from './launch-client.mjs';
@@ -152,7 +156,7 @@ document.addEventListener('click',event=>{const t=event.target.closest('button')
  if('winSave' in t.dataset){state.powerPath.notes=document.querySelector('#first-win-notes').value.slice(0,6000);document.querySelector('#win-status').textContent=persist()?'Notes saved in this browser.':'Could not save. Download your challenge record to keep it.';}
  if('winDownload' in t.dataset)downloadText(challengeMarkdown({...state.powerPath,notes:document.querySelector('#first-win-notes').value}),'my-seven-day-challenge.md');
  if('winReset' in t.dataset){if(!window.confirm('Clear your seven-day progress and notes from this browser? Download a copy first if you need it.'))return;state.powerPath.days=[];state.powerPath.notes='';persist();render();}
- if(t.dataset.comparisonTrial){const c=comparisons.find(c=>c.id===t.dataset.comparisonTrial);if(!c)return;state.trial=cleanTrial({...trialFromTools(c.ids,items),task:c.task,criteria:c.criteria});navigate('/tool-trial');toast('Comparison trial loaded. Add the same input for both tools.');}
+ if(t.dataset.comparisonTrial){const c=comparisons.find(c=>c.id===t.dataset.comparisonTrial);if(!c)return;const practice=playbooks.find(p=>p.id===demoForComparison[c.id]);state.trial=cleanTrial({...trialFromTools(c.ids,items),task:c.task,criteria:c.criteria,sample:practice?practice.sample:''});navigate('/tool-trial');toast('Comparison trial loaded. Add the same input for both tools.');}
  if('printWorksheet' in t.dataset){document.querySelectorAll('.power-sheet-field').forEach(s=>{s.querySelector('.power-print-answer').textContent=s.querySelector('textarea').value;});window.print();}
 });
 

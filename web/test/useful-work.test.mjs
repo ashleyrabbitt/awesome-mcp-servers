@@ -17,7 +17,7 @@ test('guided cases and role kits resolve real listings, have substantive checks,
  const routes=new Set(JSON.parse(await readFile(new URL('../dist/routes.json',import.meta.url))));
  for(const p of playbooks){assert.equal(p.steps.length,5);assert.ok(p.sample.length>200&&p.reference.length>200);assert.match(playbookMarkdown(p),/not a running automation or a product benchmark/);for(const tool of [...p.ids,...p.kit])assert.ok(curated.some(t=>t.id===tool),tool);}
  for(const k of roleKits)for(const tool of k.ids)assert.ok(curated.some(t=>t.id===tool));
- for(const route of usefulRoutes){const html=renderRoute(route,curated,{saved:[],compare:[]});assert.equal((html.match(/<h1/g)||[]).length,1,route);assert.ok(!html.includes('Page not found'),route);for(const [,href]of html.matchAll(/href="(\/[^"#]*)"/g)){const p=href.split('?')[0];assert.ok(routes.has(p)||p.startsWith('/downloads/'),'Broken '+href+' in '+route);}}
+ for(const route of usefulRoutes){const html=renderRoute(route,curated,{saved:[],compare:[]});assert.equal((html.match(/<h1/g)||[]).length,1,route);assert.ok(!html.includes('Page not found'),route);for(const [,href]of html.matchAll(/href="(\/[^"#]*)"/g)){const p=href.split('?')[0];assert.ok(routes.has(p)||p.startsWith('/downloads/')||(p.startsWith('/go/')&&curated.some(t=>p==='/go/'+t.id)),'Broken '+href+' in '+route);}}
  assert.equal(chooseStarter({task:'invalid',level:'hacker',budget:'fake'}).playbook.id,playbooks[0].id);
 });
 test('cost comparison handles annual commitments, seats, usage, unknowns and invalid inputs',()=>{
