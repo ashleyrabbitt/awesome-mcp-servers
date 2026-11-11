@@ -8,6 +8,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/workflow-demos':'Five step-by-step AI workflow demos for campaigns, meeting notes, automation, research and video. Copy a sample, compare tools and keep a useful result.',
 '/ai-for-your-work':'Make AI your superpower as a designer, developer, product manager, marketer, salesperson or entrepreneur. Free practical guides, agent tutorials and live workshops.',
 '/playbooks':'Five free AI task guides for meeting actions, campaigns, client intake, source-backed research and owned recordings. Choose by task, try a fictional sample, review the result and ask about optional human help.',
 '/watch-and-build':'Free AI starter lesson with an agent brief exercise, a fair tool comparison and a quote follow-up review. Includes workbook, transcript and optional narrated video.',

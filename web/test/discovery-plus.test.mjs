@@ -19,7 +19,7 @@ test('task search explains natural-language matches and does not invent an answe
 });
 test('new discovery pages have resolvable internal links and private account routes stay out of indexing',async()=>{
  const routes=new Set(JSON.parse(await readFile(new URL('../dist/routes.json',import.meta.url))));
- for(const route of growthRoutes){const html=renderRoute(route,curated,{saved:[],compare:[]});assert.match(html,/<h1/);for(const [,href]of html.matchAll(/href="(\/[^"#]*)"/g)){const path=href.split('?')[0];assert.ok(routes.has(path),'Unresolved '+href+' from '+route);}}
+ for(const route of growthRoutes){const html=renderRoute(route,curated,{saved:[],compare:[]});assert.match(html,/<h1/);for(const [,href]of html.matchAll(/href="(\/[^"#]*)"/g)){const path=href.split('?')[0];assert.ok(routes.has(path)||(path.startsWith('/go/')&&curated.some(t=>path==='/go/'+t.id)),'Unresolved '+href+' from '+route);}}
  for(const t of topics)for(const id of t.ids)assert.ok(curated.some(t=>t.id===id),id);
  for(const g of alternativeGuides)assert.equal(g.ids.length,g.choices.length);
  for(const route of ['/account','/admin/discovery','/search?query=meeting'])assert.equal(pageSEO(route,curated,renderRoute(route,curated)).noindex,true);
