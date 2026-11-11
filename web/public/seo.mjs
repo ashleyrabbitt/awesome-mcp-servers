@@ -8,6 +8,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/ai-for-your-work':'Make AI your superpower as a designer, developer, product manager, marketer, salesperson or entrepreneur. Free practical guides, agent tutorials and live workshops.',
 '/playbooks':'Five free AI task guides for meeting actions, campaigns, client intake, source-backed research and owned recordings. Choose by task, try a fictional sample, review the result and ask about optional human help.',
 '/watch-and-build':'Free AI starter lesson with an agent brief exercise, a fair tool comparison and a quote follow-up review. Includes workbook, transcript and optional narrated video.',
 '/launch-lab':'Free Waymaker tools and public pilots for quote follow-up, lead-path monitoring and agent planning, with optional implementation help.',
@@ -29,7 +30,7 @@ const summaries={
 
 '/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
-'/product-hunt-picks':'Explore eight new Product Hunt AI tool picks, including Hera, Xmind, Floot and Dageno AI, plus earlier discoveries. Practical uses, first steps and official sources.',
+'/product-hunt-picks':'Explore 100 additional Product Hunt AI tools for designers, developers, product managers, marketers, salespeople and entrepreneurs. Practical first tasks and official sources.',
 '/working-session':'A $350 AI Working Session with Ashley Kays. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
 '/workshops/campaign':'Practice AI-assisted campaign creation in a guided workshop. Build a brief, explore message directions and review a draft. Dates and pricing confirmed by inquiry.',
 '/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
@@ -51,7 +52,7 @@ const summaries={
 '/resources':'Use free workflow planning tools, step-by-step how-tos and downloadable worksheets to turn an AI idea into a practical pilot.',
 '/prompts':`Customize ${promptTemplates.length} prompts for design, marketing, product and development. Add context and constraints, then copy or download a prompt to use in your AI tool.`,
 '/training':'All AI Superpower courses are free. Explore self-paced AI learning paths for designers, marketers, product managers and developers. Special live workshops are priced separately.',
-'/workshops':'Explore special paid AI Superpower live workshop topics for practical AI workflows, team learning and responsible tool adoption. Ask about a workshop for your team.',
+'/workshops':'Live AI workshops with Ashley Kays for designers, developers, product managers, marketers, salespeople and entrepreneurs. Build an agent, automate a task or finish a useful project.',
 '/coaching':'Make AI useful for your work in a $350 private AI Working Session with Ashley Kays. Guided practice, a reusable prompt or workflow, and clear next steps.',
 '/newsletter':'Power Notes from AI Superpower by Waymaker: new tools, practical workflows and news about training and workshops. Subscribe through MailerLite and confirm your email to join.'
 };

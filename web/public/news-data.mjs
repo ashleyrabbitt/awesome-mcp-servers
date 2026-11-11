@@ -5,6 +5,48 @@ export const newsEdition = '2026-11-10';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
 {
+  "id": "gemini-carbon-copilot-model-choice",
+  "date": "2026-11-10",
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "topic": "Agents",
+  "publisher": "GitHub",
+  "art": "agents",
+  "title": "Gemini 4 Carbon arrives in GitHub Copilot",
+  "description": "Developers get another option for difficult coding tasks, with gradual rollout and usage-based billing.",
+  "summary": "GitHub announced Gemini 4 Carbon in Copilot on November 10. The rollout covers Pro+, Max, Business and Enterprise plans across supported editors, the CLI, coding agent and other Copilot surfaces. GitHub bills the model at provider list pricing under usage-based billing. Organization administrators can manage access through model policies.",
+  "takeaway": "Our take: a new model is most useful when it solves a task your current setup struggles with. Keep the repository, issue and acceptance checks constant so your comparison answers a practical question.",
+  "action": "Choose one reproducible bug or difficult refactor. Save the original input, run the same task with your current model and Carbon where available, and compare the reviewed diff, test results, corrections and usage.",
+  "caveat": "Availability is gradual and depends on your plan and organization policy. Check the current model picker and pricing before a long run. A coding capability claim does not replace code review.",
+  "sourceTitle": "GitHub Changelog: Gemini 4 Carbon in GitHub Copilot",
+  "sourceUrl": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot/",
+  "next": [
+    "/guides/ai-superpower-for-developers",
+    "Try the developer workflow"
+  ]
+},
+{
+  "id": "multimodal-knowledge-agent-benchmark-files",
+  "date": "2026-11-10",
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "topic": "Productivity",
+  "publisher": "Google",
+  "art": "files",
+  "title": "A new benchmark asks agents to work across complex files",
+  "description": "MKA evaluates visual knowledge work and highlights why the finished document matters as much as the answer.",
+  "summary": "Google and Artificial Analysis introduced the Multimodal Knowledge Agent benchmark on November 10. It evaluates work involving visually complex files using a shared agent setup. The private evaluation has 200 tasks; ten separate public tasks are available for people to inspect and try. The evaluation checks deliverables, including rendered pages and spreadsheet formulas.",
+  "takeaway": "Our take: this points toward a better way to judge an AI assistant at work. Inspect the file you will actually use: its layout, calculations, source fidelity and completeness. A convincing chat summary can still accompany a broken spreadsheet.",
+  "action": "Pick a document or spreadsheet task you already understand. Define the checks before starting, then open the resulting file and verify them. Record the time spent fixing the output in your tool trial.",
+  "caveat": "Google is both a model developer and an announcement source. Its model comparisons are attributed reporting, not AI Superpower test results. A benchmark result does not establish performance on your files or task.",
+  "sourceTitle": "Google: Introducing the Multimodal Knowledge Agent benchmark",
+  "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+  "next": [
+    "/tool-trial",
+    "Compare finished work in the Tool Trial Lab"
+  ]
+},
+{
   id: 'gemini-carbon-wider-access-review-boundaries',
   date: '2026-11-10', datePublished: '2026-11-10', dateModified: '2026-11-10',
   topic: 'Agents', publisher: 'Google', art: 'agents',

@@ -1,0 +1,949 @@
+{
+  "checkedDate": "2026-11-10",
+  "count": 100,
+  "method": "159 Product Hunt pages reviewed; official provider pages fetched for candidates. Excluded duplicate names and normalized destinations, broken or repurposed destinations, closed products and insufficient evidence. Pricing left unknown rather than inferred from old launch pages.",
+  "items": [
+    {
+      "id": "figma-weave",
+      "name": "Figma Weave",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/weavy",
+      "official": "https://weavy.ai",
+      "officialPageTitle": "Figma Weave | AI-Powered Design Workflows, Built for Creative Pros",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "lottiefiles",
+      "name": "LottieFiles",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/lottiefiles",
+      "official": "https://lottiefiles.com",
+      "officialPageTitle": "Great designs come alive with motion!",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "visily",
+      "name": "Visily",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/visily",
+      "official": "https://www.visily.ai/ai-design/",
+      "officialPageTitle": "Visily",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "motn-ai",
+      "name": "Motn AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/motn-ai",
+      "official": "https://motn.ai",
+      "officialPageTitle": "Motn — AI Video Canvas for Marketing Teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "vectary",
+      "name": "Vectary",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/vectary",
+      "official": "https://vectary.com",
+      "officialPageTitle": "The collaborative platform for AI-accelerated ideation and interactive 3D | Vectary",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "lunagraph",
+      "name": "Lunagraph",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/lunagraph",
+      "official": "https://lunagraph.com",
+      "officialPageTitle": "Lunagraph: Design canvas that writes code, powered by Claude Code",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "bnbicons",
+      "name": "BnbIcons",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/bnbicons",
+      "official": "https://bnbicons.com",
+      "officialPageTitle": "Airbnb-Style Isometric Icons",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "lunacy",
+      "name": "Lunacy",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/lunacy",
+      "official": "https://icons8.com/lunacy",
+      "officialPageTitle": "Lunacy - Free Graphic Design Software for Desktop: Download for Windows, Mac, Linux",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "pose-animator",
+      "name": "Pose Animator",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/pose-animator",
+      "official": "https://github.com/yemount/pose-animator",
+      "officialPageTitle": "yemount/pose-animator",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "thinking-line",
+      "name": "Thinking Line",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/thinking-line",
+      "official": "https://thinkingline.com",
+      "officialPageTitle": "Thinking Line — AI Whiteboard Animation & SVG Generation",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "illustration-app",
+      "name": "illustration.app",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/illustraai",
+      "official": "https://illustration.app",
+      "officialPageTitle": "illustration.app - AI Illustration Generator",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "v2fun",
+      "name": "V2Fun",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/v2fun",
+      "official": "https://v2fun.ai",
+      "officialPageTitle": "V2Fun - AI 3D Model Generator | Create 3D Models with V2Fun",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "checksum-ai",
+      "name": "Checksum AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/checksum-ai",
+      "official": "https://checksum.ai/product/platform",
+      "officialPageTitle": "Platform | Checksum",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "long-horizon",
+      "name": "Long Horizon",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/long-horizon",
+      "official": "https://longhorizon.dev",
+      "officialPageTitle": "Long Horizon — Agentic frontend testing for the AI era",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "trycase",
+      "name": "TryCase",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/trycase",
+      "official": "https://trycase.dev",
+      "officialPageTitle": "TryCase | Automated end-to-end testing for pull requests",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "qodo",
+      "name": "Qodo",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/codiumai",
+      "official": "https://qodo.ai",
+      "officialPageTitle": "AI Code Review – Qodo: Deploy with confidence",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "kushoai",
+      "name": "KushoAI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/kushoai",
+      "official": "https://kusho.ai",
+      "officialPageTitle": "The reliability layer for modern software",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "qa-tech",
+      "name": "QA.tech",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/qa-tech",
+      "official": "https://qa.tech/product/pr-testing",
+      "officialPageTitle": "Dynamic PR Testing with AI Agents",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "testsprite",
+      "name": "TestSprite",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/testsprite",
+      "official": "https://testsprite.com",
+      "officialPageTitle": "AI Testing Agent & Automation Platform | TestSprite",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "kerno",
+      "name": "Kerno",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/kerno",
+      "official": "https://kerno.io",
+      "officialPageTitle": "Runtime Backend Testing in Your Agent Loop · Kerno",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "coldtea",
+      "name": "Coldtea",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/coldtea",
+      "official": "https://coldtea.ai",
+      "officialPageTitle": "Coldtea: the control layer for AI-written software",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "replay-qa",
+      "name": "Replay QA",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/replayio",
+      "official": "https://replay.io",
+      "officialPageTitle": "Replay QA – Autonomous app testing for fast-moving teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "agentgrid",
+      "name": "AgentGrid",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/agentgrid",
+      "official": "https://agentgrid.sh",
+      "officialPageTitle": "AgentGrid | Infinite Canvas for AI Agents",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "pie-5",
+      "name": "Pie",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/pie-5",
+      "official": "https://pie.inc",
+      "officialPageTitle": "Pie · Agentic Testing for Web, iOS & Android Apps",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "quash-intent-driven-mobile-testing",
+      "name": "Quash",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/quash-intent-driven-mobile-testing",
+      "official": "https://quashbugs.com",
+      "officialPageTitle": "Quash | Mobile App Testing & QA Automation for Mobile Teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "qaclan",
+      "name": "QAClan",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/qaclan",
+      "official": "https://qaclan.com",
+      "officialPageTitle": "QAClan — browser and API regression, run on your machine",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "gro",
+      "name": "Gro",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/gro-2",
+      "official": "https://thegro.ai",
+      "officialPageTitle": "Gro · Self-driving sales, governed by you | Gro",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "ciro-2",
+      "name": "Ciro",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/ciro-2",
+      "official": "https://ciro.io",
+      "officialPageTitle": "Ciro — More pipeline. Less work.",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "salestarget",
+      "name": "SalesTarget.ai",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/salestarget",
+      "official": "https://salestarget.ai",
+      "officialPageTitle": "All-in-One B2B AI Outbound Sales Platform | Salestarget.ai",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "stynar",
+      "name": "Stynar",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/stynar",
+      "official": "https://stynar.com",
+      "officialPageTitle": "Stynar — Turn Cold Outreach Into Revenue | Stynar",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "cleanlist-ai",
+      "name": "Cleanlist AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/cleanlist-ai",
+      "official": "https://cleanlist.ai",
+      "officialPageTitle": "Cleanlist AI: complete product information",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "avina-2",
+      "name": "Avina",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/avina-2",
+      "official": "https://avina.io",
+      "officialPageTitle": "AI Sales Intelligence for GTM Teams | Avina",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "katalyst",
+      "name": "Katalyst",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/katalyst",
+      "official": "https://joinkatalyst.com",
+      "officialPageTitle": "Purpose-built AI for how your enterprise sells",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "lightfield",
+      "name": "Lightfield",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/lightfield",
+      "official": "https://lightfield.app",
+      "officialPageTitle": "Lightfield — AI-native CRM",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "alsona",
+      "name": "Alsona",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/alsona",
+      "official": "https://alsona.com",
+      "officialPageTitle": "AI Agents That Find Buyers and Book Sales Calls | Alsona",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sherloq",
+      "name": "Sherloq",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/sherloq-2",
+      "official": "https://gosherloq.com",
+      "officialPageTitle": "LinkedIn Signal-Based Selling for Enterprise Sales | Sherloq",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "leaddelta",
+      "name": "LeadDelta",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/leaddelta",
+      "official": "https://leaddelta.com",
+      "officialPageTitle": "LinkedIn CRM & AI Inbox for Teams | LeadDelta",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "pebbles-ai",
+      "name": "Pebbles Ai",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/pebbles-ai",
+      "official": "https://trypebbles.ai",
+      "officialPageTitle": "Pebbles Ai: The AI operating system for go-to-market",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "youkti",
+      "name": "Youkti",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/youkti",
+      "official": "https://youkti.ai",
+      "officialPageTitle": "Revenue Actions for Every Deal in Your Pipeline | Youkti",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "clara-ai-sdr",
+      "name": "Clara AI SDR",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/clara-ai-sdr",
+      "official": "https://clarasdr.ai",
+      "officialPageTitle": "AI SDR That Converts Website Traffic to Pipeline | Clara",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "octolane",
+      "name": "Octolane",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/octolane",
+      "official": "https://octolane.com",
+      "officialPageTitle": "Octolane",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "ninjo-ai",
+      "name": "Ninjō AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/ninjo-ai",
+      "official": "https://ninjo.ai",
+      "officialPageTitle": "Ninjō — The AI Agent Platform for Agencies",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sprites-ai",
+      "name": "Sprites AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/sprites-ai",
+      "official": "https://sprites.ai",
+      "officialPageTitle": "Sprites AI: Proactive Growth Agent for Startups and Brands",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "okara",
+      "name": "Okara",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/okara-2",
+      "official": "https://okara.ai",
+      "officialPageTitle": "Okara: The Only AI CMO That Puts Marketing on Autopilot",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "rankspot",
+      "name": "RankSpot",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/rankspot",
+      "official": "https://rankspot.ai",
+      "officialPageTitle": "RankSpot · The SEO and AI search execution layer for agents",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "supercmo-ai",
+      "name": "SuperCMO AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/supercmo-ai",
+      "official": "https://getsupercmo.ai/go/ph",
+      "officialPageTitle": "SupercmoHQ/superCMO-skills",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "craftly-ai",
+      "name": "Craftly.AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/craftly-ai",
+      "official": "https://craftly.ai",
+      "officialPageTitle": "Craftly.AI - The Best AI Copywriting Assistant",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sitefire-ai",
+      "name": "Sitefire",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/sitefire-ai",
+      "official": "https://sitefire.ai",
+      "officialPageTitle": "Sitefire - The marketing suite for the agentic web",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "adant-ai",
+      "name": "AdAnt AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/adant-ai",
+      "official": "https://adant.ai",
+      "officialPageTitle": "AdAnt | Your Social Media Marketing Team",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "yarnit",
+      "name": "Yarnit",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/yarnit",
+      "official": "https://yarnit.app",
+      "officialPageTitle": "Agentic AI for Marketing, Ecommerce & Enterprises | Yarnit",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "predis-ai",
+      "name": "Predis.ai",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/predis-ai",
+      "official": "https://predis.ai",
+      "officialPageTitle": "AI Ad Generator - Make AI ads, videos, & UGC | Predis.ai",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "muze-ai",
+      "name": "Muze AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/muze-ai",
+      "official": "https://muzecmo.com",
+      "officialPageTitle": "Muze AI | AI Marketing Platform",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "writesonic-ai-writer",
+      "name": "Writesonic",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/writesonic-ai-writer",
+      "official": "https://writesonic.com",
+      "officialPageTitle": "See what AI says about you.Change what it says next.",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "mango-seo-ai",
+      "name": "Mango SEO",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/mango-seo-ai",
+      "official": "https://mangoseo.io",
+      "officialPageTitle": "Mango SEO AI: The Future of Search Engine Optimization",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "skayle",
+      "name": "Skayle",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/skayle",
+      "official": "https://skayle.ai",
+      "officialPageTitle": "Rank on Google. Get cited by AI — Skayle",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "snowseo",
+      "name": "SnowSEO",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/snowseo",
+      "official": "https://snowseo.com",
+      "officialPageTitle": "SnowSEO - Get your brand mentioned in AI Search Results",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "seo-content-lead",
+      "name": "SEO Content Lead",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/seo-content-lead",
+      "official": "https://seocontentlead.com",
+      "officialPageTitle": "SEO Content Lead - AI-Powered Content Briefs That Rank",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "rankfender",
+      "name": "Rankfender",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/rankfender",
+      "official": "https://rankfender.com",
+      "officialPageTitle": "Rankfender | One Platform to Power Your SEO & AI Search",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "kai-morgen",
+      "name": "Kai by Morgen",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/hirekai",
+      "official": "https://hirekai.ai",
+      "officialPageTitle": "Kai — Your AI Executive Assistant",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "slashy",
+      "name": "Slashy",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/slashy-3",
+      "official": "https://slashy.com",
+      "officialPageTitle": "Slashy",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "briefly-ai",
+      "name": "Briefly AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/briefly-ai",
+      "official": "https://brieflyai.com",
+      "officialPageTitle": "BrieflyAI - AI meeting summaries, insights, and follow ups",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "afterparty",
+      "name": "Afterparty",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/afterparty",
+      "official": "https://useafterparty.com",
+      "officialPageTitle": "Afterparty: turn meeting action items into ready emails, Slack messages and CRM updates",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "twinmind-email-assistant",
+      "name": "TwinMind Email Assistant",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/twinmind-email-assistant",
+      "official": "https://twinmind.com/email",
+      "officialPageTitle": "(no title)",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "espa",
+      "name": "Espa",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/espa",
+      "official": "https://espa.ai",
+      "officialPageTitle": "What Espa does for you",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "brief-my-meeting",
+      "name": "Brief My Meeting",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/brief-my-meeting",
+      "official": "https://briefmymeeting.com",
+      "officialPageTitle": "Brief My Meeting - AI-Powered Meeting Preparation",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "meeting-ai-visual-note",
+      "name": "Meeting.ai",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/meeting-ai-visual-note",
+      "official": "https://meeting.ai",
+      "officialPageTitle": "Meeting.ai — The AI that works before, during, and after your meeting",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "tactiq",
+      "name": "Tactiq",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/tactiq",
+      "official": "https://tactiq.io",
+      "officialPageTitle": "Tactiq: AI Note Taker for Google Meet, Zoom & Teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "assistly-4",
+      "name": "Assistly",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/assistly-4",
+      "official": "https://tryassistly.com",
+      "officialPageTitle": "Assistly: Real-time AI for your live conversations",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "meetgeek",
+      "name": "MeetGeek",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/meetgeek",
+      "official": "https://meetgeek.ai",
+      "officialPageTitle": "MeetGeek | AI Meeting Notetaker & Automation Platform",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "triggered-agents-by-adaptive",
+      "name": "Adaptive Triggered Agents",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/triggered-agents-by-adaptive",
+      "official": "https://adaptive.ai/triggered-agents",
+      "officialPageTitle": "Triggered Agents That Start Working Instantly | Adaptive",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "trace",
+      "name": "Trace",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/trace",
+      "official": "https://trace.so",
+      "officialPageTitle": "AI orchestration layer for modern teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "timbal-ai",
+      "name": "Timbal AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/timbal-ai",
+      "official": "https://timbal.ai",
+      "officialPageTitle": "Deployed AI for enterprises",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sim-studio",
+      "name": "Sim",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/sim-studio",
+      "official": "https://sim.ai",
+      "officialPageTitle": "Sim: Build and govern every AI agent in one place",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "quickagent",
+      "name": "QuickAgent",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/quickagent",
+      "official": "https://quickagent.app",
+      "officialPageTitle": "QuickAgent: Build AI Agents Without Code | No MCP Server, No Complexity",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "finyuus",
+      "name": "Finyuus",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/finyuus",
+      "official": "https://github.com/mariusndini/finyuus",
+      "officialPageTitle": "mariusndini/Finyuus",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "langflow",
+      "name": "Langflow",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/langflow",
+      "official": "https://langflow.org",
+      "officialPageTitle": "Langflow | Low-code AI builder for agentic and RAG applications",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "venn-ai",
+      "name": "Venn.ai",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/venn-ai-2",
+      "official": "https://venn.ai",
+      "officialPageTitle": "Put AI to work inside your apps without giving up control",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "clears",
+      "name": "Clears",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/clears",
+      "official": "https://clears.ai",
+      "officialPageTitle": "Clears - Your AI Software Factory",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sapienx-agentos",
+      "name": "AgentOS by SapienX",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/agentos-run-agents-like-a-company",
+      "official": "https://sapienx.app/agentos",
+      "officialPageTitle": "AgentOS | Deploy an AI Workforce on Railway",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "cronloop-ai",
+      "name": "Cronloop",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/cronloop-ai",
+      "official": "https://cronloop.ai",
+      "officialPageTitle": "Cronloop: AI agents that run in a loop",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "controller-ai",
+      "name": "Controller AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/insight-ai",
+      "official": "https://getcontroller.ai",
+      "officialPageTitle": "Controller AI | Agents That Follow Your Process",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "openmolt",
+      "name": "OpenMolt",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/openmolt",
+      "official": "https://openmolt.dev",
+      "officialPageTitle": "OpenMolt — The Programmatic Way to Build AI Agents",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "simplai",
+      "name": "SimplAI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/simplai",
+      "official": "https://simplai.ai",
+      "officialPageTitle": "SimplAI | Operating System for Agentic AI",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "squad",
+      "name": "Squad",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/squad-8",
+      "official": "https://meetsquad.ai",
+      "officialPageTitle": "Your AI Product Manager",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "concipe",
+      "name": "Concipe",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/concipe",
+      "official": "https://concipe.com",
+      "officialPageTitle": "Concipe — Feedback to Specs for Claude Code & Cursor",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "growthbook",
+      "name": "GrowthBook",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/growthbook",
+      "official": "https://growthbook.io",
+      "officialPageTitle": "GrowthBook | Experimentation, Feature Flags & Product Analytics Platform",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "userology-ai",
+      "name": "Userology AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/userology-2",
+      "official": "https://userology.co",
+      "officialPageTitle": "AI UX Research agent for busy product teams",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "productbridge",
+      "name": "ProductBridge",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/productbridge",
+      "official": "https://productbridge.io",
+      "officialPageTitle": "AI-Native Customer Support & Feedback Agent",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "zeda-io",
+      "name": "Zeda.io",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/zeda-io",
+      "official": "https://zeda.io",
+      "officialPageTitle": "Voice of Customer led AI Product Management Software - Zeda.io",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "sprig",
+      "name": "Sprig",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/sprig",
+      "official": "https://sprig.com",
+      "officialPageTitle": "Sprig | Enterprise Survey Platform Powered by Agents",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "nugget-ai",
+      "name": "Nugget AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/nugget-ai",
+      "official": "https://nggt.ai",
+      "officialPageTitle": "Nugget AI | Real-time Customer Insights for PMs",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "uxia",
+      "name": "Uxia",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/uxia",
+      "official": "https://uxia.app",
+      "officialPageTitle": "Scale user insights with synthetic & human testers",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "athenic-ai",
+      "name": "Athenic AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/athenic-ai",
+      "official": "https://athenic.com",
+      "officialPageTitle": "Athenic: AI Data Analyst for BI & Stock Analysis",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "animant",
+      "name": "Animant",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/animant",
+      "official": "https://animantlabs.com/animant",
+      "officialPageTitle": "Animant — Interactive Video and 3D | Animant Labs",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "chatslide-ai",
+      "name": "ChatSlide AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/chatslide-ai",
+      "official": "https://chatslide.ai/landing",
+      "officialPageTitle": "ChatSlide AI | Turn Documents Into Slides, Videos & More",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "vidboard",
+      "name": "vidBoard",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/vidboard",
+      "official": "https://vidboard.ai",
+      "officialPageTitle": "vidBoard.ai: AI Video Maker & Editor | Create Stunning Videos Online",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "ai-presentation-narrator",
+      "name": "Plus AI Presentation Narrator",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/ai-presentation-narrator",
+      "official": "https://plusai.com/features/presentation-narrator",
+      "officialPageTitle": "AI Presentation Narrator | Plus AI",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "decktopus",
+      "name": "Decktopus AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/decktopus",
+      "official": "https://decktopus.com",
+      "officialPageTitle": "Create presentations",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "wavel-ai",
+      "name": "Wavel AI",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/wavel-ai",
+      "official": "https://wavel.ai",
+      "officialPageTitle": "Wavel AI: AI Video Generator, Dubbing & Voice Platform",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    },
+    {
+      "id": "effects-sdk",
+      "name": "Effects SDK",
+      "checkedDate": "2026-11-10",
+      "productHunt": "https://www.producthunt.com/products/effects-sdk",
+      "official": "https://effectssdk.ai",
+      "officialPageTitle": "Video Effects & AI Noise Cancellation SDK | Effects SDK",
+      "review": "Product Hunt listing and current provider materials read; no account-based or hands-on product test."
+    }
+  ],
+  "exclusions": [
+    {
+      "name": "CodeBeaver",
+      "reason": "Current codebeaver.ai page was unrelated gambling content."
+    },
+    {
+      "name": "Touch AI",
+      "reason": "touch.app was offered for sale."
+    },
+    {
+      "name": "Rumi",
+      "reason": "Official page says no longer available."
+    },
+    {
+      "name": "Slideshot",
+      "reason": "Existing imported catalog entry; not counted as new."
+    },
+    {
+      "name": "Narrato",
+      "reason": "Provider destination changed to Typeface; omitted pending consolidation."
+    },
+    {
+      "name": "INK",
+      "reason": "Provider destination changed to SmythOS repository; omitted pending consolidation."
+    },
+    {
+      "name": "min.",
+      "reason": "Current companion positioning differs from professional-workflow Product Hunt listing."
+    },
+    {
+      "name": "Dabe Agents",
+      "reason": "Current destination describes a different creative workspace."
+    },
+    {
+      "name": "Loopin",
+      "reason": "Official page did not establish an active product."
+    },
+    {
+      "name": "Nyra AI",
+      "reason": "Insufficient readable provider evidence."
+    }
+  ]
+}
