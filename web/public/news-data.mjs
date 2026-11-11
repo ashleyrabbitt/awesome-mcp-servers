@@ -1,9 +1,23 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-10';
+export const newsEdition = '2026-11-11';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  id: 'openai-business-hub-and-business-agents',
+  date: '2026-11-10', datePublished: '2026-11-11', dateModified: '2026-11-11',
+  topic: 'Agents', publisher: 'OpenAI', art: 'web',
+  title: 'ChatGPT opens a beta for business profiles and customer-facing agents',
+  description: 'OpenAI separates claiming a business from publishing an agent. Start by checking the facts a customer needs to make a decision.',
+  summary: 'OpenAI introduced Businesses in ChatGPT in beta on November 10. Eligible businesses can claim a profile through Business Hub. After the required verification, they can maintain key details and see aggregate insights, such as mentions and website clicks, where reporting thresholds are met. Eligible U.S. ecommerce and online service businesses can also publish a Business Agent that customers choose to chat with separately from ChatGPT’s independent answers.',
+  takeaway: 'A profile is a way to provide current information; an agent is another customer-facing surface to maintain. If your public prices, service area or return policy disagree from page to page, resolve the discrepancy before giving an agent more places to repeat it.',
+  action: 'Pick three questions customers actually ask, such as whether you serve their ZIP code, what is included in an appointment, and how cancellations work. For each, write the approved answer and link to the public page that supports it. Mark gaps before you decide whether claiming a profile or publishing an agent is worth the upkeep.',
+  caveat: 'Eligibility and verification apply, and profile access does not mean agent access. OpenAI says businesses receive aggregate insights, not private chats. Claiming a profile does not guarantee placement, traffic or sales. No account eligibility or agent performance was tested for this brief.',
+  sourceTitle: 'OpenAI: Businesses in ChatGPT and eligibility',
+  sourceUrl: 'https://openai.com/business/businesses-in-chatgpt/',
+  next: ['/tool-trial', 'Turn your questions into a small evaluation']
+},
 {
   "id": "gemini-carbon-copilot-model-choice",
   "date": "2026-11-10",
