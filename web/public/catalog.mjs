@@ -1,3 +1,4 @@
+import {novemberElevenPicks} from './november-eleven-picks.mjs';
 import {workplacePicks} from './workplace-picks.mjs';
 import {productHuntExpansion} from './product-hunt-expansion.mjs';
 import {novemberPicks} from './november-picks.mjs';
@@ -12,6 +13,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...novemberElevenPicks,
 ...productHuntExpansion,...workplacePicks,
 ...novemberPicks,
 make('figma','Figma MCP','Figma','MCP servers','Design',['Designers','Developers'],'Bring design context into your AI-assisted development workflow. Start with one frame, then review the result against the original.','https://developers.figma.com/docs/figma-mcp-server/','Remote + desktop','Guided setup','Can expose design context and, with supported tools, change designs. Review the tools and file access you authorize.','The design essential','Fi','peach'),
