@@ -5,18 +5,25 @@ export const newsEdition = '2026-11-11';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
 {
-  id: 'openai-business-hub-and-business-agents',
-  date: '2026-11-10', datePublished: '2026-11-11', dateModified: '2026-11-11',
-  topic: 'Agents', publisher: 'OpenAI', art: 'web',
-  title: 'ChatGPT opens a beta for business profiles and customer-facing agents',
-  description: 'OpenAI separates claiming a business from publishing an agent. Start by checking the facts a customer needs to make a decision.',
-  summary: 'OpenAI introduced Businesses in ChatGPT in beta on November 10. Eligible businesses can claim a profile through Business Hub. After the required verification, they can maintain key details and see aggregate insights, such as mentions and website clicks, where reporting thresholds are met. Eligible U.S. ecommerce and online service businesses can also publish a Business Agent that customers choose to chat with separately from ChatGPT’s independent answers.',
-  takeaway: 'A profile is a way to provide current information; an agent is another customer-facing surface to maintain. If your public prices, service area or return policy disagree from page to page, resolve the discrepancy before giving an agent more places to repeat it.',
-  action: 'Pick three questions customers actually ask, such as whether you serve their ZIP code, what is included in an appointment, and how cancellations work. For each, write the approved answer and link to the public page that supports it. Mark gaps before you decide whether claiming a profile or publishing an agent is worth the upkeep.',
-  caveat: 'Eligibility and verification apply, and profile access does not mean agent access. OpenAI says businesses receive aggregate insights, not private chats. Claiming a profile does not guarantee placement, traffic or sales. No account eligibility or agent performance was tested for this brief.',
-  sourceTitle: 'OpenAI: Businesses in ChatGPT and eligibility',
-  sourceUrl: 'https://openai.com/business/businesses-in-chatgpt/',
-  next: ['/tool-trial', 'Turn your questions into a small evaluation']
+  "id": "openai-business-hub-and-business-agents",
+  "date": "2026-11-10",
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11",
+  "topic": "Agents",
+  "publisher": "OpenAI",
+  "art": "agents",
+  "title": "Businesses get agents in ChatGPT: what changes for buyers and business owners",
+  "description": "Understand business profiles, branded agents, sponsored placements, and the practical checks to make before trusting a product answer.",
+  "summary": "OpenAI introduced Businesses in ChatGPT in beta on November 10. When a business appears in an answer, users can open its profile. If that business has published a Business Agent, they can choose a separate chat about its products or services. The important habit is noticing when you have moved from ChatGPT's answer into a conversation representing the seller. OpenAI says business-agent conversations are labeled and separate from ChatGPT's independent answers. Businesses can also sponsor their agents, with sponsored placements identified. A branded agent can help explain a product, but its role is to represent that business. Use it for detailed questions about fit, inclusions, policies, and the product page supporting an answer.",
+  "takeaway": "First write your own requirements: budget, use case, must-have features, and deal breakers. Ask ChatGPT to compare the available options with sources. Then ask each relevant business agent the same specific fit questions. Finally, verify the important details on the seller's website. Independent comparison and a seller's explanation can both be useful; neither replaces checking a consequential claim. For buyers, identify who is speaking and check the source. For owners, make your information accurate and your next step clear. A new agent is most valuable when it helps someone understand whether an offer fits their needs.",
+  "action": "Ask “Which of your options would you rule out for my use case, and why?” Follow with “What is not included?” and “Where can I verify that policy?” If an answer avoids a limitation, return to the written product information. Keep private information out of a general product question when it is not needed. Eligible owners can claim a profile in Business Hub and keep business details current. Shopify merchants have a store connection path. Agent access has separate eligibility requirements and currently starts with eligible U.S. ecommerce and online service businesses. Prepare an approved FAQ and test the answers before publishing. The present agent experience explains offerings and links to the website; purchases and bookings happen there.",
+  "caveat": "OpenAI says businesses receive aggregate insights rather than users' ChatGPT or Business Agent conversations. A business should therefore avoid promising personalized follow-up based on an assumed transcript. Customers should still review the data implications of any separate form or action they choose on the business's website.",
+  "sourceTitle": "OpenAI: Introducing Businesses in ChatGPT",
+  "sourceUrl": "https://openai.com/index/introducing-businesses-chatgpt/",
+  "next": [
+    "/tool-trial",
+    "Compare answers with a small test"
+  ]
 },
 {
   "id": "gemini-carbon-copilot-model-choice",
