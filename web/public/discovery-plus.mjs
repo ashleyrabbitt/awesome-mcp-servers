@@ -17,7 +17,7 @@ export function taskMatches(query,items){
  const generic=new Set([...topics.flatMap(t=>t.terms),'mcp','server','tool','tools','action','plan','create']);
  const byId=new Map(items.map(t=>[t.id,t]));const rows=new Map();
  for(const t of matches)for(const [i,id]of t.ids.entries())if(byId.has(id)){const old=rows.get(id);const score=t.matched.length*10-i;if(!old||score>old.score)rows.set(id,{tool:byId.get(id),score,reason:t.why,topic:t.name,check:t.check});}
- for(const t of items){const name=tokens(t.name),hits=terms.filter(w=>name.includes(w));if(hits.some(w=>!generic.has(w))||terms.join(' ')===name.join(' '))rows.set(t.id,{tool:t,score:100+hits.length,reason:'Your search matches this tool’s name. Check its task fit and publisher details.',topic:'Name match',check:'Compare the current plan and setup requirements.'});}
+ for(const t of items){const name=tokens(t.name),hits=terms.filter(w=>name.includes(w));if(hits.some(w=>!generic.has(w))||terms.join(' ')===name.join(' '))rows.set(t.id,{tool:t,score:(terms.join(' ')===name.join(' ')?200:100)+hits.length,reason:'Your search matches this tool’s name. Check its task fit and publisher details.',topic:'Name match',check:'Compare the current plan and setup requirements.'});}
  if(!rows.size)for(const t of items){const hay=tokens([t.name,t.description,t.category].join(' '));const hits=terms.filter(w=>hay.includes(w));if(hits.length>=Math.min(2,terms.length))rows.set(t.id,{tool:t,score:hits.length,reason:'Catalog description matches: '+hits.join(', ')+'.',topic:'Catalog match',check:'This is a keyword match, not a tested recommendation.'});}
  return {topics:matches,tools:[...rows.values()].sort((a,b)=>b.score-a.score||a.tool.name.localeCompare(b.tool.name)).slice(0,8)};
 }

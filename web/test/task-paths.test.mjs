@@ -61,7 +61,8 @@ test('new practice cases keep fictional inputs and untested vendor results expli
 
 test('only the existing relevant configured referral is promoted, with adjacent disclosure',()=>{
   const referrals=curated.filter(t=>t.affiliateUrl);
-  assert.deepEqual(referrals.map(t=>t.id).sort(),['descript','higgsfield']);
+  assert.equal(referrals.find(t=>t.id==='chatplayground-ai').affiliateUrl,'https://www.chatplayground.ai/?ref=ashley8r');
+  assert.deepEqual(referrals.map(t=>t.id).sort(),['chatplayground-ai','descript','higgsfield']);
   assert.equal(referrals.find(t=>t.id==='descript').affiliateUrl,'https://get.descript.com/o1zqq5l1l1m4');
   assert.equal(referrals.find(t=>t.id==='higgsfield').affiliateUrl,'https://higgsfield.ai?fpr=ashley-a1cd2d');
   for(const id of ids){

@@ -19,7 +19,7 @@ export const novemberElevenPicks=[
   pricing_model:'Freemium',pricing:'Free starting option with paid plans for additional capacity and features. Check current publishing and usage limits.',pricing_source:'https://whacka.app/pricing'
  },
  {
-  id:'chatplayground-ai',name:'ChatPlayground AI',publisher:'ChatPlayground',type:'AI apps',category:'Productivity',roles:['Marketers','Product managers','Developers','Entrepreneurs'],mark:'CP',color:'sage',
+  affiliateUrl:'https://www.chatplayground.ai/?ref=ashley8r',affiliateDisclosure:'We may earn a commission if you purchase through our ChatPlayground partner link.',id:'chatplayground-ai',name:'ChatPlayground AI',publisher:'ChatPlayground',type:'AI apps',category:'Productivity',roles:['Marketers','Product managers','Developers','Entrepreneurs'],mark:'CP',color:'sage',
   url:'https://www.chatplayground.ai/',sourceUrl:'https://www.chatplayground.ai/',
   description:'Ask several AI models the same question and compare their answers in one workspace. Combine useful ideas into a refined response, then save prompts and conversations for your next task.',
   best_for:'Comparing writing, reasoning and research approaches without juggling separate AI subscriptions.',firstTry:'Give several models the same short campaign brief, compare their drafts and combine the strongest ideas.',checkpoint:'Verify factual claims against original sources, including claims repeated by several models.',
