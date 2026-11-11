@@ -57,19 +57,30 @@ test('news filters produce the selected topic and ignore unknown query input',()
   assert.ok(pageSEO('/news/no-such-story',[],missing).noindex);
 });
 
-test('November 10 news uses current homepage selections and actual publication dates',()=>{
+test('November 10 news retains archive routes and actual publication dates',()=>{
   const ids=['gemini-carbon-wider-access-review-boundaries','claude-fable-copilot-retention-review','github-actions-log-secret-scanning-preview'];
-  const home=renderRoute('/',[]);
+  const archive=renderRoute('/news',[]);
   for(const id of ids){
     const s=newsStories.find(s=>s.id===id);
     assert.equal(s.datePublished,'2026-11-10');
     assert.equal(s.dateModified,'2026-11-10');
     assert.equal(s.next[0],'/tool-trial');
-    assert.ok(home.includes('/news/'+id));
+    assert.ok(archive.includes('/news/'+id));
   }
   assert.equal(newsStories.find(s=>s.id===ids[1]).date,'2026-11-09');
   assert.equal(newsStories.find(s=>s.id===ids[2]).date,'2026-11-09');
   assert.equal(newsStories.find(s=>s.id==='google-maps-ai-studio-prototype-production-boundary').datePublished,'2026-11-09');
+});
+
+test('homepage follows the current six stories without pinning an old edition',()=>{
+  const home=renderRoute('/',[]);
+  for(const story of newsStories.slice(0,6))assert.ok(home.includes('/news/'+story.id));
+  for(const id of ['google-a2ui-1-stable-agent-interfaces','gemini-decisions-api-bounded-choice-review','databricks-genie-grok-bot-governed-context']){
+    const story=newsStories.find(s=>s.id===id);
+    assert.equal(story.date,'2026-11-11');
+    assert.equal(story.datePublished,'2026-11-11');
+    assert.equal(story.dateModified,'2026-11-11');
+  }
 });
 
 test('article dates come from each story, independently of the collection edition',()=>{
