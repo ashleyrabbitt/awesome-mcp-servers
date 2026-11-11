@@ -6,6 +6,7 @@ const config=JSON.parse(readFileSync(new URL('./config.json',import.meta.url),'u
 const posts=JSON.parse(readFileSync(new URL('./posts.json',import.meta.url),'utf8'));
 const byPath=new Map(posts.map(p=>[articlePath(config,p).replace(/\/$/,''),p]));
 const byImage=new Map(posts.map(p=>[imagePath(p),p]));
+for (const post of posts.filter(p=>p.stepGraphic)) byImage.set("/assets/ai-practice/"+post.slug+"-steps.svg", {...post,slug:post.slug+"-steps",coverFormat:"svg"});
 const ready=()=>!config.launchFlag || process.env[config.launchFlag.name]===config.launchFlag.value;
 const localPath=value=>{try{return new URL(value||'/','http://localhost').pathname;}catch{return null;}};
 
@@ -82,3 +83,4 @@ export function attachEditorialDiscovery(req,res){
  };
 }
 export {config,posts};
+
