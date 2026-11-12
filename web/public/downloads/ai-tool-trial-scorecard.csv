@@ -1,0 +1,5 @@
+trial_id,tool,plan_and_version,date,task,input_reference,expected_output,critical_error,usable_output,review_minutes,total_minutes,verified_cost,permission_fit,evidence_reference,decision
+EXAMPLE-FICTIONAL,Tool A,Record actual plan,YYYY-MM-DD,Summarize a public event brief,Same sample for every tool,Correct date venue and registration link,Invented venue,No,8,12,Unknown,Read only,Save output and corrections,Reject this output
+TRIAL-01,,,,,,,,,,,,,,
+TRIAL-02,,,,,,,,,,,,,,
+TRIAL-03,,,,,,,,,,,,,,
