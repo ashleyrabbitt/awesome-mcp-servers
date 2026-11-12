@@ -1,9 +1,33 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-11';
+export const newsEdition = '2026-11-12';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  id:'gemini-hydrogen-everyday-agent-workflows', date:'2026-11-12', datePublished:'2026-11-12', dateModified:'2026-11-12', topic:'Agents', publisher:'Google', art:'agents',
+  title:'Gemini Hydrogen brings a faster execution option to everyday agent work',
+  description:'Google’s new model and Antigravity Orchestrator separate rapid task execution from deeper reasoning, with access varying by product.',
+  summary:'Google introduced Gemini 4 Hydrogen on November 12 for coding, tool use and everyday work. It is rolling out across the Gemini API, AI Studio, Gemini for business, the Gemini app and Search. Google also introduced Antigravity Orchestrator, which switches between models such as Carbon and Hydrogen within a session.',
+  takeaway:'Our take: test the whole job, not just the speed of the first answer. A faster worker model is useful only if the finished output meets the same review standard and mistakes do not consume the time saved.',
+  action:'Use a nonsensitive sample task with a known answer. Run it with your current model and Hydrogen, then record elapsed time, corrections and whether each requirement passed. Keep publishing, purchases and account changes outside the trial.',
+  caveat:'Google’s efficiency and safety figures are provider evaluations, not results from our own testing. Antigravity access requires a paid Google AI Pro or Ultra subscription; Sheets eligibility also varies. Confirm availability and permissions in the product you use.',
+  sourceTitle:'Google: Introducing Gemini 4 Hydrogen',
+  sourceUrl:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/',
+  next:['/tool-trial','Plan a same-task comparison']
+},
+{
+  id:'gemini-eyewear-preorders-privacy-check', date:'2026-11-12', datePublished:'2026-11-12', dateModified:'2026-11-12', topic:'Productivity', publisher:'Google', art:'review',
+  title:'Gemini eyewear preorders open: check the workflow and privacy boundaries first',
+  description:'Google announces a December 10 retail launch for partner glasses with hands-free assistance; preorders are not evidence of everyday reliability.',
+  summary:'Google announced preorders for Intelligent Eyewear made with Gentle Monster, Warby Parker and Samsung. The glasses offer Gemini assistance, spoken navigation, translation and camera-based help. Google lists December 10 for in-store and online purchase, with demonstrations at selected locations.',
+  takeaway:'Our take: hands-free assistance could help with a specific everyday task, but a useful demo needs to establish what is captured, what reaches a connected app and which actions need confirmation. Do not equate a product launch with a tested accessibility or productivity outcome.',
+  action:'Before considering a purchase, write a three-question demo card: Can it complete my task? What phone, account and connection does it require? How do I stop capture and review permissions? Use nonsensitive material and respect other people’s privacy.',
+  caveat:'Availability differs by collection and region. Google describes camera-visual privacy protections and a recording indicator; these are company statements, not an independent privacy audit. Check the exact frame, phone compatibility and current terms before ordering.',
+  sourceTitle:'Google: Intelligent Eyewear collections and preorders',
+  sourceUrl:'https://blog.google/innovation-and-ai/technology/xr-ar/google-intelligent-eyewear-collections-pre-order/',
+  next:['/tool-trial','Define what a useful trial must prove']
+},
 {
   "id": "google-a2ui-1-stable-agent-interfaces",
   "date": "2026-11-11",

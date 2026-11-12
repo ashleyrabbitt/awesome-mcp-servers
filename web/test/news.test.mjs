@@ -83,6 +83,20 @@ test('homepage follows the current six stories without pinning an old edition',(
   }
 });
 
+test('November 12 briefs retain source dates and advance only the current edition',()=>{
+  assert.equal(newsEdition,'2026-11-12');
+  const home=renderRoute('/',[]);
+  for(const id of ['gemini-hydrogen-everyday-agent-workflows','gemini-eyewear-preorders-privacy-check']){
+    const s=newsStories.find(story=>story.id===id);
+    assert.equal(s.date,'2026-11-12');
+    assert.equal(s.datePublished,'2026-11-12');
+    assert.equal(s.dateModified,'2026-11-12');
+    assert.ok(home.includes('/news/'+id));
+    assert.equal(s.next[0],'/tool-trial');
+  }
+  assert.equal(newsStories.find(s=>s.id==='google-a2ui-1-stable-agent-interfaces').datePublished,'2026-11-11');
+});
+
 test('article dates come from each story, independently of the collection edition',()=>{
   const story=newsStories[0];
   const original={datePublished:story.datePublished,dateModified:story.dateModified};
