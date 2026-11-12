@@ -1,6 +1,22 @@
-# Superpowers affiliate application drafts
+# Superpowers affiliate applications
 
-Prepared October 9, 2026. These are drafts, not submitted applications or approved partnerships. Do not create referral links until the provider issues them.
+Initial drafts prepared October 9, 2026; status updated November 11, 2026. Draft copy below is not evidence of a submitted application or approved partnership. Use only provider-issued referral links.
+
+## Verified status — November 11, 2026
+
+| Program | Confirmed state | Next dependency |
+| --- | --- | --- |
+| ChatPlayground AI | Approved; issued referral is configured on the site | Reconcile actual referrals and commissions in the partner dashboard |
+| Whacka / Dub | Application submitted; dashboard shows **Pending / Application in review** | Provider review; no tracking URL issued yet |
+| Base44 / Impact | Official application reopened; submission not completed | Restore access to the owner's signed-in browser and continue the existing account |
+| beehiiv | No completed application verified in this follow-up | Restore browser access and check the partner account |
+| Screen Studio / Lemon Squeezy | No completed application verified in this follow-up | Restore browser access and check verification and partner status |
+| Clueso / FirstPromoter | Public program and application route verified; not submitted | Complete the official application after browser access returns |
+| Kilo Code | Program reviewed; ordinary product link retained | Program excludes organic and paid search traffic; do not use the affiliate URL in this search-driven directory without provider clearance |
+
+The owner authorized agreement acceptance for these applications. The browser connection became unavailable after the Whacka submission; the remaining account steps are access dependencies, not a new approval request. Do not create duplicate accounts to work around the interruption. Account approval, link issuance and commission payment are separate states.
+
+Official entry points: [Whacka](https://partners.dub.co/whacka/register), [Base44](https://base44.com/about-us/affiliates), [beehiiv](https://www.beehiiv.com/partners), [Screen Studio](https://screen.studio/affiliate/getting-started), [Clueso](https://www.clueso.io/affiliate), [Kilo](https://kilo.ai/partners).
 
 ## Shared application copy
 

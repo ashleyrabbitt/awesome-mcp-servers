@@ -1,4 +1,5 @@
 import {novemberReleasePicks,novemberToolRefreshes} from './november-release-updates.mjs';
+import {productHuntFollowup} from './product-hunt-followup.mjs';
 import {productHuntNovemberEleven} from './product-hunt-november-11.mjs';
 import {novemberElevenPicks} from './november-eleven-picks.mjs';
 import {workplacePicks} from './workplace-picks.mjs';
@@ -15,6 +16,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...productHuntFollowup,
 ...novemberReleasePicks,
 ...productHuntNovemberEleven,
 ...novemberElevenPicks,
