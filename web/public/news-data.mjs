@@ -1,9 +1,45 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-12';
+export const newsEdition = '2026-11-13';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
 export const newsStories = [
+{
+  id:'claude-meetings-beta-participant-permission', date:'2026-11-12', datePublished:'2026-11-13', dateModified:'2026-11-13', topic:'Productivity', publisher:'Anthropic', art:'review',
+  title:'Claude Meetings beta: agree on transcription before inviting the assistant',
+  description:'Google Meet support is rolling out to eligible Team and Enterprise accounts, with important guest and access boundaries.',
+  summary:'Anthropic announced Claude Meetings on November 12. The assistant joins as a visible participant, answers questions and creates shared artifacts. The beta starts with Google Meet on eligible Team and Enterprise plans. It retains transcripts, summaries and screen descriptions—not audio.',
+  takeaway:'Our take: a visible assistant is not a substitute for participant agreement. Decide who may read the resulting material before a meeting, not after a sensitive detail enters the transcript.',
+  action:'For a fictional internal call, write down the permitted inputs, attendees, artifact viewers and reviewer. Repeat for a client call. If agreement or access is unclear, use approved written notes instead; keep sending and connected-tool actions outside the exercise.',
+  caveat:'External guests are excluded by default unless an admin allows them. Organization invitees can access the meeting page. Some configurations, including ZDR, HIPAA-ready and customer-managed encryption keys, are ineligible during beta. Verify current settings; we have not tested the product.',
+  sourceTitle:'Anthropic: Introducing Claude Meetings — November 12, 2026',
+  sourceUrl:'https://claude.com/resources/articles/claude-meetings',
+  next:['/tool-trial','Write a permission-aware trial plan']
+},
+{
+  id:'claude-managed-agents-self-hosted-control-plane', date:'2026-11-12', datePublished:'2026-11-13', dateModified:'2026-11-13', topic:'Agents', publisher:'Anthropic', art:'agents',
+  title:'Self-hosted Claude Managed Agents moves the control plane, not necessarily the model',
+  description:'A private beta lets teams operate agent infrastructure themselves; model requests still have a separately chosen destination.',
+  summary:'Anthropic introduced self-hosted Managed Agents on November 12 in private beta. Beyond the earlier sandbox option, teams can operate the harness, workers, database, credentials and session history in their own cloud or on-premises. Model requests go to a selected provider or gateway.',
+  takeaway:'Our take: hosting the agent infrastructure yourself does not mean model inference is local. Review the actual request path and operational responsibilities before describing a deployment as private.',
+  action:'Draw one proposed workflow with its input store, agent server, sandbox, model endpoint and logs. Identify what crosses each boundary, who can stop the run and how secrets stay separate. Use synthetic data; do not deploy simply to try the architecture.',
+  caveat:'Access is private beta through an Anthropic account team. Network limits, credential isolation and audit records are documented design features, not an independent security assessment. Self-hosting also leaves an operator responsible for running the service.',
+  sourceTitle:'Anthropic: Operate Claude Managed Agents inside your security perimeter — November 12, 2026',
+  sourceUrl:'https://claude.com/resources/articles/self-hosted-claude-managed-agents',
+  next:['/tool-trial','Define an architecture review before a trial']
+},
+{
+  id:'claude-manufacturing-plugin-review-before-release', date:'2026-11-12', datePublished:'2026-11-13', dateModified:'2026-11-13', topic:'Industry', publisher:'Anthropic', art:'skills',
+  title:'Claude for Manufacturing brings drafts to the reviewer—not to the machine',
+  description:'The new manufacturing plugin connects business records to quoting and reporting workflows while retaining human release decisions.',
+  summary:'Anthropic launched Claude for Manufacturing on November 12 with 17 skills and connectors for Autodesk Fusion, Infor, Microsoft 365 and Oracle NetSuite. It supports draft quotes, quality reports and supplier requests on Team and Enterprise plans. It does not operate equipment.',
+  takeaway:'Our take: the useful starting point is a reviewable business artifact with traceable inputs, not autonomous production. A plausible quote still needs someone responsible for checking scope and releasing it.',
+  action:'On paper, define a fictional quote-review task: required inputs, missing-information flags, source for each cost and a named approval role. Reject a draft that invents a missing quantity. Keep customer records, purchasing and equipment disconnected from this first exercise.',
+  caveat:'Connector access and existing system permissions determine what is available. The manufacturing Infor connector retrieves records; a separate Infor plugin can make approved changes. Do not confuse the two. Capabilities are vendor-reported, not results of our testing.',
+  sourceTitle:'Anthropic: Introducing Claude for Manufacturing — November 12, 2026',
+  sourceUrl:'https://claude.com/resources/articles/claude-for-manufacturing',
+  next:['/tool-trial','Specify a reviewable draft task']
+},
 {
   id:'gemini-hydrogen-everyday-agent-workflows', date:'2026-11-12', datePublished:'2026-11-12', dateModified:'2026-11-12', topic:'Agents', publisher:'Google', art:'agents',
   title:'Gemini Hydrogen brings a faster execution option to everyday agent work',
