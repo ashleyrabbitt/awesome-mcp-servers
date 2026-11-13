@@ -5,6 +5,22 @@ import {newsStories,newsEdition,newsTopics} from '../public/news-data.mjs';
 import {renderRoute} from '../public/views.mjs';
 import {pageSEO} from '../public/seo.mjs';
 
+test('November 13 briefs distinguish announcement dates, publication and operational limits',()=>{
+  assert.equal(newsEdition,'2026-11-13');
+  const ids=['claude-meetings-beta-participant-permission','claude-managed-agents-self-hosted-control-plane','claude-manufacturing-plugin-review-before-release'];
+  for(const id of ids){
+    const s=newsStories.find(s=>s.id===id);
+    assert.equal(s.date,'2026-11-12');
+    assert.equal(s.datePublished,'2026-11-13');
+    assert.equal(s.dateModified,'2026-11-13');
+    assert.equal(s.next[0],'/tool-trial');
+    assert.ok(renderRoute('/',[]).includes('/news/'+id));
+  }
+  assert.match(newsStories.find(s=>s.id===ids[0]).caveat,/External guests/);
+  assert.match(newsStories.find(s=>s.id===ids[1]).takeaway,/does not mean model inference is local/);
+  assert.match(newsStories.find(s=>s.id===ids[2]).summary,/does not operate equipment/);
+});
+
 test('news briefs retain original sources, chronological dates and distinct publication metadata',async()=>{
   assert.equal(new Set(newsStories.map(s=>s.id)).size,newsStories.length);
   for(const [i,s] of newsStories.entries()){
@@ -83,8 +99,8 @@ test('homepage follows the current six stories without pinning an old edition',(
   }
 });
 
-test('November 12 briefs retain source dates and advance only the current edition',()=>{
-  assert.equal(newsEdition,'2026-11-12');
+test('November 12 briefs retain original dates as the collection advances',()=>{
+  assert.ok(newsEdition>='2026-11-12');
   const home=renderRoute('/',[]);
   for(const id of ['gemini-hydrogen-everyday-agent-workflows','gemini-eyewear-preorders-privacy-check']){
     const s=newsStories.find(story=>story.id===id);
