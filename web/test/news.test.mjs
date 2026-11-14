@@ -107,7 +107,7 @@ test('November 12 briefs retain original dates as the collection advances',()=>{
     assert.equal(s.date,'2026-11-12');
     assert.equal(s.datePublished,'2026-11-12');
     assert.equal(s.dateModified,'2026-11-12');
-    assert.ok(home.includes('/news/'+id));
+    assert.ok(renderRoute('/news',[]).includes('/news/'+id));
     assert.equal(s.next[0],'/tool-trial');
   }
   assert.equal(newsStories.find(s=>s.id==='google-a2ui-1-stable-agent-interfaces').datePublished,'2026-11-11');
