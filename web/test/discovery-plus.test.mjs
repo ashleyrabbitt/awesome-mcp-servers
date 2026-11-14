@@ -85,3 +85,13 @@ test('public requests render server-side with an honest unavailable response on 
  const r=await dynamicDiscovery('/requests',{call:async()=>({requests:[{id:rid,kind:'request',title:'A real task question',body:'A moderated question with public information.',answer:'A useful reviewed answer.',answer_tools:['chatgpt'],created_at:'2026-10-17',votes:1}],deals:[],popular:[]}),catalog:async()=>curated.map(data=>({data}))});assert.equal(r.status,200);assert.match(r.body,/A useful reviewed answer/);assert.match(r.body,/canonical/);
  assert.equal((await dynamicDiscovery('/deals',{call:async()=>{throw Error('offline')},catalog:async()=>[]})).status,503);
 });
+
+test('specific creative and data tasks surface matching tools even beside broad topics',()=>{
+ const models=taskMatches('design 3d models',curated).tools.map(r=>r.tool.id);
+ assert.ok(models.includes('meshy'));assert.ok(models.includes('tripo'));assert.ok(models.includes('spline-ai'));
+ assert.ok(!models.includes('canva-ai'));
+ assert.equal(taskMatches('spreadsheets',curated).tools[0].tool.id,'bricks');
+ assert.ok(taskMatches('prepare lessons',curated).tools.some(r=>r.tool.id==='magicschool'));
+ const meeting=taskMatches('turn meetings into notes and action items',curated).tools.map(r=>r.tool.id);
+ assert.ok(meeting.includes('otter-ai'));assert.ok(meeting.includes('granola'));
+});

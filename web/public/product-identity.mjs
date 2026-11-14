@@ -20,7 +20,7 @@ export function categoryIcon(category=''){
 export function productIdentity(t){
  let host='';try{host=new URL(t.url).hostname.replace(/^www\./,'');}catch{}
  const repository=host==='github.com'||host==='gitlab.com';
- return `<a class="product-identity" href="/tools/${e(t.id)}" aria-label="Explore ${e(t.name)}">${productSymbol(t)}<strong class="product-brand-name">${e(t.name)}</strong><span class="product-brand-purpose">${e(t.category||t.type)}</span><span class="product-brand-source">${repository?'Code repository':e(host||t.publisher)} <span aria-hidden="true">↗</span></span></a>`;
+ return `<a class="product-identity" href="/tools/${e(t.id)}" aria-label="Explore ${e(t.name)}">${productSymbol(t)}<strong class="product-brand-name">${e(t.name)}</strong><span class="product-brand-purpose">${e(t.cardTitle||t.category||t.type)}</span><span class="product-brand-source">${repository?'Code repository':e(host||t.publisher)} <span aria-hidden="true">↗</span></span></a>`;
 }
 
 export function productSymbol(t){

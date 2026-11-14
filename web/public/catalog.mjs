@@ -1,3 +1,4 @@
+import {novemberThirteenPicks} from './november-thirteen-picks.mjs';
 import {novemberReleasePicks,novemberToolRefreshes} from './november-release-updates.mjs';
 import {productHuntFollowup} from './product-hunt-followup.mjs';
 import {productHuntNovemberEleven} from './product-hunt-november-11.mjs';
@@ -16,6 +17,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...novemberThirteenPicks,
 ...productHuntFollowup,
 ...novemberReleasePicks,
 ...productHuntNovemberEleven,
@@ -44,7 +46,7 @@ export function searchTools(items,{category='All',pricing='All',query='',type='A
  const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(pricing==='All'||(t.pricing_model||'Unknown')===pricing||(pricing==='Free trial'&&t.pricing_model==='Paid'&&t.trial_available===true))&&(category==='All'||t.category===category)&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));
  return sort==='recent'?rows.sort((a,b)=>(b.directory_updated_at||b.date||'').localeCompare(a.directory_updated_at||a.date||'')):sort==='az'?rows.sort((a,b)=>a.name.localeCompare(b.name)):rows;
 }
-export const roles=['Designers','Marketers','Product managers','Developers','Salespeople','Entrepreneurs'];
+export const roles=['Designers','Marketers','Product managers','Developers','Salespeople','Entrepreneurs','Creators','Educators'];
 export const types=['AI apps','Workflow tools','MCP servers','Plugins','Connectors','Agents','Skills','Security tools'];
 export const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
