@@ -24,3 +24,6 @@ body{background:var(--cream)}.wrap{max-width:1280px;width:calc(100% - 96px)}h1,h
 .product-art:after{content:none}
 @font-face{font-family:'AI Arrows';src:url('/assets/fonts/ai-arrows.woff') format('woff');font-display:swap;unicode-range:U+2190-21FF}
 :root{--sans:'AI Arrows','DM Sans',Arial,sans-serif;--serif:'AI Arrows','Bricolage Grotesque',Arial,sans-serif}
+
+/* Pricing and task fit accompany both discovery cards and directory listings. */
+.tool-access{margin:14px 0 18px}.tool-access>span{display:inline-block;border:1px solid #cad3c6;border-radius:30px;padding:5px 9px;font-size:10px;font-weight:650}.tool-access details,.tool-fit{margin-top:12px;font-size:12px}.tool-access summary,.tool-fit summary{cursor:pointer;color:#355944;font-weight:600}.tool-access details p,.tool-fit p{font-size:12px;line-height:1.6;color:#4d6256;margin:8px 0}.tool-fit{margin-bottom:0}

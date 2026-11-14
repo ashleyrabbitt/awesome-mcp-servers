@@ -10,16 +10,29 @@ export const topics=[
  {id:'development',name:'Build & code',terms:['code','coding','developer','build','app','website','debug','software','prototype'],ids:['cursor','claude-code','lovable','replit-agent'],guide:'/guides/github-repo-checklist',workflow:'/opportunity-finder',why:'Choose a small, testable change and inspect the generated result.',check:'Review code, dependencies, permissions and deployment settings yourself.'}
 ];
 const stop=new Set('i a an the to want need help me my with and for of in on do use using ai can that some please it is as without'.split(' '));
-export const tokens=s=>[...new Set((String(s).toLowerCase().match(/[a-z0-9]+/g)||[]).filter(w=>!stop.has(w)))];
+const singular={models:'model',spreadsheets:'spreadsheet',lessons:'lesson',chatbots:'chatbot',formulas:'formula',textures:'texture'};
+export const tokens=s=>[...new Set((String(s).toLowerCase().match(/[a-z0-9]+/g)||[]).filter(w=>!stop.has(w)).map(w=>singular[w]||w))];
 export function taskMatches(query,items){
  const terms=tokens(query).slice(0,30);if(!terms.length)return {topics:[],tools:[]};
  const matches=topics.map(t=>({...t,matched:terms.filter(w=>t.terms.includes(w))})).filter(t=>t.matched.length).sort((a,b)=>b.matched.length-a.matched.length).slice(0,3);
- const generic=new Set([...topics.flatMap(t=>t.terms),'mcp','server','tool','tools','action','plan','create']);
+ const generic=new Set([...topics.flatMap(t=>t.terms),'mcp','server','tool','tools','action','plan','create','turn','into','from','make','get','work','task','tasks','items']);
  const byId=new Map(items.map(t=>[t.id,t]));const rows=new Map();
  for(const t of matches)for(const [i,id]of t.ids.entries())if(byId.has(id)){const old=rows.get(id);const score=t.matched.length*10-i;if(!old||score>old.score)rows.set(id,{tool:byId.get(id),score,reason:t.why,topic:t.name,check:t.check});}
  for(const t of items){const name=tokens(t.name),hits=terms.filter(w=>name.includes(w));if(hits.some(w=>!generic.has(w))||terms.join(' ')===name.join(' '))rows.set(t.id,{tool:t,score:(terms.join(' ')===name.join(' ')?200:100)+hits.length,reason:'Your search matches this tool’s name. Check its task fit and publisher details.',topic:'Name match',check:'Compare the current plan and setup requirements.'});}
- if(!rows.size)for(const t of items){const hay=tokens([t.name,t.description,t.category].join(' '));const hits=terms.filter(w=>hay.includes(w));if(hits.length>=Math.min(2,terms.length))rows.set(t.id,{tool:t,score:hits.length,reason:'Catalog description matches: '+hits.join(', ')+'.',topic:'Catalog match',check:'This is a keyword match, not a tested recommendation.'});}
- return {topics:matches,tools:[...rows.values()].sort((a,b)=>b.score-a.score||a.tool.name.localeCompare(b.tool.name)).slice(0,8)};
+ // Specific task words should still surface new catalog tools when a broad topic
+ // (for example “design”) also matches. Publisher copy is never a quality score.
+ const specific=terms.filter(w=>!generic.has(w));
+ const hasTopicResults=rows.size>0;
+ for(const t of items){
+  const hay=tokens([t.name,t.description,t.category,t.best_for,t.firstTry,t.cardTitle].filter(Boolean).join(' '));
+  const hits=terms.filter(w=>hay.includes(w)),specificHits=specific.filter(w=>hay.includes(w));
+  const qualifies=hasTopicResults?specificHits.length>=Math.min(2,specific.length)&&specific.length>0:hits.length>=Math.min(2,terms.length);
+  if(!qualifies)continue;
+  const score=(hasTopicResults?60:0)+hits.length;
+  if(!rows.has(t.id)||rows.get(t.id).score<score)rows.set(t.id,{tool:t,score,reason:'Task details match: '+hits.join(', ')+'. Try a small sample before choosing.',topic:'Catalog match',check:t.checkpoint||'Check the output, plan limits and export format for your task.'});
+ }
+ const hasSpecificMatches=[...rows.values()].some(r=>r.topic==='Catalog match'&&r.score>=60);
+ return {topics:matches,tools:[...rows.values()].filter(r=>!hasSpecificMatches||r.score>=60).sort((a,b)=>b.score-a.score||a.tool.name.localeCompare(b.tool.name)).slice(0,8)};
 }
 export const alternativeGuides=[
  {id:'chatgpt',title:'ChatGPT alternatives for a first draft or research task',intro:'Choose the job before choosing an assistant. For drafts, compare the same brief; for research, compare the evidence you can inspect.',ids:['claude','google-gemini','microsoft-copilot','notebooklm'],choices:['Try a second conversational assistant on the same supplied source material.','Consider the fit with your Google account and the tools you already use.','Compare the experience with your Microsoft account and work context.','Consider a source-centered research task rather than a general chat task.'],criteria:['Does the answer stay within your supplied evidence?','Can you inspect and correct the output easily?','Does the available plan support your files and account?']},
