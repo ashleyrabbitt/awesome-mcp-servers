@@ -1,9 +1,21 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-13';
+export const newsEdition = '2026-11-14';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id:'ai-studio-cloud-credits-billing-boundaries', date:'2026-11-13', datePublished:'2026-11-14', dateModified:'2026-11-14', topic:'Productivity', publisher:'Google', art:'data',
+  title:'AI Studio brings Cloud credits into the workspace—check billing before redeeming',
+  description:'Google integrates credit redemption and balances for eligible subscribers; promotional credit is not the same as a free, unlimited API.',
+  summary:'Google announced on November 13 that eligible Google AI Pro and Ultra subscribers can claim Google Developer Program Cloud credits, link billing and track balances inside AI Studio. An active Developer Program profile is required; the redemption flow can create one.',
+  takeaway:'Our take: seeing the balance beside the work makes a small trial easier to plan. It does not establish a spending cap or prove that a project will pay for itself. Separate included credit from the cost of the finished task.',
+  action:'Before redeeming, inspect the account and billing terms. Write a trial card with one task, the eligible credit balance and expiry, an approved cash limit and a stop condition. Record usage plus review time. Do not enable billing just to explore the announcement.',
+  caveat:'Google says grants last 12 months from issue and are restricted to the primary subscriber, not family members. Drawing down promotional credits with Gemini API Cloud billing requires a $5 minimum prepayment and balance. Confirm your eligibility and current terms; we have not tested redemption.',
+  sourceTitle:'Google: Claim your Google Cloud Credits in Google AI Studio — November 13, 2026',
+  sourceUrl:'https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/',
+  next:['/tool-trial','Define the task and acceptance criteria before a trial']
+},
 {
   "id": "chatgpt-wallet-agent-purchase-approval",
   "date": "2026-11-13",
@@ -24,6 +36,18 @@ export const newsStories = [
     "/agent-launch-planner",
     "Plan an agent with explicit approval boundaries"
   ]
+},
+{
+  id:'google-flow-tools-creative-continuity-check', date:'2026-11-12', datePublished:'2026-11-14', dateModified:'2026-11-14', topic:'Design & tech', publisher:'Google', art:'design',
+  title:'Five new Flow tools turn creative constraints into a useful test brief',
+  description:'Google’s artist-built tools cover character continuity, stylized imagery, optical effects and phone-footage treatments.',
+  summary:'Google introduced five Flow tools on November 12: Character Poster, Character Arc, Pixel Machine, Lucid Glass and Pocket Studio. The examples range from consistent visual styles and characters at different ages to retro effects, simulated glass optics and multiple angles derived from phone footage.',
+  takeaway:'Our take: choose the constraint before the effect. For a campaign, recognizable characters and readable words may matter more than a dramatic transformation. Generated camera angles are creative reconstructions, not additional documentary evidence.',
+  action:'Use a short clip or image you own, with permission from anyone depicted. Pick one tool and one requirement, such as keeping a character recognizable. Compare the original and output for face, hands, text and continuity; keep both and label generated alterations when sharing.',
+  caveat:'These are Google’s descriptions and creator examples, not our test results. Check current Flow access, credit use and export options before starting. Do not assume an edited performance, identity or product detail is faithfully preserved without inspecting the output.',
+  sourceTitle:'Google: 5 new Google Flow Tools designed by visual artists — November 12, 2026',
+  sourceUrl:'https://blog.google/innovation-and-ai/models-and-research/google-labs/new-google-flow-tools/',
+  next:['/work-sample-builder','Record the creative decision and review evidence']
 },
 {
   "id": "figma-3d-transforms-motion-work-sample",
@@ -737,4 +761,5 @@ newsStories.push(...[
 ]);
 
 newsStories.sort((a,b)=>b.date.localeCompare(a.date));
+
 

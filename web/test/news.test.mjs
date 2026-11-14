@@ -6,7 +6,7 @@ import {renderRoute} from '../public/views.mjs';
 import {pageSEO} from '../public/seo.mjs';
 
 test('November 13 briefs distinguish announcement dates, publication and operational limits',()=>{
-  assert.equal(newsEdition,'2026-11-13');
+  assert.ok(newsEdition>='2026-11-13');
   const ids=['claude-meetings-beta-participant-permission','claude-managed-agents-self-hosted-control-plane','claude-manufacturing-plugin-review-before-release'];
   for(const id of ids){
     const s=newsStories.find(s=>s.id===id);
@@ -14,11 +14,27 @@ test('November 13 briefs distinguish announcement dates, publication and operati
     assert.equal(s.datePublished,'2026-11-13');
     assert.equal(s.dateModified,'2026-11-13');
     assert.equal(s.next[0],'/tool-trial');
-    assert.ok(renderRoute('/',[]).includes('/news/'+id));
+    assert.ok(renderRoute('/news',[]).includes('/news/'+id));
   }
   assert.match(newsStories.find(s=>s.id===ids[0]).caveat,/External guests/);
   assert.match(newsStories.find(s=>s.id===ids[1]).takeaway,/does not mean model inference is local/);
   assert.match(newsStories.find(s=>s.id===ids[2]).summary,/does not operate equipment/);
+});
+
+test('November 14 edition adds two sourced briefs without changing prior publication dates',()=>{
+  assert.equal(newsEdition,'2026-11-14');
+  const ids=['ai-studio-cloud-credits-billing-boundaries','google-flow-tools-creative-continuity-check'];
+  for(const id of ids){
+    const s=newsStories.find(s=>s.id===id);
+    assert.equal(s.datePublished,'2026-11-14');
+    assert.equal(s.dateModified,'2026-11-14');
+    assert.ok(renderRoute('/',[]).includes('/news/'+id));
+  }
+  assert.equal(newsStories.find(s=>s.id===ids[0]).date,'2026-11-13');
+  assert.equal(newsStories.find(s=>s.id===ids[1]).date,'2026-11-12');
+  assert.match(newsStories.find(s=>s.id===ids[0]).caveat,/\$5 minimum prepayment/);
+  assert.match(newsStories.find(s=>s.id===ids[1]).takeaway,/not additional documentary evidence/);
+  assert.equal(newsStories.find(s=>s.id==='chatgpt-wallet-agent-purchase-approval').datePublished,'2026-11-13');
 });
 
 test('news briefs retain original sources, chronological dates and distinct publication metadata',async()=>{
@@ -127,3 +143,4 @@ test('article dates come from each story, independently of the collection editio
     assert.ok(renderRoute('/news',[]).includes('Edition:'));
   } finally { Object.assign(story,original); }
 });
+
