@@ -1,3 +1,4 @@
+import {productIdentity} from './product-identity.mjs';
 import {comparisonSteps} from './comparison-visuals.mjs';
 import {demosPage} from './workflow-demos.mjs';
 import {toolLink,affiliateNote} from './tool-links.mjs';
@@ -33,7 +34,7 @@ export const prettyRole=r=>({'Designers':'Design','Marketers':'Marketing','Produ
 const palette=['peach','lavender','sage','butter'];
 const idx=t=>Math.abs([...t.id].reduce((n,c)=>n+c.charCodeAt(0),0))%4;
 export const mark=t=>t.mark||t.name.replace(/mcp|server/gi,'').slice(0,2).toUpperCase()||'↗';
-export function art(t,{saved=[],quick=false}={}){return `<div class="product-art ${t.color||palette[idx(t)]}"><span class="tag">${e(t.tag||t.category)}</span><button class="favorite" data-save="${e(t.id)}" aria-label="${saved.includes(t.id)?'Remove':'Save'} ${e(t.name)} ${saved.includes(t.id)?'from':'to'} my stack" aria-pressed="${saved.includes(t.id)}">${saved.includes(t.id)?'♥':'♡'}</button><span class="logo-object" aria-hidden="true">${e(mark(t))}</span><span class="product-mark">${e(t.type)}</span>${quick?`<button class="quick" data-quick="${e(t.id)}">Quick look +</button>`:''}</div>`}
+export function art(t,{saved=[],quick=false}={}){return `<div class="product-art product-identity-art ${t.color||palette[idx(t)]}"><span class="tag">${e(t.tag||t.category)}</span><button class="favorite" data-save="${e(t.id)}" aria-label="${saved.includes(t.id)?'Remove':'Save'} ${e(t.name)} ${saved.includes(t.id)?'from':'to'} my stack" aria-pressed="${saved.includes(t.id)}">${saved.includes(t.id)?'♥':'♡'}</button>${productIdentity(t)}<span class="product-mark">${e(t.type)}</span>${quick?`<button class="quick" data-quick="${e(t.id)}">Quick look +</button>`:''}</div>`}
 export function card(t,state={}){return `<article class="tool-card">${art(t,{...state,quick:true})}<div class="card-meta">${e(t.publisher)} · ${e(t.type)}</div><h3><a href="/tools/${e(t.id)}">${e(t.name)}</a></h3><p>${e(t.description)}</p><div class="card-bottom"><span>${t.status==='Documentation reviewed'?'<i class="review-dot"></i>Docs reviewed':'Community listing'}</span><label class="compare-check"><input type="checkbox" data-compare="${e(t.id)}" ${(state.compare||[]).includes(t.id)?'checked':''} aria-label="Compare ${e(t.name)}"> Compare</label></div></article>`}
 const sectionHead=(eyebrow,title,description='',link='',label='Explore all')=>`<div class="section-heading"><div><span class="eyebrow">${eyebrow}</span><h2>${title}</h2>${description?`<p>${description}</p>`:''}</div>${link?`<a href="${link}" class="text-link">${label} ↗</a>`:''}</div>`;
 const miniTools=w=>`<span class="mini-tools">${w.tools.map(id=>`<span>${e(mark(curated.find(t=>t.id===id)))}</span>`).join('')}</span>`;
