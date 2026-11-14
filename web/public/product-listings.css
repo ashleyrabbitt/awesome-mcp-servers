@@ -15,3 +15,5 @@
 .product-symbol.dark-logo-background{background:#20382b}
 
 .directory-product-top .product-symbol{width:58px;height:58px;margin:0;border-radius:15px;box-shadow:none}.directory-product-top .product-symbol img{width:40px;height:40px}.directory-product-top>div{min-width:0}.directory-product-top .category-symbol{background:#eee9f7}.directory-product:nth-child(3n+2) .category-symbol{background:#e8efdd}.directory-product:nth-child(3n) .category-symbol{background:#f7dfcd}
+/* Keep arrow glyphs on the site's bundled symbol font inside action labels. */
+.button span[aria-hidden],.text-link span[aria-hidden]{font-family:var(--sans)}
