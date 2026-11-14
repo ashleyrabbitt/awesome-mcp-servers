@@ -2,8 +2,71 @@
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
 export const newsEdition = '2026-11-13';
-export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Industry'];
+export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  "id": "chatgpt-wallet-agent-purchase-approval",
+  "date": "2026-11-13",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "topic": "Agents",
+  "publisher": "OpenAI",
+  "art": "wallet",
+  "title": "ChatGPT Wallet: design the approval step before the purchase",
+  "description": "User-approved agent payments make checkout design a practical concern for product teams and entrepreneurs.",
+  "summary": "OpenAI introduced ChatGPT Wallet on November 13. Its initial availability is through dots for US ChatGPT Pro subscribers. Before a purchase, the user reviews the items, total and selected card, then completes a security check. Payment tokens substitute for the underlying card details.",
+  "takeaway": "For a merchant or product team, the useful question is where the buyer reviews the final commitment. A clear cart and approval record are as important as helping an agent find the product.",
+  "action": "Map one checkout from selected items to the final amount, approval and confirmation. Test an out-of-stock item and a changed total. Identify where a person must make a fresh decision.",
+  "caveat": "Availability is limited initially. Do not assume unattended or pre-authorized spending is included in this launch. Follow the current product documentation before changing a payment flow.",
+  "sourceTitle": "Introducing ChatGPT Wallet",
+  "sourceUrl": "https://openai.com/index/introducing-chatgpt-wallet/",
+  "next": [
+    "/agent-launch-planner",
+    "Plan an agent with explicit approval boundaries"
+  ]
+},
+{
+  "id": "figma-3d-transforms-motion-work-sample",
+  "date": "2026-11-12",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "topic": "Design & tech",
+  "publisher": "Figma",
+  "art": "design",
+  "title": "Figma’s 3D transforms open beta gives flat ideas more room",
+  "description": "Designers and marketers can explore perspective and motion while keeping the work on the canvas.",
+  "summary": "Figma announced 3D transforms in open beta on November 12. Its Brand Studio walkthrough combines editable design elements, the Figma agent, motion and other creative tools to build a launch video.",
+  "takeaway": "A small, editable concept can be a useful work sample. The creative judgment is in the hierarchy, movement and clarity of the message—not simply in applying an effect.",
+  "action": "Take one campaign card you own. Create a flat version and a version with restrained perspective. Keep the words readable, compare both at phone size, and document why you chose one. Use reduced-motion requirements when planning an interactive implementation.",
+  "caveat": "3D transforms are in open beta. Check current access and export options. The linked article is Figma’s own production example, not an independent performance test.",
+  "sourceTitle": "How 3D transforms and Figma’s agent brought a launch video to life",
+  "sourceUrl": "https://www.figma.com/blog/how-3d-transforms-and-figmas-agent-brought-a-launch-video-to-life/",
+  "next": [
+    "/work-sample-builder",
+    "Document your design decisions in a work sample"
+  ]
+},
+{
+  "id": "multi-user-agents-shared-decision-mamubench",
+  "date": "2026-11-11",
+  "datePublished": "2026-11-13",
+  "dateModified": "2026-11-13",
+  "topic": "Agents",
+  "publisher": "Anthropic research",
+  "art": "coordination",
+  "title": "More agents need a shared decision rule, not just more instructions",
+  "description": "A new study explores coordination failures when separate agents act for people with different goals.",
+  "summary": "Anthropic researchers studied four simulated settings in which agents represented individual users sharing resources. Group outcomes were worse with separate agents than with one agent serving everyone in those settings. Three environments are being released as MAMUBench.",
+  "takeaway": "Before adding another agent to a shared process, define who owns the group decision, which constraints everyone follows and how conflicting requests are resolved.",
+  "action": "Try a small simulated purchase or scheduling task with a shared budget and conflicting priorities. Name a decision owner, require agents to read incoming messages, and inspect whether the final result respects the group’s constraints.",
+  "caveat": "These are findings from simulated environments. They do not establish that every multi-agent system is less effective. Coordination improvements varied by setting.",
+  "sourceTitle": "Worse together: multi-user, multi-agent coordination",
+  "sourceUrl": "https://alignment.anthropic.com/2026/worse-together/",
+  "next": [
+    "/agent-launch-planner",
+    "Write an agent pilot with shared constraints"
+  ]
+},
 {
   id:'claude-meetings-beta-participant-permission', date:'2026-11-12', datePublished:'2026-11-13', dateModified:'2026-11-13', topic:'Productivity', publisher:'Anthropic', art:'review',
   title:'Claude Meetings beta: agree on transcription before inviting the assistant',

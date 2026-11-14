@@ -8,6 +8,13 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/work-and-income':'Use AI in your job, build an honest work sample or test a focused service idea. Practical workflows, career resources and a free portfolio case study builder.',
+'/work-sample-builder':'Create a free AI-assisted work sample case study. Record your contribution, review checks and actual results; save a local draft and download Markdown or text.',
+'/ai-career-guide':'Build AI skills for design, development, product, marketing, sales and entrepreneurship. Create work samples and explore career training and job-search resources.',
+'/ai-service-ideas':'Explore three focused AI-assisted service pilots: video repurposing, meeting handoffs and campaign starters. Define deliverables, review steps and scope.',
+'/events':'Selected AI and technology events, workshops and learning opportunities, with official sources, dates, format and practical project ideas.',
+'/learning-picks':'Choose practical AI training by the work you want to make. Free lessons, role guides, visual workflows, external programs and focused working sessions.',
+
 '/workflow-demos':'Five step-by-step AI workflow demos for campaigns, meeting notes, automation, research and video. Copy a sample, compare tools and keep a useful result.',
 '/ai-for-your-work':'Make AI your superpower as a designer, developer, product manager, marketer, salesperson or entrepreneur. Free practical guides, agent tutorials and live workshops.',
 '/playbooks':'Five free AI task guides for meeting actions, campaigns, client intake, source-backed research and owned recordings. Choose by task, try a fictional sample, review the result and ask about optional human help.',
