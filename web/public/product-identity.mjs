@@ -18,8 +18,12 @@ export function categoryIcon(category=''){
  return `<svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[key]}</svg>`;
 }
 export function productIdentity(t){
- const logo=productLogos[t.id];
  let host='';try{host=new URL(t.url).hostname.replace(/^www\./,'');}catch{}
  const repository=host==='github.com'||host==='gitlab.com';
- return `<a class="product-identity" href="/tools/${e(t.id)}" aria-label="Explore ${e(t.name)}"><span class="product-symbol ${logo?'has-brand':'category-symbol'}${darkLogoBackgrounds.has(t.id)?' dark-logo-background':''}">${logo?`<img src="${e(logo)}" alt="" loading="lazy" decoding="async" width="64" height="64">`:categoryIcon(t.category)}</span><strong class="product-brand-name">${e(t.name)}</strong><span class="product-brand-purpose">${e(t.category||t.type)}</span><span class="product-brand-source">${repository?'Code repository':e(host||t.publisher)} <span aria-hidden="true">↗</span></span></a>`;
+ return `<a class="product-identity" href="/tools/${e(t.id)}" aria-label="Explore ${e(t.name)}">${productSymbol(t)}<strong class="product-brand-name">${e(t.name)}</strong><span class="product-brand-purpose">${e(t.category||t.type)}</span><span class="product-brand-source">${repository?'Code repository':e(host||t.publisher)} <span aria-hidden="true">↗</span></span></a>`;
+}
+
+export function productSymbol(t){
+ const logo=productLogos[t.id];
+ return `<span class="product-symbol ${logo?'has-brand':'category-symbol'}${darkLogoBackgrounds.has(t.id)?' dark-logo-background':''}">${logo?`<img src="${e(logo)}" alt="" loading="lazy" decoding="async" width="64" height="64">`:categoryIcon(t.category)}</span>`;
 }

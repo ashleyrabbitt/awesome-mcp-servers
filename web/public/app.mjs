@@ -1,3 +1,5 @@
+import {installWorkSample} from './work-sample-client.mjs';
+installWorkSample();
 import {installWorkflowDemos} from './workflow-demo-client.mjs';
 import {demoForComparison} from './workflow-demos.mjs';
 import {playbooks} from './useful-work.mjs';
@@ -60,6 +62,7 @@ document.addEventListener('click',async event=>{
  if(target.dataset.save)save(target.dataset.save);
  if(target.dataset.quick){const t=items.find(t=>t.id===target.dataset.quick);if(t){document.querySelector('#quick-content').innerHTML=quickView(t,state);document.querySelector('#quick-view').showModal();sync()}}
  if('type' in target.dataset)setFilter('type',target.dataset.type);
+ if(target.dataset.removeFilter)setFilter(target.dataset.removeFilter,target.dataset.removeFilter==='reviewed'?false:'All');
  if('reset' in target.dataset){history.replaceState({},'',location.pathname);state.limit=12;render()}
  if('more' in target.dataset){state.limit+=12;const y=scrollY;render();scrollTo(0,y)}
  if('clearCompare' in target.dataset){state.compare=[];persist();render();toast('Comparison cleared.')}
@@ -160,7 +163,7 @@ document.addEventListener('click',event=>{const t=event.target.closest('button')
  if('printWorksheet' in t.dataset){document.querySelectorAll('.power-sheet-field').forEach(s=>{s.querySelector('.power-print-answer').textContent=s.querySelector('textarea').value;});window.print();}
 });
 
-function refreshCatalogView(){if(/^\/(finder|first-win|worksheets|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|resources|how-to|submit|services)(\/|$)/.test(location.pathname)){sync();return}const draft=captureInputs(main);render();restoreInputs(main,draft);}
+function refreshCatalogView(){if(/^\/(work-sample-builder|finder|first-win|worksheets|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|resources|how-to|submit|services)(\/|$)/.test(location.pathname)){sync();return}const draft=captureInputs(main);render();restoreInputs(main,draft);}
 try{let response=await fetch('/api/catalog');let databaseCatalog=response.ok;if(!databaseCatalog)response=await fetch('/imported.json');if(!response.ok)throw new Error('Catalog unavailable');const imported=await response.json();items=databaseCatalog?imported:[...curated,...imported];items.forEach(t=>known.add(t.id));readState(true);refreshCatalogView()}catch(error){readState();refreshCatalogView();toast('The full catalog could not load. Featured tools are still available. Please refresh to retry.')}
 
 async function refreshSearch(){const request=++searchRequest;if(location.pathname!=='/directory')return;const locationKey=location.href;const params=new URLSearchParams(location.search);params.set('limit',state.limit);try{const response=await fetch('/api/search?'+params);if(!response.ok)throw new Error('Search unavailable');const result=await response.json();if(request!==searchRequest||location.href!==locationKey)return;const draft=captureInputs(main);state.searchRows=result.items;state.searchTotal=result.total;main.innerHTML=renderRoute(location.href,items,state);sync();restoreInputs(main,draft);refreshPromotions()}catch{if(request===searchRequest&&location.href===locationKey){const count=document.querySelector('#result-count');if(count)count.textContent+=' · Offline catalog search'}}}
