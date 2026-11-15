@@ -22,7 +22,7 @@ test('November 13 briefs distinguish announcement dates, publication and operati
 });
 
 test('November 14 edition adds two sourced briefs without changing prior publication dates',()=>{
-  assert.equal(newsEdition,'2026-11-14');
+  assert.ok(newsEdition>='2026-11-14');
   const ids=['ai-studio-cloud-credits-billing-boundaries','google-flow-tools-creative-continuity-check'];
   for(const id of ids){
     const s=newsStories.find(s=>s.id===id);
@@ -35,6 +35,21 @@ test('November 14 edition adds two sourced briefs without changing prior publica
   assert.match(newsStories.find(s=>s.id===ids[0]).caveat,/\$5 minimum prepayment/);
   assert.match(newsStories.find(s=>s.id===ids[1]).takeaway,/not additional documentary evidence/);
   assert.equal(newsStories.find(s=>s.id==='chatgpt-wallet-agent-purchase-approval').datePublished,'2026-11-13');
+});
+
+test('November 15 briefs preserve source dates and distinguish access limits',()=>{
+  assert.equal(newsEdition,'2026-11-15');
+  const ids=['copilot-december-model-retirement-check','copilot-enterprise-server-local-work-boundary'];
+  for(const id of ids){
+    const s=newsStories.find(s=>s.id===id);
+    assert.equal(s.date,'2026-11-13');
+    assert.equal(s.datePublished,'2026-11-15');
+    assert.equal(s.dateModified,'2026-11-15');
+    assert.ok(renderRoute('/',[]).includes('/news/'+id));
+  }
+  assert.match(newsStories[0].summary,/December 14, 2026/);
+  assert.match(newsStories[0].caveat,/annual plans/);
+  assert.match(newsStories[1].caveat,/cloud sessions are unavailable/);
 });
 
 test('news briefs retain original sources, chronological dates and distinct publication metadata',async()=>{
