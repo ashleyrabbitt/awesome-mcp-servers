@@ -1,9 +1,33 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-14';
+export const newsEdition = '2026-11-15';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id:'copilot-december-model-retirement-check', date:'2026-11-13', datePublished:'2026-11-15', dateModified:'2026-11-15', topic:'Agents', publisher:'GitHub', art:'review',
+  title:'Copilot’s December model retirements call for a workflow check',
+  description:'A December 14 deadline affects six model options; test replacements before a familiar workflow changes.',
+  summary:'GitHub says Claude Fable 5, Claude Haiku 4.5, Gemini 3.8 Flash, Gemini 4 Argon, Grok 4.6 and Kimi K3 will retire from Copilot on December 14, 2026. Its suggested replacements are Fable 5.2, Haiku 5.5, Hydrogen, Carbon and Grok 4.7 respectively; the Kimi replacement is not yet announced.',
+  takeaway:'Our take: a replacement being available does not establish equivalent results. Saved prompts, task instructions and review expectations deserve a small regression check.',
+  action:'List the models your team actually uses. For each affected workflow, record an approved replacement, one nonsensitive sample task, acceptance criteria and a reviewer. Compare the finished work and correction time before switching.',
+  caveat:'Individual subscribers on annual plans retain Haiku 4.5. Business and Enterprise access depends on model policies; default enablement may make alternatives available automatically. Check current policy without changing it as part of an inventory.',
+  sourceTitle:'GitHub: Upcoming deprecation of selected GitHub Copilot models in December',
+  sourceUrl:'https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/',
+  next:['/tool-trial','Record a same-task replacement check']
+},
+{
+  id:'copilot-enterprise-server-local-work-boundary', date:'2026-11-13', datePublished:'2026-11-15', dateModified:'2026-11-15', topic:'Productivity', publisher:'GitHub', art:'agents',
+  title:'Copilot app adds Enterprise Server support—with a cloud-session limit',
+  description:'Enterprise Server repositories, issues and pull requests can join the desktop workflow, but cloud sessions are not included.',
+  summary:'GitHub moved Enterprise Server support in the Copilot app from opt-in preview to general availability on November 13. Version 1.2.0 or later can connect an Enterprise Server account for work with remote repositories, issues and pull requests.',
+  takeaway:'Our take: broader repository access is useful only when it fits the organization’s approved workflow. This announcement does not make every Copilot execution mode available for a self-hosted repository.',
+  action:'Before connecting an account, confirm the app version, approved repository scope and organization policy. Write down whether the intended task needs a cloud session. If it does, this release alone does not satisfy that requirement.',
+  caveat:'Users must first sign in with a GitHub.com or GHE.com account, then add Enterprise Server through account settings. GitHub explicitly says cloud sessions are unavailable for Enterprise Server. We have not tested an organization’s configuration.',
+  sourceTitle:'GitHub: GitHub Enterprise Server support in the GitHub Copilot app',
+  sourceUrl:'https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app/',
+  next:['/tool-trial','Define the task and its access boundaries']
+},
 {
   id:'ai-studio-cloud-credits-billing-boundaries', date:'2026-11-13', datePublished:'2026-11-14', dateModified:'2026-11-14', topic:'Productivity', publisher:'Google', art:'data',
   title:'AI Studio brings Cloud credits into the workspace—check billing before redeeming',
