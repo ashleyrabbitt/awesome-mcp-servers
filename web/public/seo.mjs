@@ -47,8 +47,8 @@ const summaries={
 '/submit':'Submit an AI tool, MCP server, agent or service provider to AI Superpower. Share a useful description and official link for editorial review.',
 '/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
-'/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays Rabbitt.',
-'/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays Rabbitt for AI Superpower.',
+'/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays.',
+'/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays for AI Superpower.',
 '/agents':'Put AI agents to work with practical guides to Grok Bot, Claude Desktop computer use and ChatGPT Work. Research, prepare forms, collect data and create checked deliverables.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',
@@ -86,7 +86,7 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const page={'@type':news?'NewsArticle':answer||article?'Article':route==='/news'?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
  if(answer)Object.assign(page,{headline:answer.title,author:{'@id':origin+'/#organization'},dateModified:'2026-10-07',image});
  if(article)Object.assign(page,{headline:article.title,author:{'@id':origin+'/#organization'},datePublished:article.datePublished,dateModified:article.dateModified,articleSection:article.category,mainEntityOfPage:canonical,citation:article.sources.map(([,url])=>url),image});
- if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays Rabbitt'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
+ if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
  const graph=[website,organization,page];
  if(route!=='/'&&!noindex)graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'AI Superpower',item:origin+'/'},{'@type':'ListItem',position:2,name:heading,item:canonical}]});
  if(tool&&!noindex)graph.push({'@type':'SoftwareApplication','@id':canonical+'#software',name:tool.name,description:tool.description,url:tool.url,applicationCategory:tool.category,publisher:{'@type':'Organization',name:tool.publisher},mainEntityOfPage:{'@id':canonical+'#page'}});
