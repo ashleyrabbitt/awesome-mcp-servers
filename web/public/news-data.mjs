@@ -1,9 +1,81 @@
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-15';
+export const newsEdition = '2026-11-16';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  "id": "healthcare-computer-use-agents-governed-workflow",
+  "date": "2026-11-16",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "topic": "Industry",
+  "publisher": "OpenAI",
+  "art": "agents",
+  "title": "Healthcare computer-use agents make access and review part of the workflow",
+  "description": "OpenAI adds agents, clinical-search improvements and more than 20 plugins to governed healthcare workspaces.",
+  "summary": "OpenAI announced computer-use agents for multi-step work across healthcare software, improvements to clinical search, and more than 20 healthcare plugins. The company says organizations can control which applications an agent reaches and which steps require human review.",
+  "takeaway": "Our take: the useful change is not unattended clinical automation. It is the ability to define application access, evidence and review points around administrative work that spans disconnected systems.",
+  "action": "Map one fictional referral or prior-authorization workflow. List each system, the minimum permitted data, the evidence required and the person who approves every consequential step before considering a live pilot.",
+  "caveat": "Availability depends on product and workspace settings. Work involving protected health information requires eligible services covered by a BAA, required security and retention settings, and protections across connected systems. Clinical answers and actions still need qualified human review; we have not tested these capabilities.",
+  "sourceTitle": "OpenAI: More ways to move care forward with ChatGPT for Healthcare",
+  "sourceUrl": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/",
+  "next": ["/workflow-lab", "Map access, evidence and human review"]
+},
+{
+  "id": "gemini-agent-anomaly-detection-private-preview",
+  "date": "2026-11-16",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "topic": "Safety",
+  "publisher": "Google",
+  "art": "review",
+  "title": "Agent anomaly detection turns off-script behavior into a reviewable finding",
+  "description": "Google’s hands-on guide shows how traces and logs can surface an agent that reaches beyond its intended job.",
+  "summary": "Google published a tutorial for Agent Anomaly Detection on the Gemini Platform. The private-preview service analyzes agent traces and logs, flags sessions that appear outside the intended job, and can send findings to Cloud Monitoring and Security Command Center.",
+  "takeaway": "Our take: anomaly detection is a backstop, not a replacement for narrow tools and permissions. The tutorial’s deliberately over-permissive example is useful because it shows that a finding should lead to fixing the underlying access boundary.",
+  "action": "In a test environment with synthetic data, create one ordinary session and one explicitly out-of-scope session. Verify that telemetry coverage, the finding and the alert can all be reviewed, then restrict the tool that made the behavior possible.",
+  "caveat": "The service requires an approved private-preview project, billing, specific Google Cloud roles, logging and observability setup. Prompt and response content is sent to telemetry in the tutorial. Findings are model-based and can vary; do not treat a clean result as proof that an agent is safe.",
+  "sourceTitle": "Google: Securing Your Agents — A Hands-On Guide to Agent Anomaly Detection",
+  "sourceUrl": "https://developers.googleblog.com/en/securing-your-agents-a-hands-on-guide-to-agent-anomaly-detection/",
+  "next": ["/security", "Review the agent’s access boundaries"]
+},
+{
+  "id": "gke-agent-sessions-parking-cost-model",
+  "date": "2026-11-16",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "topic": "Agents",
+  "publisher": "Google",
+  "art": "data",
+  "title": "Long-lived agent sessions need a different capacity plan than web requests",
+  "description": "Google’s GKE cost model compares dedicated pods with parking idle agent sandboxes and restoring them on demand.",
+  "summary": "Google explains how Agent Substrate and AX can snapshot an idle agent sandbox to object storage, release its worker and restore the session later. In the article’s model for 100 coding agents and two prompts per hour, parking reduced the node bill by 40 percent.",
+  "takeaway": "Our take: the headline saving is a scenario, not a universal forecast. Prompt rate, idle timeout, warm-pool headroom, CPU guarantees and control-plane overhead determine whether parking is cheaper than keeping one pod per session.",
+  "action": "Measure one week of prompts per hour and session idle time. Compare dedicated pods and parked sessions at the same CPU guarantee, including the busiest hour, restore behavior and the cost of a control plane before changing infrastructure.",
+  "caveat": "The 40 percent figure comes from Google’s stated assumptions and list-price model. The article says parking stops paying in its model around 4.5 prompts per hour, and AX is still in active development ahead of a first stable release.",
+  "sourceTitle": "Google: Agents are sessions, not requests — size GKE node pools for AI agent sessions",
+  "sourceUrl": "https://developers.googleblog.com/en/agents-are-sessions-not-requests-size-gke-node-pools-for-ai-agent-sessions/",
+  "next": ["/tool-trial", "Define workload measures before a platform trial"]
+},
+{
+  "id": "github-ai-scan-bulk-repository-start",
+  "date": "2026-11-16",
+  "datePublished": "2026-11-16",
+  "dateModified": "2026-11-16",
+  "topic": "Safety",
+  "publisher": "GitHub",
+  "art": "review",
+  "title": "GitHub can start AI Scan across 20 repositories at once",
+  "description": "Organization security teams can launch public-preview scans in batches and review findings beside CodeQL alerts.",
+  "summary": "GitHub added bulk start for AI Scan for repositories. Organization teams can select and start scans for up to 20 repositories at once; findings from the default branch appear in the code-scanning backlog alongside CodeQL alerts.",
+  "takeaway": "Our take: batch initiation reduces setup work, but it can also create a larger review queue. Choose repositories and alert ownership before turning on a broad scan.",
+  "action": "Start with a small set of repositories that have named maintainers. Record the default branch, supported existing scanners, who triages findings and the evidence required before a suggested fix is merged.",
+  "caveat": "Bulk start and AI Scan are in public preview. GitHub says the feature covers languages CodeQL does not support and may find additional issues in supported languages, but each finding still needs validation. Availability is on github.com and GitHub Enterprise Cloud with data residency; no Copilot license is required.",
+  "sourceTitle": "GitHub: Bulk start AI Scan for repositories",
+  "sourceUrl": "https://github.blog/changelog/2026-11-16-bulk-start-ai-scan-for-repositories/",
+  "next": ["/security", "Plan repository ownership and finding review"]
+},
 {
   id:'copilot-december-model-retirement-check', date:'2026-11-13', datePublished:'2026-11-15', dateModified:'2026-11-15', topic:'Agents', publisher:'GitHub', art:'review',
   title:'Copilot’s December model retirements call for a workflow check',
