@@ -14,10 +14,10 @@ export function coachingPage() {
   return `<div class="coaching-page">
     <section class="wrap intro-split editorial-intro coaching-intro" aria-labelledby="coaching-title">
       <div class="intro-copy">
-        <span class="eyebrow"><i class="tiny-spark" aria-hidden="true">✳</i> PRACTICAL AI COACHING · WITH ASHLEY KAYS</span>
+        <span class="eyebrow"><i class="tiny-spark" aria-hidden="true">✳</i> PRACTICAL AI COACHING · WITH ASHLEY KAYS RABBITT</span>
         <h1 id="coaching-title">Make AI useful.<br><em>For your kind<br>of work.</em></h1>
         <p>Bring the task that keeps getting stuck. Work through it with a human in your corner—and build a prompt or process you can use again.</p>
-        <div class="curator-line"><span class="curator-monogram" aria-hidden="true">AK</span><span>Work one-to-one with <strong>Ashley Kays</strong><small>Product, design, marketing and hands-on AI guidance.</small></span></div>
+        <div class="curator-line"><span class="curator-monogram" aria-hidden="true">AK</span><span>Work one-to-one with <strong>Ashley Kays Rabbitt</strong><small>Product, design, marketing and hands-on AI guidance.</small></span></div>
         <div class="flex-actions"><a class="button" data-editorial-link href="${requestUrl}">Ask about a working session <span aria-hidden="true">↗</span></a><a class="text-link" href="#how-it-works">See how it works ↓</a></div>
         <p class="intro-note">$350 USD · One focused task · No charge to inquire</p>
       </div>
@@ -42,7 +42,7 @@ export function coachingPage() {
     </div></section>
     <section class="wrap section coaching-guide" aria-labelledby="coaching-guide-title">
       <div class="coaching-guide-art"><img src="/assets/training-powers.webp" alt="An illustrated scene of people learning and creating together" width="1536" height="1024" loading="lazy"><span>LEARN BY DOING. WITH A HUMAN IN YOUR CORNER.</span></div>
-      <div class="coaching-guide-copy"><span class="eyebrow">MEET YOUR GUIDE</span><h2 id="coaching-guide-title">A curious mind.<br>A practical partner.</h2><p>Ashley Kays brings together product, UX, marketing and teaching experience to help you apply AI to the work that matters to you.</p><p>Ask the questions you’ve been saving. Try an approach together. Understand what makes the output useful—and what still needs your judgment.</p><a class="text-link" href="https://waymaker.cx/portfolio" target="_blank" rel="noopener">Explore Ashley’s work ↗</a><div class="coaching-fit"><b>This is a good fit if…</b><p>You want personal guidance, a chance to practice and a process you can keep using. Larger builds and ongoing implementation are scoped separately.</p></div></div>
+      <div class="coaching-guide-copy"><span class="eyebrow">MEET YOUR GUIDE</span><h2 id="coaching-guide-title">A curious mind.<br>A practical partner.</h2><p>Ashley Kays Rabbitt brings together product, UX, marketing and teaching experience to help you apply AI to the work that matters to you.</p><p>Ask the questions you’ve been saving. Try an approach together. Understand what makes the output useful—and what still needs your judgment.</p><a class="text-link" href="https://waymaker.cx/portfolio" target="_blank" rel="noopener">Explore Ashley’s work ↗</a><div class="coaching-fit"><b>This is a good fit if…</b><p>You want personal guidance, a chance to practice and a process you can keep using. Larger builds and ongoing implementation are scoped separately.</p></div></div>
     </section>
     <section class="wrap section coaching-faq" aria-labelledby="coaching-faq-title">
       <div><span class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING</span><h2 id="coaching-faq-title">Let’s make<br>the next step clear.</h2></div>

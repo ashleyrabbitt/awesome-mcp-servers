@@ -39,7 +39,7 @@ const summaries={
 '/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
 '/product-hunt-picks':'Explore Product Hunt discoveries and AI tools for designers, developers, product managers, marketers, salespeople and entrepreneurs. Practical first tasks and official sources.',
-'/working-session':'A $350 AI Working Session with Ashley Kays. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
+'/working-session':'A $350 AI Working Session with Ashley Kays Rabbitt. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
 '/workshops/campaign':'Practice AI-assisted campaign creation in a guided workshop. Build a brief, explore message directions and review a draft. Dates and pricing confirmed by inquiry.',
 '/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
 '/opportunity-finder':'Assess recurring tasks for AI assistance with transparent rules for judgment, data sensitivity, consequences and output checks.',
@@ -47,8 +47,8 @@ const summaries={
 '/submit':'Submit an AI tool, MCP server, agent or service provider to AI Superpower. Share a useful description and official link for editorial review.',
 '/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
-'/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays.',
-'/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays for AI Superpower.',
+'/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays Rabbitt.',
+'/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays Rabbitt for AI Superpower.',
 '/agents':'Put AI agents to work with practical guides to Grok Bot, Claude Desktop computer use and ChatGPT Work. Research, prepare forms, collect data and create checked deliverables.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',
@@ -60,8 +60,8 @@ const summaries={
 '/resources':'Use free workflow planning tools, step-by-step how-tos and downloadable worksheets to turn an AI idea into a practical pilot.',
 '/prompts':`Customize ${promptTemplates.length} prompts for design, marketing, product and development. Add context and constraints, then copy or download a prompt to use in your AI tool.`,
 '/training':'All AI Superpower courses are free. Explore self-paced AI learning paths for designers, marketers, product managers and developers. Special live workshops are priced separately.',
-'/workshops':'Live AI workshops with Ashley Kays for designers, developers, product managers, marketers, salespeople and entrepreneurs. Build an agent, automate a task or finish a useful project.',
-'/coaching':'Make AI useful for your work in a $350 private AI Working Session with Ashley Kays. Guided practice, a reusable prompt or workflow, and clear next steps.',
+'/workshops':'Live AI workshops with Ashley Kays Rabbitt for designers, developers, product managers, marketers, salespeople and entrepreneurs. Build an agent, automate a task or finish a useful project.',
+'/coaching':'Make AI useful for your work in a $350 private AI Working Session with Ashley Kays Rabbitt. Guided practice, a reusable prompt or workflow, and clear next steps.',
 '/newsletter':'Power Notes from AI Superpower by Waymaker: new tools, practical workflows and news about training and workshops. Subscribe through MailerLite and confirm your email to join.'
 };
 export const plain=s=>String(s||'').replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ').trim();
@@ -86,7 +86,7 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const page={'@type':news?'NewsArticle':answer||article?'Article':route==='/news'?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
  if(answer)Object.assign(page,{headline:answer.title,author:{'@id':origin+'/#organization'},dateModified:'2026-10-07',image});
  if(article)Object.assign(page,{headline:article.title,author:{'@id':origin+'/#organization'},datePublished:article.datePublished,dateModified:article.dateModified,articleSection:article.category,mainEntityOfPage:canonical,citation:article.sources.map(([,url])=>url),image});
- if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
+ if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays Rabbitt'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});
  const graph=[website,organization,page];
  if(route!=='/'&&!noindex)graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'AI Superpower',item:origin+'/'},{'@type':'ListItem',position:2,name:heading,item:canonical}]});
  if(tool&&!noindex)graph.push({'@type':'SoftwareApplication','@id':canonical+'#software',name:tool.name,description:tool.description,url:tool.url,applicationCategory:tool.category,publisher:{'@type':'Organization',name:tool.publisher},mainEntityOfPage:{'@id':canonical+'#page'}});
