@@ -8,6 +8,9 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/comparisons/after-hours-ai-receptionist':'Compare Vapi and ElevenAgents monthly costs, model five after-hours calls and download a scorecard to verify callback and booking handoffs.',
+'/comparisons/friends-friday-promotion':'See how two local AI models handled a five-product Friends Friday offer, review their raw drafts and download a merchant campaign worksheet.',
+'/services/project-briefs':'Download editable AI agency briefs for missed inquiries, client intake and webinar repurposing. Compare proposals and test what each provider delivers.',
 '/work-and-income':'Use AI in your job, build an honest work sample or test a focused service idea. Practical workflows, career resources and a free portfolio case study builder.',
 '/work-sample-builder':'Create a free AI-assisted work sample case study. Record your contribution, review checks and actual results; save a local draft and download Markdown or text.',
 '/ai-career-guide':'Build AI skills for design, development, product, marketing, sales and entrepreneurship. Create work samples and explore career training and job-search resources.',

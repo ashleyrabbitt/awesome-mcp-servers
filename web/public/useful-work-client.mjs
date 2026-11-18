@@ -38,8 +38,8 @@ export function installUsefulWork(options){({getItems,loadKit,startTrial,navigat
   }catch(err){notice(err.status===401?'Sign in at My account to watch a tool or publish a kit.':err.message);}finally{b.disabled=false;}
  });
 }
-export async function refreshUsefulWork(){showProgress();const gen=++generation,target=document.querySelector('#useful-changes'),shared=document.querySelector('#public-kit');publicKit=null;
- try{if(target){const d=await api('tool-changes');if(gen===generation&&target.isConnected)target.innerHTML=changeCards(d.changes,getItems());}
+export async function refreshUsefulWork(){showProgress();const gen=++generation,target=document.querySelector('#useful-changes, #saved-tool-changes'),shared=document.querySelector('#public-kit');publicKit=null;
+ try{if(target){const d=await api('tool-changes');if(gen===generation&&target.isConnected){const ids=target.dataset.ids?new Set(JSON.parse(target.dataset.ids)):null;const rows=ids?d.changes.filter(r=>ids.has(r.tool_id)):d.changes;target.innerHTML=ids&&!rows.length?'<p>No recent published changes match your saved tools.</p>':changeCards(rows,getItems());}}
   const match=location.pathname.match(/^\/community-kits\/([a-f0-9-]{36})$/);if(match){const d=await api('public-kit?id='+encodeURIComponent(match[1]));if(gen===generation){publicKit=d;if(shared?.isConnected)shared.innerHTML=publicKitView(d,getItems());}}
  }catch(err){const el=shared||target;if(el?.isConnected)el.textContent=err.status===404?'This kit is no longer published.':'Live information is temporarily unavailable. Reload to retry.';}
 }

@@ -1,0 +1,12 @@
+.buyer-study{max-width:58rem;margin-inline:auto}
+.buyer-study .power-panel{margin-block:1.3rem;padding:clamp(1.15rem,3vw,2.1rem)}
+.buyer-study .power-panel h2{margin-top:0}
+.buyer-study li{margin-block:.6rem}
+.buyer-study table{border-collapse:collapse;width:100%;text-align:left}
+.buyer-study th,.buyer-study td{padding:.55rem .4rem;border-bottom:1px solid #bcc5cc}
+.buyer-study form label{display:inline-flex;flex-direction:column;gap:.35rem;margin:0 1rem .7rem 0}
+.buyer-study input,.buyer-study select{font:inherit;color:inherit;padding:.5rem;border:1px solid #58616b;border-radius:.3rem;background:white;max-width:100%}
+.buyer-study input{width:8rem}
+.buyer-study output{display:block;font-weight:700;padding:1rem 0}
+.buyer-study summary{cursor:pointer;font-weight:700}
+.buyer-study section[id]{scroll-margin-top:5rem}

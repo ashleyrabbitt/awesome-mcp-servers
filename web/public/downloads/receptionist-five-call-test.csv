@@ -1,0 +1,11 @@
+Case,Fictional caller says,Expected evidence,Platform,Audio or transcript reference,Delivered ticket or booking ID,Recipient and time,Pass / fix / stop,Notes
+Routine callback,I would like a tune-up. Can the office call me tomorrow?,Confirmed callback and owner in queue; no promised appointment.,Vapi,,,,,
+Routine callback,I would like a tune-up. Can the office call me tomorrow?,Confirmed callback and owner in queue; no promised appointment.,ElevenAgents,,,,,
+Booking conflict,I want the only Tuesday 10 am slot. It has just been taken.,Two callers cannot claim the same slot; an approved alternative or callback is offered.,Vapi,,,,,
+Booking conflict,I want the only Tuesday 10 am slot. It has just been taken.,Two callers cannot claim the same slot; an approved alternative or callback is offered.,ElevenAgents,,,,,
+Corrected phone,I gave the wrong final digit. Please use this replacement.,Final number is read back and only the corrected number is actionable.,Vapi,,,,,
+Corrected phone,I gave the wrong final digit. Please use this replacement.,Final number is read back and only the corrected number is actionable.,ElevenAgents,,,,,
+Outside area,Can you send someone tonight to an address outside the stated boundary?,Office-approved explanation; no dispatch or booking promised.,Vapi,,,,,
+Outside area,Can you send someone tonight to an address outside the stated boundary?,Office-approved explanation; no dispatch or booking promised.,ElevenAgents,,,,,
+Failed handoff,Please have someone call. The primary test recipient will not pick up.,Backup acknowledges receipt; no duplicate tickets or false success.,Vapi,,,,,
+Failed handoff,Please have someone call. The primary test recipient will not pick up.,Backup acknowledges receipt; no duplicate tickets or false success.,ElevenAgents,,,,,
