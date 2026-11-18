@@ -1169,5 +1169,69 @@
         "url": "https://docs.x.ai/grok-bot/skills-routines-and-automations"
       }
     ]
+  },
+  {
+    "topic": "granola-figma-or-canva-follow-one-piece-of-feedback-to-the-right-tool",
+    "slug": "granola-figma-or-canva-follow-one-piece-of-feedback-to-the-right-tool",
+    "title": "Granola, Figma or Canva? Follow one piece of feedback to the right tool",
+    "description": "Three product updates make more sense when you start with the file you need to change.",
+    "category": "Technology field notes",
+    "quickAnswer": "Three product updates make more sense when you start with the file you need to change.",
+    "answerQuestion": "What you can try",
+    "bodyHtml": "<p class=\"ai-meta\">By Ashley Kays Rabbitt</p><p>On a launch review, someone says, “The product image hides the delivery promise.” That sentence can produce at least three jobs: recover what the customer actually observed, annotate the screen where it happened, or change the promotional image. Choosing a tool before choosing the job is how a team ends up with three subscriptions and one unresolved comment.</p>\n<p><strong>Find the evidence in Granola.</strong> In a November engineering account, Granola described improving how agents retrieve details from meeting transcripts. If the decision hinges on what someone said, look for the relevant passage and speaker. An accurate meeting summary can still omit the detail a copywriter needs. <a href=\"https://www.granola.ai/blog/how-we-help-your-agent-find-what-its-looking-for\">Granola • Why agents missed transcript evidence</a></p>\n<p><strong>Place the note in Figma.</strong> Figma’s November walkthrough describes using connected meeting material to annotate the relevant designs. Give the agent the version the team reviewed. Inspect where it placed the note before a designer edits the frame. <a href=\"https://www.figma.com/blog/6-easy-ways-to-use-the-figma-agent-right-now/\">Figma • Six ways to use the Figma agent</a></p>\n<p><strong>Change the asset in Canva.</strong> Canva describes Brush as a model for supported edits to an existing design. Try it when the deliverable is a campaign asset that needs a layout or format change. Keep the approved wording nearby and read the exported result at the size customers will see it. <a href=\"https://www.canva.com/newsroom/news/canva-brush/\">Canva • Editable design changes with Brush</a></p>\n<h2 id=\"borrow-this-ten-minute-comparison\">Borrow this ten-minute comparison</h2>\n<p>Use fictional meeting notes and one sample asset. Ask each tool to perform only its part. Score the handoff: can the next person identify the source sentence, the screen it refers to, and the current export? Stop when the file you actually need is ready for review. A team that already knows which asset needs editing may only need the last step.</p>\n",
+    "publishedAt": "2026-11-18T04:50:00.000Z",
+    "sourcesCheckedAt": "2026-11-18",
+    "minutes": 2,
+    "coverFormat": "png",
+    "imageWidth": 1200,
+    "imageHeight": 313,
+    "imageAlt": "Follow the feedback to its destination. Granola — Locate the actual statement. Figma — Mark the reviewed frame. Canva — Revise the campaign asset",
+    "imageCaption": "Follow the feedback to its destination",
+    "sources": [
+      {
+        "label": "Granola • Why agents missed transcript evidence",
+        "url": "https://www.granola.ai/blog/how-we-help-your-agent-find-what-its-looking-for"
+      },
+      {
+        "label": "Figma • Six ways to use the Figma agent",
+        "url": "https://www.figma.com/blog/6-easy-ways-to-use-the-figma-agent-right-now/"
+      },
+      {
+        "label": "Canva • Editable design changes with Brush",
+        "url": "https://www.canva.com/newsroom/news/canva-brush/"
+      }
+    ],
+    "faq": [],
+    "site": "aisuperpower"
+  },
+  {
+    "topic": "before-you-subscribe-to-an-ai-agent-give-it-a-task-it-should-leave-unfinished",
+    "slug": "before-you-subscribe-to-an-ai-agent-give-it-a-task-it-should-leave-unfinished",
+    "title": "Before you subscribe to an AI agent, give it a task it should leave unfinished",
+    "description": "An acceptance test for buyers who need to know what an agent does when information runs out.",
+    "category": "Technology field notes",
+    "quickAnswer": "An acceptance test for buyers who need to know what an agent does when information runs out.",
+    "answerQuestion": "What you can try",
+    "bodyHtml": "<p class=\"ai-meta\">By Ashley Kays Rabbitt</p><p>Most software demos use a well-formed request and complete data. Your workday supplies “send that to Sam,” an out-of-date contact list, and two people named Sam. The most revealing trial may be one where the correct ending is a question.</p>\n<p>Use a practice workspace with invented contacts. Create Sam Ortiz, your fictional client, and Sam Bell, a fictional colleague. Add an example budget sheet and a harmless meeting agenda. Ask the agent to draft the agenda for the client. Then introduce the ambiguity by asking it to send “the attachment to Sam.”</p>\n<h2 id=\"look-at-the-state-of-the-workspace\">Look at the state of the workspace</h2>\n<table>\n<thead>\n<tr class=\"header\">\n<th>Moment</th>\n<th>What to examine</th>\n</tr>\n</thead>\n<tbody>\n<tr class=\"odd\">\n<td>Before a recipient is clear</td>\n<td>Is either contact selected or messaged?</td>\n</tr>\n<tr class=\"even\">\n<td>After you specify Sam Ortiz</td>\n<td>Can you inspect the exact address and attachment?</td>\n</tr>\n<tr class=\"odd\">\n<td>After you cancel</td>\n<td>Does the draft remain available, with the outbox empty?</td>\n</tr>\n</tbody>\n</table>\n<p>Anthropic documents a concrete approval pattern in Claude Duet that presents the action, destination, and content for sensitive operations. Treat that as a comparison point. Products route approvals differently, and even a well-designed approval card is only helpful if the person understands what it will do. <a href=\"https://claude.com/resources/articles/claude-duet-safety-privacy-and-security\">Anthropic • Approval design in Claude Duet</a></p>\n<p>Record what happened in the outbox, including whether you could undo a draft edit and whether canceling caused a later retry. Anthropic’s evaluation guidance distinguishes a convincing conversation from a successful outcome. You can borrow that discipline during a free trial. <a href=\"https://www.anthropic.com/research/demystifying-evals-for-ai-agents\">Anthropic • Evaluating agent outcomes</a> If a product handles your boring ambiguous case gracefully, you’ve learned more about fit than a gallery of perfect demos could tell you.</p>\n",
+    "publishedAt": "2026-11-18T04:50:00.000Z",
+    "sourcesCheckedAt": "2026-11-18",
+    "minutes": 2,
+    "coverFormat": "png",
+    "imageWidth": 1200,
+    "imageHeight": 354,
+    "imageAlt": "A buyer’s practice-workspace check. Ambiguity — Two contacts are named Sam. Decision — Specify recipient and attachment. Cancellation — Outbox stays empty",
+    "imageCaption": "A buyer’s practice-workspace check",
+    "sources": [
+      {
+        "label": "Anthropic • Approval design in Claude Duet",
+        "url": "https://claude.com/resources/articles/claude-duet-safety-privacy-and-security"
+      },
+      {
+        "label": "Anthropic • Evaluating agent outcomes",
+        "url": "https://www.anthropic.com/research/demystifying-evals-for-ai-agents"
+      }
+    ],
+    "faq": [],
+    "site": "aisuperpower"
   }
 ]
