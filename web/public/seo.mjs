@@ -49,6 +49,7 @@ const summaries={
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
 '/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays.',
 '/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays for AI Superpower.',
+'/workflow-library':'Find an MCP server or reusable agent skill by task. Compare access requirements, first requests, publisher setup guides and the results to check.',
 '/agents':'Put AI agents to work with practical guides to Grok Bot, Claude Desktop computer use and ChatGPT Work. Research, prepare forms, collect data and create checked deliverables.',
 '/directory':'Browse AI apps, MCP servers, agents, plugins and security tools by role, category and setup level. Read sources, compare tools and save a personal stack.',
 '/repositories':'Explore GitHub repositories for MCP servers, agents and developer tools. Check publisher sources, setup requirements and permissions before using them.',

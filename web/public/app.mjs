@@ -24,6 +24,7 @@ import {timeResult} from './lab-views.mjs';
 import {promptTemplates,promptFields,buildPrompt,cleanPromptFavorites} from './prompt-kit.mjs';
 import {extraPrompts} from './spotlight.mjs';
 import {curated,escapeHTML as e} from './catalog.mjs';
+import './workflow-assets/finder.js';
 import {renderRoute,quickView,demoPanel} from './views.mjs';
 import {missions} from './discovery.mjs';
 import {captureInputs,restoreInputs} from './input-state.mjs';
