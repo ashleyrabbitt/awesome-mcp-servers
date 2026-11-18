@@ -1,3 +1,4 @@
+import {novemberLeaderPicks, novemberReleaseNotes} from './november-leaderboard.mjs';
 import {novemberThirteenPicks} from './november-thirteen-picks.mjs';
 import {novemberReleasePicks,novemberToolRefreshes} from './november-release-updates.mjs';
 import {productHuntFollowup} from './product-hunt-followup.mjs';
@@ -17,6 +18,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...novemberLeaderPicks,
 ...novemberThirteenPicks,
 ...productHuntFollowup,
 ...novemberReleasePicks,
@@ -41,6 +43,10 @@ make('skills','Agent Skills collection','Anthropic','Skills','Reusable instructi
 for(const tool of curated)if(['beautiful-ai','chatbase'].includes(tool.id))tool.trial_available=true;
 for(const tool of curated)if(pricingReviews[tool.id])Object.assign(tool,pricingReviews[tool.id]);
 for(const tool of curated)if(novemberToolRefreshes[tool.id])Object.assign(tool,novemberToolRefreshes[tool.id]);
+for (const tool of curated) {
+  const release = novemberReleaseNotes[tool.id];
+  if (release) Object.assign(tool, {description: tool.description + ' ' + release.description, sourceUrl: release.sourceUrl, directory_updated_at: '2026-11-17'});
+}
 export function searchTools(items,{category='All',pricing='All',query='',type='All',role='All',level='All',reviewed=false,savedOnly=false,saved=[],sort='editorial'}={}){
  const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
  const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(pricing==='All'||(t.pricing_model||'Unknown')===pricing||(pricing==='Free trial'&&t.pricing_model==='Paid'&&t.trial_available===true))&&(category==='All'||t.category===category)&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));

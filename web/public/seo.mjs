@@ -38,7 +38,7 @@ const summaries={
 
 '/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
-'/product-hunt-picks':'Explore Product Hunt discoveries and AI tools for designers, developers, product managers, marketers, salespeople and entrepreneurs. Practical first tasks and official sources.',
+'/product-hunt-picks':'Explore Product Hunt’s November top 50 as of November 17, 2026. Find a practical use for each launch, its directory listing and its original source.',
 '/working-session':'A $350 AI Working Session with Ashley Kays Rabbitt. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
 '/workshops/campaign':'Practice AI-assisted campaign creation in a guided workshop. Build a brief, explore message directions and review a draft. Dates and pricing confirmed by inquiry.',
 '/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
