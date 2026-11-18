@@ -132,7 +132,7 @@ window.addEventListener('storage',event=>{if(event.key===trialStorageKey){toast(
 
 
 
-async function refreshServices(){const target=document.querySelector('#service-results');if(!target)return;const request=++servicesRequest;try{const response=await fetch('/api/services');if(!response.ok)throw new Error();const rows=await response.json();if(request!==servicesRequest||!target.isConnected)return;const params=new URL(location.href).searchParams;target.innerHTML=serviceResults(rows,params.get('category')||'All',params.get('query')||'');}catch{if(target.isConnected)target.innerHTML='<p class="notice">Service listings could not load. Please refresh to retry. You can still submit a listing for review.</p>';}}
+async function refreshServices(){const target=document.querySelector('#service-results');if(!target)return;const request=++servicesRequest;try{const response=await fetch('/api/services');if(!response.ok)throw new Error();const rows=await response.json();if(request!==servicesRequest||!target.isConnected)return;const params=new URL(location.href).searchParams;target.innerHTML=serviceResults(rows,params.get('category')||'All',params.get('query')||'');}catch{if(target.isConnected)target.insertAdjacentHTML('beforeend','<p class="notice">Community submissions are temporarily unavailable.</p>');}}
 document.addEventListener('submit',async event=>{
  const form=event.target;
  if(form.id==='service-search'){event.preventDefault();const params=new URLSearchParams(new FormData(form));navigate('/services?'+params);return;}

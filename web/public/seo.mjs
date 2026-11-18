@@ -45,7 +45,7 @@ const summaries={
 '/opportunity-finder':'Assess recurring tasks for AI assistance with transparent rules for judgment, data sensitivity, consequences and output checks.',
 '/field-guide':'Download an eight-page printable AI Field Guide or complete editable worksheets for briefs, permissions, agent missions and tool evaluation.',
 '/submit':'Submit an AI tool, MCP server, agent or service provider to AI Superpower. Share a useful description and official link for editorial review.',
-'/services':'Find AI consultants, automation specialists, designers, marketers, developers, trainers and coaches. Explore service categories or submit your own listing.',
+'/services':'Browse AI agencies, consultants and training providers by specialty. Find a team for custom AI development, workflow automation, creative production or workforce training.',
 '/tool-trial':'Compare up to three AI tools using the same task and criteria. Record your evidence, verdict and review time, save a browser-local trial and download a decision report.',
 '/':'Keep up with AI. Put it to work. AI news, useful tools and practical guidance, all curated by Ashley Kays.',
 '/news':'Top AI news with original sources, clear explanations and practical takeaways. Curated by Ashley Kays for AI Superpower.',

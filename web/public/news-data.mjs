@@ -1,9 +1,11 @@
+import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-16';
+export const newsEdition = '2026-11-17';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+...novemberSeventeenNews,
 {
   "id": "healthcare-computer-use-agents-governed-workflow",
   "date": "2026-11-16",
