@@ -1,0 +1,384 @@
+Friends Friday two-model test | AI Superpower | November 18, 2026
+
+Method: One fictional merchant prompt, CPU inference with llama-cpp-python 0.3.37; Q4_K_M; raw ChatML user and assistant turns, 1536-token context, temperature 0, top-k 1, seed 42. The output limit was first 370 and then 800 tokens. Scoring uses the 800-token run. The shorter run is included for reference.
+
+Prompt:
+Write a short storefront landing page (headline, five product lines with prices, CTA) and one email (subject plus body) for fictional Juniper Paper Co. Use only this approved offer. Friends Friday, Nov 27, 2026, 9 am to 6 pm Eastern. Code FRIENDS20 takes 20% off the notebook, desk pad and card set only. Notebook $20 regular; desk pad $30 regular; card set $15 regular. Gift card $25 and brass pen $40 are excluded and stay full price. One code per order. Orders placed by Dec 14 at noon Eastern qualify for holiday dispatch; arrival date is not guaranteed. No free shipping or pickup is promised. Show the correct sale price for each eligible item. Preserve both deadlines. Keep the combined text under 200 words.
+
+Qwen2.5-1.5B-Instruct | cap 800 | finish: stop | model SHA256 6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e
+
+**Juniper Paper Co.**
+
+**Headline:**  
+Welcome to Juniper Paper Co.  
+**Product Lines:**
+
+1. **Notebook**  
+   - Regular Price: $20  
+   - Sale Price: $16  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+2. **Desk Pad**  
+   - Regular Price: $30  
+   - Sale Price: $24  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+3. **Card Set**  
+   - Regular Price: $15  
+   - Sale Price: $12  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+**CTA:**  
+**Order Now**  
+**Email:**  
+**Subject:**  
+**Body:**  
+Dear [Recipient's Name],  
+We hope this email finds you well.  
+We are excited to offer you a special deal on our products for Friends Friday, Nov 27, 2026, 9 am Eastern.  
+**Notebook**  
+- Regular Price: $20  
+- Sale Price: $16  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Desk Pad**  
+- Regular Price: $30  
+- Sale Price: $24  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Card Set**  
+- Regular Price: $15  
+- Sale Price: $12  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Gift Card**  
+- Regular Price: $25  
+- Sale Price: $25  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Brass Pen**  
+- Regular Price: $40  
+- Sale Price: $40  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Order Now**  
+**Thank you for your interest in Juniper Paper Co.**
+
+Qwen2.5-1.5B-Instruct | cap 370 | finish: length | model SHA256 6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e
+
+**Juniper Paper Co.**
+
+**Headline:**  
+Welcome to Juniper Paper Co.  
+**Product Lines:**
+
+1. **Notebook**  
+   - Regular Price: $20  
+   - Sale Price: $16  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+2. **Desk Pad**  
+   - Regular Price: $30  
+   - Sale Price: $24  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+3. **Card Set**  
+   - Regular Price: $15  
+   - Sale Price: $12  
+   - Code: FRIENDS20  
+   - Quantity Limit: 1  
+   - Deadline: Nov 27, 2026, 9 am Eastern
+
+**CTA:**  
+**Order Now**  
+**Email:**  
+**Subject:**  
+**Body:**  
+Dear [Recipient's Name],  
+We hope this email finds you well.  
+We are excited to offer you a special deal on our products for Friends Friday, Nov 27, 2026, 9 am Eastern.  
+**Notebook**  
+- Regular Price: $20  
+- Sale Price: $16  
+- Code: FRIENDS20  
+- Quantity Limit: 1  
+- Deadline: Nov 27, 2026, 9 am Eastern  
+**Desk Pad**  
+- Regular Price: $30  
+- Sale Price: $24  
+- Code: FRIENDS20  
+- Quantity Limit:
+
+SmolLM2-1.7B-Instruct | cap 800 | finish: length | model SHA256 77665ea4815999596525c636fbeb56ba8b080b46ae85efef4f0d986a139834d7
+
+Juniper Paper Co.
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your
+
+SmolLM2-1.7B-Instruct | cap 370 | finish: length | model SHA256 77665ea4815999596525c636fbeb56ba8b080b46ae85efef4f0d986a139834d7
+
+Juniper Paper Co.
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
+**Exclusive Offer**
+
+**Friends Friday Sale**
+
+**Get 20% off your order!**
+
+**Code:** FRIENDS20
+
