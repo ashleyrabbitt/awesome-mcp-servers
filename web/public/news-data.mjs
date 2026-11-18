@@ -2,9 +2,21 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-17';
+export const newsEdition = '2026-11-18';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'codex-sandbox-mcp-permission-boundaries', date: '2026-11-18', datePublished: '2026-11-18', dateModified: '2026-11-18',
+  topic: 'Safety', publisher: 'OpenAI', art: 'review',
+  title: 'Codex explains its sandbox—and a separate permission check for MCP servers',
+  description: 'A new engineering explanation separates command restrictions from the permissions of connected tools.',
+  summary: 'OpenAI published an explanation of Codex permission profiles and their filesystem and network controls. It also notes that the harness does not automatically sandbox the command that starts a stdio MCP server.',
+  takeaway: 'Our take: approving an agent’s workspace is not the same as reviewing every connected tool. Record the boundaries of the command runner and each server separately.',
+  action: 'Inventory one development workflow: writable folders, readable sensitive files, allowed network destinations and MCP launch commands. Ask the responsible administrator to verify each boundary in a disposable test environment before using private data.',
+  caveat: 'This is an engineering explanation, not evidence that your installation has these protections configured. Defaults, platform enforcement and managed policy matter. A sandbox reduces exposure but does not establish that generated code or tool behavior is safe; no configuration was tested for this brief.',
+  sourceTitle: 'OpenAI: Inside the Codex sandbox', sourceUrl: 'https://openai.com/index/inside-the-codex-sandbox/',
+  next: ['/security', 'Review permissions before connecting a tool']
+},
 ...novemberSeventeenNews,
 {
   "id": "healthcare-computer-use-agents-governed-workflow",

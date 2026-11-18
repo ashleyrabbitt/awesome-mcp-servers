@@ -5,6 +5,17 @@ import {newsStories,newsEdition,newsTopics} from '../public/news-data.mjs';
 import {renderRoute} from '../public/views.mjs';
 import {pageSEO} from '../public/seo.mjs';
 
+test('November 18 sandbox brief separates MCP permissions and preserves earlier dates',()=>{
+  const story=newsStories.find(s=>s.id==='codex-sandbox-mcp-permission-boundaries');
+  assert.equal(story.date,'2026-11-18');
+  assert.equal(story.datePublished,'2026-11-18');
+  assert.equal(story.sourceUrl,'https://openai.com/index/inside-the-codex-sandbox/');
+  assert.match(story.summary,/does not automatically sandbox/);
+  assert.match(story.caveat,/no configuration was tested/);
+  assert.equal(newsStories.find(s=>s.id==='google-opal-shutdown-recover-prompts').datePublished,'2026-11-17');
+  assert.ok(renderRoute('/',[]).includes('/news/'+story.id));
+});
+
 test('November 13 briefs distinguish announcement dates, publication and operational limits',()=>{
   assert.ok(newsEdition>='2026-11-13');
   const ids=['claude-meetings-beta-participant-permission','claude-managed-agents-self-hosted-control-plane','claude-manufacturing-plugin-review-before-release'];
