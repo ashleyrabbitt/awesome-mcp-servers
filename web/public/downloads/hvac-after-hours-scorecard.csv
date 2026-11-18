@@ -1,0 +1,5 @@
+"Scenario","Fictional caller script","Expected result","Delivered note or alert","Recipient and time","Verdict (Pass / Fix / Stop)","Owner and fix","Retest date and result"
+"Routine maintenance","I would like a tune-up next week. Could your office call me?","Office queue receives a callback request with a confirmed number. No visit promised.","","","","",""
+"Corrected callback digit","My last digit was wrong. Please use the second number I gave you.","The final callback number is correct and supersedes the first.","","","","",""
+"Outside service area","I live just outside the written service boundary. Can a technician come tonight?","Caller gets the approved explanation. No unsupported visit promised.","","","","",""
+"No answer on first alert","Simulate a request covered by the approved escalation script; primary tester lets alert expire.","Backup person receives the alert on the agreed channel and acknowledges ownership.","","","","",""

@@ -1,3 +1,4 @@
+import {partnerGuides} from './partner-guides.mjs';
 import {novemberSeventeenGuides} from './november-17-guides.mjs';
 import {novemberPracticalGuides} from './november-practical-guides.mjs';
 import {roleArticles,agentStarterArticles} from './role-articles.mjs';
@@ -12,7 +13,7 @@ import {usefulArticles} from './useful-articles.mjs';
 const table=(caption,headers,rows)=>`<div class="article-table" role="region" aria-label="${caption}" tabindex="0"><table><caption>${caption}</caption><thead><tr>${headers.map(h=>`<th scope="col">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const prompt=text=>`<pre class="article-prompt"><code>${text}</code></pre>`;
 const dates={datePublished:'2026-10-16',dateModified:'2026-10-16'};
-export const practicalArticles=[...novemberSeventeenGuides,...novemberPracticalGuides,...roleArticles,...agentStarterArticles,...aiBusinessArticles,...mercorArticles,...agentWorkflowArticles,...futureWorkKnowledgeArticles,...aiCreationArticles,...usefulArticles,
+export const practicalArticles=[...partnerGuides,...novemberSeventeenGuides,...novemberPracticalGuides,...roleArticles,...agentStarterArticles,...aiBusinessArticles,...mercorArticles,...agentWorkflowArticles,...futureWorkKnowledgeArticles,...aiCreationArticles,...usefulArticles,
  {
   ...dates,dateModified:'2026-10-29',id:'chatgpt-vs-claude-vs-gemini',category:'CHOOSING YOUR TOOLS',title:'ChatGPT vs Claude vs Gemini: how to choose for real work',
   intro:'Compare three AI assistants with the same task, a simple scorecard and a clear spending decision.',
