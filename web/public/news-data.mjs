@@ -2,9 +2,21 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-18';
+export const newsEdition = '2026-11-19';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'gemini-mac-computer-use-permission-check', date: '2026-11-19', datePublished: '2026-11-19', dateModified: '2026-11-19',
+  topic: 'Agents', publisher: 'Google', art: 'review',
+  title: 'Gemini adds Mac computer use: start with a permission-limited task',
+  description: 'Google announces background computer use on Mac, with account and hardware restrictions worth checking before a trial.',
+  summary: 'Google says Gemini can now work across local files, desktop apps and websites in an isolated background window. The announcement describes a live preview, app-access choices, pausing and approval of key actions.',
+  takeaway: 'Our take: a separate window protects your working cursor, not automatically every business record. A useful first trial has disposable inputs, a clear finish condition and a person checking the result.',
+  action: 'Try organizing copies of three non-sensitive sample files. Record the intended output, permissions granted, corrections and total review time. Stop before sending, purchasing or changing a real customer record.',
+  caveat: 'Google says rollout starts in English in the U.S. for personal accounts aged 18+ on AI Plus, Pro and Ultra. It requires Apple Silicon and macOS Sequoia 15.0 or later. This brief reports the announcement; we have not tested the feature or verified availability in your account.',
+  sourceTitle: 'Google: Let Gemini tackle repetitive chores on your Mac', sourceUrl: 'https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/',
+  next: ['/tool-trial', 'Record a bounded tool trial']
+},
 {
   id: 'codex-sandbox-mcp-permission-boundaries', date: '2026-11-18', datePublished: '2026-11-18', dateModified: '2026-11-18',
   topic: 'Safety', publisher: 'OpenAI', art: 'review',
