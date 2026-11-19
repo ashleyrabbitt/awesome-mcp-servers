@@ -21,7 +21,7 @@ AI Teachers offers a separate 90-minute practice session. AI Side Hustle covers 
 
 The free public downloads live under `/downloads/lovable/`. The product generator is `web/scripts/build-lovable-products.py`. When updating a PDF, regenerate the ZIP too. Check every download and worksheet path after deployment.
 
-## Existing GA4 properties
+## Existing production GA4 measurement tags
 
 | Site | Existing production tag | Path filter |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ The free public downloads live under `/downloads/lovable/`. The product generato
 | AI Teachers | G-NBS56V6S3P | /learn/lovable-practice/ |
 | AI Side Hustle | G-4N11DK5HTR | /guides/lovable-pocket-products |
 
-These are distinct properties. Do not sum users across them and call the result unique people. Cross-site links use a consistent campaign and site source; internal links within a site stay untagged. Browser privacy signals, user choices, blockers and cross-device use can reduce measured activity.
+These sites use distinct measurement tags. Confirm their property/stream association in GA4 before reporting across properties. Do not sum users across sites and call the result unique people. Cross-site links use a consistent campaign and site source; internal links within a site stay untagged. Browser privacy signals, user choices, blockers and cross-device use can reduce measured activity.
 
 ## AI Superpower custom events
 
@@ -60,7 +60,11 @@ The client suppresses custom collection outside production hosts and when the ex
 6. For Whop, compare tracking-link activity, free joins and available course/file use. A free join is not sales revenue.
 7. Record source, date range, metric definition and caveats in the tracker. Leave unobserved values blank.
 
-The available reporting connector returned subscription_required/payment_required during this launch. No live GA4 report receipt, audience numbers, ranking improvements or conversion results are asserted. Verify report-side delivery when access is available.
+The first reporting connector returned subscription_required/payment_required. A separate Supermetrics GA4 connection was authenticated and two uncached reports for November 19, 2026, restricted to Lovable paths, completed with no rows. An empty report is not a verified zero-event count and does not confirm event receipt. Recent data may still be incomplete.
+
+Account lookup found exact-name properties for AI Teachers (556486263) and AI Side Hustle (555757987). A property labelled aisuperpowers.cc (558211017, plural) is only a candidate for singular aisuperpower.cc: the query returned no hostname/stream rows, and no measurement-ID mapping was exposed. Do not assume that association. The existing Supermetrics trial reports an expiry of November 20; no subscription or configuration was changed.
+
+Client behavior and deployed event wiring were verified. Report-side receipt, audience totals, ranking improvements and conversion results remain unverified. Subsequent counts may include synthetic launch QA visits, copies and downloads; separate those from evidence of audience demand.
 
 ## Distribution status and next steps
 
@@ -81,3 +85,13 @@ Monetise currently has a public Whop storefront. Its archived public landing pag
 - https://whop.com/blog/whop-store-page/
 - https://whop.com/blog/whop-courses/
 - https://www.reddit.com/r/lovable/
+
+## Release verification
+
+- AI Superpower source launch: 38bdbb880c5a4bb016ec35031e42acccf6109578. Scoped CSS follow-up: 7f67ffb60eea2e6bd89ae8a3e9fbb7136588285d, successful production deployment c8b980fe-6c3a-4f32-b1a3-c675f690ce03.
+- All 19 new production routes returned HTTP 200 with matching canonical, visible H1, indexable metadata and sitemap entries. All 18 download files matched the source bytes.
+- Browser verification covered lesson navigation, prompt/brief copying, self-reported progress, brief creation/export, whitespace-insensitive resource search, combined filters/empty/reset states, local saves/details, real worksheet/ZIP downloads and generated/copyable campaign links. The article-header/global-sticky-header collision was fixed and rechecked in production.
+- AI Teachers companion: source commit 41a36f0fb8176b73b7d407ce860f4d82bc5a3eac, successful deployment 5b805ad4-236d-48ea-bf57-4226b4ab8314. Guide, copy button and practice check display verified live.
+- AI Side Hustle companion: Waymaker PR 1830, merged commit 837a17f64872d9cbc52aaba2c5abd13b90a57c57, successful deployment db18f2a2-5062-4f0c-bef8-2ca4e6dae66d. Article, download, discovery links, metadata and tracking script verified; live reading layout and copy button checked.
+- Workbook: 15 pages. Checklist: 3 pages. Both rendered and visually checked throughout. Kit: 17 individual content files plus ZIP, 32 prompts, 26 proposed test cases, six actual worksheets, 20 blank tracking rows. ZIP integrity and exact-file matching passed.
+- WebsiteTraffic additions were deferred after an observed HTTP 503. No outage repair, unrelated branch merge, Whop listing publication or social posting was performed.
