@@ -1,3 +1,4 @@
+import {creatorMarketingPicks} from './creator-marketing-picks.mjs';
 import {onCrew} from './oncrew.mjs';
 import {expandedNovemberPicks} from './november-discoveries.mjs';
 import {novemberLeaderPicks, novemberReleaseNotes} from './november-leaderboard.mjs';
@@ -20,6 +21,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
+...creatorMarketingPicks,
 onCrew,
 ...novemberLeaderPicks,
 ...expandedNovemberPicks,
