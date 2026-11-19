@@ -10,3 +10,9 @@
 .lv button:disabled{opacity:.55;cursor:not-allowed}
 
 .lv-prerequisites{padding:22px 26px;border:1px solid var(--lv-line);border-radius:6px;margin:28px 0}.lv-prerequisites h2{font-size:1.5rem;margin:0 0 .5em}.lv-prerequisites p{margin:0}
+
+/* Editorial headers must not inherit the global sticky site navigation. */
+.lv header{position:static;top:auto;z-index:auto;background:transparent;border:0}
+.lv footer{margin-top:0;background:transparent}
+.lv-section,.lv-article section{scroll-margin-top:105px}
+@media(min-width:761px){.lv-sidebar{top:100px;max-height:calc(100vh - 120px)}}
