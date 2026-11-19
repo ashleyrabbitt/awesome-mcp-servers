@@ -1,3 +1,5 @@
+import {installLovable} from './lovable-client.mjs';
+installLovable();
 import {installBuyerStudies,restoreBuyerDecision} from './buyer-client.mjs';
 installBuyerStudies();
 import {installWorkSample} from './work-sample-client.mjs';

@@ -1,3 +1,4 @@
+import {lovableTeaser} from './lovable-hub.mjs';
 import {workIncomeHome} from './work-income.mjs';
 import {eventsHome} from './learning-events.mjs';
 import {rolePaths} from './role-paths.mjs';
@@ -28,6 +29,7 @@ export function refreshedHome(items,state,card){
  <div class="pick-heading"><h3>New tools. Useful possibilities.</h3><a class="text-link" href="/updates">See all new tools ${arrow}</a></div><div class="tool-grid">${picks.map(t=>card(t,state)).join('')}</div><div class="section-bottom"><span>Found a few contenders? Compare them on the same task.</span><a class="text-link" href="/tool-trial">Open the Tool Trial Lab ${arrow}</a></div></section>
  <section class="work-band" aria-labelledby="work-heading"><div class="wrap section"><div class="section-heading"><div><span class="eyebrow">YOUR EXPERTISE. EXTRA POSSIBILITIES.</span><h2 id="work-heading">Your work.<br>A new way forward.</h2></div><div><p>Start with the work you know. Add a practical AI workflow you can use again.</p><a class="text-link" href="/ai-for-your-work">Explore all role guides ${arrow}</a></div></div><div class="role-link-grid">${rolePaths.map((r,i)=>`<a href="/guides/ai-superpower-for-${e(r.slug)}" class="role-link"><span class="role-index">0${i+1}</span><div><h3>${e(r.role)}</h3><p>${e(r.project)}</p></div>${arrow}</a>`).join('')}</div></div></section>
  <section class="wrap section make-it-section" aria-labelledby="make-heading"><div class="make-it-photo"><img src="/assets/claude-office/claude-office-team.webp" width="1400" height="788" alt="A team mapping a project beside a laptop and whiteboard" loading="lazy"><span class="photo-caption">BRING YOUR IDEAS. BUILD YOUR SKILLS.</span></div><div class="make-it-copy"><span class="eyebrow">FROM “WHAT IF?” TO “I MADE THIS.”</span><h2 id="make-heading">Learn it.<br>Try it.<br>Make it yours.</h2><p>You don’t need to learn everything at once. Pick one task, follow a worked example, and keep what helps.</p><ol class="make-it-steps"><li><span>01</span><div><h3>Choose a useful outcome.</h3><p>A better brief. A first prototype. A clearer plan.</p></div></li><li><span>02</span><div><h3>Follow a practical example.</h3><p>Use the prompts, source material and review steps.</p></div></li><li><span>03</span><div><h3>Build a repeatable way to work.</h3><p>Check the result and adapt it to your next project.</p></div></li></ol><a class="button" href="/watch-and-build">Start a free lesson ${arrow}</a></div></section>
+ ${lovableTeaser()}
  ${workIncomeHome()}
  ${homeNews()}
  ${eventsHome()}
