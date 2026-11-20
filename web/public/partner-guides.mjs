@@ -106,6 +106,11 @@ export const partnerGuides = [
         "body": "<blockquote>After-hours test 2. Upstairs AC stopped cooling. Caller corrected the callback number. Service area confirmed. A callback was requested. Dispatch has not confirmed a visit. Owner: evening dispatcher.</blockquote><p>This is a fictional example. Ask a dispatcher who did not hear the call to explain what they would do next using only the delivered note. Would they call the right person? Could they tell a callback request from a booked job? A transcript in a dashboard is little help when the right person never gets the alert.</p><p>OnCrew describes an AI receptionist that handles forwarded calls and passes appointment requests and alerts to a human team. It lists HVAC among its supported trades. <a href=\"/tools/oncrew\">See the OnCrew listing and trial notes</a>. We may earn a commission through its marked partner link.</p>"
       },
       {
+        "id": "plan",
+        "title": "Check the plan before a pilot",
+        "body": "<p>OnCrew’s published Starter plan is $49 per month with 250 answered-call minutes, then $0.49 per extra minute. It includes 150 alert texts per month, then $0.05 per extra text. The provider also advertises a 14-day trial without a card. These are published terms checked November 20, 2026; confirm the <a href=\"https://oncrew.ai/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">current pricing and trial conditions</a> before signing up.</p><p>Record your expected after-hours minutes, who handles callbacks and what a missed alert costs your team. Use the four-call scorecard to check the handoff before deciding whether to pay. For a build-your-own option, <a href=\"/comparisons/after-hours-ai-receptionist\">compare the Vapi and ElevenAgents test plan</a>.</p><p><strong>Affiliate disclosure:</strong> We may earn a commission if you subscribe through our OnCrew partner link. <a class=\"button light\" href=\"/go/oncrew\" target=\"_blank\" rel=\"sponsored nofollow noopener noreferrer\">Explore OnCrew’s trial · Affiliate link ↗</a></p>"
+      },
+      {
         "id": "decision",
         "title": "Decide whether a live pilot is worth a shift",
         "body": "<p>Mark each scenario pass, fix or stop. A wrong callback number, a fabricated appointment or an undelivered on-call alert deserves a fix and a retest before forwarding customer calls. Record who made the change and have a second staff member repeat the scenario.</p><p>For a small approved pilot, count how many after-hours requests had usable callback details, how many received a callback within the promised window and how many became booked jobs. Compare with a similar shift under the previous setup. Track actual bookings and the cost of staffing the callback. Four practice calls tell you whether the handoff works. They cannot establish how many jobs the shop will win.</p>"
@@ -129,6 +134,10 @@ export const partnerGuides = [
       [
         "OnCrew call routing and human handoff",
         "https://oncrew.ai/about"
+      ],
+      [
+        "OnCrew plans, minute allowances and trial conditions",
+        "https://oncrew.ai/pricing"
       ]
     ],
     "nextTitle": "Run the handoff test with your dispatcher",
@@ -137,6 +146,6 @@ export const partnerGuides = [
     "nextLabel": "Download the scorecard",
     "nextNote": "Free CSV. Use sample callers and your own test line.",
     "datePublished": "2026-11-18",
-    "dateModified": "2026-11-18"
+    "dateModified": "2026-11-20"
   }
 ];
