@@ -155,6 +155,17 @@ test('November 12 briefs retain original dates as the collection advances',()=>{
   assert.equal(newsStories.find(s=>s.id==='google-a2ui-1-stable-agent-interfaces').datePublished,'2026-11-11');
 });
 
+test('November 20 safety brief keeps observable evidence separate from hidden reasoning',()=>{
+  const story=newsStories.find(s=>s.id==='openai-distillation-defenses-audit-evidence');
+  assert.equal(story.date,'2026-11-20');
+  assert.equal(story.datePublished,'2026-11-20');
+  assert.equal(story.dateModified,'2026-11-20');
+  assert.equal(story.sourceUrl,'https://openai.com/index/combatting-adversarial-distillation/');
+  assert.match(story.caveat,/not an independent security audit/);
+  assert.match(story.action,/fictional task/);
+  assert.equal(newsStories.find(s=>s.id==='gemini-mac-computer-use-permission-check').datePublished,'2026-11-19');
+});
+
 test('article dates come from each story, independently of the collection edition',()=>{
   const story=newsStories[0];
   const original={datePublished:story.datePublished,dateModified:story.dateModified};
