@@ -1,7 +1,8 @@
+import {updatePresenterScore} from './presenter-scorecard.mjs';
 import {estimateVoice} from './buyer-studies.mjs';
 import {browserMeasurementAllowed} from './task-metrics.mjs';
 
-const sources=new Set(['voice','holiday','briefs','missed-inquiries','client-intake','webinar-repurposing']);
+const sources=new Set(['presenter','voice','holiday','briefs','missed-inquiries','client-intake','webinar-repurposing']);
 function track(name,source){
   if(sources.has(source)&&browserMeasurementAllowed(window)&&typeof window.gtag==='function'){
     window.gtag('event',name,{study_id:source});
@@ -9,6 +10,8 @@ function track(name,source){
 }
 export function installBuyerStudies(){
   document.addEventListener('input',event=>{
+    const presenter=event.target.closest('[data-presenter-calculator] fieldset');
+    if(presenter){updatePresenterScore(presenter);return;}
     const form=event.target.closest('[data-voice-calculator]');
     if(!form)return;
     const out=form.querySelector('output');

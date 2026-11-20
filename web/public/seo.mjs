@@ -9,6 +9,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/comparisons/ai-presenter-video-scorecard':'Compare AI presenter video tools using one product brief, a client revision and real exports. Calculate cost per approved clip and download the free trial log.', 
 '/comparisons/after-hours-ai-receptionist':'Compare Vapi and ElevenAgents monthly costs, model five after-hours calls and download a scorecard to verify callback and booking handoffs.',
 '/comparisons/friends-friday-promotion':'See how two local AI models handled a five-product Friends Friday offer, review their raw drafts and download a merchant campaign worksheet.',
 '/services/project-briefs':'Download editable AI agency briefs for missed inquiries, client intake and webinar repurposing. Compare proposals and test what each provider delivers.',

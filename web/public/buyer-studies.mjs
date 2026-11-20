@@ -1,16 +1,17 @@
+import {presenterPath, presenterScorecard} from './presenter-scorecard.mjs';
 import {candidateLinks} from './tool-links.mjs';
 import {holidayFindings} from './holiday-findings.mjs';
 
 export const voicePath='/comparisons/after-hours-ai-receptionist';
 export const holidayPath='/comparisons/friends-friday-promotion';
 export const briefsPath='/services/project-briefs';
-export const buyerRoutes=[voicePath,holidayPath,briefsPath];
+export const buyerRoutes=[voicePath,holidayPath,briefsPath,presenterPath];
 
 const sheet=(id,file,title)=>`<a class="button light" href="/downloads/${file}" download data-buyer-download="${id}">${title} ↓</a>`;
 const section=(heading,body)=>`<section class="power-panel"><h2>${heading}</h2>${body}</section>`;
 const layout=(label,title,lead,body)=>`<article class="wrap useful-page buyer-study"><div class="page-head"><span class="eyebrow">${label}</span><h1>${title}</h1><p>${lead}</p></div>${body}</article>`;
 const studyFooter=(id)=>section('Record your decision',`<p>Choose an outcome for this comparison. In <a href="https://go.waymaker.cx/">your Waymaker project</a>, open Connected work and choose “Record an observation” to keep your reasons, owner and retest date.</p><form data-buyer-decision="${id}"><label>Your decision <select name="decision" required><option value="">Choose an outcome</option><option value="pilot">Run a pilot</option><option value="revise">Revise and retest</option><option value="pass">Pass for now</option></select></label> <button class="button" type="submit">Finish comparison</button><p role="status" class="small-note"></p></form>`);
-export const buyerIndexLinks=`<section class="wrap useful-page"><h2>Try a buyer test</h2><p><a href="${voicePath}">Price and test an after-hours receptionist</a> · <a href="${holidayPath}">Check two AI-written holiday promotions</a> · <a href="${briefsPath}">Download a provider project brief</a></p></section>`;
+export const buyerIndexLinks=`<section class="wrap useful-page"><h2>Try a buyer test</h2><p><a href="${presenterPath}">Test an AI presenter and a client revision</a> · <a href="${voicePath}">Price and test an after-hours receptionist</a> · <a href="${holidayPath}">Check two AI-written holiday promotions</a> · <a href="${briefsPath}">Download a provider project brief</a></p></section>`;
 
 export function estimateVoice(calls,minutes,extras=0){
   const total=calls*minutes;
@@ -42,6 +43,7 @@ function providerBriefs(items){
  return layout('AI SERVICE BUYER GUIDES','Three project briefs you can send to an AI agency','Choose a job, fill in the owner, dates and budget, then send the same brief to each provider. The editable files include deliverables, acceptance tests and handoff requirements.',briefs.map(([id,name,intro,test])=>`<section class="power-panel" id="${id}"><h2>${name}</h2><p>${intro}</p><p><strong>Acceptance test.</strong> ${test}</p>${sheet(id,id+'-project-brief.md','Download editable brief')}${id==='webinar-repurposing'?`<p>For an editor-led trial, Descript lets an editor revise footage through its transcript. For an automatic first selection, compare <a href="https://www.opus.pro/">OpusClip</a>. Have both editors submit the source timecode and count corrections before deciding.</p>${candidateLinks(['descript'],items)}`:''}</section>`).join('')+section('Compare proposals',`<p>Ask each provider for the pilot fee, ongoing software and support costs, access needed, acceptance criteria and handoff owner. Use the same test and sample inputs with each finalist.</p><p><a href="/services">Browse agencies and consultants</a> · <a data-buyer-help="briefs" href="https://agency.waymaker.cx/compare-services?utm_source=aisuperpower&amp;utm_medium=referral&amp;utm_campaign=provider_briefs">Explore help from Waymaker Agency</a></p>`));
 }
 export function buyerPage(path,items){
+ if(path===presenterPath)return presenterScorecard();
  if(path===voicePath)return voice(items);
  if(path===holidayPath)return holiday(items);
  if(path===briefsPath)return providerBriefs(items);
