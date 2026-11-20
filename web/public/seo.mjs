@@ -9,6 +9,7 @@ import {promptTemplates} from './prompt-kit.mjs';
 import {howTos,resourceKits} from './resource-kit.mjs';
 const privatePaths=new Set(['/digest/unsubscribe','/account','/admin/discovery','/maker','/admin','/my-kit','/saved','/compare','/hq','/shared','/404']);
 const summaries={
+'/jobs':'Explore selected AI and technology jobs in product, design, engineering, marketing and learning. Filter remote and Florida opportunities and apply directly with employers.',
 '/comparisons/ai-presenter-video-scorecard':'Compare AI presenter video tools using one product brief, a client revision and real exports. Calculate cost per approved clip and download the free trial log.', 
 '/comparisons/after-hours-ai-receptionist':'Compare Vapi and ElevenAgents monthly costs, model five after-hours calls and download a scorecard to verify callback and booking handoffs.',
 '/comparisons/friends-friday-promotion':'See how two local AI models handled a five-product Friends Friday offer, review their raw drafts and download a merchant campaign worksheet.',
@@ -43,7 +44,7 @@ const summaries={
 
 '/journeys':'Complete free self-paced AI courses and guided journeys for campaign creation, customer feedback and weekly reporting. Use practice inputs, prompts and review checks, then save or download your work.',
 '/comparison-challenge':'Compare AI reporting tools with the same synthetic dataset, transparent answer key and evaluation criteria. Record your own results in the Tool Trial Lab.',
-'/product-hunt-picks':'Explore Product Hunt’s November top 50 as of November 17, 2026. Find a practical use for each launch, its directory listing and its original source.',
+'/product-hunt-picks':'Explore selected Product Hunt daily leaders from November 17–19, 2026, plus earlier November picks. Find practical first tasks, dated ranking sources and directory listings.',
 '/working-session':'A $350 AI Working Session with Ashley Kays Rabbitt. Work through one practical marketing, design, product or automation task with human guidance. Inquire about availability.',
 '/workshops/campaign':'Practice AI-assisted campaign creation in a guided workshop. Build a brief, explore message directions and review a draft. Dates and pricing confirmed by inquiry.',
 '/kits':'Free practical AI kits for campaigns, customer research and careful automation. Mini lessons, editable prompts, worksheets and human review checklists.',
@@ -90,7 +91,7 @@ export function pageSEO(url,items,content,origin=siteOrigin){
  const canonical=origin+(route==='/support'?'/coaching':route),image=origin+(lv?'/assets/lovable/hero.webp':'/assets/hero-everyday.webp');
  const website={'@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:'AI Superpower by Waymaker',publisher:{'@id':origin+'/#organization'}};
  const organization={'@type':'Organization','@id':origin+'/#organization',name:'Waymaker AI INC',url:'https://waymaker.cx',brand:{'@type':'Brand',name:'AI Superpower'}};
- const page={'@type':news?'NewsArticle':answer||article?'Article':route==='/news'?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
+ const page={'@type':news?'NewsArticle':answer||article?'Article':['/news','/jobs','/product-hunt-picks'].includes(route)?'CollectionPage':'WebPage','@id':canonical+'#page',url:canonical,name:heading,description,isPartOf:{'@id':origin+'/#website'},inLanguage:'en',publisher:{'@id':origin+'/#organization'}};
  if(answer)Object.assign(page,{headline:answer.title,author:{'@id':origin+'/#organization'},dateModified:'2026-10-07',image});
  if(article)Object.assign(page,{headline:article.title,author:{'@id':origin+'/#organization'},datePublished:article.datePublished,dateModified:article.dateModified,articleSection:article.category,mainEntityOfPage:canonical,citation:article.sources.map(([,url])=>url),image});
  if(news)Object.assign(page,{headline:news.title,author:{'@type':'Organization',name:'AI Superpower',url:origin},editor:{'@type':'Person',name:'Ashley Kays'},datePublished:news.datePublished,dateModified:news.dateModified,articleSection:news.topic,mainEntityOfPage:canonical,citation:[news.sourceUrl],image});

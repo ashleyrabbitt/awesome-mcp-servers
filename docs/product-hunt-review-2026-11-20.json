@@ -1,0 +1,1225 @@
+{
+  "reviewed_at": "2026-11-20",
+  "catalog_baseline_commit": "7d5f9b6",
+  "catalog_baseline": {
+    "curated": 425,
+    "imported": 486,
+    "total": 911
+  },
+  "selection_method": "Compare the previous completed week’s 17 featured leaders and completed daily leaderboards for November 17–19 with the existing catalog. Select missing AI, creator and developer tools with source-supported use cases. Add Muse separately because its tutorial is explicitly requested.",
+  "ranking_caveat": "Daily Product Hunt rank is launch-popularity evidence for the dated page, not a quality score, product endorsement, hands-on test or promise of current ranking. November 20 and the ongoing November 16–22 week were not treated as final.",
+  "deduplication": {
+    "methods": [
+      "existing ID",
+      "normalized product name",
+      "canonical URL (host/path, www and trailing slash normalized)",
+      "same product host excluding shared repository hosts",
+      "manual release/family aliases"
+    ],
+    "conflicts": [],
+    "previous_week_existing_count": 17
+  },
+  "summary": {
+    "new_november_tools": 20,
+    "new_tutorial_companion": 1,
+    "total_new_tools": 21,
+    "existing_tools_refreshed": 2,
+    "considered_launches": 65,
+    "duplicate_launches_skipped": 23,
+    "other_launches_not_selected": 22
+  },
+  "additions": [
+    {
+      "id": "creatify",
+      "name": "Creatify Max",
+      "url": "https://creatify.ai/features/agent",
+      "canonical_url": "creatify.ai/features/agent",
+      "product_domain": "creatify.ai",
+      "source_url": "https://creatify.ai/features/agent",
+      "discovery_url": "https://www.producthunt.com/products/creatify",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-17",
+        "rank": 1,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/17"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "thebold",
+      "name": "TheBold",
+      "url": "https://thebold.vc/",
+      "canonical_url": "thebold.vc",
+      "product_domain": "thebold.vc",
+      "source_url": "https://thebold.vc/",
+      "discovery_url": "https://www.producthunt.com/products/thebold",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-17",
+        "rank": 3,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/17"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "appxiom",
+      "name": "Appxiom",
+      "url": "https://www.appxiom.com/",
+      "canonical_url": "appxiom.com",
+      "product_domain": "appxiom.com",
+      "source_url": "https://www.appxiom.com/",
+      "discovery_url": "https://www.producthunt.com/products/appxiom",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-17",
+        "rank": 4,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/17"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "ekline",
+      "name": "EkLine",
+      "url": "https://ekline.io/",
+      "canonical_url": "ekline.io",
+      "product_domain": "ekline.io",
+      "source_url": "https://ekline.io/",
+      "discovery_url": "https://www.producthunt.com/products/ekline",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-17",
+        "rank": 5,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/17"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "s-space",
+      "name": "S.Space",
+      "url": "https://s.space/",
+      "canonical_url": "s.space",
+      "product_domain": "s.space",
+      "source_url": "https://s.space/docs",
+      "discovery_url": "https://www.producthunt.com/products/s-space",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 1,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "bluedot",
+      "name": "Bluedot Phone Calls",
+      "url": "https://www.bluedothq.com/",
+      "canonical_url": "bluedothq.com",
+      "product_domain": "bluedothq.com",
+      "source_url": "https://www.bluedothq.com/",
+      "discovery_url": "https://www.producthunt.com/products/bluedot-2",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 2,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "toone",
+      "name": "Toone",
+      "url": "https://trytoone.com/",
+      "canonical_url": "trytoone.com",
+      "product_domain": "trytoone.com",
+      "source_url": "https://trytoone.com/en",
+      "discovery_url": "https://www.producthunt.com/products/toone",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 3,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "waldo-wherobots",
+      "name": "Waldo by Wherobots",
+      "url": "https://wherobots.com/products/waldo/",
+      "canonical_url": "wherobots.com/products/waldo",
+      "product_domain": "wherobots.com",
+      "source_url": "https://wherobots.com/products/waldo/",
+      "discovery_url": "https://www.producthunt.com/products/waldo-by-wherobots",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 4,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "dippr",
+      "name": "Dippr",
+      "url": "https://dippr.ai/",
+      "canonical_url": "dippr.ai",
+      "product_domain": "dippr.ai",
+      "source_url": "https://www.producthunt.com/products/dippr",
+      "discovery_url": "https://www.producthunt.com/products/dippr",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 5,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Community listing",
+      "source_notes": "Publisher-authored Product Hunt description reviewed. Official landing page returned no extractable content; classified Community listing.",
+      "tested": false
+    },
+    {
+      "id": "mermaid-flow",
+      "name": "Mermaid Flow",
+      "url": "https://mermaid.ai/products/flow",
+      "canonical_url": "mermaid.ai/products/flow",
+      "product_domain": "mermaid.ai",
+      "source_url": "https://mermaid.ai/products/flow",
+      "discovery_url": "https://www.producthunt.com/products/mermaid-chart",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-18",
+        "rank": 7,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/18"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "verse-engine",
+      "name": "Verse Engine by Ctruh",
+      "url": "https://verse.ctruh.com/",
+      "canonical_url": "verse.ctruh.com",
+      "product_domain": "verse.ctruh.com",
+      "source_url": "https://verse.ctruh.com/engine",
+      "discovery_url": "https://www.producthunt.com/products/verse-engine-by-ctruh",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 2,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "netlify-server",
+      "name": "Netlify Server",
+      "url": "https://www.netlify.com/platform/server/",
+      "canonical_url": "netlify.com/platform/server",
+      "product_domain": "netlify.com",
+      "source_url": "https://www.netlify.com/platform/server/",
+      "discovery_url": "https://www.producthunt.com/products/netlify",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 3,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "adside",
+      "name": "Adside",
+      "url": "https://www.adside.ai/",
+      "canonical_url": "adside.ai",
+      "product_domain": "adside.ai",
+      "source_url": "https://www.adside.ai/",
+      "discovery_url": "https://www.producthunt.com/products/adside",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 5,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "spellar",
+      "name": "Spellar for Chrome",
+      "url": "https://www.spellar.ai/",
+      "canonical_url": "spellar.ai",
+      "product_domain": "spellar.ai",
+      "source_url": "https://www.spellar.ai/",
+      "discovery_url": "https://www.producthunt.com/products/spellar",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 6,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "manufact",
+      "name": "Manufact",
+      "url": "https://manufact.com/",
+      "canonical_url": "manufact.com",
+      "product_domain": "manufact.com",
+      "source_url": "https://manufact.com/",
+      "discovery_url": "https://www.producthunt.com/products/manufact",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 7,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "tabstack",
+      "name": "Tabstack by Mozilla",
+      "url": "https://tabstack.ai/",
+      "canonical_url": "tabstack.ai",
+      "product_domain": "tabstack.ai",
+      "source_url": "https://tabstack.ai/",
+      "discovery_url": "https://www.producthunt.com/products/tabstack",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 8,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "teaflask",
+      "name": "Teaflask",
+      "url": "https://teaflask.com/",
+      "canonical_url": "teaflask.com",
+      "product_domain": "teaflask.com",
+      "source_url": "https://teaflask.com/",
+      "discovery_url": "https://www.producthunt.com/products/teaflask",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 9,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "enrichable",
+      "name": "Enrichable by Context.dev",
+      "url": "https://www.enrichable.io/",
+      "canonical_url": "enrichable.io",
+      "product_domain": "enrichable.io",
+      "source_url": "https://github.com/context-dot-dev/enrichable",
+      "discovery_url": "https://www.producthunt.com/products/context-dev",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 12,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "impractical",
+      "name": "Impractical",
+      "url": "https://impractical.ai/",
+      "canonical_url": "impractical.ai",
+      "product_domain": "impractical.ai",
+      "source_url": "https://impractical.ai/",
+      "discovery_url": "https://www.producthunt.com/products/impractical",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 14,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "tooljet",
+      "name": "ToolJet",
+      "url": "https://tooljet.com/",
+      "canonical_url": "tooljet.com",
+      "product_domain": "tooljet.com",
+      "source_url": "https://tooljet.com/",
+      "discovery_url": "https://www.producthunt.com/products/tooljet",
+      "ranking": {
+        "period": "day",
+        "date": "2026-11-19",
+        "rank": 15,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/leaderboard/daily/2026/11/19"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Official product site or documentation and Product Hunt product page reviewed.",
+      "tested": false
+    },
+    {
+      "id": "muse-by-meta",
+      "name": "Muse by Meta",
+      "url": "https://muse.ai/",
+      "canonical_url": "muse.ai",
+      "product_domain": "muse.ai",
+      "source_url": "https://muse.ai/",
+      "discovery_url": "https://www.producthunt.com/products/muse-22",
+      "ranking": {
+        "period": "day",
+        "date": "2026-09-09",
+        "rank": 5,
+        "checked_at": "2026-11-20",
+        "url": "https://www.producthunt.com/products/muse-22"
+      },
+      "status": "Documentation reviewed",
+      "source_notes": "Added as the explicitly requested tutorial companion. Original September launch is separate from the November daily selection.",
+      "tested": false
+    }
+  ],
+  "refreshes": [
+    {
+      "id": "testsprite",
+      "source_url": "https://www.testsprite.com/",
+      "discovery_url": "https://www.producthunt.com/products/testsprite",
+      "reason": "Record the November 19 TestSprite 4.0 release on the existing TestSprite entry."
+    },
+    {
+      "id": "readywhen",
+      "source_url": "https://readywhen.ai/",
+      "discovery_url": "https://www.producthunt.com/products/readywhen",
+      "reason": "Update the existing readywhen entry with the email follow-up workflow."
+    }
+  ],
+  "considered": [
+    {
+      "name": "Alsona",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 1,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "alsona"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Product Hunt MCP",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 2,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "product-hunt-mcp"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Plurai Simulation",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 3,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "plurai-simulation"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Templify AI",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 4,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "templify-ai"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Dageno AI 2.0",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 5,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "dageno-ai"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Rakazo",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 6,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "rakazo"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "YouArt Desktop App",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 7,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "youart"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Maxma",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 8,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "maxma"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Filament by Galaxy",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 9,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "galaxy-filament"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Databox CLI",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 10,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "databox-cli"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "HiringNow",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 11,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "hiringnow"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "ScroogeFrog AI",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 12,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "scroogefrog-ai"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Nod by n8n",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 13,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "nod-by-n8n"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Claude Meetings",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 14,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "claude"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "TK by Medium",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 15,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "tk-by-medium"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Omnigraph",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 16,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "omnigraph"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Frevana Multiplayer",
+      "period": "week",
+      "date": "2026-11-09/2026-11-15",
+      "rank": 17,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/weekly/2026/46",
+      "decision": "existing",
+      "existing_ids": [
+        "frevana"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Creatify Max",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 1,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "creatify",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "RankSpot",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 2,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "existing",
+      "existing_ids": [
+        "rankspot"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "TheBold",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 3,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "thebold",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Appxiom",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 4,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "appxiom",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "EkLine",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 5,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "ekline",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Versine",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 6,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "superlog",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 7,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "VINC",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 8,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "seshka",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 9,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Superhands",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 10,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Link.bio",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 11,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Ridian",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 12,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Pinecall",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 13,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Glass Page",
+      "period": "day",
+      "date": "2026-11-17",
+      "rank": 14,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "S.Space",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 1,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "s-space",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Bluedot Phone Calls",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 2,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "bluedot",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Toone",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 3,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "toone",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Waldo by Wherobots",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 4,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "waldo-wherobots",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Dippr",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 5,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "dippr",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Pitch Avatar HR Suite",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 6,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Mermaid Flow",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 7,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "mermaid-flow",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "dusk bot",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 8,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Review Box",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 9,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "GPT-6.2 Astra and Sol",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 10,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "existing",
+      "existing_ids": [
+        "chatgpt"
+      ],
+      "added_id": null,
+      "reason": "Release belongs to an existing product family; no duplicate family listing added."
+    },
+    {
+      "name": "Incredible Agents",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 11,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Tencent Hy4 flash",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 12,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "uRun",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 13,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Replay QA Self-healing Mode",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 14,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "existing",
+      "existing_ids": [
+        "replay-qa"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Arcade",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 15,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "UI Verify",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 16,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "Introzy",
+      "period": "day",
+      "date": "2026-11-18",
+      "rank": 17,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    },
+    {
+      "name": "TestSprite 4.0",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 1,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "existing",
+      "existing_ids": [
+        "testsprite"
+      ],
+      "added_id": null,
+      "reason": "Existing product retained; release alias does not create a duplicate."
+    },
+    {
+      "name": "Verse Engine by Ctruh",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 2,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "verse-engine",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Netlify Server",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 3,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "netlify-server",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Stripo Email Widgets",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 4,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Email-widget release; not selected in this batch focused on AI agents and developer workflows."
+    },
+    {
+      "name": "Adside",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 5,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "adside",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Spellar for Chrome",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 6,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "spellar",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Manufact",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 7,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "manufact",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Tabstack by Mozilla",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 8,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "tabstack",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Teaflask",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 9,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "teaflask",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Gemini 4 Neon",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 10,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "existing",
+      "existing_ids": [
+        "google-gemini"
+      ],
+      "added_id": null,
+      "reason": "Release belongs to an existing product family; no duplicate family listing added."
+    },
+    {
+      "name": "Wispr Flow Notetaker for iPhone",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 11,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "existing",
+      "existing_ids": [
+        "wispr-flow"
+      ],
+      "added_id": null,
+      "reason": "Release belongs to an existing product family; no duplicate family listing added."
+    },
+    {
+      "name": "Enrichable by Context.dev",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 12,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "enrichable",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "Cleared",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 13,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Health-focused cessation product; outside this AI work and technology selection."
+    },
+    {
+      "name": "Impractical",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 14,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "impractical",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "ToolJet",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 15,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "added",
+      "existing_ids": [],
+      "added_id": "tooljet",
+      "reason": "Missing by normalized name, canonical URL and product domain; added once."
+    },
+    {
+      "name": "mio click",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 16,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Physical fidget device; outside the directory’s AI work and technology tool focus."
+    },
+    {
+      "name": "Meilisearch Searchandising",
+      "period": "day",
+      "date": "2026-11-19",
+      "rank": 17,
+      "leaderboard_url": "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+      "decision": "not_selected",
+      "existing_ids": [],
+      "added_id": null,
+      "reason": "Not selected for this curated batch; no full publisher validation was completed."
+    }
+  ],
+  "reference_urls": [
+    "https://www.producthunt.com/leaderboard/weekly/2026/46",
+    "https://www.producthunt.com/leaderboard/daily/2026/11/17",
+    "https://www.producthunt.com/leaderboard/daily/2026/11/18",
+    "https://www.producthunt.com/leaderboard/daily/2026/11/19",
+    "https://www.producthunt.com/products/muse-22",
+    "https://muse.ai/"
+  ],
+  "retrieval_references": {
+    "prior_week": "turn208731803view0",
+    "november17": "turn884511697view0",
+    "november18": "turn976316613view1",
+    "november19": "turn976316613view0",
+    "muse": "turn387485841search5",
+    "muse_official": "turn458533910view0"
+  }
+}

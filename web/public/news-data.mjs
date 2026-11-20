@@ -1,10 +1,12 @@
+import {novemberTwentyNews} from './november-20-news.mjs';
 import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-19';
+export const newsEdition = '2026-11-20';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+...novemberTwentyNews,
 {
   id: 'gemini-mac-computer-use-permission-check', date: '2026-11-19', datePublished: '2026-11-19', dateModified: '2026-11-19',
   topic: 'Agents', publisher: 'Google', art: 'review',

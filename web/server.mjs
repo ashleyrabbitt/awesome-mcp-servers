@@ -12,7 +12,7 @@ import {createReadStream} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
-const mime={'.csv':'text/csv; charset=utf-8','.pdf':'application/pdf','.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
+const mime={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.csv':'text/csv; charset=utf-8','.pdf':'application/pdf','.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
 export function createServer({saveSubmission}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
   if(await serveEditorial(req,res))return;
   attachEditorialDiscovery(req,res);

@@ -13,7 +13,7 @@ test('November 18 sandbox brief separates MCP permissions and preserves earlier 
   assert.match(story.summary,/does not automatically sandbox/);
   assert.match(story.caveat,/no configuration was tested/);
   assert.equal(newsStories.find(s=>s.id==='google-opal-shutdown-recover-prompts').datePublished,'2026-11-17');
-  assert.ok(renderRoute('/',[]).includes('/news/'+story.id));
+  assert.ok(renderRoute('/news',[]).includes('/news/'+story.id));
 });
 
 test('November 13 briefs distinguish announcement dates, publication and operational limits',()=>{
