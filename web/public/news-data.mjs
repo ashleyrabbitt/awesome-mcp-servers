@@ -6,6 +6,18 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 export const newsEdition = '2026-11-20';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'openai-distillation-defenses-audit-evidence', date: '2026-11-20', datePublished: '2026-11-20', dateModified: '2026-11-20',
+  topic: 'Safety', publisher: 'OpenAI', art: 'review',
+  title: 'OpenAI details distillation defenses: review evidence, not hidden reasoning',
+  description: 'A new safety report describes protections against unauthorized capability extraction and a practical distinction for teams reviewing AI work.',
+  summary: 'OpenAI published an account of its defenses against adversarial distillation: unauthorized attempts to train another model from its outputs without comparable safeguards. It describes request-level protections, investigations of coordinated extraction and stronger protection of internal reasoning in GPT-6.2 Astra and Sol.',
+  takeaway: 'Our take: an audit of an AI-assisted task should not depend on obtaining hidden reasoning. Review the sources, permitted tool actions, resulting changes and acceptance checks that a person can independently inspect.',
+  action: 'For one fictional task, record the input source, allowed actions, proposed output, tests and reviewer decision. Ask for a concise explanation of the result, and verify it against those artifacts before approving a real change.',
+  caveat: 'The report presents OpenAI’s internal research and evaluations, not an independent security audit or a guarantee for your workflow. It does not establish that every form of model distillation is unsafe. No safeguards were tested for this brief.',
+  sourceTitle: 'OpenAI: Combatting adversarial distillation', sourceUrl: 'https://openai.com/index/combatting-adversarial-distillation/',
+  next: ['/security', 'Review the evidence and permission boundaries']
+},
 ...novemberTwentyNews,
 {
   id: 'gemini-mac-computer-use-permission-check', date: '2026-11-19', datePublished: '2026-11-19', dateModified: '2026-11-19',
