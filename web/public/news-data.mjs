@@ -7,6 +7,18 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 export const newsEdition = '2026-11-21';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'chatgpt-space-plus-sharing-access-check', date: '2026-11-20', datePublished: '2026-11-21', dateModified: '2026-11-21',
+  topic: 'Productivity', publisher: 'OpenAI', art: 'review',
+  title: 'ChatGPT Space reaches Plus: check recipient access before a client handoff',
+  description: 'Interactive pages and presentations are rolling out to more people, but a shared link is not a public delivery route.',
+  summary: 'OpenAI says Space is rolling out worldwide to Plus users aged 18 and older. It supports collaborative pages and presentations, including updates based on connected apps and tools.',
+  takeaway: 'Our take: teams can explore a shared working document, but should check the recipient’s access before promising a client-facing deliverable.',
+  action: 'Create a fictional project checklist with no customer data. With an already-authorized collaborator, check whether the intended account can open and edit it. Record any access gap before choosing it for a real handoff.',
+  caveat: 'Shared pages require permission and a signed-in Plus, Pro, Business or Enterprise account with Space access. Free accounts cannot open them; public links are unavailable. This reports the rollout, not an independent feature or delivery test.',
+  sourceTitle: 'OpenAI: ChatGPT release notes, November 20, 2026', sourceUrl: 'https://help.openai.com/en/articles/6825453-chatgpt-release-notes',
+  next: ['/tool-trial', 'Record the access check in a bounded trial']
+},
 ...readingPicks.filter(row=>row.group==='news').map(row=>({
   id:row.id,date:row.date,datePublished:'2026-11-21',dateModified:'2026-11-21',
   topic:row.topic,publisher:row.publisher,art:'files',title:row.title,description:row.description,
