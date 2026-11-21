@@ -1,3 +1,5 @@
+import {serveMcp} from './mcp-http.mjs';
+import {discoveryTools} from './discovery-mcp.mjs';
 import {explorePage, exploreRoutes} from './public/explore-ai.mjs';
 import {eventsPage} from './public/learning-events.mjs';
 import {handleMaterial} from './material-node.mjs';
@@ -22,6 +24,7 @@ const materialSite = {id:'aisuperpower', name:'AI Superpower', accent:'#116849',
 }};
 const mime={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.csv':'text/csv; charset=utf-8','.pdf':'application/pdf','.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
 export function createServer({saveSubmission,materialCall}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
+  if(req.url?.split('?')[0].replace(/\/$/,'')==='/api/mcp')return serveMcp(req,res,{name:'ai-superpower-discovery',version:'1.0.0'},discoveryTools,['https://aisuperpower.cc','https://www.aisuperpower.cc']);
   if(await handleMaterial(req,res,materialSite,materialCall))return;
   if(await serveEditorial(req,res))return;
   attachEditorialDiscovery(req,res);
