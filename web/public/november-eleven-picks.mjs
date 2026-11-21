@@ -13,6 +13,7 @@ export const novemberElevenPicks=[
  {
   id:'whacka',name:'Whacka',publisher:'Whacka',type:'AI apps',category:'Development',roles:['Entrepreneurs','Product managers','Developers'],mark:'Wh',color:'butter',
   url:'https://whacka.app/',sourceUrl:'https://whacka.app/',
+  affiliateUrl:'https://via.whacka.app/ashley-kays',affiliateDisclosure:'AI Superpower may earn a commission if you subscribe through this Whacka link.',
   description:'Describe an app and build its interface, database, sign-in and hosting in one place. Create a customer portal or internal tool, then add team access, bookings or payments as the workflow grows.',
   best_for:'Turning a focused business process into an app that customers or teammates can use.',firstTry:'Build a project-request tracker with sample records, a status field and separate user accounts.',checkpoint:'Sign in as two test users and verify that each sees only the records they should.',
   limitations:'Publishing, credits and app capabilities depend on the plan. Team accounts are user permissions, not an autonomous team operating your business.',permissions:'App prompts and data are processed by the platform. Review member roles and payment settings before launch.',
