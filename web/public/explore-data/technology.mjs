@@ -1,0 +1,206 @@
+export const technologyPicks = [
+  {
+    group: "agents",
+    title: "Notion Custom Agents",
+    description: "Give a team a recurring helper inside Notion. An agent can look up answers in the company wiki or route incoming work by topic.",
+    tryThis: "Start with five questions new hires actually ask. Have the agent answer from your onboarding pages and link the relevant passage.",
+    url: "https://www.notion.com/product/agents",
+    sourceLabel: "Notion product guide",
+    sourceUrl: "https://www.notion.com/product/agents",
+    tags: ["agent", "productivity", "team knowledge"],
+    toolId: "notion-custom-agents"
+  },
+  {
+    group: "agents",
+    title: "GitHub Copilot in the cloud",
+    description: "Delegate a development task from a repository conversation. Copilot can investigate existing code, plan a change and produce work you can review on GitHub.",
+    tryThis: "Pick a documentation issue. Ask for a plan, then check the proposed change against the actual setup steps.",
+    url: "https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github",
+    sourceLabel: "GitHub Docs",
+    sourceUrl: "https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-on-github",
+    tags: ["agent", "development", "GitHub"],
+    toolId: "github-copilot"
+  },
+  {
+    group: "agents",
+    title: "Claude Code",
+    description: "Work with a coding agent in a project you already maintain. It can trace how a feature works across files, make an edit and run project checks.",
+    tryThis: "Ask it to trace a newsletter form from the submit button to the confirmation message. Review its file references before requesting an edit.",
+    url: "https://code.claude.com/docs/en/overview",
+    sourceLabel: "Claude Code documentation",
+    sourceUrl: "https://code.claude.com/docs/en/overview",
+    tags: ["agent", "development", "codebase"],
+    toolId: "claude-code"
+  },
+  {
+    group: "agents",
+    title: "n8n AI Agent node",
+    description: "Build an agent inside a visual workflow. Connect a chat model and tools, then let the agent choose a tool for each request.",
+    tryThis: "Connect a read-only product lookup. Try an exact SKU, a misspelled name and a product you do not sell. Check what the agent returns for each.",
+    url: "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent",
+    sourceLabel: "n8n node reference",
+    sourceUrl: "https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent",
+    tags: ["agent builder", "automation", "business"],
+    toolId: "n8n"
+  },
+  {
+    group: "agents",
+    title: "Microsoft Copilot Studio",
+    description: "Build an agent or workflow for a business process. Agent flows can call tools and pause for a person to review the result.",
+    tryThis: "Build a purchase-request flow that extracts the item and amount from a sample request and asks a reviewer to confirm both.",
+    url: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+    sourceLabel: "Microsoft Learn",
+    sourceUrl: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio",
+    tags: ["agent builder", "Microsoft", "operations"],
+    toolId: "copilot-studio"
+  },
+  {
+    group: "extensions",
+    title: "Figma MCP server",
+    description: "Give a coding assistant access to a selected Figma frame, including layout, variables and components. Designers and developers can work from the same source.",
+    tryThis: "Select one checkout button. Ask which component, color variable and spacing values a developer should use to reproduce it.",
+    url: "https://developers.figma.com/docs/figma-mcp-server/",
+    sourceLabel: "Figma developer docs",
+    sourceUrl: "https://developers.figma.com/docs/figma-mcp-server/",
+    tags: ["MCP server", "design", "development"],
+    toolId: "figma"
+  },
+  {
+    group: "extensions",
+    title: "Notion MCP",
+    description: "Connect a compatible AI assistant to a Notion workspace so it can use project records and meeting notes as source material.",
+    tryThis: "Choose a project page and ask for a decision log with the date, owner and a link to the note behind each entry.",
+    url: "https://developers.notion.com/guides/mcp/overview",
+    sourceLabel: "Notion developer docs",
+    sourceUrl: "https://developers.notion.com/guides/mcp/overview",
+    tags: ["MCP server", "productivity", "project management"],
+    toolId: "notion"
+  },
+  {
+    group: "extensions",
+    title: "GitHub MCP server",
+    description: "Give an assistant access to repository tools. Read-only mode is a useful fit for release notes and issue summaries.",
+    tryThis: "Select one repository in read-only mode. Ask for merged pull requests since the last release, grouped by the features they changed.",
+    url: "https://github.com/github/github-mcp-server",
+    sourceLabel: "GitHub official repository",
+    sourceUrl: "https://github.com/github/github-mcp-server",
+    tags: ["MCP server", "development", "release notes"],
+    toolId: "github"
+  },
+  {
+    group: "extensions",
+    title: "Google Developer Knowledge MCP server",
+    description: "Let a coding assistant search Google's own documentation for products including Firebase, Google Cloud, Maps and Android.",
+    tryThis: "Ask for the documented steps for adding a map to a web page. Have it attach the Google reference for each setup step.",
+    url: "https://developers.google.com/knowledge/mcp",
+    sourceLabel: "Google for Developers",
+    sourceUrl: "https://developers.google.com/knowledge/mcp",
+    tags: ["MCP server", "documentation", "development"],
+    toolId: "google-developer-knowledge-mcp-server"
+  },
+  {
+    group: "extensions",
+    title: "Document Co-Authoring skill",
+    description: "A reusable writing workflow for proposals, specifications and decision documents. It gathers context, helps refine sections and tests whether readers can follow the result.",
+    tryThis: "Start with a one-page project proposal. Ask a fresh reader to identify who approves the budget and what happens next.",
+    url: "https://github.com/anthropics/skills/blob/main/skills/doc-coauthoring/SKILL.md",
+    sourceLabel: "Anthropic skill definition",
+    sourceUrl: "https://raw.githubusercontent.com/anthropics/skills/main/skills/doc-coauthoring/SKILL.md",
+    tags: ["agent skill", "writing", "business"],
+    toolId: "anthropic-doc-coauthoring"
+  },
+  {
+    group: "extensions",
+    title: "Theme Factory skill",
+    description: "Choose coordinated type and color treatments for slides, documents and landing pages. The skill includes a theme showcase and supports custom themes.",
+    tryThis: "Use one sample slide and one report page. Apply the same theme and check whether both are easy to read at normal size.",
+    url: "https://github.com/anthropics/skills/blob/main/skills/theme-factory/SKILL.md",
+    sourceLabel: "Anthropic skill definition",
+    sourceUrl: "https://raw.githubusercontent.com/anthropics/skills/main/skills/theme-factory/SKILL.md",
+    tags: ["agent skill", "design", "creative"],
+    toolId: "anthropic-theme-factory"
+  },
+  {
+    group: "extensions",
+    title: "Skill Creator",
+    description: "Package a repeatable task into instructions an agent can reuse, then test how consistently it follows them on new examples.",
+    tryThis: "Turn your weekly status-report checklist into a skill. Try it on three different sets of notes and score whether it preserves owners and dates.",
+    url: "https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md",
+    sourceLabel: "Anthropic skill definition",
+    sourceUrl: "https://raw.githubusercontent.com/anthropics/skills/main/skills/skill-creator/SKILL.md",
+    tags: ["agent skill", "evaluation", "automation"],
+    toolId: "anthropic-skill-creator"
+  },
+  {
+    group: "extensions",
+    title: "Marketing plugin for Claude",
+    description: "A bundle of marketing workflows for campaign planning, copywriting, brand review and reporting. Install it in Claude Cowork.",
+    tryThis: "Use /campaign-plan with a real offer, a budget and a signup goal. Check that each channel has an owner and a measure of success.",
+    url: "https://claude.com/marketplace/plugins/marketing",
+    sourceLabel: "Claude Marketplace",
+    sourceUrl: "https://claude.com/marketplace/plugins/marketing",
+    tags: ["plugin", "marketing", "entrepreneurship"],
+    toolId: "claude-marketing-plugin"
+  },
+  {
+    group: "extensions",
+    title: "Product Management plugin for Claude",
+    description: "Use packaged research, specification and roadmap workflows in Claude Cowork. The plugin can turn interview notes into a draft synthesis.",
+    tryThis: "Run /synthesize-research on three anonymized interviews. Ask for a supporting quote and a counterexample for each proposed theme.",
+    url: "https://claude.com/marketplace/plugins/product-management",
+    sourceLabel: "Claude Marketplace",
+    sourceUrl: "https://claude.com/marketplace/plugins/product-management",
+    tags: ["plugin", "product management", "user research"],
+    toolId: "claude-product-management-plugin"
+  },
+  {
+    group: "models",
+    title: "GPT-6.2 Sol",
+    description: "OpenAI lists gpt-6.2-sol for everyday coding and agent tasks. The API model supports tools including file search and function calls.",
+    tryThis: "Give it a small public help article and three customer questions. Check whether each answer matches a passage and flags any missing information.",
+    url: "https://developers.openai.com/api/docs/models/gpt-6.2-sol",
+    sourceLabel: "OpenAI API model catalog",
+    sourceUrl: "https://developers.openai.com/api/docs/models",
+    tags: ["model", "OpenAI", "coding", "tool use"]
+  },
+  {
+    group: "models",
+    title: "Claude Haiku 5.5",
+    description: "Anthropic positions claude-haiku-5-5 for high-volume tasks such as extraction and routing. It accepts text and images and returns text.",
+    tryThis: "Test it on ten labeled support tickets. Count correct labels and time the batch before deciding whether it fits your queue.",
+    url: "https://platform.claude.com/docs/en/models/haiku-5-5/overview",
+    sourceLabel: "Anthropic model comparison",
+    sourceUrl: "https://platform.claude.com/docs/en/models/overview",
+    tags: ["model", "Anthropic", "classification", "business"]
+  },
+  {
+    group: "models",
+    title: "Gemini 4 Carbon",
+    description: "Google’s gemini-4-carbon accepts text, images, video, audio and PDFs. It returns text, which makes it a candidate for reviewing recorded demos alongside documentation.",
+    tryThis: "Give it a short product walkthrough and the corresponding help page. Ask which on-screen steps the page leaves out, then check the recording.",
+    url: "https://aistudio.google.com/docs/models/gemini-4-carbon",
+    sourceLabel: "Google AI Studio model card",
+    sourceUrl: "https://aistudio.google.com/docs/models/gemini-4-carbon",
+    tags: ["model", "Google", "multimodal", "video"]
+  },
+  {
+    group: "models",
+    title: "Qwen3-Embedding-0.6B",
+    description: "Qwen's downloadable text-embedding model represents text as vectors for tasks such as finding relevant passages or grouping related topics.",
+    tryThis: "Index twenty FAQ answers. Search with five customer questions that use different wording and see whether the correct answer appears among the first three.",
+    url: "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+    sourceLabel: "Qwen model card",
+    sourceUrl: "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B",
+    tags: ["model", "open weights", "embeddings", "search"]
+  },
+  {
+    group: "models",
+    title: "Artificial Analysis model comparison",
+    description: "Compare tested models on capability, speed and price. The published methodology explains which tasks contribute to its Intelligence Index.",
+    tryThis: "Shortlist two models that fit your budget and response-time needs. Run the same three examples through both and score the outputs against your own criteria.",
+    url: "https://artificialanalysis.ai/models",
+    sourceLabel: "Benchmark methodology",
+    sourceUrl: "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+    tags: ["model comparison", "benchmarks", "evaluation"]
+  },
+];

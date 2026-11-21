@@ -1,3 +1,5 @@
+import {explorePage, exploreRoutes} from './public/explore-ai.mjs';
+import {eventsPage} from './public/learning-events.mjs';
 import {handleMaterial} from './material-node.mjs';
 import {publishedServices} from './public/editorial-providers.mjs';
 import {startDigestWorker} from './digest-worker.mjs';
@@ -39,6 +41,16 @@ export function createServer({saveSubmission,materialCall}={}){const allowSubmis
  let filename=path.resolve(root,'.'+decoded);if(!filename.startsWith(root+path.sep)&&filename!==root){res.writeHead(400,security);res.end('Bad request');return}
  let status=200;try{const info=await stat(filename);if(info.isDirectory())filename=path.join(filename,'index.html');await stat(filename)}catch{status=404;filename=path.join(root,'404/index.html')}
  if(status===200&&(decoded.endsWith('/index.html')||(decoded!=='/'&&decoded.endsWith('/')))){const canonicalPath=decoded.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';res.writeHead(308,{...security,Location:canonicalPath+url.search});res.end();return}
+ // Render filtered searches and dated calendars for direct visits as well as client navigation.
+ const timedCalendar=url.pathname==='/events'||url.pathname==='/explore-ai/events-and-conferences';
+ const guideSearch=url.searchParams.has('q')&&exploreRoutes.includes(url.pathname);
+ if(status===200&&(timedCalendar||guideSearch)){
+   const body=url.pathname==='/events'?eventsPage():explorePage(url.pathname,url.searchParams);
+   const template=await readFile(filename,'utf8');
+   const html=template.replace(/(<main id="main" tabindex="-1">)[\s\S]*?(<\/main>)/,(_,start,end)=>start+body+end);
+   res.writeHead(200,{...security,'Content-Type':mime['.html'],'Cache-Control':'no-cache'});
+   res.end(req.method==='HEAD'?'':html);return;
+ }
  const info=await stat(filename);if(status===404)security['X-Robots-Tag']='noindex, follow';res.writeHead(status,{...security,'Content-Type':mime[path.extname(filename)]||'application/octet-stream','Content-Length':info.size,'Cache-Control':/\.(html|css|mjs|json)$/.test(filename)?'no-cache':'public, max-age=3600'});if(req.method==='HEAD')res.end();else{const stream=createReadStream(filename);stream.on('error',()=>res.destroy());stream.pipe(res)}
  }catch{res.writeHead(500,{...security,'Content-Type':'text/plain'});res.end('Something went wrong. Please try again.')}
 })}

@@ -1,9 +1,16 @@
+import {careerPicks} from './explore-data/careers.mjs';
 // Curation date only. Do not treat checkedAt as the employer's posting date.
-export const jobsEdition = '2026-11-20';
+export const jobsEdition = '2026-11-21';
 
 const checked = {checkedAt: '2026-11-20', status: 'Open when checked'};
 
 export const jobs = [
+  ...careerPicks.filter(row=>row.kind==='opening').map(row=>({
+    id:row.id,title:row.role,company:row.employer,category:row.category,workplace:row.workMode,
+    location:row.location,locationNotes:row.locationNotes||row.location,employmentType:row.employmentType,
+    description:row.description,preparation:true,whyItMatters:row.tryThis,requirements:row.requirements,
+    checkedAt:row.date,status:'Open when checked',sourceUrl:row.sourceUrl,applicationUrl:row.url
+  })),
   {
     ...checked, id: 'safari-ai-gtm-engineering-lead-5200856007',
     title: 'GTM Engineering Lead', company: 'Safari AI',
