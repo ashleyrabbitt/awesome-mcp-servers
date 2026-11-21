@@ -1,3 +1,5 @@
+import {taskProducts} from './task-guides/products.mjs';
+import {tasks,taskBase,reading} from './task-guides/tasks.mjs';
 import {escapeHTML as e} from './catalog.mjs';
 import {affiliateFor, toolLink} from './tool-links.mjs';
 import {productLogos} from './product-branding.mjs';
@@ -12,6 +14,7 @@ const base = '/explore-ai';
 const edition = 'November 21, 2026';
 export const resourceTopics = [
   {key:'popular', slug:'popular-tools', title:'Popular AI tools', intro:'Explore selected consumer AI products from the August 2026 a16z web ranking. Positions use Similarweb monthly visits to the whole product. Each pick comes with a small task you can try.', more:['/tool-trial','Compare two tools on your task']},
+  {key:'guides',slug:'guided-tool-comparisons',title:'Guided tool comparisons',intro:'Choose a task, compare four products and use a practice case to check the result.',more:[taskBase,'Browse the task library']},
   {key:'work', slug:'tools-by-task', title:'Tools for work and play', intro:'Prototype a business idea, design a screen, edit a video, plan your day or play a drawing game. Choose a tool by the result you want to make.', more:['/search','Find more tools by task']},
   {key:'marketplaces', slug:'product-hunt-and-appsumo', title:'Product Hunt and AppSumo', intro:'Browse Product Hunt launches with dated positions on its daily leaderboard. Explore AppSumo deals with a first task to try and a link to the current offer and limits.', more:['/product-hunt-picks','Browse the Product Hunt archive']},
   {key:'agents', slug:'ai-agents', title:'Agents and agent builders', intro:'Delegate a repository task, route requests or build your own repeatable workflow. These examples show what to give an agent and how to review its work.', more:['/agents','Open the agent guides']},
@@ -26,20 +29,22 @@ export const resourceTopics = [
 ];
 export const exploreRoutes = [base, ...resourceTopics.map(t=>base+'/'+t.slug)];
 const shelves = [
-  ['Choose a tool', ['popular','work','marketplaces']],
+  ['Choose a tool', ['guides','popular','work','marketplaces']],
   ['Build a workflow', ['agents','extensions','models','prompts']],
   ['Learn and keep up', ['events','learning','follow','news','jobs']]
 ];
 const prompts = practicePrompts.map(p=>({...p,group:'prompts',tags:['Prompt template',p.role],url:'/prompts/'+p.id}));
-const allResources = [...toolPicks,...technologyPicks,...learningPicks,...readingPicks,...careerPicks,...prompts];
+const taskCards = tasks.map(t=>({group:'guides',title:t.title,description:t.description,tryThis:t.steps[0],url:taskBase+'/'+t.id,sourceLabel:reading[t.id][0],sourceUrl:reading[t.id][1],tags:[t.group,...t.keywords.slice(0,2)]}));
+const productCards = taskProducts.map(p=>({group:'work',title:p.name,description:p.description,tryThis:p.firstTry,url:p.url,sourceLabel:'Read the task guide',sourceUrl:taskBase+'/'+p.task,toolId:p.id,tags:[p.category,p.pricing_model],date:p.date}));
+const allResources = [...taskCards,...productCards,...toolPicks,...technologyPicks,...learningPicks,...readingPicks,...careerPicks,...prompts];
 const sampleTitles = {
-  popular:'ChatGPT, Gemini and Claude', work:'Design, development, creative work and fun', marketplaces:'Dated launch ranks and software deals',
+  guides:'Practice briefs, product comparisons and result checks', popular:'ChatGPT, Gemini and Claude', work:'Design, development, creative work and fun', marketplaces:'Dated launch ranks and software deals',
   agents:'Notion Custom Agents and Copilot Studio', extensions:'Figma MCP, Theme Factory and Claude plugins', models:'Model IDs, inputs and benchmarks',
   prompts:'Customer interviews, design handoffs and model trials', events:'Florida meetups, online events and research conferences',
   learning:'Small-business lessons, live cohorts and college credit', follow:'Farzad, Practical AI and One Useful Thing',
   news:'Voice models, world models and applied research', jobs:'Employer listings and career boards'
 };
-const actions = {popular:'Open tool',work:'Open tool',agents:'See the agent',extensions:'View extension',models:'Explore model resource',prompts:'Customize prompt',learning:'Explore program',follow:'Visit publisher',news:'Read our brief',events:'See event details',jobs:'View employer listing',marketplaces:'View marketplace listing'};
+const actions = {guides:'Open the task guide',popular:'Open tool',work:'Open tool',agents:'See the agent',extensions:'View extension',models:'Explore model resource',prompts:'Customize prompt',learning:'Explore program',follow:'Visit publisher',news:'Read our brief',events:'See event details',jobs:'View employer listing',marketplaces:'View marketplace listing'};
 const dateFormat = new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
 const dateText = date => dateFormat.format(new Date(date+'T12:00:00Z'));
 const liveRows = now => allResources.filter(row=>row.group!=='events'||Date.parse(row.expires)>Number(now));

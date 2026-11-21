@@ -1,5 +1,6 @@
 import {serveMcp} from './mcp-http.mjs';
 import {discoveryTools} from './discovery-mcp.mjs';
+import {taskGuidePage} from './public/task-guides/views.mjs';
 import {explorePage, exploreRoutes} from './public/explore-ai.mjs';
 import {eventsPage} from './public/learning-events.mjs';
 import {handleMaterial} from './material-node.mjs';
@@ -10,7 +11,7 @@ import {serveEditorial,attachEditorialDiscovery} from './editorial/server.mjs';
 import {businessRequest} from './business-api.mjs';
 import {dynamicTool,dynamicSitemap,toolRedirect} from './dynamic-catalog.mjs';
 import {submissionRequest,createLimiter} from './submission-api.mjs';
-import {catalogRequest,searchParameters} from './catalog-api.mjs';
+import {catalogRequest,searchParameters,allPublishedTools} from './catalog-api.mjs';
 import http from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
 import {createReadStream,existsSync} from 'node:fs';
@@ -34,7 +35,7 @@ export function createServer({saveSubmission,materialCall}={}){const allowSubmis
  if(req.method!=='GET'&&req.method!=='HEAD'){res.writeHead(405,{...security,Allow:'GET, HEAD'});res.end('Method not allowed');return}
  try{const url=new URL(req.url,'http://localhost');if(url.search||url.pathname.startsWith('/api/'))security['X-Robots-Tag']='noindex, follow';if(url.pathname==='/health'){res.writeHead(200,{...security,'Content-Type':'application/json'});res.end(req.method==='HEAD'?'':JSON.stringify({status:'ok',service:'superpowers'}));return}
  if(url.pathname==='/api/services'){try{const rows=await catalogRequest('superpowers_services?select=id,name,website,description,category,audience,location,pricing,reviewed_at&order=name.asc&limit=500');res.writeHead(200,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':JSON.stringify(publishedServices(rows)));}catch{res.writeHead(503,{...security,'Content-Type':'application/json'});res.end(JSON.stringify({error:'Service listings are temporarily unavailable'}));}return}
- if(url.pathname==='/api/catalog'||url.pathname==='/api/search'){try{const data=url.pathname==='/api/search'?await catalogRequest((url.searchParams.has('pricing')||url.searchParams.get('sort')==='recent')?'rpc/superpowers_search_v2':'rpc/superpowers_search',searchParameters(url.searchParams)):await catalogRequest('superpowers_tools?select=data&order=editorial_order.asc&limit=1000');const result=url.pathname==='/api/catalog'?data.map(x=>x.data):data;res.writeHead(200,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':JSON.stringify(result));}catch{res.writeHead(503,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({error:'Catalog search temporarily unavailable'}));}return}
+ if(url.pathname==='/api/catalog'||url.pathname==='/api/search'){try{const data=url.pathname==='/api/search'?await catalogRequest((url.searchParams.has('pricing')||url.searchParams.get('sort')==='recent')?'rpc/superpowers_search_v2':'rpc/superpowers_search',searchParameters(url.searchParams)):(await allPublishedTools('id,data,editorial_order')).sort((a,b)=>a.editorial_order-b.editorial_order||a.id.localeCompare(b.id));const result=url.pathname==='/api/catalog'?data.map(x=>x.data):data;res.writeHead(200,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':JSON.stringify(result));}catch{res.writeHead(503,{...security,'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({error:'Catalog search temporarily unavailable'}));}return}
  if(process.env.SUPERPOWERS_SUPABASE_URL&&(['/requests','/deals','/tool-changes'].includes(url.pathname)||/^\/community-kits\/[a-f0-9-]{36}$/.test(url.pathname))){const r=await dynamicDiscovery(url.pathname);res.writeHead(r.status,{...security,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});res.end(req.method==='HEAD'?'':r.body);return}
  if(/^\/go\/[a-z0-9-]+$/.test(url.pathname)){const r=await toolRedirect(url.pathname.split('/')[2],req);res.writeHead(r.status,{...security,...r.headers});res.end();return}
  if(process.env.SUPERPOWERS_SUPABASE_URL&&/^\/tools\/[a-z0-9-]+$/.test(url.pathname)){const r=await dynamicTool(url.pathname);res.writeHead(r.status,{...security,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache',...(r.status===404?{'X-Robots-Tag':'noindex'}:{})});res.end(req.method==='HEAD'?'':r.body);return}
@@ -46,9 +47,9 @@ export function createServer({saveSubmission,materialCall}={}){const allowSubmis
  if(status===200&&(decoded.endsWith('/index.html')||(decoded!=='/'&&decoded.endsWith('/')))){const canonicalPath=decoded.replace(/\/index\.html$/,'').replace(/\/$/,'')||'/';res.writeHead(308,{...security,Location:canonicalPath+url.search});res.end();return}
  // Render filtered searches and dated calendars for direct visits as well as client navigation.
  const timedCalendar=url.pathname==='/events'||url.pathname==='/explore-ai/events-and-conferences';
- const guideSearch=url.searchParams.has('q')&&exploreRoutes.includes(url.pathname);
+ const guideSearch=url.searchParams.has('q')&&(exploreRoutes.includes(url.pathname)||url.pathname==='/ai-tasks');
  if(status===200&&(timedCalendar||guideSearch)){
-   const body=url.pathname==='/events'?eventsPage():explorePage(url.pathname,url.searchParams);
+   const body=url.pathname==='/events'?eventsPage():url.pathname==='/ai-tasks'?taskGuidePage(url.pathname,url.searchParams):explorePage(url.pathname,url.searchParams);
    const template=await readFile(filename,'utf8');
    const html=template.replace(/(<main id="main" tabindex="-1">)[\s\S]*?(<\/main>)/,(_,start,end)=>start+body+end);
    res.writeHead(200,{...security,'Content-Type':mime['.html'],'Cache-Control':'no-cache'});
