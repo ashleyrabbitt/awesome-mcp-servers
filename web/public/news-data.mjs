@@ -1,11 +1,18 @@
+import {readingPicks} from './explore-data/reading.mjs';
 import {novemberTwentyNews} from './november-20-news.mjs';
 import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-20';
+export const newsEdition = '2026-11-21';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+...readingPicks.filter(row=>row.group==='news').map(row=>({
+  id:row.id,date:row.date,datePublished:'2026-11-21',dateModified:'2026-11-21',
+  topic:row.topic,publisher:row.publisher,art:'files',title:row.title,description:row.description,
+  summary:row.whatChanged,takeaway:row.takeaway,action:row.tryThis,caveat:row.caveat,
+  sourceTitle:row.publisher+' · original report',sourceUrl:row.sourceUrl,next:['/explore-ai/ai-advancements','Explore more advances in AI']
+})),
 {
   id: 'openai-distillation-defenses-audit-evidence', date: '2026-11-20', datePublished: '2026-11-20', dateModified: '2026-11-20',
   topic: 'Safety', publisher: 'OpenAI', art: 'review',

@@ -1,5 +1,9 @@
 // Locally hosted publisher icons. Source records: web/editorial/product-logo-sources.json
 export const productLogos={
+  "threadlore": "/assets/product-logos/d9936e82695e1f65.svg",
+  "tripmojo": "/assets/product-logos/d382a93ce65bb97d.webp",
+  "currents": "/assets/product-logos/143a5897b1e9a757.webp",
+  "tamekoshi": "/assets/product-logos/2de805b976026efe.webp",
   "spira": "/assets/product-logos/4d7842b803f71713.webp",
   "pancake": "/assets/product-logos/b06f78de2aa98548.webp",
   "reso": "/assets/product-logos/d28eccc4248bce1c.webp",

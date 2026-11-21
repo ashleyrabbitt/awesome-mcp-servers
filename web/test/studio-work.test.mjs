@@ -31,10 +31,16 @@ test('sample exports preserve project type, judgment and observed evidence witho
 });
 
 test('events expire into the archive while dates, official sources and learning remain available',()=>{
- assert.equal(upcomingEvents(new Date('2026-11-14T12:00:00Z')).length,4);
- const later=upcomingEvents(new Date('2026-11-21T12:00:00Z'));assert.equal(later.length,2);assert.ok(later.every(x=>x.start==='2026-11-30'));
- assert.equal(upcomingEvents(new Date('2026-12-05T12:00:00Z')).length,0);
- const archive=eventsPage(new Date('2026-12-05T12:00:00Z'));assert.match(archive,/Past events/);assert.match(archive,/No dated picks remain/);
+ const later=upcomingEvents(new Date('2026-11-21T12:00:00Z'));
+ assert.equal(later.length,new Set(later.map(x=>x.url)).size);
+ assert.ok(later.some(x=>x.id==='ai-dev-nyc-2026'));
+ assert.ok(later.some(x=>x.name.includes('DevFest Miami')));
+ const afterMiami=upcomingEvents(new Date('2026-12-06T05:01:00Z'));
+ assert.ok(!afterMiami.some(x=>x.name.includes('DevFest Miami')));
+ assert.ok(afterMiami.some(x=>x.name==='Generative AI Expo'));
+ const finalCutoff=new Date(Math.max(...learningEvents.map(x=>Date.parse(x.expires))));
+ assert.equal(upcomingEvents(finalCutoff).length,0);
+ const archive=eventsPage(finalCutoff);assert.match(archive,/Past events/);assert.match(archive,/No dated picks remain/);
  for(const event of learningEvents){assert.ok(event.url.startsWith('https:'));assert.ok(Date.parse(event.expires));assert.ok(event.output.length>30);}
 });
 

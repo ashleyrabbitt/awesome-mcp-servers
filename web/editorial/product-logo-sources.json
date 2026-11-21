@@ -1,6 +1,10 @@
 {
   "checked": "2026-11-13",
   "assets": [
+    {"ids": ["threadlore"], "asset": "/assets/product-logos/d9936e82695e1f65.svg", "source": "https://threadlore-122120455814.us-central1.run.app/icon.svg", "website": "https://threadlore-122120455814.us-central1.run.app/", "width": 64, "height": 64, "checked": "2026-11-21"},
+    {"ids": ["tripmojo"], "asset": "/assets/product-logos/d382a93ce65bb97d.webp", "source": "https://tripmojo.ai/brand/apple-touch-icon-180.png?v=2", "website": "https://tripmojo.ai/", "width": 160, "height": 160, "checked": "2026-11-21"},
+    {"ids": ["currents"], "asset": "/assets/product-logos/143a5897b1e9a757.webp", "source": "https://currents.dev/apple-icon.png?apple-icon.2z09dvcf4pu29.png", "website": "https://currents.dev/", "width": 160, "height": 160, "checked": "2026-11-21"},
+    {"ids": ["tamekoshi"], "asset": "/assets/product-logos/2de805b976026efe.webp", "source": "https://www.tamekoshi.com/apple-touch-icon.png", "website": "https://www.tamekoshi.com/", "width": 160, "height": 160, "checked": "2026-11-21"},
     {
       "ids": [
         "spira"

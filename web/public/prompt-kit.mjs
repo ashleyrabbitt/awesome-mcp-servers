@@ -1,7 +1,9 @@
 import {missions} from './discovery.mjs';
 import {extraPrompts} from './spotlight.mjs';
 
-export const promptTemplates=[...missions,...extraPrompts].filter(x=>x.prompt);
+import {practicePrompts} from './explore-data/prompts.mjs';
+
+export const promptTemplates=[...missions,...extraPrompts,...practicePrompts].filter(x=>x.prompt);
 export function promptFields(template){
   return [...new Set([...template.prompt.matchAll(/\[([^\]\n]+)\]/g)].map(x=>x[1]))];
 }

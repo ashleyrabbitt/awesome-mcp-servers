@@ -26,7 +26,6 @@ import {pageSEO,updateSEO} from './seo.mjs';
 import {labWorkflows,workModes,cleanLabPlans,workflowMarkdown} from './workflow-lab.mjs';
 import {timeResult} from './lab-views.mjs';
 import {promptTemplates,promptFields,buildPrompt,cleanPromptFavorites} from './prompt-kit.mjs';
-import {extraPrompts} from './spotlight.mjs';
 import {curated,escapeHTML as e} from './catalog.mjs';
 import './workflow-assets/finder.js';
 import {renderRoute,quickView,demoPanel} from './views.mjs';
@@ -54,7 +53,7 @@ function saveMany(ids){state.saved=[...new Set([...state.saved,...ids.filter(x=>
 function downloadStack(){const tools=items.filter(t=>state.saved.includes(t.id)).map(({id,name,url,type,description,permissions,status,date})=>({id,name,url,type,description,permissions,reviewStatus:status,reviewDate:date}));if(!tools.length){toast('Save a tool first, then export your stack.');return}const blob=new Blob([JSON.stringify({title:'My AI Superpower stack',exportedAt:new Date().toISOString(),note:'Suggested tools; review publisher documentation and permissions before connecting.',tools},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='my-superpowers-stack.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 readState();restoreBuyerDecision();try{state.trial=cleanTrial(JSON.parse(localStorage.getItem(trialStorageKey)||'{}'))}catch{state.trial=cleanTrial()}sync();
 if(location.pathname.startsWith('/journeys/'))render();
-if(/^\/(jobs|news|start|playbooks|role-kits|field-tests|search|finder|my-kit|first-win|missions|comparisons|worksheets|community|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|tool-trial|submit|services|work-with-us|advertise)(\/|$)/.test(location.pathname))render();
+if(/^\/(explore-ai|events|jobs|news|start|playbooks|role-kits|field-tests|search|finder|my-kit|first-win|missions|comparisons|worksheets|community|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|tool-trial|submit|services|work-with-us|advertise)(\/|$)/.test(location.pathname))render();
 document.addEventListener('click',async event=>{
  const target=event.target.closest('button,a');if(!target)return;
  if(target.matches('a[href]')){if(target.hasAttribute('data-editorial-link'))return;const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!url.pathname.startsWith('/go/')&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();navigate(url.pathname+url.search)}return}
@@ -63,7 +62,7 @@ document.addEventListener('click',async event=>{
  if(target.dataset.favoritePrompt){const id=target.dataset.favoritePrompt;if(!promptTemplates.some(x=>x.id===id))return;const saved=state.promptSaved.includes(id);state.promptSaved=saved?state.promptSaved.filter(x=>x!==id):[...state.promptSaved,id];persist();target.setAttribute('aria-pressed',String(!saved));target.textContent=saved?'Save template ♡':'Saved to favorites ♥';toast(saved?'Template removed from favorites.':'Template saved. Find it in My powers.');}
  if(target.dataset.resetPrompt){const id=target.dataset.resetPrompt;state.promptDrafts[id]={};render();toast('Your prompt entries are cleared.');}
  if(target.dataset.copyCustom||target.dataset.downloadPrompt){const id=target.dataset.copyCustom||target.dataset.downloadPrompt;const m=promptTemplates.find(x=>x.id===id);if(!m)return;const prompt=buildPrompt(m,state.promptDrafts[id]||{});if(target.dataset.copyCustom){try{await navigator.clipboard.writeText(prompt);toast('Your personalized prompt is copied.')}catch{toast('Copy is unavailable. Select the preview text to copy it.')}}else{const blob=new Blob([prompt+'\n'],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='superpowers-'+id+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}
- if(target.dataset.copyMission){const m=[...missions,...extraPrompts].find(x=>x.id===target.dataset.copyMission);try{await navigator.clipboard.writeText(m.prompt);toast('Prompt copied.')}catch{toast('Select the prompt text to copy it.')}}
+ if(target.dataset.copyMission){const m=promptTemplates.find(x=>x.id===target.dataset.copyMission);try{await navigator.clipboard.writeText(m.prompt);toast('Prompt copied.')}catch{toast('Select the prompt text to copy it.')}}
  if(target.dataset.save)save(target.dataset.save);
  if(target.dataset.quick){const t=items.find(t=>t.id===target.dataset.quick);if(t){document.querySelector('#quick-content').innerHTML=quickView(t,state);document.querySelector('#quick-view').showModal();sync()}}
  if('type' in target.dataset)setFilter('type',target.dataset.type);
