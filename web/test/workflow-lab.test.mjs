@@ -49,12 +49,23 @@ test('workflow notes cannot inject HTML and unknown page IDs fail cleanly',()=>{
  assert.ok(renderRoute('/time-savings',curated,{labCalculator:{before:'" onfocus="bad'}}).includes('&quot; onfocus=&quot;bad'));
 });
 
-test('all worksheet downloads serve the actual generated content',async()=>{
+test('worksheet downloads require a saved email before serving the actual generated content',async()=>{
  assert.equal(resourceKits.length,10);
- const server=createServer();await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+ const token='a'.repeat(64), calls=[];
+ const materialCall=async(name,data)=>{calls.push([name,data]);return name==='request_material_access'?token:data.p_token===token;};
+ const server=createServer({materialCall});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  const base='http://127.0.0.1:'+server.address().port;
- try{for(const r of resourceKits){
-  const response=await fetch(base+'/downloads/'+r.id+'.md');assert.equal(response.status,200);
+ try{
+  const file='/downloads/'+resourceKits[0].id+'.md';
+  const locked=await fetch(base+file,{redirect:'manual'});assert.equal(locked.status,303);
+  const gate=await fetch(base+locked.headers.get('location'));assert.match(await gate.text(),/Email address/);
+  const submit=email=>fetch(base+'/free-material',{method:'POST',body:new URLSearchParams({file,email}),redirect:'manual'});
+  assert.equal((await submit('bad')).status,422);assert.equal(calls.length,0);
+  const unlock=await submit('test@example.invalid');assert.equal(unlock.status,303);
+  assert.deepEqual(calls[0],['request_material_access',{p_site:'aisuperpower',p_email:'test@example.invalid'}]);
+  const cookie=unlock.headers.get('set-cookie').split(';')[0];
+  for(const r of resourceKits){
+  const response=await fetch(base+'/downloads/'+r.id+'.md',{headers:{cookie}});assert.equal(response.status,200);
   assert.equal(await response.text(),resourceMarkdown(r));
   const html=await readFile(new URL('../dist/resources/'+r.id+'/index.html',import.meta.url),'utf8');assert.ok(html.includes('/downloads/'+r.id+'.md'));
  }}finally{await new Promise(resolve=>server.close(resolve));}

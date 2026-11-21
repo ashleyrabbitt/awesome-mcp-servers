@@ -23,6 +23,6 @@ test('reports preserve actual evidence and uncertainty without claiming a winner
  assert.match(trialSummary(d,curated),/Not recorded/);
 });
 test('trial UI escapes input, exposes a no-JavaScript worksheet and gates exports',()=>{
- const d=valid(),attack='<img src=x onerror=alert(1)>';d.task=attack;d.candidates[0].evidence=attack;const html=trialPage(curated,{trial:d});assert.ok(!html.includes(attack));assert.ok(html.includes('&lt;img'));assert.match(html,/download>download the blank comparison worksheet/);
+ const d=valid(),attack='<img src=x onerror=alert(1)>';d.task=attack;d.candidates[0].evidence=attack;const html=trialPage(curated,{trial:d});assert.ok(!html.includes(attack));assert.ok(html.includes('&lt;img'));assert.match(html,/href="\/downloads\/tool-comparison\.md">download the blank comparison worksheet/);
  assert.match(renderRoute('/tool-trial',curated),/data-trial-download disabled/);assert.ok(!html.includes('data-trial-download disabled'));assert.match(renderRoute('/compare',curated,{compare:['figma']}),/data-trial-compare/);
 });

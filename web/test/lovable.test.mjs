@@ -353,7 +353,7 @@ test('opening a resource creates an accessible real worksheet link with its fixe
   const link = f.panel.children.find(child => child.href);
   assert.ok(link);
   assert.equal(link.href, '/downloads/lovable/resources/' + id + '.md');
-  assert.equal(link.hasAttribute('download'), true);
+  assert.equal(link.hasAttribute('download'), false);
   assert.equal(link.dataset.lvDownload, id);
   await f.event('click', {target: link});
   const events = f.calls.filter(call => call[1] === 'lovable_kit_download');

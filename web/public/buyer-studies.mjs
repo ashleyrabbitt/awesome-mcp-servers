@@ -7,7 +7,7 @@ export const holidayPath='/comparisons/friends-friday-promotion';
 export const briefsPath='/services/project-briefs';
 export const buyerRoutes=[voicePath,holidayPath,briefsPath,presenterPath];
 
-const sheet=(id,file,title)=>`<a class="button light" href="/downloads/${file}" download data-buyer-download="${id}">${title} ↓</a>`;
+const sheet=(id,file,title)=>`<a class="button light" href="/downloads/${file}" data-buyer-download="${id}">${title} ↓</a>`;
 const section=(heading,body)=>`<section class="power-panel"><h2>${heading}</h2>${body}</section>`;
 const layout=(label,title,lead,body)=>`<article class="wrap useful-page buyer-study"><div class="page-head"><span class="eyebrow">${label}</span><h1>${title}</h1><p>${lead}</p></div>${body}</article>`;
 const studyFooter=(id)=>section('Record your decision',`<p>Choose an outcome for this comparison. In <a href="https://go.waymaker.cx/">your Waymaker project</a>, open Connected work and choose “Record an observation” to keep your reasons, owner and retest date.</p><form data-buyer-decision="${id}"><label>Your decision <select name="decision" required><option value="">Choose an outcome</option><option value="pilot">Run a pilot</option><option value="revise">Revise and retest</option><option value="pass">Pass for now</option></select></label> <button class="button" type="submit">Finish comparison</button><p role="status" class="small-note"></p></form>`);

@@ -1,3 +1,4 @@
+import {handleMaterial} from './material-node.mjs';
 import {publishedServices} from './public/editorial-providers.mjs';
 import {startDigestWorker} from './digest-worker.mjs';
 import {dynamicDiscovery} from './dynamic-discovery.mjs';
@@ -8,12 +9,18 @@ import {submissionRequest,createLimiter} from './submission-api.mjs';
 import {catalogRequest,searchParameters} from './catalog-api.mjs';
 import http from 'node:http';
 import {readFile,stat} from 'node:fs/promises';
-import {createReadStream} from 'node:fs';
+import {createReadStream,existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
+const materialSite = {id:'aisuperpower', name:'AI Superpower', accent:'#116849', titles:{'/downloads/lovable/Lovable-Starter-Kit.zip':'Lovable starter kit'}, files:{
+  has(file) {
+    return file.startsWith('/downloads/') && /\.(?:pdf|zip|csv|md|txt|json)$/i.test(file) && !file.split('/').some(part=>part.startsWith('.')) && existsSync(path.join(root,file));
+  }
+}};
 const mime={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.csv':'text/csv; charset=utf-8','.pdf':'application/pdf','.xml':'application/xml; charset=utf-8','.md':'text/markdown; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.webp':'image/webp','.txt':'text/plain; charset=utf-8'};
-export function createServer({saveSubmission}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
+export function createServer({saveSubmission,materialCall}={}){const allowSubmission=createLimiter();return http.createServer(async(req,res)=>{
+  if(await handleMaterial(req,res,materialSite,materialCall))return;
   if(await serveEditorial(req,res))return;
   attachEditorialDiscovery(req,res);
  const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','X-Frame-Options':'DENY','Permissions-Policy':'camera=(), microphone=(), geolocation=()','Content-Security-Policy':"default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self' mailto: https://assets.mailerlite.com https://preview.mailerlite.io"};
