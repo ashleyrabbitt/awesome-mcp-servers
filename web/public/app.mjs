@@ -1,3 +1,4 @@
+import {guideTrial} from './task-guides/views.mjs';
 import {installLovable} from './lovable-client.mjs';
 installLovable();
 import {installBuyerStudies,restoreBuyerDecision} from './buyer-client.mjs';
@@ -52,11 +53,15 @@ function save(id){if(!known.has(id))return;const exists=state.saved.includes(id)
 function saveMany(ids){state.saved=[...new Set([...state.saved,...ids.filter(x=>known.has(x))])];persist();sync();toast('Your tools are saved. Find them in My stack.')}
 function downloadStack(){const tools=items.filter(t=>state.saved.includes(t.id)).map(({id,name,url,type,description,permissions,status,date})=>({id,name,url,type,description,permissions,reviewStatus:status,reviewDate:date}));if(!tools.length){toast('Save a tool first, then export your stack.');return}const blob=new Blob([JSON.stringify({title:'My AI Superpower stack',exportedAt:new Date().toISOString(),note:'Suggested tools; review publisher documentation and permissions before connecting.',tools},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='my-superpowers-stack.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 readState();restoreBuyerDecision();try{state.trial=cleanTrial(JSON.parse(localStorage.getItem(trialStorageKey)||'{}'))}catch{state.trial=cleanTrial()}sync();
+if(location.pathname==='/tool-trial'){
+ const brief=guideTrial(new URLSearchParams(location.search).get('guide'));
+ if(brief)state.trial=cleanTrial(brief);
+}
 if(location.pathname.startsWith('/journeys/'))render();
-if(/^\/(explore-ai|events|jobs|news|start|playbooks|role-kits|field-tests|search|finder|my-kit|first-win|missions|comparisons|worksheets|community|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|tool-trial|submit|services|work-with-us|advertise)(\/|$)/.test(location.pathname))render();
+if(/^\/(ai-tasks|explore-ai|events|jobs|news|start|playbooks|role-kits|field-tests|search|finder|my-kit|first-win|missions|comparisons|worksheets|community|journeys|kits|opportunity-finder|field-guide|prompts|workflow-lab|time-savings|tool-trial|submit|services|work-with-us|advertise)(\/|$)/.test(location.pathname))render();
 document.addEventListener('click',async event=>{
  const target=event.target.closest('button,a');if(!target)return;
- if(target.matches('a[href]')){if(target.hasAttribute('data-editorial-link'))return;const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!url.pathname.startsWith('/go/')&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();navigate(url.pathname+url.search)}return}
+ if(target.matches('a[href]')){if(target.hasAttribute('data-editorial-link'))return;const url=new URL(target.href,location.origin);if(url.origin===location.origin&&!target.hasAttribute('download')&&target.target!=='_blank'&&!url.hash&&!url.pathname.startsWith('/go/')&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!/\.[a-z0-9]+$/i.test(url.pathname)){event.preventDefault();if(target.dataset.guideTrial){const brief=guideTrial(target.dataset.guideTrial);if(brief)state.trial=cleanTrial(brief);}navigate(url.pathname+url.search)}return}
  if(target.matches('.close-dialog'))document.querySelector('#quick-view').close();
  if('shareStack' in target.dataset){const ids=(target.dataset.shareStack||state.saved.join(',')).split(',').filter(id=>known.has(id)).slice(0,50);if(!ids.length){toast('Save a tool first to create a share link.');return}const url=new URL('/shared',location.origin);url.searchParams.set('tools',ids.join(','));try{await navigator.clipboard.writeText(url.href);toast('Stack link copied. It shares tool choices only.')}catch{const field=document.querySelector('#share-link');if(field){field.hidden=false;field.value=url.href;field.focus();field.select()}else toast('Copy is unavailable in this browser.')}}
  if(target.dataset.favoritePrompt){const id=target.dataset.favoritePrompt;if(!promptTemplates.some(x=>x.id===id))return;const saved=state.promptSaved.includes(id);state.promptSaved=saved?state.promptSaved.filter(x=>x!==id):[...state.promptSaved,id];persist();target.setAttribute('aria-pressed',String(!saved));target.textContent=saved?'Save template ♡':'Saved to favorites ♥';toast(saved?'Template removed from favorites.':'Template saved. Find it in My powers.');}

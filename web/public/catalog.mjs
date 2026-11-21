@@ -1,3 +1,4 @@
+import {taskProducts} from './task-guides/products.mjs';
 import {catalogAdditions} from './explore-data/catalog-additions.mjs';
 import {productHuntNovemberTwenty, novemberTwentyToolRefreshes} from './product-hunt-november-20.mjs';
 import {creatorMarketingPicks} from './creator-marketing-picks.mjs';
@@ -23,7 +24,7 @@ import {workflowTools} from './workflow-tools.mjs';
 import {spotlight} from './spotlight.mjs';
 const make=(id,name,publisher,type,category,roles,description,url,hosting,level,permissions,tag,mark,color)=>({id,name,publisher,type,category,roles,description,url,sourceUrl:url,hosting,level,permissions,tag,mark,color,status:'Documentation reviewed',date:'2026-10-06',pricing:'Check provider',tested:false});
 export const curated=[
-...catalogAdditions,
+...taskProducts,...catalogAdditions,
 ...productHuntNovemberTwenty,
 ...creatorMarketingPicks,
 onCrew,
