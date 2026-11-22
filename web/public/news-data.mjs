@@ -4,9 +4,21 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-21';
+export const newsEdition = '2026-11-22';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'gemini-tool-retrieval-measure-large-libraries', date: '2026-11-19', datePublished: '2026-11-22', dateModified: '2026-11-22',
+  topic: 'Agents', publisher: 'Google', art: 'agents',
+  title: 'Gemini Tool Retrieval: test a large tool library without loading every schema',
+  description: 'Google’s preview loads tool parameters on demand. Compare task success and total cost before changing an agent workflow.',
+  summary: 'Google introduced Tool Retrieval in the Interactions API. Deferred tools retain visible names and descriptions, while their parameter schemas load when needed. Google says this can reduce input tokens and improve tool selection in large libraries.',
+  takeaway: 'Our take: this is a useful experiment for an agent with many rarely used tools. Clear tool descriptions and application permissions still need review.',
+  action: 'Use synthetic tasks to compare the same library with and without deferred loading. Record the correct tool chosen, successful result, input tokens, elapsed time and total cost. Set an acceptable success rate before the trial.',
+  caveat: 'This is a preview for Gemini 3.6 and later in the Interactions API. Google lists no separate retrieval fee; normal token charges apply. Search adds token overhead and loaded schemas remain billable in the conversation. Savings depend on usage; we have not tested them.',
+  sourceTitle: 'Google: Introducing Tool Retrieval in the Gemini API — November 19, 2026', sourceUrl: 'https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/',
+  next: ['/tool-trial', 'Plan a comparison on the same task']
+},
 {
   id: 'chatgpt-space-plus-sharing-access-check', date: '2026-11-20', datePublished: '2026-11-21', dateModified: '2026-11-21',
   topic: 'Productivity', publisher: 'OpenAI', art: 'review',
