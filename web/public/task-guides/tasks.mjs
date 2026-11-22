@@ -36,7 +36,7 @@ export const tasks = [
   {
     id:'review-research-papers',group:'Research and learning',title:'Review research papers with checkable citations',
     description:'Build an evidence table that ties claims to a study, method and passage you can inspect.',
-    keywords:['research papers','literature review','academic research','systematic review','find citations','paper summaries'],
+    keywords:['ai research synthesis','research synthesis','synthesize research papers','research papers','literature review','academic research','systematic review','find citations','paper summaries'],
     sample:'Choose three open-access papers on the same learning intervention. For each, record the DOI, population, method, result and one limitation. Include one paper with a different outcome measure.',
     steps:['Choose the stage you need help with: discovering papers, screening abstracts or reading the methods. Give comparable tools the same question or source set.','Create your own evidence table with a cited passage for each included result. Mark which fields you or the tool supplied.','Open every citation and check the population, method and outcome before drawing a conclusion.'],
     checks:['Every cited study exists and matches the supplied paper.','The method and population remain linked to the right outcome.','The summary identifies at least one limit on the comparison.']

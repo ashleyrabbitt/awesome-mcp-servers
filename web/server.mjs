@@ -1,5 +1,7 @@
 import {serveMcp} from './mcp-http.mjs';
 import {discoveryTools} from './discovery-mcp.mjs';
+import {renderRoute} from './public/views.mjs';
+import {curated} from './public/catalog.mjs';
 import {taskGuidePage} from './public/task-guides/views.mjs';
 import {explorePage, exploreRoutes} from './public/explore-ai.mjs';
 import {eventsPage} from './public/learning-events.mjs';
@@ -18,7 +20,12 @@ import {createReadStream,existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
-const materialSite = {id:'aisuperpower', name:'AI Superpower', accent:'#116849', titles:{'/downloads/lovable/Lovable-Starter-Kit.zip':'Lovable starter kit'}, files:{
+let searchCatalog;
+async function bundledCatalog(){
+ searchCatalog??=readFile(new URL('./public/imported.json',import.meta.url),'utf8').then(raw=>[...curated,...JSON.parse(raw)]).catch(error=>{searchCatalog=undefined;throw error;});
+ return searchCatalog;
+}
+const materialSite = {id:'aisuperpower', name:'AI Superpower', accent:'#116849', titles:{'/downloads/tool-tests/invoice-extraction.zip':'Invoice extraction test files','/downloads/tool-tests/research-synthesis.zip':'Research synthesis test files','/downloads/tool-tests/marketing-data-connectors.zip':'Marketing data connector test files','/downloads/lovable/Lovable-Starter-Kit.zip':'Lovable starter kit'}, files:{
   has(file) {
     return file.startsWith('/downloads/') && /\.(?:pdf|zip|csv|md|txt|json)$/i.test(file) && !file.split('/').some(part=>part.startsWith('.')) && existsSync(path.join(root,file));
   }
@@ -48,8 +55,9 @@ export function createServer({saveSubmission,materialCall}={}){const allowSubmis
  // Render filtered searches and dated calendars for direct visits as well as client navigation.
  const timedCalendar=url.pathname==='/events'||url.pathname==='/explore-ai/events-and-conferences';
  const guideSearch=url.searchParams.has('q')&&(exploreRoutes.includes(url.pathname)||url.pathname==='/ai-tasks');
- if(status===200&&(timedCalendar||guideSearch)){
-   const body=url.pathname==='/events'?eventsPage():url.pathname==='/ai-tasks'?taskGuidePage(url.pathname,url.searchParams):explorePage(url.pathname,url.searchParams);
+ const taskSearch=url.pathname==='/search'&&url.searchParams.has('query');
+ if(status===200&&(timedCalendar||guideSearch||taskSearch)){
+   const body=taskSearch?renderRoute(url.pathname+url.search,await bundledCatalog()):url.pathname==='/events'?eventsPage():url.pathname==='/ai-tasks'?taskGuidePage(url.pathname,url.searchParams):explorePage(url.pathname,url.searchParams);
    const template=await readFile(filename,'utf8');
    const html=template.replace(/(<main id="main" tabindex="-1">)[\s\S]*?(<\/main>)/,(_,start,end)=>start+body+end);
    res.writeHead(200,{...security,'Content-Type':mime['.html'],'Cache-Control':'no-cache'});

@@ -1,3 +1,4 @@
+import {searchGuides} from './task-guides/search-guides.mjs';
 import {taskProducts} from './task-guides/products.mjs';
 import {tasks,taskBase,reading} from './task-guides/tasks.mjs';
 import {escapeHTML as e} from './catalog.mjs';
@@ -36,7 +37,8 @@ const shelves = [
 const prompts = practicePrompts.map(p=>({...p,group:'prompts',tags:['Prompt template',p.role],url:'/prompts/'+p.id}));
 const taskCards = tasks.map(t=>({group:'guides',title:t.title,description:t.description,tryThis:t.steps[0],url:taskBase+'/'+t.id,sourceLabel:reading[t.id][0],sourceUrl:reading[t.id][1],tags:[t.group,...t.keywords.slice(0,2)]}));
 const productCards = taskProducts.map(p=>({group:'work',title:p.name,description:p.description,tryThis:p.firstTry,url:p.url,sourceLabel:'Read the task guide',sourceUrl:taskBase+'/'+p.task,toolId:p.id,tags:[p.category,p.pricing_model],date:p.date}));
-const allResources = [...taskCards,...productCards,...toolPicks,...technologyPicks,...learningPicks,...readingPicks,...careerPicks,...prompts];
+const searchTaskCards=searchGuides.map(g=>({group:'guides',title:g.title,description:g.description,tryThis:g.sample,url:g.path,sourceLabel:g.products[0][0],sourceUrl:g.products[0][1],tags:[g.group,...g.keywords]}));
+const allResources = [...taskCards,...searchTaskCards,...productCards,...toolPicks,...technologyPicks,...learningPicks,...readingPicks,...careerPicks,...prompts];
 const sampleTitles = {
   guides:'Practice briefs, product comparisons and result checks', popular:'ChatGPT, Gemini and Claude', work:'Design, development, creative work and fun', marketplaces:'Dated launch ranks and software deals',
   agents:'Notion Custom Agents and Copilot Studio', extensions:'Figma MCP, Theme Factory and Claude plugins', models:'Model IDs, inputs and benchmarks',
@@ -65,10 +67,10 @@ function card(row){
   const source = row.sourceUrl && row.sourceUrl!==target;
   const referral = row.group==='work' && affiliateFor(row.toolId);
   const primaryLink = referral?toolLink({id:row.toolId,name:row.title},'Open '+row.title,'resource-referral'):
-    `<a href="${e(target)}">${row.kind==='job board'?'Browse open roles':actions[row.group]}</a>`;
+    `<a ${target.startsWith('/guides/')?'data-editorial-link ':''}href="${e(target)}">${row.kind==='job board'?'Browse open roles':actions[row.group]}</a>`;
   const tags = row.tags.join(' · ');
   return `<article class="resource-card"><div class="resource-card-meta">${e(tags)}</div><div class="resource-card-title">${logo?`<img src="${e(logo)}" width="36" height="36" loading="lazy" alt="">`:''}<h3>${e(row.title)}</h3></div>
-    ${date?`<p class="resource-date">${date}</p>`:''}<p>${e(row.description)}</p>
+    ${date?`<p class="resource-date">${date}</p>`:''}${row.group==='popular'?`<p><strong>Ranking evidence</strong> · ${e(row.sourceLabel)}. Measure: monthly visits to the full product website.</p>`:''}${row.toolId?`<p><strong>Why it’s featured</strong> · ${e(row.description)}</p><small>Editorial selection reviewed November 22, 2026</small>`:`<p>${e(row.description)}</p>`}
     ${row.group==='events'?`<p class="resource-facts">${e(row.format)} · ${e(row.cost)}</p>`:''}
     ${row.kind==='opening'?`<p class="resource-facts">${e(row.location)} · ${e(row.workMode)}</p>${row.locationNotes?`<p>${e(row.locationNotes)}</p>`:''}`:''}
     <div class="resource-try"><strong>${row.kind==='opening'?'What to prepare':'Try this'}</strong><p>${e(row.tryThis)}</p></div>

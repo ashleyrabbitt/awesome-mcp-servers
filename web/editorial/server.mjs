@@ -1,9 +1,20 @@
+import {searchGuides,searchGuideEvidence} from '../public/task-guides/search-guides.mjs';
 import {readFileSync} from 'node:fs';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {articlePath,seriesPath,imagePath,isPublished,renderArticle,renderIndex,renderFeed,sitemapEntries,discovery,editorialCss} from './core.mjs';
 const config=JSON.parse(readFileSync(new URL('./config.json',import.meta.url),'utf8'));
 const posts=JSON.parse(readFileSync(new URL('./posts.json',import.meta.url),'utf8'));
+for(const post of posts){
+ const guidance=searchGuides.find(g=>g.path==='/guides/'+post.slug);
+ if(!guidance)continue;
+ post.bodyHtml=searchGuideEvidence(guidance)+post.bodyHtml;
+ post.modifiedAt='2026-11-22T17:00:00Z';
+ if(guidance.id==='real-task-tool-reviews'){
+   post.title='AI tool reviews on real tasks: inputs, outputs and mistakes';
+   post.description='Compare actual results from marketing connectors, invoice extraction and research synthesis. Inspect the source files, scoring decisions and mistakes before choosing a tool.';
+ }
+}
 const byPath=new Map(posts.map(p=>[articlePath(config,p).replace(/\/$/,''),p]));
 const byImage=new Map(posts.map(p=>[imagePath(p),p]));
 for (const post of posts.filter(p=>p.stepGraphic)) byImage.set("/assets/ai-practice/"+post.slug+"-steps.svg", {...post,slug:post.slug+"-steps",coverFormat:"svg"});
