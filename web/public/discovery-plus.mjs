@@ -44,6 +44,6 @@ export const alternativeGuides=[
 ];
 export const growthRoutes=['/search','/alternatives',...alternativeGuides.map(g=>'/alternatives/'+g.id),'/updates','/requests','/account','/deals','/free-tools','/media-kit','/admin/discovery'];
 export const topicForTool=t=>topics.filter(x=>x.ids.includes(t.id)||x.terms.some(w=>tokens(t.category).includes(w)));
-export function accessLabel(t){if(t.pricing_model==='Free')return 'Free plan';if(t.pricing_model==='Freemium')return 'Free tier + paid plans';if(t.pricing_model==='Open source')return 'Open source · hosting may cost';if(t.trial_available===true)return 'Paid · free trial';if(t.pricing_model==='Paid')return 'Paid';return 'Pricing not verified';}
+export function accessLabel(t){if(t.availability==='discontinued')return 'Discontinued';if(t.pricing_model==='Free')return 'Free plan';if(t.pricing_model==='Freemium')return 'Free tier + paid plans';if(t.pricing_model==='Open source')return 'Open source · hosting may cost';if(t.trial_available===true)return 'Paid · free trial';if(t.pricing_model==='Paid')return 'Paid';return 'Pricing not verified';}
 export function recentTools(items,followed=[]){return items.filter(t=>t.status!=='Community listing'&&(!followed.length||topicForTool(t).some(x=>followed.includes(x.id)))).sort((a,b)=>(b.directory_updated_at||b.date||'').localeCompare(a.directory_updated_at||a.date||'')||a.name.localeCompare(b.name)).slice(0,24);}
 export function safePublicLink(s){try{const u=new URL(s);return u.protocol==='https:'&&!u.username&&!u.password?u.href:'';}catch{return '';}}

@@ -1,5 +1,7 @@
+import {moreExamples} from './more-examples.mjs';
 // Expected answers to the fictional briefs, for checking a visitor’s own results.
 export const referenceExamples={
+ ...moreExamples,
  'turn-a-spreadsheet-into-a-chart':{
   title:'Check the numbers before judging the design',
   headings:['Month','Visits','Signups','Signup rate'],rows:[['January','800','40','5%'],['February','1,200','48','4%'],['March','1,000','60','6%']],

@@ -1,3 +1,4 @@
+import {novemberPricing} from './november-22-pricing.mjs';
 import {taskProducts} from './task-guides/products.mjs';
 import {catalogAdditions} from './explore-data/catalog-additions.mjs';
 import {productHuntNovemberTwenty, novemberTwentyToolRefreshes} from './product-hunt-november-20.mjs';
@@ -59,6 +60,10 @@ for (const tool of curated) {
   if (release) Object.assign(tool, {description: tool.description + ' ' + release.description, sourceUrl: release.sourceUrl, directory_updated_at: '2026-11-17'});
 }
 for (const tool of curated) if (novemberTwentyToolRefreshes[tool.id]) Object.assign(tool, novemberTwentyToolRefreshes[tool.id]);
+for(const tool of curated){
+ const update=novemberPricing[tool.id];
+ if(update)Object.assign(tool, update, {directory_updated_at:update.pricing_checked_at});
+}
 export function searchTools(items,{category='All',pricing='All',query='',type='All',role='All',level='All',reviewed=false,savedOnly=false,saved=[],sort='editorial'}={}){
  const words=query.toLowerCase().trim().split(/\s+/).filter(Boolean);
  const rows=items.filter(t=>words.every(w=>[t.name,t.publisher,t.type,t.category,t.description,...t.roles].join(' ').toLowerCase().includes(w))&&(pricing==='All'||(t.pricing_model||'Unknown')===pricing||(pricing==='Free trial'&&t.pricing_model==='Paid'&&t.trial_available===true))&&(category==='All'||t.category===category)&&(type==='All'||t.type===type)&&(role==='All'||t.roles.includes(role))&&(level==='All'||t.level===level)&&(!reviewed||t.status==='Documentation reviewed')&&(!savedOnly||saved.includes(t.id)));
