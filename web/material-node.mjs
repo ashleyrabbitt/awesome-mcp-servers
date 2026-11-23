@@ -13,12 +13,18 @@ export async function handleMaterial(req,res,site,call){
       res.end(result.body?Buffer.from(await result.arrayBuffer()):undefined);
       return true;
     }
+    // Count complete scorecard responses after access has been granted. Repeat downloads count again.
+    const scorecard = request.method === 'GET' && new URL(request.url).pathname === '/downloads/ai-tool-trial-scorecard.csv';
     // Keep the site's original fulfillment, entitlement checks and MIME handling.
     const original=res.writeHead;
     res.writeHead=function(status,reason,headers){
       const h={...(typeof reason==='string'?headers:reason)};
       for(const key of Object.keys(h))if(['cache-control','vary'].includes(key.toLowerCase()))delete h[key];
       h['Cache-Control']='private, no-store';h.Vary='Cookie';
+      if (scorecard && status === 200 && Object.entries(h).some(([key, value]) => key.toLowerCase() === 'content-type' && /^text\/csv\b/i.test(value))) {
+        res.once('finish', () => console.info(JSON.stringify({event:'tool_trial_scorecard_served',resource:'ai-tool-trial-scorecard.csv'})));
+      }
+
       if(status===200||status===206){
         const filename=decodeURIComponent(new URL(request.url).pathname.split('/').pop()).replace(/[^a-z0-9_.-]/gi,'_');
         if(!/\.(html?|svg)$/i.test(filename)&&!Object.keys(h).some(k=>k.toLowerCase()==='content-disposition'))h['Content-Disposition']='attachment; filename="'+filename+'"';

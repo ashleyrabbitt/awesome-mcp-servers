@@ -18,6 +18,7 @@ for(const post of posts){
 const fieldGuide = posts.find(post => post.slug === 'ten-ai-tools-comparison-field-guide');
 if (fieldGuide) {
   const weeklyCheck = readFileSync(new URL('./tool-week-check.html', import.meta.url), 'utf8');
+  fieldGuide.bodyHtml = fieldGuide.bodyHtml.replace('Get the editable trial scorecard by email', 'Unlock the editable trial scorecard with your email');
   fieldGuide.bodyHtml = fieldGuide.bodyHtml.replace(/(<section id="workshop-price-test">[\s\S]*?<\/section>)/, match => match + weeklyCheck);
   fieldGuide.modifiedAt = '2026-11-23T00:00:00Z';
 }
