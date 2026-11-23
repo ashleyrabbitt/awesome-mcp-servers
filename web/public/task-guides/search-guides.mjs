@@ -8,6 +8,12 @@ export const searchGuides=[
   products:[['Windsor.ai','https://windsor.ai/documentation/','Compare supported marketing sources and destinations for an existing dashboard.'],['Supermetrics','https://docs.supermetrics.com/','Check that the connector, source and reporting entitlement are available in your plan.']],
   sample:'A fictional report has Monday at 100 impressions and 5 clicks, and Tuesday at 900 impressions and 9 clicks. Give both connectors the same source, dates, timezone and filters.',
   example:'The combined result should be 14 clicks from 1,000 impressions, or 1.4% CTR. Averaging the two daily percentages gives 3%. If totals disagree, inspect the query, date boundaries and aggregation before changing vendors.',
+  planCheck:{
+   checked:'November 23, 2026', url:'https://windsor.ai/pricing/',
+   scope:'Count platforms and accounts separately. A report pulling one GA4 property and one Google Ads account needs two data sources and two accounts. A Google Sheets destination does not add a third source.',
+   terms:'Windsor lists a 30-day trial with a 30-day history limit. Its ongoing free tier allows one source and one account. Basic lists three sources and 75 accounts at $23 per month on monthly billing or $19 per month on annual billing.',
+   decision:'For two consecutive 28-day windows, request the earliest day before migrating the dashboard. A 30-day history window cannot cover all 56 days. Record the earliest returned date, row count, destination and refresh frequency alongside your CTR result.'
+  },
   test:'marketing-data-connectors'},
  {id:'shopify-mcp-use-cases',group:'Business operations',title:'Choose a Shopify MCP for a shopping or merchant task',
   path:'/guides/shopify-ai-mcp-practical-guide',keywords:['shopify mcp','shopify mcp server','shopify mcp connector','shopify storefront catalog'],
@@ -37,5 +43,7 @@ export const searchGuides=[
 ];
 export function searchGuideEvidence(guide){
  const url=guide.test==='all'?'/tool-tests':'/tool-tests/'+guide.test;
- return `<section class="task-reference" id="practice-example"><h2>Try this task</h2><p>${e(guide.sample)}</p><h3>Worked example</h3><p>${e(guide.example)}</p><h3>Why these products are featured</h3><p>AI Superpower editorial selection · November 22, 2026</p><ul>${guide.products.map(([name,href,reason])=>`<li><a href="${e(href)}">${e(name)}</a> — ${e(reason)}</li>`).join('')}</ul>${guide.test?`<p><a href="${url}">See the completed ${guide.test==='all'?'tool tests':'connector comparison'}</a></p>`:''}</section>`;
+ const plan=guide.planCheck;
+ const pricing=plan ? `<h3>Will this plan cover your report?</h3><p>${e(plan.scope)}</p><p>${e(plan.terms)} <a href="${e(plan.url)}">Windsor.ai pricing and limits, checked ${e(plan.checked)}</a>.</p><p>${e(plan.decision)}</p>` : '';
+ return `<section class="task-reference" id="practice-example"><h2>Try this task</h2><p>${e(guide.sample)}</p><h3>Worked example</h3><p>${e(guide.example)}</p>${pricing}<h3>Why these products are featured</h3><p>AI Superpower editorial selection · November 22, 2026</p><ul>${guide.products.map(([name,href,reason])=>`<li><a href="${e(href)}">${e(name)}</a> — ${e(reason)}</li>`).join('')}</ul>${guide.test?`<p><a href="${url}">See the completed ${guide.test==='all'?'tool tests':'connector comparison'}</a></p>`:''}</section>`;
 }
