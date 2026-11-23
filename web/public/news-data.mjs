@@ -4,9 +4,21 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-22';
+export const newsEdition = '2026-11-23';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'perplexity-progress-task-evaluation', date: '2026-11-22', datePublished: '2026-11-23', dateModified: '2026-11-23',
+  topic: 'Industry', publisher: 'OpenAI', art: 'data',
+  title: 'A shared measure of AI progress still needs a test of your actual task',
+  description: 'OpenAI proposes perplexity as part of shared safety standards. Teams still need evidence that a model completes their work correctly.',
+  summary: 'OpenAI chief scientist Jakub Pachocki published internal pretraining measurements and proposed using perplexity alongside other measures to inform shared safety standards and development limits. Perplexity measures next-token prediction; it is not a score for completing a business task.',
+  takeaway: 'Our take: a research metric can inform discussion of model progress without deciding which tool belongs in your workflow.',
+  action: 'Choose one representative task and write its acceptance criteria before comparing tools. Keep the same input, record errors and review time, and retain the outputs that support your decision.',
+  caveat: 'This is a proposal, not an adopted industry standard. The author identifies differences between evaluation datasets and limitations in capturing advances after pretraining. The reported measurements are OpenAI’s, not an independent comparison or a guarantee about future capabilities.',
+  sourceTitle: 'OpenAI: Perplexity and Intelligence — November 22, 2026', sourceUrl: 'https://openai.com/index/perplexity-and-intelligence/',
+  next: ['/tool-trial', 'Define the task and record your comparison']
+},
 {
   id: 'gemini-tool-retrieval-measure-large-libraries', date: '2026-11-19', datePublished: '2026-11-22', dateModified: '2026-11-22',
   topic: 'Agents', publisher: 'Google', art: 'agents',
