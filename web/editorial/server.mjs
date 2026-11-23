@@ -15,6 +15,12 @@ for(const post of posts){
    post.description='Compare actual results from marketing connectors, invoice extraction and research synthesis. Inspect the source files, scoring decisions and mistakes before choosing a tool.';
  }
 }
+const fieldGuide = posts.find(post => post.slug === 'ten-ai-tools-comparison-field-guide');
+if (fieldGuide) {
+  const weeklyCheck = readFileSync(new URL('./tool-week-check.html', import.meta.url), 'utf8');
+  fieldGuide.bodyHtml = fieldGuide.bodyHtml.replace(/(<section id="workshop-price-test">[\s\S]*?<\/section>)/, match => match + weeklyCheck);
+  fieldGuide.modifiedAt = '2026-11-23T00:00:00Z';
+}
 const byPath=new Map(posts.map(p=>[articlePath(config,p).replace(/\/$/,''),p]));
 const byImage=new Map(posts.map(p=>[imagePath(p),p]));
 for (const post of posts.filter(p=>p.stepGraphic)) byImage.set("/assets/ai-practice/"+post.slug+"-steps.svg", {...post,slug:post.slug+"-steps",coverFormat:"svg"});

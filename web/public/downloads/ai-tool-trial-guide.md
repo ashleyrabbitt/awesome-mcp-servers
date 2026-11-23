@@ -42,3 +42,7 @@ Save the output, corrections, date and product configuration. Use “suitable fo
 
 Compare candidates: https://aisuperpower.cc/guides/ten-ai-tools-comparison-field-guide
 Explore data connectors: https://aisuperpower.cc/guides/windsor-ai-and-data-connectors
+
+## After seven days
+
+Enter the start and end dates for the same seven-day period in each tool’s row. Count the buyer decisions attempted and the answers you used without correcting them. Leave a value blank if you did not measure it. In week_one_choice, record the tool you kept, both tools, or neither. You can optionally share that choice at https://aisuperpower.cc/guides/ten-ai-tools-comparison-field-guide#week-one-check.
