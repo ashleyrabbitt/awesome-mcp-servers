@@ -4,9 +4,22 @@ import {novemberSeventeenNews} from './november-17-news.mjs';
 // Collection curation date, not an article publication date.
 // Existing November 1 publication dates are preserved from the first news release.
 // New stories must record their own actual datePublished; only substantive edits change dateModified.
-export const newsEdition = '2026-11-23';
+export const newsEdition = '2026-11-27';
 export const newsTopics = ['All stories', 'Productivity', 'Agents', 'Safety', 'Design & tech', 'Industry'];
 export const newsStories = [
+{
+  id: 'copilot-code-review-billing-december-decision', date: '2026-11-25', datePublished: '2026-11-27', dateModified: '2026-11-27',
+  topic: 'Design & tech', publisher: 'GitHub', art: 'review',
+  title: 'Copilot code review: check who pays before the December 30 default changes',
+  description: 'GitHub will change unset code-review billing to the repository organization. Check the saved policy and budget owner before December 30.',
+  summary: 'GitHub says Copilot Business and Enterprise accounts with no saved billing choice will move licensed members’ code reviews to organization billing on December 30, 2026. An explicit Member or Organization choice remains in force.',
+  takeaway: 'Our take: a working review workflow can still acquire a different payer. Confirm the budget owner before treating the current default as a durable policy.',
+  action: 'Record the current billing choice and who controls it. If the intended policy is to keep using members’ entitlements, ask the authorized organization or enterprise owner to select Member before December 30.',
+  caveat: 'GitHub says accounts without AI Credits paid usage, with a billing lock or without a billable customer will use Member instead. The policy for unlicensed members is unchanged. Organization billing can increase spending. We have not inspected or changed your account settings.',
+  sourceTitle: 'GitHub Changelog: Copilot code review billing will default to the organization — November 25, 2026',
+  sourceUrl: 'https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization/',
+  next: ['/tool-trial', 'Record cost and review effort in a tool trial']
+},
 {
   id: 'perplexity-progress-task-evaluation', date: '2026-11-22', datePublished: '2026-11-23', dateModified: '2026-11-23',
   topic: 'Industry', publisher: 'OpenAI', art: 'data',
